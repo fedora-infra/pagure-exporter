@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "protop2g"
+version = "0.1.0"
+description = "A prototype project assets importer that moves repositories from Pagure to GitLab"
+authors = ["Akashdeep Dhar <akashdeep.dhar@gmail.com>"]
+license = "GPL-3.0-or-later"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+asciimatics = "^1.14.0"
+requests = "^2.28.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+protop2g = "protop2g.main:main"

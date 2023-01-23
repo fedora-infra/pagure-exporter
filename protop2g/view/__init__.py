@@ -1,1 +1,1 @@
-colrschm = "tlj256"
+colrschm = "default"

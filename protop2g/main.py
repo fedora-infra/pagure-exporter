@@ -12,7 +12,7 @@ dataobjc = Database()
 def demo(screen, scene):
     scenes = [
         Scene([srce.PagureNSView(screen, dataobjc)], -1, name="protop2g :: Source Namespace"),
-        Scene([info.ProjInfoView(screen, dataobjc)], -1, name="protop2g :: Project Information"),
+        Scene([info.ProjInfoView(screen, dataobjc)], -1, name="protop2g :: Namespace Confirmation"),
     ]
     screen.play(scenes, stop_on_resize=True, start_scene=scene, allow_int=True)
 

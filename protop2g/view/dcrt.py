@@ -24,7 +24,6 @@ of Red Hat, Inc.
 
 from click import echo, style
 
-
 PASS = style("[ PASS ]", fg="green", bold=True)
 FAIL = style("[ FAIL ]", fg="red", bold=True)
 WARN = style("[ WARN ]", fg="yellow", bold=True)

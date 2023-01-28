@@ -27,9 +27,15 @@ from protop2g.view.dcrt import general, warning
 
 def tnfsprog(brchname, indx, qant, avbl):
     if avbl:
-        general("[%d/%d] Branch '%s' was transferred to the destination namespace" % (int(indx), int(qant), str(brchname)))
+        general(
+            "[%d/%d] Branch '%s' was transferred to the destination namespace"
+            % (int(indx), int(qant), str(brchname))
+        )
     else:
-        general("[%d/%d] Branch '%s' was not found in the source namespace" % (int(indx), int(qant), str(brchname)))
+        general(
+            "[%d/%d] Branch '%s' was not found in the source namespace"
+            % (int(indx), int(qant), str(brchname))
+        )
 
 
 def tnfswarn(avbl, qant):

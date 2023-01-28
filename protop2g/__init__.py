@@ -24,5 +24,4 @@ of Red Hat, Inc.
 
 from importlib import metadata
 
-
 __version__ = metadata.version("protop2g")

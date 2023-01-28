@@ -23,14 +23,16 @@ of Red Hat, Inc.
 
 
 import os
+import time
 from tempfile import TemporaryDirectory
+
+from git import Repo
+
 from protop2g.conf import standard
 from protop2g.view.misc import tnfsprog, tnfswarn
-from git import Repo
-import time
 
 
-class PushRepo():
+class PushRepo:
     def __init__(self):
         self.srce = standard.srcehuto
         self.dest = standard.desthuto
@@ -110,7 +112,9 @@ class PushRepo():
                     for brdx in standard.sbrcavbl:
                         repoobjc.git.checkout("%s" % brdx)
                         repoobjc.git.push(standard.nrmtname, "--set-upstream", brdx, "--force")
-                        tnfsprog(brdx, standard.sbrcavbl.index(brdx) + 1, len(standard.sbrcavbl), True)
+                        tnfsprog(
+                            brdx, standard.sbrcavbl.index(brdx) + 1, len(standard.sbrcavbl), True
+                        )
                         standard.tnfsindx += 1
                 else:
                     standard.tnfsqant = len(standard.brtocopy)
@@ -119,10 +123,20 @@ class PushRepo():
                         if brdx in standard.sbrcavbl:
                             repoobjc.git.checkout("%s" % brdx)
                             repoobjc.git.push(standard.nrmtname, "--set-upstream", brdx, "--force")
-                            tnfsprog(brdx, standard.brtocopy.index(brdx) + 1, len(standard.brtocopy), True)
+                            tnfsprog(
+                                brdx,
+                                standard.brtocopy.index(brdx) + 1,
+                                len(standard.brtocopy),
+                                True,
+                            )
                             standard.tnfsindx += 1
                         else:
-                            tnfsprog(brdx, standard.brtocopy.index(brdx) + 1, len(standard.brtocopy), False)
+                            tnfsprog(
+                                brdx,
+                                standard.brtocopy.index(brdx) + 1,
+                                len(standard.brtocopy),
+                                False,
+                            )
                 stoptime = time.time()
                 return True, "%.2f" % (stoptime - strttime)
             else:

@@ -23,10 +23,11 @@ of Red Hat, Inc.
 
 
 import requests
+
 from protop2g.conf import standard
 
 
-class SrceData():
+class SrceData:
     def __init__(self):
         self.repo = standard.srcename
         self.loca = standard.pagulink
@@ -49,13 +50,18 @@ class SrceData():
                 "maintain": {
                     "username": jsondict["user"]["name"],
                     "fullname": jsondict["user"]["fullname"],
-                }
+                },
             }
-            standard.srcehuto = "https://%s:%s@%s/%s.git" % (standard.paguuser, standard.pagucode, standard.frgesrce, standard.srcedict["reponame"])
+            standard.srcehuto = "https://%s:%s@%s/%s.git" % (
+                standard.paguuser,
+                standard.pagucode,
+                standard.frgesrce,
+                standard.srcedict["reponame"],
+            )
         return response.status_code, response.reason
 
 
-class DestData():
+class DestData:
     def __init__(self):
         self.repo = standard.destname
         self.loca = standard.gtlblink
@@ -77,9 +83,14 @@ class DestData():
                 "tagslist": jsondict["tag_list"],
                 "maintain": {
                     "username": jsondict["owner"]["username"],
-                    "fullname": jsondict["owner"]["name"]
-                }
+                    "fullname": jsondict["owner"]["name"],
+                },
             }
             standard.desthuto = jsondict["http_url_to_repo"]
-            standard.desthuto = "https://%s:%s@%s/%s.git" % (standard.gtlbuser, standard.gtlbcode, standard.frgedest, standard.destdict["reponame"])
+            standard.desthuto = "https://%s:%s@%s/%s.git" % (
+                standard.gtlbuser,
+                standard.gtlbcode,
+                standard.frgedest,
+                standard.destdict["reponame"],
+            )
         return response.status_code, response.reason

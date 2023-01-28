@@ -23,9 +23,10 @@ of Red Hat, Inc.
 
 
 import sys
-from protop2g.view.dcrt import success, failure, section, warning, general
-from protop2g.work.repo import PushRepo
+
 from protop2g.conf import standard
+from protop2g.view.dcrt import failure, general, section, success, warning
+from protop2g.work.repo import PushRepo
 
 
 def showrepo():
@@ -47,12 +48,24 @@ def showrepo():
                 sbrcrslt, dbrcrslt = pushobjc.cbrcsrce(), pushobjc.cbrcdest()
                 if sbrcrslt[0] and dbrcrslt[0]:
                     success("Branches data reading succeeded!")
-                    general("Available in source namespace: %d branch(es) %s" % (len(standard.sbrcavbl), str(standard.sbrcavbl)))
-                    general("Available in destination namespace: %d branch(es) %s" % (len(standard.dbrcavbl), str(standard.dbrcavbl)))
-                    general("Requested for transferring: %d branch(es) %s" % (len(standard.brtocopy), str(standard.brtocopy)))
+                    general(
+                        "Available in source namespace: %d branch(es) %s"
+                        % (len(standard.sbrcavbl), str(standard.sbrcavbl))
+                    )
+                    general(
+                        "Available in destination namespace: %d branch(es) %s"
+                        % (len(standard.dbrcavbl), str(standard.dbrcavbl))
+                    )
+                    general(
+                        "Requested for transferring: %d branch(es) %s"
+                        % (len(standard.brtocopy), str(standard.brtocopy))
+                    )
                     section("Initializing namespace assets transfer...")
                     tnfsrslt = pushobjc.tnfsrepo()
-                    general("Assets transferred: %d branch(es) completed, %d branch(es) requested" % (int(standard.tnfsindx), int(standard.tnfsqant)))
+                    general(
+                        "Assets transferred: %d branch(es) completed, %d branch(es) requested"
+                        % (int(standard.tnfsindx), int(standard.tnfsqant))
+                    )
                     general("Time taken: %s second(s)" % str(tnfsrslt[1]))
                     if tnfsrslt[0]:
                         if standard.tnfsindx == standard.tnfsqant:

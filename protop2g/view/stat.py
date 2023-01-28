@@ -22,11 +22,12 @@ of Red Hat, Inc.
 """
 
 
-from protop2g.work.stat import SrceData, DestData
-from protop2g.view.dcrt import success, failure, section, general
-from protop2g.conf import standard
-from time import strftime, localtime
 import sys
+from time import localtime, strftime
+
+from protop2g.conf import standard
+from protop2g.view.dcrt import failure, general, section, success
+from protop2g.work.stat import DestData, SrceData
 
 
 def showstat():
@@ -36,11 +37,19 @@ def showstat():
         success("Source namespace metadata acquisition succeeded!")
         general("Name: %s" % str(standard.srcedict["reponame"]))
         general("Identifier: %s" % str(standard.srcedict["identity"]))
-        general("Maintainer: %s (ID %s)" % (str(standard.srcedict["maintain"]["fullname"]), str(standard.srcedict["maintain"]["username"])))
+        general(
+            "Maintainer: %s (ID %s)"
+            % (
+                str(standard.srcedict["maintain"]["fullname"]),
+                str(standard.srcedict["maintain"]["username"]),
+            )
+        )
         general("Location: %s" % str(standard.srcedict["repolink"]))
         general("Address: %s" % str(standard.srcehuto))
-        general("Created on: %s" %  strftime("%c", localtime(int(standard.srcedict["makedate"]))))
-        general("Last modified on: %s" % strftime("%c", localtime(int(standard.srcedict["lastmode"]))))
+        general("Created on: %s" % strftime("%c", localtime(int(standard.srcedict["makedate"]))))
+        general(
+            "Last modified on: %s" % strftime("%c", localtime(int(standard.srcedict["lastmode"])))
+        )
         general("Tags: %s" % str(standard.srcedict["tagslist"]))
         destrslt = DestData().obtninfo()
         section("Requesting for destination namespace metadata...")
@@ -48,7 +57,13 @@ def showstat():
             success("Destination namespace metadata acquisition succeeded!")
             general("Name: %s" % str(standard.destdict["reponame"]))
             general("Identifier: %s" % str(standard.destdict["identity"]))
-            general("Maintainer: %s (ID %s)" % (str(standard.destdict["maintain"]["fullname"]), str(standard.destdict["maintain"]["username"])))
+            general(
+                "Maintainer: %s (ID %s)"
+                % (
+                    str(standard.destdict["maintain"]["fullname"]),
+                    str(standard.destdict["maintain"]["username"]),
+                )
+            )
             general("Location: %s" % str(standard.destdict["repolink"]))
             general("Address: %s" % str(standard.desthuto))
             general("Created on: %s" % str(standard.destdict["makedate"]))

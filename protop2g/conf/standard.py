@@ -26,12 +26,18 @@ STANDARD CONFIGURATION VARIABLES
 """
 
 tempdrct = "/var/tmp"
-tmprefix = "protop2g-temprepo-"
+dfremote = "origin"
+prfxsrce = "protop2g-tempsrce-"
+prfxdest = "protop2g-tempdest-"
+frgesrce = "pagure.io"
+frgedest = "gitlab.com"
+nrmtname = "freshsrc"
 
 """
 INTERNAL CONFIGURATION VARIABLES
 """
 
+paguuser = "UNAVAILABLE"
 pagucode = "UNAVAILABLE"
 srcename = "UNAVAILABLE"
 pagulink = "https://pagure.io/api/0"
@@ -48,8 +54,9 @@ srcedict = {
         "fullname": "UNAVAILABLE",
     },
 }
-srcehuto = ""
+srcehuto = "UNAVAILABLE"
 
+gtlbuser = "UNAVAILABLE"
 gtlbcode = "UNAVAILABLE"
 destname = "UNAVAILABLE"
 gtlblink = "https://gitlab.com/api/v4/projects"
@@ -69,3 +76,10 @@ destdict = {
 desthuto = "UNAVAILABLE"
 
 brtocopy = []
+sbrcavbl = []
+dbrcavbl = []
+srcecloc = "UNAVAILABLE"
+destcloc = "UNAVAILABLE"
+
+tnfsindx = 0
+tnfsqant = 0

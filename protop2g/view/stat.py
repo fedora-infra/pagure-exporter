@@ -22,7 +22,7 @@ of Red Hat, Inc.
 """
 
 
-from protop2g.work.rqst import SrceData, DestData
+from protop2g.work.stat import SrceData, DestData
 from protop2g.view.dcrt import success, failure, section, general
 from protop2g.conf import standard
 from time import strftime, localtime
@@ -30,10 +30,10 @@ import sys
 
 
 def showstat():
-    section("REQUESTING FOR SOURCE NAMESPACE METADATA...")
+    section("Requesting for source namespace metadata...")
     srcerslt = SrceData().obtninfo()
     if srcerslt == (200, "OK"):
-        success("SOURCE NAMESPACE METADATA ACQUISITION SUCCEEDED!")
+        success("Source namespace metadata acquisition succeeded!")
         general("Name: %s" % str(standard.srcedict["reponame"]))
         general("Identifier: %s" % str(standard.srcedict["identity"]))
         general("Maintainer: %s (ID %s)" % (str(standard.srcedict["maintain"]["fullname"]), str(standard.srcedict["maintain"]["username"])))
@@ -43,9 +43,9 @@ def showstat():
         general("Last modified on: %s" % strftime("%c", localtime(int(standard.srcedict["lastmode"]))))
         general("Tags: %s" % str(standard.srcedict["tagslist"]))
         destrslt = DestData().obtninfo()
-        section("REQUESTING FOR DESTINATION NAMESPACE METADATA...")
+        section("Requesting for destination namespace metadata...")
         if destrslt == (200, "OK"):
-            success("DESTINATION NAMESPACE METADATA ACQUISITION SUCCEEDED!")
+            success("Destination namespace metadata acquisition succeeded!")
             general("Name: %s" % str(standard.destdict["reponame"]))
             general("Identifier: %s" % str(standard.destdict["identity"]))
             general("Maintainer: %s (ID %s)" % (str(standard.destdict["maintain"]["fullname"]), str(standard.destdict["maintain"]["username"])))
@@ -55,13 +55,13 @@ def showstat():
             general("Last modified on: %s" % str(standard.destdict["lastmode"]))
             general("Tags: %s" % str(standard.destdict["tagslist"]))
         else:
-            failure("DESTINATION NAMESPACE METADATA ACQUISITION FAILED!")
+            failure("Destination namespace metadata acquisition failed!")
             general("The namespace metadata could not be acquired.")
             general("Code: %s" % str(destrslt[0]))
             general("Reason: %s" % str(destrslt[1]))
             sys.exit(1)
     else:
-        failure("SOURCE NAMESPACE METADATA ACQUISITION FAILED!")
+        failure("Source namespace metadata acquisition failed!")
         general("The namespace metadata could not be acquired.")
         general("Code: %s" % str(srcerslt[0]))
         general("Reason: %s" % str(srcerslt[1]))

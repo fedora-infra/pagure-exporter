@@ -22,17 +22,18 @@ of Red Hat, Inc.
 """
 
 
-from protop2g.conf import standard
+from protop2g.view.dcrt import general, warning
 
 
-def storeinf(srce, dest, pkey, gkey, fusr, tusr):
-    standard.srcename = srce
-    standard.destname = dest
-    standard.pagucode = pkey
-    standard.gtlbcode = gkey
-    standard.paguuser = fusr
-    standard.gtlbuser = tusr
+def tnfsprog(brchname, indx, qant, avbl):
+    if avbl:
+        general("[%d/%d] Branch '%s' was transferred to the destination namespace" % (int(indx), int(qant), str(brchname)))
+    else:
+        general("[%d/%d] Branch '%s' was not found in the source namespace" % (int(indx), int(qant), str(brchname)))
 
 
-def keepbrcs(brcs):
-    standard.brtocopy = list(brcs)
+def tnfswarn(avbl, qant):
+    if avbl:
+        warning("Transferring %d requested branches" % int(qant))
+    else:
+        warning("Transferring %d available branches" % int(qant))

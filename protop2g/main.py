@@ -34,6 +34,8 @@ from protop2g.view.repo import showrepo
 @click.option("-d", "--dest", "dest", required=True, help="Destination namespace for exporting assets to")
 @click.option("-p", "--pkey", "pkey", required=True, help="Pagure API key for accessing the source namespace")
 @click.option("-g", "--gkey", "gkey", required=True, help="GitLab API key for accessing the destination namespace")
+@click.option("-f", "--fusr", "fusr", required=True, help="Username of the account that owns the Pagure API key")
+@click.option("-t", "--tusr", "tusr", required=True, help="Username of the account that owns the GitLab API key")
 @click.version_option(
     version=versobjc,
     prog_name=click.style(
@@ -42,9 +44,8 @@ from protop2g.view.repo import showrepo
         bold=True,
     )
 )
-def main(srce, dest, pkey, gkey):
-    storeinf(srce, dest, pkey, gkey)
-    showstat()
+def main(srce, dest, pkey, gkey, fusr, tusr):
+    storeinf(srce, dest, pkey, gkey, fusr, tusr)
 
 
 @main.command(name="tkts", help="Initiate transfer of issue tickets")
@@ -59,4 +60,5 @@ def main_transfer_tkts(qant):
 @click.option("-b", "--brcs", "brcs", multiple=True, help="List of branches to extract")
 def main_transfer_repo(brcs):
     keepbrcs(brcs)
+    showstat()
     showrepo()

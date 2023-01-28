@@ -22,13 +22,66 @@ of Red Hat, Inc.
 """
 
 
+import sys
 from protop2g.view.dcrt import success, failure, section, warning, general
 from protop2g.work.repo import PushRepo
+from protop2g.conf import standard
 
 
 def showrepo():
-    section("ATTEMPTING SOURCE NAMESPACE ASSETS CLONE...")
-    pushobjc = PushRepo()
-    warning("STORAGE SPACE WILL BE USED DURING ASSETS CLONE")
-    pushobjc.repodown()
-    success("SOURCE NAMESPACE ASSETS HAVE BEEN SUCCESSFULLY CLONED!")
+    try:
+        pushobjc = PushRepo()
+        section("Attempting source namespace assets clone...")
+        sclorslt = pushobjc.downsrce()
+        if sclorslt[0]:
+            success("Source namespace assets clone succeeded!")
+            general("Directory: %s" % str(standard.srcecloc))
+            general("Time taken: %s second(s)" % str(sclorslt[1]))
+            section("Attempting destination namespace assets clone...")
+            dclorslt = pushobjc.downdest()
+            if dclorslt[0]:
+                success("Destination namespace assets clone succeeded!")
+                general("Directory: %s" % str(standard.destcloc))
+                general("Time taken: %s second(s)" % str(dclorslt[1]))
+                section("Reading branches data from the locally cloned assets...")
+                sbrcrslt, dbrcrslt = pushobjc.cbrcsrce(), pushobjc.cbrcdest()
+                if sbrcrslt[0] and dbrcrslt[0]:
+                    success("Branches data reading succeeded!")
+                    general("Available in source namespace: %d branch(es) %s" % (len(standard.sbrcavbl), str(standard.sbrcavbl)))
+                    general("Available in destination namespace: %d branch(es) %s" % (len(standard.dbrcavbl), str(standard.dbrcavbl)))
+                    general("Requested for transferring: %d branch(es) %s" % (len(standard.brtocopy), str(standard.brtocopy)))
+                    section("Initializing namespace assets transfer...")
+                    tnfsrslt = pushobjc.tnfsrepo()
+                    general("Assets transferred: %d branch(es) completed, %d branch(es) requested" % (int(standard.tnfsindx), int(standard.tnfsqant)))
+                    general("Time taken: %s second(s)" % str(tnfsrslt[1]))
+                    if tnfsrslt[0]:
+                        if standard.tnfsindx == standard.tnfsqant:
+                            success("Namespace assets transfer succeeded!")
+                            sys.exit(0)
+                        elif 0 < standard.tnfsindx < standard.tnfsqant:
+                            warning("Namespace assets transfer partially completed!")
+                            sys.exit(2)
+                        else:
+                            failure("Namespace assets transfer failed!")
+                            sys.exit(1)
+                    else:
+                        failure("Namespace assets transfer failed!")
+                        general("Exception occurred: %s" % str(tnfsrslt[1]))
+                        sys.exit(1)
+                else:
+                    failure("Branches data reading failed!")
+                    erormesg = str(sbrcrslt[1]) if not sbrcrslt[0] else str(dbrcrslt[1])
+                    general("Exception occurred: %s" % erormesg)
+                    sys.exit(1)
+            else:
+                failure("Destination namespace assets clone failed!")
+                general("Exception occurred: %s" % str(dclorslt[1]))
+                sys.exit(1)
+        else:
+            failure("Source namespace assets clone failed!")
+            general("Exception occurred: %s" % str(sclorslt[1]))
+            sys.exit(1)
+    except Exception as expt:
+        failure("Source namespace assets clone failed!")
+        general("Exception occurred: %s" % str(expt))
+        sys.exit(1)

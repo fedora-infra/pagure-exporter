@@ -51,7 +51,7 @@ class SrceData():
                     "fullname": jsondict["user"]["fullname"],
                 }
             }
-            standard.srcehuto = "%s.git" % jsondict["full_url"]
+            standard.srcehuto = "https://%s:%s@%s/%s.git" % (standard.paguuser, standard.pagucode, standard.frgesrce, standard.srcedict["reponame"])
         return response.status_code, response.reason
 
 
@@ -81,4 +81,5 @@ class DestData():
                 }
             }
             standard.desthuto = jsondict["http_url_to_repo"]
+            standard.desthuto = "https://%s:%s@%s/%s.git" % (standard.gtlbuser, standard.gtlbcode, standard.frgedest, standard.destdict["reponame"])
         return response.status_code, response.reason

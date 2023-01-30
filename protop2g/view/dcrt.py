@@ -20,3 +20,32 @@ code or documentation are not subject to the GNU General Public
 License and may only be used or replicated with the express permission
 of Red Hat, Inc.
 """
+
+
+from click import echo, style
+
+PASS = style("[ PASS ]", fg="green", bold=True)
+FAIL = style("[ FAIL ]", fg="red", bold=True)
+WARN = style("[ WARN ]", fg="yellow", bold=True)
+BUSY = style("[ BUSY ]", fg="magenta", bold=True)
+STDS = "        "
+
+
+def success(message):
+    echo(PASS + " " + style(message, fg="green", bold=True))
+
+
+def failure(message):
+    echo(FAIL + " " + style(message, fg="red", bold=True))
+
+
+def warning(message):
+    echo(WARN + " " + style(message, fg="yellow", bold=True))
+
+
+def section(message):
+    echo(BUSY + " " + style(message, fg="magenta", bold=True))
+
+
+def general(message):
+    echo(STDS + " " + message)

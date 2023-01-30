@@ -20,3 +20,19 @@ code or documentation are not subject to the GNU General Public
 License and may only be used or replicated with the express permission
 of Red Hat, Inc.
 """
+
+
+from protop2g.conf import standard
+
+
+def storeinf(srce, dest, pkey, gkey, fusr, tusr):
+    standard.srcename = srce
+    standard.destname = dest
+    standard.pagucode = pkey
+    standard.gtlbcode = gkey
+    standard.paguuser = fusr
+    standard.gtlbuser = tusr
+
+
+def keepbrcs(brcs):
+    standard.brtocopy = list(brcs)

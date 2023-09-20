@@ -1,0 +1,128 @@
+"""
+protop2g
+Copyright (C) 2022-2023 Akashdeep Dhar
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+Any Red Hat trademarks that are incorporated in the source
+code or documentation are not subject to the GNU General Public
+License and may only be used or replicated with the express permission
+of Red Hat, Inc.
+"""
+
+
+import time
+
+import requests
+
+from jinja2 import Environment
+from protop2g.conf import standard
+from datetime import datetime
+
+
+class MoveTkts:
+    def __init__(self):
+        self.purl = f"{standard.pagulink}/{standard.srcename}"
+        self.gurl = f"{standard.gtlblink}/{standard.destname}"
+        self.phed = {"Authorization": f"token {standard.pagucode}"}
+        self.ghed = {"Authorization": f"Bearer {standard.gtlbcode}"}
+        self.envr = Environment()
+
+    def getcount(self):
+        try:
+            strttime = time.time()
+            initdata = {"per_page": standard.pagesize, "page": "1"}
+            if standard.tktstate == "closed" or standard.tktstate == "all":
+                initdata["status"] = standard.tktstate
+            initresp = requests.get(url=f"{self.purl}/issues", params=initdata, headers=self.phed)
+            respcode, respresn = initresp.status_code, initresp.reason
+            if respcode == 200:
+                initdict = initresp.json()
+                if initdict["pagination"]["next"] == None:
+                    standard.tktcount = initdict["total_issues"]
+                else:
+                    standard.pageqant = int(initdict["pagination"]["pages"])
+                    lastdata = {"per_page": standard.pagesize, "page": standard.pageqant}
+                    if standard.tktstate == "closed" or standard.tktstate == "all":
+                        lastdata["status"] = standard.tktstate
+                    lastresp = requests.get(url=f"{self.purl}/issues", params=lastdata, headers=self.phed)
+                    respcode, respresn = lastresp.status_code, lastresp.reason
+                    if lastresp.status_code == 200:
+                        lastdict = lastresp.json()
+                        lastqant = int(lastdict["total_issues"])
+                        standard.tktcount = (standard.pageqant - 1) * standard.pagesize + lastqant
+            stoptime = time.time()
+            timereqd = "%.2f" % (stoptime - strttime)
+            return respcode, respresn, timereqd
+        except Exception as expt:
+            return False, expt, "0"
+
+    def iterpage(self, indx):
+        try:
+            strttime = time.time()
+            rqstdata = {"per_page": standard.pagesize, "page": f"{indx}"}
+            if standard.tktstate == "closed" or standard.tktstate == "all":
+                rqstdata["status"] = standard.tktstate
+            response = requests.get(url=f"{self.purl}/issues", params=rqstdata, headers=self.phed)
+            respcode, respresn = response.status_code, response.reason
+            if respcode == 200:
+                standard.pagerslt = response.json()["issues"]
+            stoptime = time.time()
+            timereqd = "%.2f" % (stoptime - strttime)
+            return respcode, respresn, timereqd
+        except Exception as expt:
+            return False, expt, "0"
+
+    def itertkts(self, dictobjc):
+        try:
+            strttime = time.time()
+            standard.issuname = dictobjc["title"]
+            standard.issuiden = dictobjc["id"]
+            standard.authname = dictobjc["user"]["fullname"]
+            standard.authlink = dictobjc["user"]["full_url"]
+            standard.authorid = dictobjc["user"]["name"]
+            standard.issulink = dictobjc["full_url"]
+            standard.issubody = dictobjc["content"]
+            standard.timedata = int(dictobjc["date_created"])
+            head_template = self.envr.from_string(standard.headtemp_ticket)
+            headdata = head_template.render(
+                issuiden=standard.issuiden,
+                issuname=standard.issuname,
+            )
+            body_template = self.envr.from_string(standard.bodytemp_ticket)
+            bodydata = body_template.render(
+                issubody=standard.issubody,
+                issulink=standard.issulink,
+                reponame=standard.srcename,
+                repolink=standard.srcedict["repolink"],
+                authname=standard.authname,
+                authlink=standard.authlink,
+                dateinfo=datetime.utcfromtimestamp(standard.timedata).strftime("%c"),
+                mo=datetime.utcfromtimestamp(standard.timedata).strftime("%b").lower(),
+                dd=datetime.utcfromtimestamp(standard.timedata).strftime("%d"),
+                yy=datetime.utcfromtimestamp(standard.timedata).strftime("%Y"),
+                hh=datetime.utcfromtimestamp(standard.timedata).strftime("%H"),
+                mm=datetime.utcfromtimestamp(standard.timedata).strftime("%M"),
+            )
+            rqstdata = {"title": headdata, "description": bodydata}
+            response = requests.post(url=f"{self.gurl}/issues", data=rqstdata, headers=self.ghed)
+            respcode, respresn = response.status_code, response.reason
+            if respcode == 201:
+                respresn = response.json()["web_url"]
+                standard.issutnfs += 1
+            stoptime = time.time()
+            timereqd = "%.2f" % (stoptime - strttime)
+            return respcode, respresn, timereqd
+        except Exception as expt:
+            return False, expt, "0"

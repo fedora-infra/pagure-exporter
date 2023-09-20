@@ -82,8 +82,8 @@ class DestData:
                 "identity": jsondict["id"],
                 "tagslist": jsondict["tag_list"],
                 "maintain": {
-                    "username": jsondict["owner"]["username"],
-                    "fullname": jsondict["owner"]["name"],
+                    "username": jsondict["namespace"]["name"],
+                    "fullname": jsondict["namespace"]["path"],
                 },
             }
             standard.desthuto = jsondict["http_url_to_repo"]

@@ -36,3 +36,12 @@ def storeinf(srce, dest, pkey, gkey, fusr, tusr):
 
 def keepbrcs(brcs):
     standard.brtocopy = list(brcs)
+
+
+def keepqant(qant):
+    if qant == "shut":
+        standard.tktstate = "closed"
+    elif qant == "full":
+        standard.tktstate = "all"
+    else:
+        standard.tktstate = "open"

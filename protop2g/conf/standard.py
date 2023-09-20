@@ -83,3 +83,30 @@ destcloc = "UNAVAILABLE"
 
 tnfsindx = 0
 tnfsqant = 0
+
+pagesize = 35
+tktstate = "open"
+tktcount = 0
+pageqant = 1
+
+pagerslt = []
+
+issuname = "UNAVAILABLE"
+issuiden = "0"
+issulink = "UNAVAILABLE"
+issubody = "UNAVAILABLE"
+authorid = "UNAVAILABLE"
+authname = "UNAVAILABLE"
+authlink = "UNAVAILABLE"
+timedata = 0
+issutnfs = 0
+
+headtemp_ticket = "[SN#{{ issuiden }}] {{ issuname }}"
+
+bodytemp_ticket = """
+{{ issubody }}
+
+_This issue ticket was originally created on [here]({{ issulink }}) on a Pagure repository, [**{{ reponame}}**]({{ repolink }}) by [**{{ authname }}**]({{ authlink }}) on [**{{ dateinfo }}**](https://savvytime.com/converter/utc/{{ mo }}-{{ dd }}-{{ yy }}/{{ hh }}-{{ mm }})._
+
+_This issue ticket was automatically created by the [**Pagure2GitLab Importer Service**](https://github.com/gridhead/protop2g)._
+"""

@@ -27,7 +27,8 @@ import click
 from protop2g import __version__ as versobjc
 from protop2g.view.repo import showrepo
 from protop2g.view.stat import showstat
-from protop2g.work.keep import keepbrcs, storeinf
+from protop2g.view.tkts import showtkts
+from protop2g.work.keep import keepbrcs, storeinf, keepqant
 
 
 @click.group(name="protop2g")
@@ -87,7 +88,9 @@ def main(srce, dest, pkey, gkey, fusr, tusr):
 )
 @click.option("-a", "--full", "qant", flag_value="full", help="Extract all the issue tickets")
 def main_transfer_tkts(qant):
-    pass
+    keepqant(qant)
+    showstat()
+    showtkts()
 
 
 @main.command(name="repo", help="Initialize transfer of repository assets")

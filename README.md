@@ -269,7 +269,9 @@ A prototype project assets importer that moves repositories from Pagure to GitLa
                  repo \
                  --brcs brca,brcb,brcc,brcd
         ```
-        
+       
+        For a set of branches available in the source namespace named `brca`, `brcb`, `brcc` and `brcd` to be migrated to the destination namespace.
+
     2. If all the available branches are to be migrated
        
         ```

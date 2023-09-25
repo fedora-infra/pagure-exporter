@@ -115,7 +115,11 @@ class MoveTkts:
                 hh=datetime.utcfromtimestamp(standard.timedata).strftime("%H"),
                 mm=datetime.utcfromtimestamp(standard.timedata).strftime("%M"),
             )
-            rqstdata = {"title": headdata, "description": bodydata}
+            """
+            Replace "@" in the `bodydata` with "&" to ensure that wrong people are not referenced in the destination namespace
+            Check https://github.com/gridhead/protop2g/issues/7 for more information about the problem
+            """
+            rqstdata = {"title": headdata, "description": bodydata.replace("@", "&")}
             response = requests.post(url=f"{self.gurl}/issues", data=rqstdata, headers=self.ghed)
             respcode, respresn = response.status_code, response.reason
             if respcode == 201:
@@ -153,7 +157,11 @@ class MoveTkts:
                 hh=datetime.utcfromtimestamp(standard.cmtstime).strftime("%H"),
                 mm=datetime.utcfromtimestamp(standard.cmtstime).strftime("%M"),
             )
-            rqstdata = {"body": bodydata}
+            """
+            Replace "@" in the `bodydata` with "&" to ensure that wrong people are not referenced in the destination namespace
+            Check https://github.com/gridhead/protop2g/issues/7 for more information about the problem
+            """
+            rqstdata = {"body": bodydata.replace("@", "&")}
             response = requests.post(url=f"{self.gurl}/issues/{standard.gtlbtkid}/notes", data=rqstdata, headers=self.ghed)
             respcode, respresn = response.status_code, response.reason
             if respcode == 201:

@@ -120,7 +120,45 @@ class MoveTkts:
             respcode, respresn = response.status_code, response.reason
             if respcode == 201:
                 respresn = response.json()["web_url"]
+                standard.gtlbtkid = response.json()["iid"]
                 standard.issutnfs += 1
+            stoptime = time.time()
+            timereqd = "%.2f" % (stoptime - strttime)
+            return respcode, respresn, timereqd
+        except Exception as expt:
+            return False, expt, "0"
+
+    def itercmts(self, dictobjc):
+        try:
+            strttime = time.time()
+            standard.cmtsiden = dictobjc["id"]
+            standard.cmtslink = f"{standard.issulink}#comment-{standard.cmtsiden}"
+            standard.cmtsauth = dictobjc["user"]["fullname"]
+            standard.cmtsaurl = dictobjc["user"]["full_url"]
+            standard.cmtstime = int(dictobjc["date_created"])
+            standard.cmtsbody = dictobjc["comment"]
+            body_template = self.envr.from_string(standard.bodytemp_cmts)
+            bodydata = body_template.render(
+                cmtsbody=standard.cmtsbody,
+                cmtslink=standard.cmtslink,
+                cmtsauth=standard.cmtsauth,
+                cmtsaurl=standard.cmtsaurl,
+                issulink=standard.issulink,
+                reponame=standard.srcename,
+                repolink=standard.srcedict["repolink"],
+                dateinfo=datetime.utcfromtimestamp(standard.cmtstime).strftime("%c"),
+                mo=datetime.utcfromtimestamp(standard.cmtstime).strftime("%b").lower(),
+                dd=datetime.utcfromtimestamp(standard.cmtstime).strftime("%d"),
+                yy=datetime.utcfromtimestamp(standard.cmtstime).strftime("%Y"),
+                hh=datetime.utcfromtimestamp(standard.cmtstime).strftime("%H"),
+                mm=datetime.utcfromtimestamp(standard.cmtstime).strftime("%M"),
+            )
+            rqstdata = {"body": bodydata}
+            response = requests.post(url=f"{self.gurl}/issues/{standard.gtlbtkid}/notes", data=rqstdata, headers=self.ghed)
+            respcode, respresn = response.status_code, response.reason
+            if respcode == 201:
+                respresn = f"{standard.destdict['repolink']}/-/issues/{standard.gtlbtkid}#note_{response.json()['id']}"
+                standard.cmtsqant += 1
             stoptime = time.time()
             timereqd = "%.2f" % (stoptime - strttime)
             return respcode, respresn, timereqd

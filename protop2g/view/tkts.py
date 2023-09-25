@@ -53,8 +53,27 @@ def showtkts():
                         success("Issue ticket migration succeeded!")
                         general(f"URL: {issurslt[1]}")
                         general(f"Time taken: {issurslt[2]} second(s)")
+                        warning("Reading comment information...")
+                        standard.issucmts = jndx["comments"]
+                        success("Comment information reading succeeded!")
+                        general(f"Entities matching criteria: {len(standard.issucmts)} entiti(es)")
+                        general(f"Time taken: 0.00 second(s)")
+                        for kndx in standard.issucmts:
+                            cmtsrslt = moveobjc.itercmts(kndx)
+                            section(f"Transferring comment (Entity {standard.cmtsqant} of {len(standard.issucmts)})...")
+                            if cmtsrslt[0] == 201:
+                                success("Comment transfer succeeded!")
+                                general(f"URL: {cmtsrslt[1]}")
+                                general(f"Time taken: {cmtsrslt[2]} second(s)")
+                            else:
+                                failure("Comment transfer failed!")
+                                general("Code: %s" % str(cmtsrslt[0]))
+                                general("Reason: %s" % str(cmtsrslt[1]))
+                                general(f"Time taken: {issurslt[2]} second(s)")
+                                exit(1)
+                        standard.cmtsqant = 0
                     else:
-                        success("Issue ticket migration failed!")
+                        failure("Issue ticket migration failed!")
                         general("Code: %s" % str(issurslt[0]))
                         general("Reason: %s" % str(issurslt[1]))
                         general(f"Time taken: {issurslt[2]} second(s)")

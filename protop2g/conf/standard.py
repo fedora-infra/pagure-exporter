@@ -27,6 +27,8 @@ STANDARD CONFIGURATION VARIABLES
 
 movecmts = False
 
+movetags = False
+
 tempdrct = "/var/tmp"
 dfremote = "origin"
 prfxsrce = "protop2g-tempsrce-"
@@ -96,6 +98,7 @@ pagerslt = []
 issuname = "UNAVAILABLE"
 issuiden = "0"
 issulink = "UNAVAILABLE"
+issutags = []
 issubody = "UNAVAILABLE"
 authorid = "UNAVAILABLE"
 authname = "UNAVAILABLE"

@@ -25,6 +25,8 @@ of Red Hat, Inc.
 STANDARD CONFIGURATION VARIABLES
 """
 
+movecmts = False
+
 tempdrct = "/var/tmp"
 dfremote = "origin"
 prfxsrce = "protop2g-tempsrce-"

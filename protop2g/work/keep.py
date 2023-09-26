@@ -45,3 +45,7 @@ def keepqant(qant):
         standard.tktstate = "all"
     else:
         standard.tktstate = "open"
+
+
+def keepcmts(comments):
+    standard.movecmts = comments

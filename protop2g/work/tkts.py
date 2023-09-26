@@ -23,12 +23,12 @@ of Red Hat, Inc.
 
 
 import time
+from datetime import datetime
 
 import requests
-
 from jinja2 import Environment
+
 from protop2g.conf import standard
-from datetime import datetime
 
 
 class MoveTkts:
@@ -56,7 +56,9 @@ class MoveTkts:
                     lastdata = {"per_page": standard.pagesize, "page": standard.pageqant}
                     if standard.tktstate == "closed" or standard.tktstate == "all":
                         lastdata["status"] = standard.tktstate
-                    lastresp = requests.get(url=f"{self.purl}/issues", params=lastdata, headers=self.phed)
+                    lastresp = requests.get(
+                        url=f"{self.purl}/issues", params=lastdata, headers=self.phed
+                    )
                     respcode, respresn = lastresp.status_code, lastresp.reason
                     if lastresp.status_code == 200:
                         lastdict = lastresp.json()
@@ -93,6 +95,7 @@ class MoveTkts:
             standard.authlink = dictobjc["user"]["full_url"]
             standard.authorid = dictobjc["user"]["name"]
             standard.issulink = dictobjc["full_url"]
+            standard.issutags = dictobjc["tags"]
             standard.issubody = dictobjc["content"]
             standard.timedata = int(dictobjc["date_created"])
             head_template = self.envr.from_string(standard.headtemp_ticket)
@@ -120,6 +123,8 @@ class MoveTkts:
             Check https://github.com/gridhead/protop2g/issues/7 for more information about the problem
             """
             rqstdata = {"title": headdata, "description": bodydata.replace("@", "&")}
+            if standard.movetags:
+                rqstdata["labels"] = ",".join(standard.issutags)
             response = requests.post(url=f"{self.gurl}/issues", data=rqstdata, headers=self.ghed)
             respcode, respresn = response.status_code, response.reason
             if respcode == 201:
@@ -162,7 +167,11 @@ class MoveTkts:
             Check https://github.com/gridhead/protop2g/issues/7 for more information about the problem
             """
             rqstdata = {"body": bodydata.replace("@", "&")}
-            response = requests.post(url=f"{self.gurl}/issues/{standard.gtlbtkid}/notes", data=rqstdata, headers=self.ghed)
+            response = requests.post(
+                url=f"{self.gurl}/issues/{standard.gtlbtkid}/notes",
+                data=rqstdata,
+                headers=self.ghed,
+            )
             respcode, respresn = response.status_code, response.reason
             if respcode == 201:
                 respresn = f"{standard.destdict['repolink']}/-/issues/{standard.gtlbtkid}#note_{response.json()['id']}"

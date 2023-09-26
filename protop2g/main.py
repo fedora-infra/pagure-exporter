@@ -28,7 +28,7 @@ from protop2g import __version__ as versobjc
 from protop2g.view.repo import showrepo
 from protop2g.view.stat import showstat
 from protop2g.view.tkts import showtkts
-from protop2g.work.keep import keepbrcs, keepcmts, keepqant, storeinf
+from protop2g.work.keep import keepbrcs, keeptkts, storeinf
 
 
 @click.group(name="protop2g")
@@ -74,7 +74,9 @@ def main(srce, dest, pkey, gkey, fusr, tusr):
     storeinf(srce, dest, pkey, gkey, fusr, tusr)
 
 
-@main.command(name="tkts", help="Initiate transfer of issue tickets", context_settings={'show_default': True})
+@main.command(
+    name="tkts", help="Initiate transfer of issue tickets", context_settings={"show_default": True}
+)
 @click.option(
     "-o",
     "--open",
@@ -94,14 +96,24 @@ def main(srce, dest, pkey, gkey, fusr, tusr):
     default=False,
     is_flag=True,
 )
-def main_transfer_tkts(qant, comments):
-    keepqant(qant)
-    keepcmts(comments)
+@click.option(
+    "-l",
+    "--labels",
+    help="Migrate all the associated labels",
+    default=False,
+    is_flag=True,
+)
+def main_transfer_tkts(qant, comments, labels):
+    keeptkts(qant, comments, labels)
     showstat()
     showtkts()
 
 
-@main.command(name="repo", help="Initialize transfer of repository assets", context_settings={'show_default': True})
+@main.command(
+    name="repo",
+    help="Initialize transfer of repository assets",
+    context_settings={"show_default": True},
+)
 @click.option("-b", "--brcs", "brcs", multiple=True, help="List of branches to extract")
 def main_transfer_repo(brcs):
     keepbrcs(brcs)

@@ -33,7 +33,7 @@ def showtkts():
     moveobjc = MoveTkts()
     section("Attempting source namespace issue ticket count...")
     warning(
-        f"Migrating {'only ' if standard.tktstate == 'open' or standard.tktstate == 'closed' else ''}{standard.tktstate} issue tickets from the source namespace to the destination namespace"
+        f"Extracting {'only ' if standard.tktstate == 'open' or standard.tktstate == 'closed' else ''}{standard.tktstate} issue tickets {'with' if standard.movetags else 'without'} labels from the source namespace to the destination namespace"
     )
     warning(
         f"Transferring {'all' if standard.movecmts else 'no'} comments from the source namespace to the destination namespace"
@@ -55,7 +55,7 @@ def showtkts():
                 for jndx in standard.pagerslt:
                     issurslt = moveobjc.itertkts(jndx)
                     section(
-                        f'Migrating issue ticket #{standard.issuiden} "{standard.issuname}" by "{standard.authname} (ID {standard.authorid})"...'
+                        f"Migrating issue ticket {'with' if standard.movetags else 'without'} labels #{standard.issuiden} '{standard.issuname}' by '{standard.authname} (ID {standard.authorid})'..."
                     )
                     if issurslt[0] == 201:
                         general(f"Migrated to {issurslt[1]} in {issurslt[2]} second(s)")
@@ -69,7 +69,9 @@ def showtkts():
                                     f"Transferring comment (Entity {standard.cmtsqant} of {len(standard.issucmts)})..."
                                 )
                                 if cmtsrslt[0] == 201:
-                                    general(f"Transferred to {cmtsrslt[1]} in {cmtsrslt[2]} second(s)")
+                                    general(
+                                        f"Transferred to {cmtsrslt[1]} in {cmtsrslt[2]} second(s)"
+                                    )
                                 else:
                                     failure("Comment transfer failed!")
                                     general(

@@ -108,12 +108,12 @@ gtlbtkid = "UNAVAILABLE"
 
 issutnfs = 0
 
-headtemp_ticket = "[SN#{{ issuiden }}] {{ issuname }}"
+headtemp_ticket = "[SN#{issuiden}] {issuname}"
 
 bodytemp_ticket = """
-{{ issubody }}
+{issubody}
 
-_This issue ticket was originally created [here]({{ issulink }}) on a Pagure repository, [**{{ reponame}}**]({{ repolink }}) by [**{{ authname }}**]({{ authlink }}) on [**{{ dateinfo }}** UTC](https://savvytime.com/converter/utc/{{ mo }}-{{ dd }}-{{ yy }}/{{ hh }}-{{ mm }})._
+_This issue ticket was originally created [here]({issulink}) on a Pagure repository, [**{reponame}**]({repolink}) by [**{authname}**]({authlink}) on [**{dateinfo}** UTC](https://savvytime.com/converter/utc/{mo}-{dd}-{yy}/{hh}-{mm})._
 
 _This issue ticket was automatically created by the [**Pagure2GitLab Importer Service**](https://github.com/gridhead/protop2g)._
 """
@@ -131,9 +131,9 @@ gtlbcurl = "UNAVAILABLE"
 cmtsqant = 0
 
 bodytemp_cmts = """
-{{ cmtsbody }}
+{cmtsbody}
 
-_This comment was originally created [here]({{ cmtslink }}) by [**{{ cmtsauth }}**]({{ cmtsaurl }})  under [this]({{ issulink }}) issue ticket on a Pagure repository, [**{{ reponame }}**]({{ repolink }}) on [**{{ dateinfo }}** UTC](https://savvytime.com/converter/utc/{{ mo }}-{{ dd }}-{{ yy }}/{{ hh }}-{{ mm }})._
+_This comment was originally created [here]({cmtslink}) by [**{cmtsauth}**]({cmtsaurl})  under [this]({issulink}) issue ticket on a Pagure repository, [**{reponame}**]({repolink}) on [**{dateinfo}** UTC](https://savvytime.com/converter/utc/{mo}-{dd}-{yy}/{hh}-{mm})._
 
 _This comment was automatically created by the [**Pagure2GitLab Importer Service**](https://github.com/gridhead/protop2g)._
 """

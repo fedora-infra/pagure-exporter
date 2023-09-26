@@ -26,7 +26,6 @@ import time
 from datetime import datetime
 
 import requests
-from jinja2 import Environment
 
 from protop2g.conf import standard
 
@@ -37,7 +36,6 @@ class MoveTkts:
         self.gurl = f"{standard.gtlblink}/{standard.destname}"
         self.phed = {"Authorization": f"token {standard.pagucode}"}
         self.ghed = {"Authorization": f"Bearer {standard.gtlbcode}"}
-        self.envr = Environment()
 
     def getcount(self):
         try:
@@ -98,13 +96,8 @@ class MoveTkts:
             standard.issutags = dictobjc["tags"]
             standard.issubody = dictobjc["content"]
             standard.timedata = int(dictobjc["date_created"])
-            head_template = self.envr.from_string(standard.headtemp_ticket)
-            headdata = head_template.render(
-                issuiden=standard.issuiden,
-                issuname=standard.issuname,
-            )
-            body_template = self.envr.from_string(standard.bodytemp_ticket)
-            bodydata = body_template.render(
+            headdata = standard.headtemp_ticket.format(issuiden=standard.issuiden, issuname=standard.issuname)
+            bodydata = standard.bodytemp_ticket.format(
                 issubody=standard.issubody,
                 issulink=standard.issulink,
                 reponame=standard.srcename,
@@ -146,8 +139,7 @@ class MoveTkts:
             standard.cmtsaurl = dictobjc["user"]["full_url"]
             standard.cmtstime = int(dictobjc["date_created"])
             standard.cmtsbody = dictobjc["comment"]
-            body_template = self.envr.from_string(standard.bodytemp_cmts)
-            bodydata = body_template.render(
+            bodydata = standard.bodytemp_cmts.format(
                 cmtsbody=standard.cmtsbody,
                 cmtslink=standard.cmtslink,
                 cmtsauth=standard.cmtsauth,

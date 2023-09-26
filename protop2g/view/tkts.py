@@ -32,64 +32,69 @@ from protop2g.work.tkts import MoveTkts
 def showtkts():
     moveobjc = MoveTkts()
     section("Attempting source namespace issue ticket count...")
-    warning(f"Migrating {'only ' if standard.tktstate == 'open' or standard.tktstate == 'closed' else ''}{standard.tktstate} issue tickets from the source namespace to the destination namespace")
+    warning(
+        f"Migrating {'only ' if standard.tktstate == 'open' or standard.tktstate == 'closed' else ''}{standard.tktstate} issue tickets from the source namespace to the destination namespace"
+    )
+    warning(
+        f"Transferring {'all' if standard.movecmts else 'no'} comments from the source namespace to the destination namespace"
+    )
     qantrslt = moveobjc.getcount()
     if qantrslt[0] == 200:
-        success("Source namespace issue count succeeded!")
-        general(f"Tickets matching criteria: {standard.tktcount} ticket(s)")
-        general(f"Pages found: {standard.pageqant} page(s)")
-        general(f"Time taken: {qantrslt[2]} second(s)")
+        general(
+            f"Found {standard.tktcount} issue ticket(s) across {standard.pageqant} page(s) in {qantrslt[2]} second(s)"
+        )
         for indx in range(standard.pageqant):
-            warning(f"Reading issue tickets information (Page {indx + 1} of {standard.pageqant})...")
+            section(
+                f"Reading issue tickets information (Page {indx + 1} of {standard.pageqant})..."
+            )
             pagerslt = moveobjc.iterpage(indx + 1)
             if pagerslt[0] == 200:
-                success("Issue ticket information reading succeeded!")
-                general(f"Tickets on the page: {len(standard.pagerslt)} issue ticket(s)")
-                general(f"Time taken: {qantrslt[2]} second(s)")
+                general(
+                    f"Found {len(standard.pagerslt)} issue ticket(s) on this page in {pagerslt[2]} second(s)"
+                )
                 for jndx in standard.pagerslt:
                     issurslt = moveobjc.itertkts(jndx)
-                    section(f"Migrating issue ticket #{standard.issuiden} \"{standard.issuname}\" by \"{standard.authname} (ID {standard.authorid})\"...")
+                    section(
+                        f'Migrating issue ticket #{standard.issuiden} "{standard.issuname}" by "{standard.authname} (ID {standard.authorid})"...'
+                    )
                     if issurslt[0] == 201:
-                        success("Issue ticket migration succeeded!")
-                        general(f"URL: {issurslt[1]}")
-                        general(f"Time taken: {issurslt[2]} second(s)")
-                        warning("Reading comment information...")
-                        standard.issucmts = jndx["comments"]
-                        success("Comment information reading succeeded!")
-                        general(f"Entities matching criteria: {len(standard.issucmts)} entiti(es)")
-                        general(f"Time taken: 0.00 second(s)")
-                        for kndx in standard.issucmts:
-                            cmtsrslt = moveobjc.itercmts(kndx)
-                            section(f"Transferring comment (Entity {standard.cmtsqant} of {len(standard.issucmts)})...")
-                            if cmtsrslt[0] == 201:
-                                success("Comment transfer succeeded!")
-                                general(f"URL: {cmtsrslt[1]}")
-                                general(f"Time taken: {cmtsrslt[2]} second(s)")
-                            else:
-                                failure("Comment transfer failed!")
-                                general("Code: %s" % str(cmtsrslt[0]))
-                                general("Reason: %s" % str(cmtsrslt[1]))
-                                general(f"Time taken: {issurslt[2]} second(s)")
-                                exit(1)
-                        standard.cmtsqant = 0
+                        general(f"Migrated to {issurslt[1]} in {issurslt[2]} second(s)")
+                        if standard.movecmts:
+                            section("Reading comment information...")
+                            standard.issucmts = jndx["comments"]
+                            general(f"Found {len(standard.issucmts)} entities in 0.00 second(s)")
+                            for kndx in standard.issucmts:
+                                cmtsrslt = moveobjc.itercmts(kndx)
+                                section(
+                                    f"Transferring comment (Entity {standard.cmtsqant} of {len(standard.issucmts)})..."
+                                )
+                                if cmtsrslt[0] == 201:
+                                    general(f"Transferred to {cmtsrslt[1]} in {cmtsrslt[2]} second(s)")
+                                else:
+                                    failure("Comment transfer failed!")
+                                    general(
+                                        f"Failed due to code '{cmtsrslt[0]}' and reason '{cmtsrslt[1]}' in {cmtsrslt[2]} second(s)"
+                                    )
+                                    sys.exit(1)
+                            standard.cmtsqant = 0
                     else:
                         failure("Issue ticket migration failed!")
-                        general("Code: %s" % str(issurslt[0]))
-                        general("Reason: %s" % str(issurslt[1]))
-                        general(f"Time taken: {issurslt[2]} second(s)")
-                        exit(1)
+                        general(
+                            f"Failed due to code '{issurslt[0]}' and reason '{issurslt[1]}' in {issurslt[2]} second(s)"
+                        )
+                        sys.exit(1)
             else:
                 failure("Issue ticket information reading failed!")
-                general("Code: %s" % str(pagerslt[0]))
-                general("Reason: %s" % str(pagerslt[1]))
-                general(f"Time taken: {pagerslt[2]} second(s)")
-                exit(1)
+                general(
+                    f"Failed due to code '{pagerslt[0]}' and reason '{pagerslt[1]}' in {pagerslt[2]} second(s)"
+                )
+                sys.exit(1)
         success("Namespace assets transferring queue processed!")
         general(f"{standard.issutnfs} issue ticket(s) transferred")
         sys.exit(0)
     else:
-        failure("Source namespace issue count failed!")
-        general("Code: %s" % str(qantrslt[0]))
-        general("Reason: %s" % str(qantrslt[1]))
-        general(f"Time taken: {qantrslt[2]} second(s)")
-        exit(1)
+        failure("Source namespace issue ticket count failed!")
+        general(
+            f"Failed due to code '{qantrslt[0]}' and reason '{qantrslt[1]}' in {qantrslt[2]} second(s)"
+        )
+        sys.exit(1)

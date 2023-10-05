@@ -84,6 +84,26 @@ class MoveTkts:
         except Exception as expt:
             return False, expt, "0"
 
+    def iteriden(self, tkid):
+        try:
+            strttime = time.time()
+            response = requests.get(url=f"{self.purl}/issue/{tkid}", headers=self.phed)
+            respcode, issuskip = response.status_code, True
+            if respcode == 200:
+                standard.issurslt = response.json()
+                # If the preferred ticket status is "FULL", all statuses must be addressed
+                if (
+                    standard.issurslt["status"].lower() == standard.tktstate == "closed"
+                    or standard.issurslt["status"].lower() == standard.tktstate == "open"
+                    or standard.tktstate == "all"
+                ):
+                    issuskip = False
+            stoptime = time.time()
+            timereqd = "%.2f" % (stoptime - strttime)
+            return respcode, issuskip, timereqd
+        except Exception as expt:
+            return False, expt, "0"
+
     def itertkts(self, dictobjc):
         try:
             strttime = time.time()
@@ -96,7 +116,9 @@ class MoveTkts:
             standard.issutags = dictobjc["tags"]
             standard.issubody = dictobjc["content"]
             standard.timedata = int(dictobjc["date_created"])
-            headdata = standard.headtemp_ticket.format(issuiden=standard.issuiden, issuname=standard.issuname)
+            headdata = standard.headtemp_ticket.format(
+                issuiden=standard.issuiden, issuname=standard.issuname
+            )
             bodydata = standard.bodytemp_ticket.format(
                 issubody=standard.issubody,
                 issulink=standard.issulink,

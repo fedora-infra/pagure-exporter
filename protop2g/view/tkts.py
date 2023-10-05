@@ -33,27 +33,87 @@ def showtkts():
     moveobjc = MoveTkts()
     section("Attempting source namespace issue ticket count...")
     warning(
-        f"Extracting {'only ' if standard.tktstate == 'open' or standard.tktstate == 'closed' else ''}{standard.tktstate} issue tickets {'with' if standard.movetags else 'without'} labels from the source namespace to the destination namespace"
-    )
-    warning(
         f"Transferring {'all' if standard.movecmts else 'no'} comments from the source namespace to the destination namespace"
     )
-    qantrslt = moveobjc.getcount()
-    if qantrslt[0] == 200:
-        general(
-            f"Found {standard.tktcount} issue ticket(s) across {standard.pageqant} page(s) in {qantrslt[2]} second(s)"
+    if not standard.tktgroup:
+        warning(
+            f"Extracting {'all ' if standard.tktstate == 'open' or standard.tktstate == 'closed' else ''}{standard.tktstate} issue tickets {'with' if standard.movetags else 'without'} labels from the source namespace to the destination namespace"
         )
-        for indx in range(standard.pageqant):
-            section(
-                f"Reading issue tickets information (Page {indx + 1} of {standard.pageqant})..."
+        qantrslt = moveobjc.getcount()
+        if qantrslt[0] == 200:
+            general(
+                f"Found {standard.tktcount} issue ticket(s) across {standard.pageqant} page(s) in {qantrslt[2]} second(s)"
             )
-            pagerslt = moveobjc.iterpage(indx + 1)
-            if pagerslt[0] == 200:
-                general(
-                    f"Found {len(standard.pagerslt)} issue ticket(s) on this page in {pagerslt[2]} second(s)"
+            for indx in range(standard.pageqant):
+                section(
+                    f"Reading issue tickets information (Page {indx + 1} of {standard.pageqant})..."
                 )
-                for jndx in standard.pagerslt:
-                    issurslt = moveobjc.itertkts(jndx)
+                pagerslt = moveobjc.iterpage(indx + 1)
+                if pagerslt[0] == 200:
+                    general(
+                        f"Found {len(standard.pagerslt)} issue ticket(s) on this page in {pagerslt[2]} second(s)"
+                    )
+                    for jndx in standard.pagerslt:
+                        issurslt = moveobjc.itertkts(jndx)
+                        section(
+                            f"Migrating issue ticket {'with' if standard.movetags else 'without'} labels #{standard.issuiden} '{standard.issuname}' by '{standard.authname} (ID {standard.authorid})'..."
+                        )
+                        if issurslt[0] == 201:
+                            general(f"Migrated to {issurslt[1]} in {issurslt[2]} second(s)")
+                            if standard.movecmts:
+                                section("Reading comment information...")
+                                standard.issucmts = jndx["comments"]
+                                general(
+                                    f"Found {len(standard.issucmts)} entities in 0.00 second(s)"
+                                )
+                                for kndx in standard.issucmts:
+                                    cmtsrslt = moveobjc.itercmts(kndx)
+                                    section(
+                                        f"Transferring comment (Entity {standard.cmtsqant} of {len(standard.issucmts)})..."
+                                    )
+                                    if cmtsrslt[0] == 201:
+                                        general(
+                                            f"Transferred to {cmtsrslt[1]} in {cmtsrslt[2]} second(s)"
+                                        )
+                                    else:
+                                        failure("Comment transfer failed!")
+                                        general(
+                                            f"Failed due to code '{cmtsrslt[0]}' and reason '{cmtsrslt[1]}' in {cmtsrslt[2]} second(s)"
+                                        )
+                                        sys.exit(1)
+                                standard.cmtsqant = 0
+                        else:
+                            failure("Issue ticket migration failed!")
+                            general(
+                                f"Failed due to code '{issurslt[0]}' and reason '{issurslt[1]}' in {issurslt[2]} second(s)"
+                            )
+                            sys.exit(1)
+                else:
+                    failure("Issue ticket information reading failed!")
+                    general(
+                        f"Failed due to code '{pagerslt[0]}' and reason '{pagerslt[1]}' in {pagerslt[2]} second(s)"
+                    )
+                    sys.exit(1)
+            success("Namespace assets transferring queue processed!")
+            general(f"{standard.issutnfs} issue ticket(s) transferred")
+            sys.exit(0)
+        else:
+            failure("Source namespace issue ticket count failed!")
+            general(
+                f"Failed due to code '{qantrslt[0]}' and reason '{qantrslt[1]}' in {qantrslt[2]} second(s)"
+            )
+            sys.exit(1)
+    else:
+        warning(
+            f"Extracting {'only ' if standard.tktstate == 'open' or standard.tktstate == 'closed' else ''}{standard.tktstate} issue tickets {'with' if standard.movetags else 'without'} labels off the given selection"
+        )
+        for indx in standard.tktgroup:
+            tkidrslt = moveobjc.iteriden(indx)
+            if tkidrslt[0] == 200:
+                section(f"Probing issue ticket #{indx}...")
+                if not tkidrslt[1]:
+                    general(f"Information retrieved in {tkidrslt[2]} second(s)")
+                    issurslt = moveobjc.itertkts(standard.issurslt)
                     section(
                         f"Migrating issue ticket {'with' if standard.movetags else 'without'} labels #{standard.issuiden} '{standard.issuname}' by '{standard.authname} (ID {standard.authorid})'..."
                     )
@@ -61,7 +121,7 @@ def showtkts():
                         general(f"Migrated to {issurslt[1]} in {issurslt[2]} second(s)")
                         if standard.movecmts:
                             section("Reading comment information...")
-                            standard.issucmts = jndx["comments"]
+                            standard.issucmts = standard.issurslt["comments"]
                             general(f"Found {len(standard.issucmts)} entities in 0.00 second(s)")
                             for kndx in standard.issucmts:
                                 cmtsrslt = moveobjc.itercmts(kndx)
@@ -85,18 +145,15 @@ def showtkts():
                             f"Failed due to code '{issurslt[0]}' and reason '{issurslt[1]}' in {issurslt[2]} second(s)"
                         )
                         sys.exit(1)
+                else:
+                    general(
+                        "Skipping issue ticket as the issue ticket status does not match the provided status"
+                    )
             else:
-                failure("Issue ticket information reading failed!")
+                failure("Issue ticket probing failed!")
                 general(
-                    f"Failed due to code '{pagerslt[0]}' and reason '{pagerslt[1]}' in {pagerslt[2]} second(s)"
+                    f"Failed due to code '{tkidrslt[0]}' and reason '{tkidrslt[1]}' in {tkidrslt[2]} second(s)"
                 )
-                sys.exit(1)
         success("Namespace assets transferring queue processed!")
         general(f"{standard.issutnfs} issue ticket(s) transferred")
         sys.exit(0)
-    else:
-        failure("Source namespace issue ticket count failed!")
-        general(
-            f"Failed due to code '{qantrslt[0]}' and reason '{qantrslt[1]}' in {qantrslt[2]} second(s)"
-        )
-        sys.exit(1)

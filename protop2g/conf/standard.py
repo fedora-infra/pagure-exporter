@@ -29,6 +29,8 @@ movecmts = False
 
 movetags = False
 
+tktgroup = []
+
 tempdrct = "/var/tmp"
 dfremote = "origin"
 prfxsrce = "protop2g-tempsrce-"
@@ -94,6 +96,7 @@ tktcount = 0
 pageqant = 1
 
 pagerslt = []
+issurslt = {}
 
 issuname = "UNAVAILABLE"
 issuiden = "0"

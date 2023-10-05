@@ -87,13 +87,11 @@ def showtkts():
                             general(
                                 f"Failed due to code '{issurslt[0]}' and reason '{issurslt[1]}' in {issurslt[2]} second(s)"
                             )
-                            sys.exit(1)
                 else:
                     failure("Issue ticket information reading failed!")
                     general(
                         f"Failed due to code '{pagerslt[0]}' and reason '{pagerslt[1]}' in {pagerslt[2]} second(s)"
                     )
-                    sys.exit(1)
             success("Namespace assets transferring queue processed!")
             general(f"{standard.issutnfs} issue ticket(s) transferred")
             sys.exit(0)
@@ -109,8 +107,8 @@ def showtkts():
         )
         for indx in standard.tktgroup:
             tkidrslt = moveobjc.iteriden(indx)
+            section(f"Probing issue ticket #{indx}...")
             if tkidrslt[0] == 200:
-                section(f"Probing issue ticket #{indx}...")
                 if not tkidrslt[1]:
                     general(f"Information retrieved in {tkidrslt[2]} second(s)")
                     issurslt = moveobjc.itertkts(standard.issurslt)
@@ -144,7 +142,6 @@ def showtkts():
                         general(
                             f"Failed due to code '{issurslt[0]}' and reason '{issurslt[1]}' in {issurslt[2]} second(s)"
                         )
-                        sys.exit(1)
                 else:
                     general(
                         "Skipping issue ticket as the issue ticket status does not match the provided status"

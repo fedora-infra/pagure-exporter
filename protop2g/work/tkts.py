@@ -98,6 +98,8 @@ class MoveTkts:
                     or standard.tktstate == "all"
                 ):
                     issuskip = False
+            else:
+                issuskip = response.reason
             stoptime = time.time()
             timereqd = "%.2f" % (stoptime - strttime)
             return respcode, issuskip, timereqd

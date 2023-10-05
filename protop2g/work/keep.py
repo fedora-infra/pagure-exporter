@@ -51,15 +51,19 @@ def keepcmts(comments):
     standard.movecmts = comments
 
 
-def keeptkts(qant, comments, labels):
+def keeptkts(status, tktgroup, comments, labels):
     # Vote what kind of issue tickets are to be moved
     # Default Open
-    if qant == "shut":
+    if status == "SHUT":
         standard.tktstate = "closed"
-    elif qant == "full":
+    elif status == "FULL":
         standard.tktstate = "all"
     else:
         standard.tktstate = "open"
+
+    # Set a list of ticket identities to be moved
+    # Default Empty
+    standard.tktgroup = tktgroup
 
     # Vote if comments associated with the issue tickets are to be moved
     # Default False

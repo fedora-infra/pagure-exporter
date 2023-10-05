@@ -78,19 +78,30 @@ def main(srce, dest, pkey, gkey, fusr, tusr):
     name="tkts", help="Initiate transfer of issue tickets", context_settings={"show_default": True}
 )
 @click.option(
-    "-o",
-    "--open",
-    "qant",
-    flag_value="open",
-    help="Extract only the open issue tickets",
-    default=True,
+    "-s",
+    "--status",
+    type=click.Choice(["OPEN", "SHUT", "FULL"], case_sensitive=False),
+    help="Extract issue tickets of the mentioned status",
+    multiple=False,
+    default="OPEN",
 )
 @click.option(
-    "-c", "--shut", "qant", flag_value="shut", help="Extract only the closed issue tickets"
+    "-r",
+    "--ranges",
+    nargs=2,
+    type=int,
+    help="Extract issue tickets in the mentioned ranges",
+    default=None,
 )
-@click.option("-a", "--full", "qant", flag_value="full", help="Extract all the issue tickets")
 @click.option(
-    "-n",
+    "-p",
+    "--select",
+    type=str,
+    help="Extract issue tickets of the selected numbers",
+    default=None,
+)
+@click.option(
+    "-c",
     "--comments",
     help="Transfer all the associated comments",
     default=False,
@@ -103,8 +114,30 @@ def main(srce, dest, pkey, gkey, fusr, tusr):
     default=False,
     is_flag=True,
 )
-def main_transfer_tkts(qant, comments, labels):
-    keeptkts(qant, comments, labels)
+def main_transfer_tkts(status, select, ranges, comments, labels):
+
+    if select is not None and ranges is not None:
+        raise click.UsageError("The `select` and `ranges` options cannot be used together")
+
+    tktgroup = []
+
+    if select is not None:
+        try:
+            tktgroup = [int(indx.strip()) for indx in select.split(",")]
+        except Exception as expt:
+            raise click.BadParameter(
+                message="The provided parameters for the `select` option could not be parsed"
+            )
+
+    if ranges is not None:
+        try:
+            tktgroup = [indx for indx in range(min(ranges), max(ranges) + 1)]
+        except Exception as expt:
+            raise click.BadParameter(
+                message="The provided parameters for the `ranges` option could not be parsed"
+            )
+
+    keeptkts(status, tktgroup, comments, labels)
     showstat()
     showtkts()
 

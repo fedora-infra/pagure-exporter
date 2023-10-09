@@ -47,7 +47,7 @@ class MoveTkts:
             respcode, respresn = initresp.status_code, initresp.reason
             if respcode == 200:
                 initdict = initresp.json()
-                if initdict["pagination"]["next"] == None:
+                if initdict["pagination"]["next"] is None:
                     standard.tktcount = initdict["total_issues"]
                 else:
                     standard.pageqant = int(initdict["pagination"]["pages"])
@@ -137,7 +137,8 @@ class MoveTkts:
                 mm=datetime.utcfromtimestamp(standard.timedata).strftime("%M"),
             )
             """
-            Replace "@" in the `bodydata` with "&" to ensure that wrong people are not referenced in the destination namespace
+            Replace "@" in the `bodydata` with "&" to ensure that wrong people are not referenced in the
+            destination namespace
             Check https://github.com/gridhead/protop2g/issues/7 for more information about the problem
             """
             rqstdata = {"title": headdata, "description": bodydata.replace("@", "&")}
@@ -180,7 +181,8 @@ class MoveTkts:
                 mm=datetime.utcfromtimestamp(standard.cmtstime).strftime("%M"),
             )
             """
-            Replace "@" in the `bodydata` with "&" to ensure that wrong people are not referenced in the destination namespace
+            Replace "@" in the `bodydata` with "&" to ensure that wrong people are not referenced in the
+            destination namespace
             Check https://github.com/gridhead/protop2g/issues/7 for more information about the problem
             """
             rqstdata = {"body": bodydata.replace("@", "&")}

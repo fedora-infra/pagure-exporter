@@ -35,7 +35,7 @@ class SrceData:
         self.head = {"Authorization": "token %s" % self.code}
 
     def obtninfo(self):
-        rqstloca = "%s/%s" % (self.loca, self.repo)
+        rqstloca = "{}/{}".format(self.loca, self.repo)
         response = requests.get(rqstloca, headers=self.head)
         if response.status_code == 200:
             jsondict = response.json()
@@ -52,7 +52,7 @@ class SrceData:
                     "fullname": jsondict["user"]["fullname"],
                 },
             }
-            standard.srcehuto = "https://%s:%s@%s/%s.git" % (
+            standard.srcehuto = "https://{}:{}@{}/{}.git".format(
                 standard.paguuser,
                 standard.pagucode,
                 standard.frgesrce,
@@ -69,7 +69,7 @@ class DestData:
         self.head = {"Authorization": "Bearer %s" % self.code}
 
     def obtninfo(self):
-        rqstloca = "%s/%s" % (self.loca, self.repo)
+        rqstloca = "{}/{}".format(self.loca, self.repo)
         response = requests.get(rqstloca, headers=self.head)
         if response.status_code == 200:
             jsondict = response.json()
@@ -87,7 +87,7 @@ class DestData:
                 },
             }
             standard.desthuto = jsondict["http_url_to_repo"]
-            standard.desthuto = "https://%s:%s@%s/%s.git" % (
+            standard.desthuto = "https://{}:{}@{}/{}.git".format(
                 standard.gtlbuser,
                 standard.gtlbcode,
                 standard.frgedest,

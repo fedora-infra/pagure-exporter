@@ -111,6 +111,7 @@ class MoveTkts:
             strttime = time.time()
             standard.issuname = dictobjc["title"]
             standard.issuiden = dictobjc["id"]
+            standard.isclosed = True if dictobjc["status"] == "Closed" else False
             standard.authname = dictobjc["user"]["fullname"]
             standard.authlink = dictobjc["user"]["full_url"]
             standard.authorid = dictobjc["user"]["name"]
@@ -192,6 +193,25 @@ class MoveTkts:
             if respcode == 201:
                 respresn = f"{standard.destdict['repolink']}/-/issues/{standard.gtlbtkid}#note_{response.json()['id']}"
                 standard.cmtsqant += 1
+            stoptime = time.time()
+            timereqd = "%.2f" % (stoptime - strttime)
+            return respcode, respresn, timereqd
+        except Exception as expt:
+            return False, expt, "0"
+
+    def iterstat(self):
+        try:
+            strttime, respcode, respresn = time.time(), 0, ""
+            if standard.isclosed:
+                rqstdata = {"state_event": "close"}
+                response = requests.put(
+                    url=f"{self.gurl}/issues/{standard.gtlbtkid}",
+                    data=rqstdata,
+                    headers=self.ghed,
+                )
+                respcode, respresn = response.status_code, response.reason
+            else:
+                respcode, respresn = 0, "0"
             stoptime = time.time()
             timereqd = "%.2f" % (stoptime - strttime)
             return respcode, respresn, timereqd

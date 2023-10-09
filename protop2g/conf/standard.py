@@ -31,6 +31,8 @@ movetags = False
 
 tktgroup = []
 
+movestat = False
+
 tempdrct = "/var/tmp"
 dfremote = "origin"
 prfxsrce = "protop2g-tempsrce-"
@@ -116,6 +118,9 @@ issuname = "UNAVAILABLE"
 
 # Identity of the issue ticket made in the source namespace
 issuiden = "0"
+
+# Current status of the issue ticket made in the source namespace
+isclosed = None
 
 # Hyperlink of the issue ticket made in the source namespace
 issulink = "UNAVAILABLE"

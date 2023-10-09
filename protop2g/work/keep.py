@@ -51,7 +51,7 @@ def keepcmts(comments):
     standard.movecmts = comments
 
 
-def keeptkts(status, tktgroup, comments, labels):
+def keeptkts(status, tktgroup, comments, labels, commit):
     # Vote what kind of issue tickets are to be moved
     # Default Open
     if status == "SHUT":
@@ -72,3 +72,7 @@ def keeptkts(status, tktgroup, comments, labels):
     # Vote if labels associated with the issue tickets are to be moved
     # Default False
     standard.movetags = labels
+
+    # Vote if the state associated with the issue tickets are to be moved
+    # Default False
+    standard.movestat = commit

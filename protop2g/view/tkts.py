@@ -33,12 +33,9 @@ def showtkts():
     moveobjc = MoveTkts()
     section("Attempting source namespace issue ticket count...")
     warning(
-        f"Transferring {'all' if standard.movecmts else 'no'} comments from the source namespace to the destination namespace"
+        f"Extracting {'all ' if standard.tktstate == 'open' or standard.tktstate == 'closed' else ''}{standard.tktstate} issue tickets {'with' if standard.movetags else 'without'} labels, {'with' if standard.movestat else 'without'} states and {'with' if standard.movecmts else 'without'} comments off the given selection"
     )
     if not standard.tktgroup:
-        warning(
-            f"Extracting {'all ' if standard.tktstate == 'open' or standard.tktstate == 'closed' else ''}{standard.tktstate} issue tickets {'with' if standard.movetags else 'without'} labels from the source namespace to the destination namespace"
-        )
         qantrslt = moveobjc.getcount()
         if qantrslt[0] == 200:
             general(
@@ -60,6 +57,18 @@ def showtkts():
                         )
                         if issurslt[0] == 201:
                             general(f"Migrated to {issurslt[1]} in {issurslt[2]} second(s)")
+                            if standard.movestat:
+                                section("Asserting issue ticket status...")
+                                statrslt = moveobjc.iterstat()
+                                if statrslt[0] == 200:
+                                    general(f"Asserted CLOSE status of the ticket in {statrslt[2]} second(s)")
+                                elif statrslt[0] == 0:
+                                    general(f"Assertion unnecessary due to the OPEN status of the ticket")
+                                else:
+                                    failure("Issue ticket status assertion failed!")
+                                    general(
+                                        f"Failed due to code '{statrslt[0]}' and reason '{statrslt[1]}' in {statrslt[2]} second(s)"
+                                    )
                             if standard.movecmts:
                                 section("Reading comment information...")
                                 standard.issucmts = jndx["comments"]
@@ -102,9 +111,6 @@ def showtkts():
             )
             sys.exit(1)
     else:
-        warning(
-            f"Extracting {'only ' if standard.tktstate == 'open' or standard.tktstate == 'closed' else ''}{standard.tktstate} issue tickets {'with' if standard.movetags else 'without'} labels off the given selection"
-        )
         for indx in standard.tktgroup:
             tkidrslt = moveobjc.iteriden(indx)
             section(f"Probing issue ticket #{indx}...")
@@ -117,6 +123,18 @@ def showtkts():
                     )
                     if issurslt[0] == 201:
                         general(f"Migrated to {issurslt[1]} in {issurslt[2]} second(s)")
+                        if standard.movestat:
+                            section("Asserting issue ticket status...")
+                            statrslt = moveobjc.iterstat()
+                            if statrslt[0] == 200:
+                                general(f"Asserted CLOSE status of the ticket in {statrslt[2]} second(s)")
+                            elif statrslt[0] == 0:
+                                general(f"Assertion unnecessary due to the OPEN status of the ticket")
+                            else:
+                                failure("Issue ticket status assertion failed!")
+                                general(
+                                    f"Failed due to code '{statrslt[0]}' and reason '{statrslt[1]}' in {statrslt[2]} second(s)"
+                                )
                         if standard.movecmts:
                             section("Reading comment information...")
                             standard.issucmts = standard.issurslt["comments"]

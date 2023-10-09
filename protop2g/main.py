@@ -122,7 +122,6 @@ def main(srce, dest, pkey, gkey, fusr, tusr):
     is_flag=True,
 )
 def main_transfer_tkts(status, select, ranges, comments, labels, commit):
-
     if select is not None and ranges is not None:
         raise click.UsageError("The `select` and `ranges` options cannot be used together")
 
@@ -131,7 +130,7 @@ def main_transfer_tkts(status, select, ranges, comments, labels, commit):
     if select is not None:
         try:
             tktgroup = [int(indx.strip()) for indx in select.split(",")]
-        except Exception as expt:
+        except Exception:
             raise click.BadParameter(
                 message="The provided parameters for the `select` option could not be parsed"
             )
@@ -139,7 +138,7 @@ def main_transfer_tkts(status, select, ranges, comments, labels, commit):
     if ranges is not None:
         try:
             tktgroup = [indx for indx in range(min(ranges), max(ranges) + 1)]
-        except Exception as expt:
+        except Exception:
             raise click.BadParameter(
                 message="The provided parameters for the `ranges` option could not be parsed"
             )

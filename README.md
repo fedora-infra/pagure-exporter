@@ -269,7 +269,7 @@ A prototype project assets importer that moves repositories from Pagure to GitLa
                  repo \
                  --brcs brca,brcb,brcc,brcd
         ```
-       
+
         For a set of branches available in the source namespace named `brca`, `brcb`, `brcc` and `brcd` to be migrated to the destination namespace.
 
     2. If all the available branches are to be migrated
@@ -286,11 +286,11 @@ A prototype project assets importer that moves repositories from Pagure to GitLa
 ## Migrate issue tickets
 
 1. Ensure that the location where the project repository was cloned is the present working directory and that the previously populated virtual environment is enabled.
-    
+
     ```
     $ cd protop2g
     ```
-    
+
     ```
     $ source venv/bin/activate
     ```
@@ -328,7 +328,7 @@ A prototype project assets importer that moves repositories from Pagure to GitLa
       ```
 
    4. If the issue tickets from a range of issue identities need to be transferred.
-   
+
       ```
       (venv) $ protop2g \
                  --fusr srceuser --pkey srcecode --srce srcerepo \
@@ -356,7 +356,7 @@ A prototype project assets importer that moves repositories from Pagure to GitLa
    For example
 
       1. The following command will migrate all issue tickets, the identities of which fall between the range of `STRT` and `STOP` both included, with status `OPEN` along with the associated comments and labels.
-   
+
          ```
          (venv) $ protop2g \
                     --fusr srceuser --pkey srcecode --srce srcerepo \
@@ -369,7 +369,7 @@ A prototype project assets importer that moves repositories from Pagure to GitLa
          ```
 
       2. The following command will migrate all issue tickets with the identities `NUM1`, `NUM2`, `NUM3` ... with status `SHUT` along with the associated comments and labels.
-   
+
          ```
          (venv) $ protop2g \
                     --fusr srceuser --pkey srcecode --srce srcerepo \

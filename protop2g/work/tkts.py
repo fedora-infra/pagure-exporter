@@ -137,9 +137,10 @@ class MoveTkts:
                 mm=datetime.utcfromtimestamp(standard.timedata).strftime("%M"),
             )
             """
-            Replace "@" in the `bodydata` with "&" to ensure that wrong people are not referenced in the
-            destination namespace
-            Check https://github.com/gridhead/protop2g/issues/7 for more information about the problem
+            Replace "@" in the `bodydata` with "&" to ensure that wrong people are not referenced
+            in the destination namespace
+            Check https://github.com/gridhead/protop2g/issues/7 for more information about the
+            problem
             """
             rqstdata = {"title": headdata, "description": bodydata.replace("@", "&")}
             if standard.movetags:
@@ -181,9 +182,10 @@ class MoveTkts:
                 mm=datetime.utcfromtimestamp(standard.cmtstime).strftime("%M"),
             )
             """
-            Replace "@" in the `bodydata` with "&" to ensure that wrong people are not referenced in the
-            destination namespace
-            Check https://github.com/gridhead/protop2g/issues/7 for more information about the problem
+            Replace "@" in the `bodydata` with "&" to ensure that wrong people are not referenced
+            in the destination namespace
+            Check https://github.com/gridhead/protop2g/issues/7 for more information about the
+            problem
             """
             rqstdata = {"body": bodydata.replace("@", "&")}
             response = requests.post(
@@ -193,7 +195,7 @@ class MoveTkts:
             )
             respcode, respresn = response.status_code, response.reason
             if respcode == 201:
-                respresn = f"{standard.destdict['repolink']}/-/issues/{standard.gtlbtkid}#note_{response.json()['id']}"
+                respresn = f"{standard.destdict['repolink']}/-/issues/{standard.gtlbtkid}#note_{response.json()['id']}"  # noqa: E501
                 standard.cmtsqant += 1
             stoptime = time.time()
             timereqd = "%.2f" % (stoptime - strttime)

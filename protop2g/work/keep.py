@@ -36,3 +36,43 @@ def storeinf(srce, dest, pkey, gkey, fusr, tusr):
 
 def keepbrcs(brcs):
     standard.brtocopy = list(brcs)
+
+
+def keepqant(qant):
+    if qant == "shut":
+        standard.tktstate = "closed"
+    elif qant == "full":
+        standard.tktstate = "all"
+    else:
+        standard.tktstate = "open"
+
+
+def keepcmts(comments):
+    standard.movecmts = comments
+
+
+def keeptkts(status, tktgroup, comments, labels, commit):
+    # Vote what kind of issue tickets are to be moved
+    # Default Open
+    if status == "SHUT":
+        standard.tktstate = "closed"
+    elif status == "FULL":
+        standard.tktstate = "all"
+    else:
+        standard.tktstate = "open"
+
+    # Set a list of ticket identities to be moved
+    # Default Empty
+    standard.tktgroup = tktgroup
+
+    # Vote if comments associated with the issue tickets are to be moved
+    # Default False
+    standard.movecmts = comments
+
+    # Vote if labels associated with the issue tickets are to be moved
+    # Default False
+    standard.movetags = labels
+
+    # Vote if the state associated with the issue tickets are to be moved
+    # Default False
+    standard.movestat = commit

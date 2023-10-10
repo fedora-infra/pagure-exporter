@@ -327,7 +327,17 @@ A prototype project assets importer that moves repositories from Pagure to GitLa
                  --labels
       ```
 
-   4. If the issue tickets from a range of issue identities need to be transferred.
+   4. If the states associated with the issue tickets need to be transferred.
+
+      ```
+      (venv) $ protop2g \
+                 --fusr srceuser --pkey srcecode --srce srcerepo \
+                 --tusr destuser --gkey destcode --dest destrepo \
+                 tkts \
+                 --commit
+      ```
+
+   5. If the issue tickets from a range of issue identities need to be transferred.
 
       ```
       (venv) $ protop2g \
@@ -339,7 +349,7 @@ A prototype project assets importer that moves repositories from Pagure to GitLa
 
       Issue tickets with identities `STRT`, `STRT+1` ... `STOP-1`, `STOP` would be considered here.
 
-   5. If the issue tickets that need to be considered need to be cherry-picked.
+   6. If the issue tickets that need to be considered need to be cherry-picked.
 
       ```
       (venv) $ protop2g \
@@ -368,7 +378,7 @@ A prototype project assets importer that moves repositories from Pagure to GitLa
                     --ranges STRT STOP
          ```
 
-      2. The following command will migrate all issue tickets with the identities `NUM1`, `NUM2`, `NUM3` ... with status `SHUT` along with the associated comments and labels.
+      2. The following command will migrate all issue tickets with the identities `NUM1`, `NUM2`, `NUM3` ... with status `SHUT` along with the associated labels and states.
 
          ```
          (venv) $ protop2g \
@@ -376,7 +386,7 @@ A prototype project assets importer that moves repositories from Pagure to GitLa
                     --tusr destuser --gkey destcode --dest destrepo \
                     tkts \
                     --status shut \
-                    --comments \
                     --labels \
+                    --commit \
                     --select NUM1,NUM2,NUM3 ...
          ```

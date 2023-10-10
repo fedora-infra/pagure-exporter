@@ -22,7 +22,9 @@ of Red Hat, Inc.
 """
 
 
-from click import echo, style
+from click import style
+
+from protop2g.conf.standard import logger
 
 PASS = style("[ PASS ]", fg="green", bold=True)
 FAIL = style("[ FAIL ]", fg="red", bold=True)
@@ -32,20 +34,20 @@ STDS = "        "
 
 
 def success(message):
-    echo(PASS + " " + style(message, fg="green", bold=True))
+    logger.info(PASS + " " + style(message, fg="green", bold=True))
 
 
 def failure(message):
-    echo(FAIL + " " + style(message, fg="red", bold=True))
+    logger.error(FAIL + " " + style(message, fg="red", bold=True))
 
 
 def warning(message):
-    echo(WARN + " " + style(message, fg="yellow", bold=True))
+    logger.warn(WARN + " " + style(message, fg="yellow", bold=True))
 
 
 def section(message):
-    echo(BUSY + " " + style(message, fg="magenta", bold=True))
+    logger.info(BUSY + " " + style(message, fg="magenta", bold=True))
 
 
 def general(message):
-    echo(STDS + " " + message)
+    logger.info(STDS + " " + message)

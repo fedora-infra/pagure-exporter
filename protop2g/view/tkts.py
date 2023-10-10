@@ -32,7 +32,7 @@ def showtkts():
     moveobjc = MoveTkts()
     section("Attempting source namespace issue ticket count...")
     warning(
-        f"Extracting {'all ' if standard.tktstate == 'open' or standard.tktstate == 'closed' else ''}"
+        f"Extracting {'all ' if standard.tktstate == 'open' or standard.tktstate == 'closed' else ''}"  # noqa: E501
         f"{standard.tktstate} issue tickets {'with' if standard.movetags else 'without'} labels, "
         f"{'with' if standard.movestat else 'without'} states and "
         f"{'with' if standard.movecmts else 'without'} comments off the given selection"
@@ -46,7 +46,7 @@ def showtkts():
             )
             for indx in range(standard.pageqant):
                 section(
-                    f"Reading issue tickets information (Page {indx + 1} of {standard.pageqant})..."
+                    f"Reading issue tickets information (Page {indx + 1} of {standard.pageqant})..."  # noqa: E501
                 )
                 pagerslt = moveobjc.iterpage(indx + 1)
                 if pagerslt[0] == 200:
@@ -57,7 +57,7 @@ def showtkts():
                     for jndx in standard.pagerslt:
                         issurslt = moveobjc.itertkts(jndx)
                         section(
-                            f"Migrating issue ticket {'with' if standard.movetags else 'without'} "
+                            f"Migrating issue ticket {'with' if standard.movetags else 'without'} "  # noqa: E501
                             f"labels #{standard.issuiden} '{standard.issuname}' by "
                             f"'{standard.authname} (ID {standard.authorid})'..."
                         )
@@ -68,16 +68,16 @@ def showtkts():
                                 statrslt = moveobjc.iterstat()
                                 if statrslt[0] == 200:
                                     general(
-                                        f"Asserted CLOSE status of the ticket in {statrslt[2]} second(s)"
+                                        f"Asserted CLOSE status of the ticket in {statrslt[2]} second(s)"  # noqa: E501
                                     )
                                 elif statrslt[0] == 0:
                                     general(
-                                        "Assertion unnecessary due to the OPEN status of the ticket"
+                                        "Assertion unnecessary due to the OPEN status of the ticket"  # noqa: E501
                                     )
                                 else:
                                     failure("Issue ticket status assertion failed!")
                                     general(
-                                        f"Failed due to code '{statrslt[0]}' and reason '{statrslt[1]}' "
+                                        f"Failed due to code '{statrslt[0]}' and reason '{statrslt[1]}' "  # noqa: E501
                                         f"in {statrslt[2]} second(s)"
                                     )
                             if standard.movecmts:
@@ -94,12 +94,12 @@ def showtkts():
                                     )
                                     if cmtsrslt[0] == 201:
                                         general(
-                                            f"Transferred to {cmtsrslt[1]} in {cmtsrslt[2]} second(s)"
+                                            f"Transferred to {cmtsrslt[1]} in {cmtsrslt[2]} second(s)"  # noqa: E501
                                         )
                                     else:
                                         failure("Comment transfer failed!")
                                         general(
-                                            f"Failed due to code '{cmtsrslt[0]}' and reason '{cmtsrslt[1]}' "
+                                            f"Failed due to code '{cmtsrslt[0]}' and reason '{cmtsrslt[1]}' "  # noqa: E501
                                             f"in {cmtsrslt[2]} second(s)"
                                         )
                                         sys.exit(1)
@@ -113,7 +113,7 @@ def showtkts():
                 else:
                     failure("Issue ticket information reading failed!")
                     general(
-                        f"Failed due to code '{pagerslt[0]}' and reason '{pagerslt[1]}' in {pagerslt[2]} second(s)"
+                        f"Failed due to code '{pagerslt[0]}' and reason '{pagerslt[1]}' in {pagerslt[2]} second(s)"  # noqa: E501
                     )
             success("Namespace assets transferring queue processed!")
             general(f"{standard.issutnfs} issue ticket(s) transferred")
@@ -121,7 +121,7 @@ def showtkts():
         else:
             failure("Source namespace issue ticket count failed!")
             general(
-                f"Failed due to code '{qantrslt[0]}' and reason '{qantrslt[1]}' in {qantrslt[2]} second(s)"
+                f"Failed due to code '{qantrslt[0]}' and reason '{qantrslt[1]}' in {qantrslt[2]} second(s)"  # noqa: E501
             )
             sys.exit(1)
     else:
@@ -144,7 +144,7 @@ def showtkts():
                             statrslt = moveobjc.iterstat()
                             if statrslt[0] == 200:
                                 general(
-                                    f"Asserted CLOSE status of the ticket in {statrslt[2]} second(s)"
+                                    f"Asserted CLOSE status of the ticket in {statrslt[2]} second(s)"  # noqa: E501
                                 )
                             elif statrslt[0] == 0:
                                 general(
@@ -153,7 +153,7 @@ def showtkts():
                             else:
                                 failure("Issue ticket status assertion failed!")
                                 general(
-                                    f"Failed due to code '{statrslt[0]}' and reason '{statrslt[1]}' "
+                                    f"Failed due to code '{statrslt[0]}' and reason '{statrslt[1]}' "  # noqa: E501
                                     f"      in {statrslt[2]} second(s)"
                                 )
                         if standard.movecmts:
@@ -163,7 +163,7 @@ def showtkts():
                             for kndx in standard.issucmts:
                                 cmtsrslt = moveobjc.itercmts(kndx)
                                 section(
-                                    f"Transferring comment (Entity {standard.cmtsqant} of {len(standard.issucmts)})..."
+                                    f"Transferring comment (Entity {standard.cmtsqant} of {len(standard.issucmts)})..."  # noqa: E501
                                 )
                                 if cmtsrslt[0] == 201:
                                     general(
@@ -172,7 +172,7 @@ def showtkts():
                                 else:
                                     failure("Comment transfer failed!")
                                     general(
-                                        f"Failed due to code '{cmtsrslt[0]}' and reason '{cmtsrslt[1]}'"
+                                        f"Failed due to code '{cmtsrslt[0]}' and reason '{cmtsrslt[1]}'"  # noqa: E501
                                         f" in {cmtsrslt[2]} second(s)"
                                     )
                                     sys.exit(1)
@@ -180,16 +180,16 @@ def showtkts():
                     else:
                         failure("Issue ticket migration failed!")
                         general(
-                            f"Failed due to code '{issurslt[0]}' and reason '{issurslt[1]}' in {issurslt[2]} second(s)"
+                            f"Failed due to code '{issurslt[0]}' and reason '{issurslt[1]}' in {issurslt[2]} second(s)"  # noqa: E501
                         )
                 else:
                     general(
-                        "Skipping issue ticket as the issue ticket status does not match the provided status"
+                        "Skipping issue ticket as the issue ticket status does not match the provided status"  # noqa: E501
                     )
             else:
                 failure("Issue ticket probing failed!")
                 general(
-                    f"Failed due to code '{tkidrslt[0]}' and reason '{tkidrslt[1]}' in {tkidrslt[2]} second(s)"
+                    f"Failed due to code '{tkidrslt[0]}' and reason '{tkidrslt[1]}' in {tkidrslt[2]} second(s)"  # noqa: E501
                 )
         success("Namespace assets transferring queue processed!")
         general(f"{standard.issutnfs} issue ticket(s) transferred")

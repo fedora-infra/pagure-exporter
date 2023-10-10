@@ -270,6 +270,8 @@ A prototype project assets importer that moves repositories from Pagure to GitLa
                  --brcs brca,brcb,brcc,brcd
         ```
 
+        For a set of branches available in the source namespace named `brca`, `brcb`, `brcc` and `brcd` to be migrated to the destination namespace.
+
     2. If all the available branches are to be migrated
 
         ```
@@ -280,3 +282,101 @@ A prototype project assets importer that moves repositories from Pagure to GitLa
         ```
 
        This is the default behaviour of the subcommand so if no branch names are provided, all the branches from the source namespace are migrated
+
+## Migrate issue tickets
+
+1. Ensure that the location where the project repository was cloned is the present working directory and that the previously populated virtual environment is enabled.
+
+    ```
+    $ cd protop2g
+    ```
+
+    ```
+    $ source venv/bin/activate
+    ```
+
+2. Execute the following command to begin extracting the issue tickets from the source namespace on Pagure to the destination namespace.
+
+   1. If the issue tickets of a certain status need to be transferred.
+
+      ```
+      (venv) $ protop2g \
+                 --fusr srceuser --pkey srcecode --srce srcerepo \
+                 --tusr destuser --gkey destcode --dest destrepo \
+                 tkts \
+                 --status open
+      ```
+
+   2. If the comments associated with the issue tickets need to be transferred.
+
+      ```
+      (venv) $ protop2g \
+                 --fusr srceuser --pkey srcecode --srce srcerepo \
+                 --tusr destuser --gkey destcode --dest destrepo \
+                 tkts \
+                 --comments
+      ```
+
+   3. If the labels associated with the issue tickets need to be transferred.
+
+      ```
+      (venv) $ protop2g \
+                 --fusr srceuser --pkey srcecode --srce srcerepo \
+                 --tusr destuser --gkey destcode --dest destrepo \
+                 tkts \
+                 --labels
+      ```
+
+   4. If the issue tickets from a range of issue identities need to be transferred.
+
+      ```
+      (venv) $ protop2g \
+                 --fusr srceuser --pkey srcecode --srce srcerepo \
+                 --tusr destuser --gkey destcode --dest destrepo \
+                 tkts \
+                 --ranges STRT STOP
+      ```
+
+      Issue tickets with identities `STRT`, `STRT+1` ... `STOP-1`, `STOP` would be considered here.
+
+   5. If the issue tickets that need to be considered need to be cherry-picked.
+
+      ```
+      (venv) $ protop2g \
+                 --fusr srceuser --pkey srcecode --srce srcerepo \
+                 --tusr destuser --gkey destcode --dest destrepo \
+                 tkts \
+                 --select NUM1,NUM2,NUM3 ...
+      ```
+
+      Issue tickets with identities `NUM1`, `NUM2`, `NUM3` ... would be considered here.
+
+   While these options can be mixed and matched to be used together, the options `--ranges` and `--select` cannot be used at the same time as they perform identical functions.
+
+   For example
+
+      1. The following command will migrate all issue tickets, the identities of which fall between the range of `STRT` and `STOP` both included, with status `OPEN` along with the associated comments and labels.
+
+         ```
+         (venv) $ protop2g \
+                    --fusr srceuser --pkey srcecode --srce srcerepo \
+                    --tusr destuser --gkey destcode --dest destrepo \
+                    tkts \
+                    --status open \
+                    --comments \
+                    --labels \
+                    --ranges STRT STOP
+         ```
+
+      2. The following command will migrate all issue tickets with the identities `NUM1`, `NUM2`, `NUM3` ... with status `SHUT` along with the associated comments and labels.
+
+         ```
+         (venv) $ protop2g \
+                    --fusr srceuser --pkey srcecode --srce srcerepo \
+                    --tusr destuser --gkey destcode --dest destrepo \
+                    tkts \
+                    --status shut \
+                    --comments \
+                    --labels \
+                    --select NUM1,NUM2,NUM3 ...
+         ```

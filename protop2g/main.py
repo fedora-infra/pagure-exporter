@@ -27,7 +27,8 @@ import click
 from protop2g import __version__ as versobjc
 from protop2g.view.repo import showrepo
 from protop2g.view.stat import showstat
-from protop2g.work.keep import keepbrcs, storeinf
+from protop2g.view.tkts import showtkts
+from protop2g.work.keep import keepbrcs, keeptkts, storeinf
 
 
 @click.group(name="protop2g")
@@ -73,24 +74,85 @@ def main(srce, dest, pkey, gkey, fusr, tusr):
     storeinf(srce, dest, pkey, gkey, fusr, tusr)
 
 
-@main.command(name="tkts", help="Initiate transfer of issue tickets")
-@click.option(
-    "-o",
-    "--open",
-    "qant",
-    flag_value="open",
-    help="Extract only the open issue tickets",
-    default=True,
+@main.command(
+    name="tkts", help="Initiate transfer of issue tickets", context_settings={"show_default": True}
 )
 @click.option(
-    "-c", "--shut", "qant", flag_value="shut", help="Extract only the closed issue tickets"
+    "-s",
+    "--status",
+    type=click.Choice(["OPEN", "SHUT", "FULL"], case_sensitive=False),
+    help="Extract issue tickets of the mentioned status",
+    multiple=False,
+    default="OPEN",
 )
-@click.option("-a", "--full", "qant", flag_value="full", help="Extract all the issue tickets")
-def main_transfer_tkts(qant):
-    pass
+@click.option(
+    "-r",
+    "--ranges",
+    nargs=2,
+    type=int,
+    help="Extract issue tickets in the mentioned ranges",
+    default=None,
+)
+@click.option(
+    "-p",
+    "--select",
+    type=str,
+    help="Extract issue tickets of the selected numbers",
+    default=None,
+)
+@click.option(
+    "-c",
+    "--comments",
+    help="Transfer all the associated comments",
+    default=False,
+    is_flag=True,
+)
+@click.option(
+    "-l",
+    "--labels",
+    help="Migrate all the associated labels",
+    default=False,
+    is_flag=True,
+)
+@click.option(
+    "-a",
+    "--commit",
+    help="Assert issue ticket states as they were",
+    default=False,
+    is_flag=True,
+)
+def main_transfer_tkts(status, select, ranges, comments, labels, commit):
+    if select is not None and ranges is not None:
+        raise click.UsageError("The `select` and `ranges` options cannot be used together")
+
+    tktgroup = []
+
+    if select is not None:
+        try:
+            tktgroup = [int(indx.strip()) for indx in select.split(",")]
+        except Exception:
+            raise click.BadParameter(
+                message="The provided parameters for the `select` option could not be parsed"
+            )
+
+    if ranges is not None:
+        try:
+            tktgroup = [indx for indx in range(min(ranges), max(ranges) + 1)]
+        except Exception:
+            raise click.BadParameter(
+                message="The provided parameters for the `ranges` option could not be parsed"
+            )
+
+    keeptkts(status, tktgroup, comments, labels, commit)
+    showstat()
+    showtkts()
 
 
-@main.command(name="repo", help="Initialize transfer of repository assets")
+@main.command(
+    name="repo",
+    help="Initialize transfer of repository assets",
+    context_settings={"show_default": True},
+)
 @click.option("-b", "--brcs", "brcs", multiple=True, help="List of branches to extract")
 def main_transfer_repo(brcs):
     keepbrcs(brcs)

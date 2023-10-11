@@ -71,6 +71,9 @@ from protop2g.work.keep import keepbrcs, keeptkts, storeinf
     ),
 )
 def main(srce, dest, pkey, gkey, fusr, tusr):
+    """
+    Pagure Exporter
+    """
     storeinf(srce, dest, pkey, gkey, fusr, tusr)
 
 
@@ -89,7 +92,6 @@ def main(srce, dest, pkey, gkey, fusr, tusr):
     "-r",
     "--ranges",
     nargs=2,
-    type=int,
     help="Extract issue tickets in the mentioned ranges",
     default=None,
 )
@@ -137,7 +139,7 @@ def main_transfer_tkts(status, select, ranges, comments, labels, commit):
 
     if ranges is not None:
         try:
-            tktgroup = [indx for indx in range(min(ranges), max(ranges) + 1)]
+            tktgroup = [indx for indx in range(min(int(ranges)), max(int(ranges)) + 1)]
         except Exception:
             raise click.BadParameter(
                 message="The provided parameters for the `ranges` option could not be parsed"

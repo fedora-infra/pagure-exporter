@@ -111,9 +111,7 @@ class PushRepo:
                     tnfswarn(False, standard.tnfsqant)
                     for brdx in standard.sbrcavbl:
                         repoobjc.git.checkout("%s" % brdx)
-                        repoobjc.git.push(
-                            standard.nrmtname, "--set-upstream", brdx, "--force"
-                        )
+                        repoobjc.git.push(standard.nrmtname, "--set-upstream", brdx, "--force")
                         tnfsprog(
                             brdx,
                             standard.sbrcavbl.index(brdx) + 1,
@@ -127,9 +125,7 @@ class PushRepo:
                     for brdx in standard.brtocopy:
                         if brdx in standard.sbrcavbl:
                             repoobjc.git.checkout("%s" % brdx)
-                            repoobjc.git.push(
-                                standard.nrmtname, "--set-upstream", brdx, "--force"
-                            )
+                            repoobjc.git.push(standard.nrmtname, "--set-upstream", brdx, "--force")
                             tnfsprog(
                                 brdx,
                                 standard.brtocopy.index(brdx) + 1,

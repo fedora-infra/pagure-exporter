@@ -48,22 +48,15 @@ def showrepo():
                 sbrcrslt, dbrcrslt = pushobjc.cbrcsrce(), pushobjc.cbrcdest()
                 if sbrcrslt[0] and dbrcrslt[0]:
                     success("Branches data reading succeeded!")
-                    general(
-                        "Available in source namespace: %d branch(es)"
-                        % len(standard.sbrcavbl)
-                    )
+                    general("Available in source namespace: %d branch(es)" % len(standard.sbrcavbl))
                     for indx in standard.sbrcavbl:
                         general("  - (SRCE branch) %s" % str(indx))
                     general(
-                        "Available in destination namespace: %d branch(es)"
-                        % len(standard.dbrcavbl)
+                        "Available in destination namespace: %d branch(es)" % len(standard.dbrcavbl)
                     )
                     for indx in standard.dbrcavbl:
                         general("  - (DEST branch) %s" % str(indx))
-                    general(
-                        "Requested for transferring: %d branch(es)"
-                        % len(standard.brtocopy)
-                    )
+                    general("Requested for transferring: %d branch(es)" % len(standard.brtocopy))
                     for indx in standard.brtocopy:
                         general("  - (RQST branch) %s" % str(indx))
                     section("Initializing namespace assets transfer...")

@@ -139,9 +139,7 @@ def main(srce, dest, pkey, gkey, fusr, tusr):
 )
 def main_transfer_tkts(status, select, ranges, comments, labels, commit):
     if select is not None and ranges is not None:
-        raise click.UsageError(
-            "The `select` and `ranges` options cannot be used together"
-        )
+        raise click.UsageError("The `select` and `ranges` options cannot be used together")
 
     tktgroup = []
 

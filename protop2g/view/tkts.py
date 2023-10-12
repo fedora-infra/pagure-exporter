@@ -62,9 +62,7 @@ def showtkts():
                             f"'{standard.authname} (ID {standard.authorid})'..."
                         )
                         if issurslt[0] == 201:
-                            general(
-                                f"Migrated to {issurslt[1]} in {issurslt[2]} second(s)"
-                            )
+                            general(f"Migrated to {issurslt[1]} in {issurslt[2]} second(s)")
                             if standard.movestat:
                                 section("Asserting issue ticket status...")
                                 statrslt = moveobjc.iterstat()
@@ -161,9 +159,7 @@ def showtkts():
                         if standard.movecmts:
                             section("Reading comment information...")
                             standard.issucmts = standard.issurslt["comments"]
-                            general(
-                                f"Found {len(standard.issucmts)} entities in 0.00 second(s)"
-                            )
+                            general(f"Found {len(standard.issucmts)} entities in 0.00 second(s)")
                             for kndx in standard.issucmts:
                                 cmtsrslt = moveobjc.itercmts(kndx)
                                 section(

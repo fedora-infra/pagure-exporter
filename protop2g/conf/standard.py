@@ -37,7 +37,25 @@ tktgroup = []
 
 movestat = False
 
-tempdrct = "/var/tmp"
+# While the location for creating temporary directories is definitive, the temporary directories
+# are created with a random name constituting of a definitive prefix in runtime with only the user
+# that created the file having READ and WRITE access to them. Basically, while the location
+# `/var/tmp` is known from the beginning, the locations `/var/tmp/protop2g-tempsrce-$RANDOM` and
+# `/var/tmp/protop2g-tempdest-$RANDOM` are not and hence - that should not be a security concern.
+# For more information, please read
+# https://bandit.readthedocs.io/en/latest/plugins/b108_hardcoded_tmp_directory.html
+# https://security.openstack.org/guidelines/dg_using-temporary-files-securely.html
+tempdrct = "/var/tmp"  # noqa: S108
+
+# If a definitive timeout is not specified for every usage of `requests`, there is likeliness that
+# a failure in probing a URL might lead to the program trying so indefinitely - thus causing the
+# program to freeze. Remember, `requests` is a synchronous HTTP library and if you are looking for
+# some of that nice asynchronicity, you are much better off using the likes of `httpx`.
+# For more information, please read
+# https://bandit.readthedocs.io/en/latest/plugins/b113_request_without_timeout.html
+# https://datagy.io/python-requests-timeouts/
+rqsttime = 30
+
 dfremote = "origin"
 prfxsrce = "protop2g-tempsrce-"
 prfxdest = "protop2g-tempdest-"

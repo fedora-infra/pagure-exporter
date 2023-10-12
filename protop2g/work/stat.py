@@ -36,7 +36,7 @@ class SrceData:
 
     def obtninfo(self):
         rqstloca = "{}/{}".format(self.loca, self.repo)
-        response = requests.get(rqstloca, headers=self.head)
+        response = requests.get(rqstloca, headers=self.head, timeout=standard.rqsttime)
         if response.status_code == 200:
             jsondict = response.json()
             standard.srcedict = {
@@ -70,7 +70,7 @@ class DestData:
 
     def obtninfo(self):
         rqstloca = "{}/{}".format(self.loca, self.repo)
-        response = requests.get(rqstloca, headers=self.head)
+        response = requests.get(rqstloca, headers=self.head, timeout=standard.rqsttime)
         if response.status_code == 200:
             jsondict = response.json()
             standard.destdict = {

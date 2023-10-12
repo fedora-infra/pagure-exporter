@@ -43,7 +43,12 @@ class MoveTkts:
             initdata = {"per_page": standard.pagesize, "page": "1"}
             if standard.tktstate == "closed" or standard.tktstate == "all":
                 initdata["status"] = standard.tktstate
-            initresp = requests.get(url=f"{self.purl}/issues", params=initdata, headers=self.phed)
+            initresp = requests.get(
+                url=f"{self.purl}/issues",
+                params=initdata,
+                headers=self.phed,
+                timeout=standard.rqsttime,
+            )
             respcode, respresn = initresp.status_code, initresp.reason
             if respcode == 200:
                 initdict = initresp.json()
@@ -55,7 +60,10 @@ class MoveTkts:
                     if standard.tktstate == "closed" or standard.tktstate == "all":
                         lastdata["status"] = standard.tktstate
                     lastresp = requests.get(
-                        url=f"{self.purl}/issues", params=lastdata, headers=self.phed
+                        url=f"{self.purl}/issues",
+                        params=lastdata,
+                        headers=self.phed,
+                        timeout=standard.rqsttime,
                     )
                     respcode, respresn = lastresp.status_code, lastresp.reason
                     if lastresp.status_code == 200:
@@ -74,7 +82,12 @@ class MoveTkts:
             rqstdata = {"per_page": standard.pagesize, "page": f"{indx}"}
             if standard.tktstate == "closed" or standard.tktstate == "all":
                 rqstdata["status"] = standard.tktstate
-            response = requests.get(url=f"{self.purl}/issues", params=rqstdata, headers=self.phed)
+            response = requests.get(
+                url=f"{self.purl}/issues",
+                params=rqstdata,
+                headers=self.phed,
+                timeout=standard.rqsttime,
+            )
             respcode, respresn = response.status_code, response.reason
             if respcode == 200:
                 standard.pagerslt = response.json()["issues"]
@@ -87,7 +100,9 @@ class MoveTkts:
     def iteriden(self, tkid):
         try:
             strttime = time.time()
-            response = requests.get(url=f"{self.purl}/issue/{tkid}", headers=self.phed)
+            response = requests.get(
+                url=f"{self.purl}/issue/{tkid}", headers=self.phed, timeout=standard.rqsttime
+            )
             respcode, issuskip = response.status_code, True
             if respcode == 200:
                 standard.issurslt = response.json()
@@ -120,7 +135,7 @@ class MoveTkts:
             standard.issubody = dictobjc["content"]
             standard.timedata = int(dictobjc["date_created"])
             headdata = standard.headtemp_ticket.format(
-                issuiden=standard.issuiden, issuname=standard.issuname
+                issuiden=standard.issuiden, issuname=standard.issuname, timeout=standard.rqsttime
             )
             bodydata = standard.bodytemp_ticket.format(
                 issubody=standard.issubody,
@@ -145,7 +160,12 @@ class MoveTkts:
             rqstdata = {"title": headdata, "description": bodydata.replace("@", "&")}
             if standard.movetags:
                 rqstdata["labels"] = ",".join(standard.issutags)
-            response = requests.post(url=f"{self.gurl}/issues", data=rqstdata, headers=self.ghed)
+            response = requests.post(
+                url=f"{self.gurl}/issues",
+                data=rqstdata,
+                headers=self.ghed,
+                timeout=standard.rqsttime,
+            )
             respcode, respresn = response.status_code, response.reason
             if respcode == 201:
                 respresn = response.json()["web_url"]
@@ -192,6 +212,7 @@ class MoveTkts:
                 url=f"{self.gurl}/issues/{standard.gtlbtkid}/notes",
                 data=rqstdata,
                 headers=self.ghed,
+                timeout=standard.rqsttime,
             )
             respcode, respresn = response.status_code, response.reason
             if respcode == 201:
@@ -212,6 +233,7 @@ class MoveTkts:
                     url=f"{self.gurl}/issues/{standard.gtlbtkid}",
                     data=rqstdata,
                     headers=self.ghed,
+                    timeout=standard.rqsttime,
                 )
                 respcode, respresn = response.status_code, response.reason
             else:

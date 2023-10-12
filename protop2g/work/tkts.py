@@ -72,9 +72,7 @@ class MoveTkts:
                     if lastresp.status_code == 200:
                         lastdict = lastresp.json()
                         lastqant = int(lastdict["total_issues"])
-                        standard.tktcount = (
-                            standard.pageqant - 1
-                        ) * standard.pagesize + lastqant
+                        standard.tktcount = (standard.pageqant - 1) * standard.pagesize + lastqant
             stoptime = time.time()
             timereqd = "%.2f" % (stoptime - strttime)
             return respcode, respresn, timereqd
@@ -116,9 +114,7 @@ class MoveTkts:
                 # If the preferred ticket status is "FULL", all statuses must be addressed
                 if (
                     standard.issurslt["status"].lower() == standard.tktstate == "closed"
-                    or standard.issurslt["status"].lower()
-                    == standard.tktstate
-                    == "open"
+                    or standard.issurslt["status"].lower() == standard.tktstate == "open"
                     or standard.tktstate == "all"
                 ):
                     issuskip = False

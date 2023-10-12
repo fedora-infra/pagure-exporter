@@ -45,13 +45,9 @@ def showstat():
         )
         general("Location: %s" % str(standard.srcedict["repolink"]))
         general("Address: %s" % str(standard.srcehuto))
+        general("Created on: %s" % strftime("%c", localtime(int(standard.srcedict["makedate"]))))
         general(
-            "Created on: %s"
-            % strftime("%c", localtime(int(standard.srcedict["makedate"])))
-        )
-        general(
-            "Last modified on: %s"
-            % strftime("%c", localtime(int(standard.srcedict["lastmode"])))
+            "Last modified on: %s" % strftime("%c", localtime(int(standard.srcedict["lastmode"])))
         )
         general("Tags: %s" % str(standard.srcedict["tagslist"]))
         destrslt = DestData().obtninfo()

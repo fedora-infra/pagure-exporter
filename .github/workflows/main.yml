@@ -20,10 +20,7 @@ jobs:
 
       - name: Check the quality of the code
         run: |
-             tox -e black
-             tox -e isort
-             tox -e lint
-             tox -e bandit
+             tox -e cleaning
 
   ci-tests:
     strategy:

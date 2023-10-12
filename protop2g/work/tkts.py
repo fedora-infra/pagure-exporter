@@ -56,7 +56,10 @@ class MoveTkts:
                     standard.tktcount = initdict["total_issues"]
                 else:
                     standard.pageqant = int(initdict["pagination"]["pages"])
-                    lastdata = {"per_page": standard.pagesize, "page": standard.pageqant}
+                    lastdata = {
+                        "per_page": standard.pagesize,
+                        "page": standard.pageqant,
+                    }
                     if standard.tktstate == "closed" or standard.tktstate == "all":
                         lastdata["status"] = standard.tktstate
                     lastresp = requests.get(
@@ -69,7 +72,9 @@ class MoveTkts:
                     if lastresp.status_code == 200:
                         lastdict = lastresp.json()
                         lastqant = int(lastdict["total_issues"])
-                        standard.tktcount = (standard.pageqant - 1) * standard.pagesize + lastqant
+                        standard.tktcount = (
+                            standard.pageqant - 1
+                        ) * standard.pagesize + lastqant
             stoptime = time.time()
             timereqd = "%.2f" % (stoptime - strttime)
             return respcode, respresn, timereqd
@@ -101,7 +106,9 @@ class MoveTkts:
         try:
             strttime = time.time()
             response = requests.get(
-                url=f"{self.purl}/issue/{tkid}", headers=self.phed, timeout=standard.rqsttime
+                url=f"{self.purl}/issue/{tkid}",
+                headers=self.phed,
+                timeout=standard.rqsttime,
             )
             respcode, issuskip = response.status_code, True
             if respcode == 200:
@@ -109,7 +116,9 @@ class MoveTkts:
                 # If the preferred ticket status is "FULL", all statuses must be addressed
                 if (
                     standard.issurslt["status"].lower() == standard.tktstate == "closed"
-                    or standard.issurslt["status"].lower() == standard.tktstate == "open"
+                    or standard.issurslt["status"].lower()
+                    == standard.tktstate
+                    == "open"
                     or standard.tktstate == "all"
                 ):
                     issuskip = False
@@ -135,7 +144,9 @@ class MoveTkts:
             standard.issubody = dictobjc["content"]
             standard.timedata = int(dictobjc["date_created"])
             headdata = standard.headtemp_ticket.format(
-                issuiden=standard.issuiden, issuname=standard.issuname, timeout=standard.rqsttime
+                issuiden=standard.issuiden,
+                issuname=standard.issuname,
+                timeout=standard.rqsttime,
             )
             bodydata = standard.bodytemp_ticket.format(
                 issubody=standard.issubody,

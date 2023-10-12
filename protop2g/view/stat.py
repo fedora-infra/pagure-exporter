@@ -38,17 +38,20 @@ def showstat():
         general("Name: %s" % str(standard.srcedict["reponame"]))
         general("Identifier: %s" % str(standard.srcedict["identity"]))
         general(
-            "Maintainer: %s (ID %s)"
-            % (
+            "Maintainer: {} (ID {})".format(
                 str(standard.srcedict["maintain"]["fullname"]),
                 str(standard.srcedict["maintain"]["username"]),
             )
         )
         general("Location: %s" % str(standard.srcedict["repolink"]))
         general("Address: %s" % str(standard.srcehuto))
-        general("Created on: %s" % strftime("%c", localtime(int(standard.srcedict["makedate"]))))
         general(
-            "Last modified on: %s" % strftime("%c", localtime(int(standard.srcedict["lastmode"])))
+            "Created on: %s"
+            % strftime("%c", localtime(int(standard.srcedict["makedate"])))
+        )
+        general(
+            "Last modified on: %s"
+            % strftime("%c", localtime(int(standard.srcedict["lastmode"])))
         )
         general("Tags: %s" % str(standard.srcedict["tagslist"]))
         destrslt = DestData().obtninfo()
@@ -58,8 +61,7 @@ def showstat():
             general("Name: %s" % str(standard.destdict["reponame"]))
             general("Identifier: %s" % str(standard.destdict["identity"]))
             general(
-                "Maintainer: %s (ID %s)"
-                % (
+                "Maintainer: {} (ID {})".format(
                     str(standard.destdict["maintain"]["fullname"]),
                     str(standard.destdict["maintain"]["username"]),
                 )

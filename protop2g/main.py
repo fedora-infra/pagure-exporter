@@ -33,13 +33,25 @@ from protop2g.work.keep import keepbrcs, keeptkts, storeinf
 
 @click.group(name="protop2g")
 @click.option(
-    "-s", "--srce", "srce", required=True, help="Source namespace for importing assets from"
+    "-s",
+    "--srce",
+    "srce",
+    required=True,
+    help="Source namespace for importing assets from",
 )
 @click.option(
-    "-d", "--dest", "dest", required=True, help="Destination namespace for exporting assets to"
+    "-d",
+    "--dest",
+    "dest",
+    required=True,
+    help="Destination namespace for exporting assets to",
 )
 @click.option(
-    "-p", "--pkey", "pkey", required=True, help="Pagure API key for accessing the source namespace"
+    "-p",
+    "--pkey",
+    "pkey",
+    required=True,
+    help="Pagure API key for accessing the source namespace",
 )
 @click.option(
     "-g",
@@ -78,7 +90,9 @@ def main(srce, dest, pkey, gkey, fusr, tusr):
 
 
 @main.command(
-    name="tkts", help="Initiate transfer of issue tickets", context_settings={"show_default": True}
+    name="tkts",
+    help="Initiate transfer of issue tickets",
+    context_settings={"show_default": True},
 )
 @click.option(
     "-s",
@@ -125,7 +139,9 @@ def main(srce, dest, pkey, gkey, fusr, tusr):
 )
 def main_transfer_tkts(status, select, ranges, comments, labels, commit):
     if select is not None and ranges is not None:
-        raise click.UsageError("The `select` and `ranges` options cannot be used together")
+        raise click.UsageError(
+            "The `select` and `ranges` options cannot be used together"
+        )
 
     tktgroup = []
 

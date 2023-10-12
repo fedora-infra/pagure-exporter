@@ -35,7 +35,7 @@ class SrceData:
         self.head = {"Authorization": "token %s" % self.code}
 
     def obtninfo(self):
-        rqstloca = "{}/{}".format(self.loca, self.repo)
+        rqstloca = f"{self.loca}/{self.repo}"
         response = requests.get(rqstloca, headers=self.head, timeout=standard.rqsttime)
         if response.status_code == 200:
             jsondict = response.json()
@@ -69,7 +69,7 @@ class DestData:
         self.head = {"Authorization": "Bearer %s" % self.code}
 
     def obtninfo(self):
-        rqstloca = "{}/{}".format(self.loca, self.repo)
+        rqstloca = f"{self.loca}/{self.repo}"
         response = requests.get(rqstloca, headers=self.head, timeout=standard.rqsttime)
         if response.status_code == 200:
             jsondict = response.json()

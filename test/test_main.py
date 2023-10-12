@@ -116,6 +116,6 @@ from protop2g.main import main
 def test_main_help(cmdl, code, text):
     runner = CliRunner()
     result = runner.invoke(main, cmdl)
-    assert result.exit_code == code
+    assert result.exit_code == code  # noqa: S101
     for indx in text:
-        assert indx in result.output
+        assert indx in result.output  # noqa: S101

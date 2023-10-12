@@ -23,6 +23,7 @@ jobs:
              tox -e black
              tox -e isort
              tox -e lint
+             tox -e bandit
 
   ci-tests:
     strategy:
@@ -46,4 +47,3 @@ jobs:
       - name: Execute tox
         run: |
              su testrunner -c "tox -e ${{ matrix.tox-env }}"
-             su testrunner -c "tox -e bandit"

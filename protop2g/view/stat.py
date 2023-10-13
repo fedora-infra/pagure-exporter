@@ -38,8 +38,7 @@ def showstat():
         general("Name: %s" % str(standard.srcedict["reponame"]))
         general("Identifier: %s" % str(standard.srcedict["identity"]))
         general(
-            "Maintainer: %s (ID %s)"
-            % (
+            "Maintainer: {} (ID {})".format(
                 str(standard.srcedict["maintain"]["fullname"]),
                 str(standard.srcedict["maintain"]["username"]),
             )
@@ -58,8 +57,7 @@ def showstat():
             general("Name: %s" % str(standard.destdict["reponame"]))
             general("Identifier: %s" % str(standard.destdict["identity"]))
             general(
-                "Maintainer: %s (ID %s)"
-                % (
+                "Maintainer: {} (ID {})".format(
                     str(standard.destdict["maintain"]["fullname"]),
                     str(standard.destdict["maintain"]["username"]),
                 )

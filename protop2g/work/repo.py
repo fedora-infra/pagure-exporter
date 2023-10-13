@@ -113,7 +113,10 @@ class PushRepo:
                         repoobjc.git.checkout("%s" % brdx)
                         repoobjc.git.push(standard.nrmtname, "--set-upstream", brdx, "--force")
                         tnfsprog(
-                            brdx, standard.sbrcavbl.index(brdx) + 1, len(standard.sbrcavbl), True
+                            brdx,
+                            standard.sbrcavbl.index(brdx) + 1,
+                            len(standard.sbrcavbl),
+                            True,
                         )
                         standard.tnfsindx += 1
                 else:

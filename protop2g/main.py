@@ -153,7 +153,8 @@ def main_transfer_tkts(status, select, ranges, comments, labels, commit):
 
     if ranges is not None:
         try:
-            tktgroup = [indx for indx in range(min(int(ranges)), max(int(ranges)) + 1)]
+            ranges = [int(indx) for indx in ranges]
+            tktgroup = [indx for indx in range(min(ranges), max(ranges) + 1)]
         except Exception as expt:
             raise click.BadParameter(
                 message="The provided parameters for the `ranges` option could not be parsed"

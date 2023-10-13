@@ -182,8 +182,8 @@ _This issue ticket was originally created [here]({issulink}) on a Pagure reposit
 [**{reponame}**]({repolink}) by [**{authname}**]({authlink}) on
 [**{dateinfo}** UTC](https://savvytime.com/converter/utc/{mo}-{dd}-{yy}/{hh}-{mm})._
 
-_This issue ticket was automatically created by the [**Pagure2GitLab Importer Service**]
-(https://github.com/gridhead/protop2g)._
+_This issue ticket was automatically created by the
+[**Pagure2GitLab Importer Service**](https://github.com/gridhead/protop2g)._
 """
 
 # List of comment entities made under a ticket in the source namespace

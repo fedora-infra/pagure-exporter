@@ -31,6 +31,7 @@ from protop2g.work.repo import PushRepo
 
 def showrepo():
     try:
+        section("Starting migration...")
         pushobjc = PushRepo()
         section("Attempting source namespace assets clone...")
         sclorslt = pushobjc.downsrce()
@@ -94,6 +95,6 @@ def showrepo():
             general("Exception occurred: %s" % str(sclorslt[1]))
             sys.exit(1)
     except Exception as expt:
-        failure("Source namespace assets clone failed!")
+        failure("Migration failed!")
         general("Exception occurred: %s" % str(expt))
         sys.exit(1)

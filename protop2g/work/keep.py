@@ -38,15 +38,6 @@ def keepbrcs(brcs):
     standard.brtocopy = list(brcs)
 
 
-def keepqant(qant):
-    if qant == "shut":
-        standard.tktstate = "closed"
-    elif qant == "full":
-        standard.tktstate = "all"
-    else:
-        standard.tktstate = "open"
-
-
 def keeptkts(status, tktgroup, comments, labels, commit):
     # Vote what kind of issue tickets are to be moved
     # Default Open

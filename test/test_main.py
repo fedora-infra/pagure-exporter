@@ -110,6 +110,7 @@ from protop2g.main import main
                 "Try 'protop2g --help' for help.",
                 "Error: Missing command.",
             ],
+            id="Providing empty input for the commands",
         ),
     ],
 )

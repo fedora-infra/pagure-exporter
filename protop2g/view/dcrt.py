@@ -42,7 +42,7 @@ def failure(message):
 
 
 def warning(message):
-    logger.warn(WARN + " " + style(message, fg="yellow", bold=True))
+    logger.warning(WARN + " " + style(message, fg="yellow", bold=True))
 
 
 def section(message):

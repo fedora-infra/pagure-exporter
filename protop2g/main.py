@@ -97,14 +97,15 @@ def main(srce, dest, pkey, gkey, fusr, tusr):
 @click.option(
     "-s",
     "--status",
+    "status",
     type=click.Choice(["OPEN", "SHUT", "FULL"], case_sensitive=False),
     help="Extract issue tickets of the mentioned status",
-    multiple=False,
     default="OPEN",
 )
 @click.option(
     "-r",
     "--ranges",
+    "ranges",
     nargs=2,
     help="Extract issue tickets in the mentioned ranges",
     default=None,
@@ -112,6 +113,7 @@ def main(srce, dest, pkey, gkey, fusr, tusr):
 @click.option(
     "-p",
     "--select",
+    "select",
     type=str,
     help="Extract issue tickets of the selected numbers",
     default=None,
@@ -119,6 +121,7 @@ def main(srce, dest, pkey, gkey, fusr, tusr):
 @click.option(
     "-c",
     "--comments",
+    "comments",
     help="Transfer all the associated comments",
     default=False,
     is_flag=True,
@@ -126,6 +129,7 @@ def main(srce, dest, pkey, gkey, fusr, tusr):
 @click.option(
     "-l",
     "--labels",
+    "labels",
     help="Migrate all the associated labels",
     default=False,
     is_flag=True,
@@ -133,6 +137,7 @@ def main(srce, dest, pkey, gkey, fusr, tusr):
 @click.option(
     "-a",
     "--commit",
+    "commit",
     help="Assert issue ticket states as they were",
     default=False,
     is_flag=True,
@@ -170,8 +175,13 @@ def main_transfer_tkts(status, select, ranges, comments, labels, commit):
     help="Initialize transfer of repository assets",
     context_settings={"show_default": True},
 )
-@click.option("-b", "--brcs", "brcs", multiple=True, help="List of branches to extract")
+@click.option("-b", "--brcs", "brcs", type=str, default=None, help="List of branches to extract")
 def main_transfer_repo(brcs):
-    keepbrcs(brcs)
+    brcslist = []
+
+    if brcs is not None:
+        brcslist = [indx.strip() for indx in brcs.split(",")]
+
+    keepbrcs(brcslist)
     showstat()
     showrepo()

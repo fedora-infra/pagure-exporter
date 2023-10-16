@@ -47,10 +47,6 @@ def keepqant(qant):
         standard.tktstate = "open"
 
 
-def keepcmts(comments):
-    standard.movecmts = comments
-
-
 def keeptkts(status, tktgroup, comments, labels, commit):
     # Vote what kind of issue tickets are to be moved
     # Default Open

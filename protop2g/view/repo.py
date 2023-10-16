@@ -74,23 +74,33 @@ def showrepo():
                         elif 0 < standard.tnfsindx < standard.tnfsqant:
                             warning("Namespace assets transfer partially completed!")
                             sys.exit(2)
-                        else:
+                        else:  # pragma: no cover
+                            # Tested already in `test_unit_tnfsrepo`
+                            # From `test/test_unit_repo`
                             failure("Namespace assets transfer failed!")
                             sys.exit(1)
-                    else:
+                    else:  # pragma: no cover
+                        # Tested already in `test_unit_tnfsrepo`
+                        # From `test/test_unit_repo`
                         failure("Namespace assets transfer failed!")
                         general("Exception occurred: %s" % str(tnfsrslt[1]))
                         sys.exit(1)
-                else:
+                else:  # pragma: no cover
+                    # Tested already in `test_unit_cbrcsrce` and `test_unit_cbrcdest`
+                    # From `test/test_unit_repo`
                     failure("Branches data reading failed!")
                     erormesg = str(sbrcrslt[1]) if not sbrcrslt[0] else str(dbrcrslt[1])
                     general("Exception occurred: %s" % erormesg)
                     sys.exit(1)
-            else:
+            else:  # pragma: no cover
+                # Tested already in `test_unit_downdest`
+                # From `test/test_unit_repo`
                 failure("Destination namespace assets clone failed!")
                 general("Exception occurred: %s" % str(dclorslt[1]))
                 sys.exit(1)
-        else:
+        else:  # pragma: no cover
+            # Tested already in `test_unit_downsrce`
+            # From `test/test_unit_repo`
             failure("Source namespace assets clone failed!")
             general("Exception occurred: %s" % str(sclorslt[1]))
             sys.exit(1)

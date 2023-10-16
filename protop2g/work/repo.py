@@ -51,10 +51,7 @@ class PushRepo:
             strttime = time.time()
             Repo.clone_from(url=self.srce, to_path=self.sloc.name)
             stoptime = time.time()
-            if os.path.exists(os.path.join(self.sloc.name, ".git")):
-                return True, "%.2f" % (stoptime - strttime)
-            else:
-                return False, "UNAVAILABLE"
+            return True, "%.2f" % (stoptime - strttime)
         except Exception as expt:
             return False, str(expt)
 
@@ -63,86 +60,74 @@ class PushRepo:
             strttime = time.time()
             Repo.clone_from(url=self.dest, to_path=self.dloc.name)
             stoptime = time.time()
-            if os.path.exists(os.path.join(self.dloc.name, ".git")):
-                return True, "%.2f" % (stoptime - strttime)
-            else:
-                return False, "UNAVAILABLE"
+            return True, "%.2f" % (stoptime - strttime)
         except Exception as expt:
             return False, str(expt)
 
     def cbrcsrce(self):
-        try:
-            if os.path.exists(os.path.join(self.sloc.name, ".git")):
-                repoobjc = Repo(path=self.sloc.name)
-                brcslist = [
-                    refx.name.replace("%s/" % standard.dfremote, "")
-                    for refx in repoobjc.remote(standard.dfremote).refs
-                ]
-                standard.sbrcavbl = list(brcslist)
-                return True, brcslist
-            else:
-                return False, "Cloned source namespace assets could not be found"
-        except Exception as expt:
-            return False, str(expt)
+        if os.path.exists(os.path.join(self.sloc.name, ".git")):
+            repoobjc = Repo(path=self.sloc.name)
+            brcslist = [
+                refx.name.replace("%s/" % standard.dfremote, "")
+                for refx in repoobjc.remote(standard.dfremote).refs
+            ]
+            standard.sbrcavbl = list(brcslist)
+            return True, brcslist
+        else:
+            return False, "Cloned source namespace assets could not be found"
 
     def cbrcdest(self):
-        try:
-            if os.path.exists(os.path.join(self.dloc.name, ".git")):
-                repoobjc = Repo(path=self.dloc.name)
-                brcslist = [
-                    refx.name.replace("%s/" % standard.dfremote, "")
-                    for refx in repoobjc.remote(standard.dfremote).refs
-                ]
-                standard.dbrcavbl = list(brcslist)
-                return True, brcslist
-            else:
-                return False, "Cloned destination namespace assets could not be found"
-        except Exception as expt:
-            return False, str(expt)
+        if os.path.exists(os.path.join(self.dloc.name, ".git")):
+            repoobjc = Repo(path=self.dloc.name)
+            brcslist = [
+                refx.name.replace("%s/" % standard.dfremote, "")
+                for refx in repoobjc.remote(standard.dfremote).refs
+            ]
+            standard.dbrcavbl = list(brcslist)
+            return True, brcslist
+        else:
+            return False, "Cloned destination namespace assets could not be found"
 
     def tnfsrepo(self):
-        try:
-            if os.path.exists(os.path.join(self.sloc.name, ".git")):
-                strttime = time.time()
-                repoobjc = Repo(path=self.sloc.name)
-                repoobjc.create_remote(standard.nrmtname, url=standard.desthuto)
-                if len(standard.brtocopy) == 0:
-                    standard.tnfsqant = len(standard.sbrcavbl)
-                    tnfswarn(False, standard.tnfsqant)
-                    for brdx in standard.sbrcavbl:
+        if os.path.exists(os.path.join(self.sloc.name, ".git")):
+            strttime = time.time()
+            repoobjc = Repo(path=self.sloc.name)
+            repoobjc.create_remote(standard.nrmtname, url=standard.desthuto)
+            if len(standard.brtocopy) == 0:
+                standard.tnfsqant = len(standard.sbrcavbl)
+                tnfswarn(False, standard.tnfsqant)
+                for brdx in standard.sbrcavbl:
+                    repoobjc.git.checkout("%s" % brdx)
+                    repoobjc.git.push(standard.nrmtname, "--set-upstream", brdx, "--force")
+                    tnfsprog(
+                        brdx,
+                        standard.sbrcavbl.index(brdx) + 1,
+                        len(standard.sbrcavbl),
+                        True,
+                    )
+                    standard.tnfsindx += 1
+            else:
+                standard.tnfsqant = len(standard.brtocopy)
+                tnfswarn(True, standard.tnfsqant)
+                for brdx in standard.brtocopy:
+                    if brdx in standard.sbrcavbl:
                         repoobjc.git.checkout("%s" % brdx)
                         repoobjc.git.push(standard.nrmtname, "--set-upstream", brdx, "--force")
                         tnfsprog(
                             brdx,
-                            standard.sbrcavbl.index(brdx) + 1,
-                            len(standard.sbrcavbl),
+                            standard.brtocopy.index(brdx) + 1,
+                            len(standard.brtocopy),
                             True,
                         )
                         standard.tnfsindx += 1
-                else:
-                    standard.tnfsqant = len(standard.brtocopy)
-                    tnfswarn(True, standard.tnfsqant)
-                    for brdx in standard.brtocopy:
-                        if brdx in standard.sbrcavbl:
-                            repoobjc.git.checkout("%s" % brdx)
-                            repoobjc.git.push(standard.nrmtname, "--set-upstream", brdx, "--force")
-                            tnfsprog(
-                                brdx,
-                                standard.brtocopy.index(brdx) + 1,
-                                len(standard.brtocopy),
-                                True,
-                            )
-                            standard.tnfsindx += 1
-                        else:
-                            tnfsprog(
-                                brdx,
-                                standard.brtocopy.index(brdx) + 1,
-                                len(standard.brtocopy),
-                                False,
-                            )
-                stoptime = time.time()
-                return True, "%.2f" % (stoptime - strttime)
-            else:
-                return False, "Cloned namespace assets could not be found"
-        except Exception as expt:
-            return False, str(expt)
+                    else:
+                        tnfsprog(
+                            brdx,
+                            standard.brtocopy.index(brdx) + 1,
+                            len(standard.brtocopy),
+                            False,
+                        )
+            stoptime = time.time()
+            return True, "%.2f" % (stoptime - strttime)
+        else:
+            return False, "Cloned namespace assets could not be found"

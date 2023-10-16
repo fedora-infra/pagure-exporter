@@ -44,3 +44,10 @@ jobs:
       - name: Execute tox
         run: |
              su testrunner -c "tox -e ${{ matrix.tox-env }}"
+        env:
+          TEST_SRCE: "${{ secrets.TEST_SRCE }}"
+          TEST_DEST: "${{ secrets.TEST_DEST }}"
+          TEST_PKEY: "${{ secrets.TEST_PKEY }}"
+          TEST_GKEY: "${{ secrets.TEST_GKEY }}"
+          TEST_FUSR: "${{ secrets.TEST_FUSR }}"
+          TEST_TUSR: "${{ secrets.TEST_TUSR }}"

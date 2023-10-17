@@ -1,5 +1,5 @@
 """
-protop2g
+Pagure Exporter
 Copyright (C) 2022-2023 Akashdeep Dhar
 
 This program is free software: you can redistribute it and/or modify
@@ -24,9 +24,9 @@ of Red Hat, Inc.
 
 import sys
 
-from protop2g.conf import standard
-from protop2g.view.dcrt import failure, general, section, success, warning
-from protop2g.work.tkts import MoveTkts
+from pagure_exporter.conf import standard
+from pagure_exporter.view.dcrt import failure, general, section, success, warning
+from pagure_exporter.work.tkts import MoveTkts
 
 
 def showtkts():

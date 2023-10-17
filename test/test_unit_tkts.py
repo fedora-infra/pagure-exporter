@@ -1,5 +1,5 @@
 """
-protop2g
+Pagure Exporter
 Copyright (C) 2022-2023 Akashdeep Dhar
 
 This program is free software: you can redistribute it and/or modify
@@ -28,8 +28,8 @@ from time import time
 
 import pytest
 
-from protop2g.conf import standard
-from protop2g.work.tkts import MoveTkts
+from pagure_exporter.conf import standard
+from pagure_exporter.work.tkts import MoveTkts
 
 
 @pytest.mark.parametrize(

@@ -1,5 +1,6 @@
 # Pagure Exporter
-A prototype project assets importer that moves repositories from Pagure to GitLab
+
+Simple exporter tool that helps migrate repository files, data assets and issue tickets from projects on Pagure to GitLab
 
 ## Usage
 
@@ -173,65 +174,65 @@ A prototype project assets importer that moves repositories from Pagure to GitLa
 
 1. Using an internet browser of your choice, open up [Pagure](https://pagure.io) and login to your account.
 
-    ![](data/01.png)
+    ![](https://raw.githubusercontent.com/gridhead/pagure-exporter/main/data/01.png)
 
 2. Click on your profile display picture and then, head over to the [Account Settings](https://pagure.io/settings) page.
 
-    ![](data/02.png)
+    ![](https://raw.githubusercontent.com/gridhead/pagure-exporter/main/data/02.png)
 
 3. Under the [API Keys](https://pagure.io/settings#nav-api-tab) section, click on the [Create new API key](https://pagure.io/settings/token/new) button in the top right corner.
 
-    ![](data/03.png)
+    ![](https://raw.githubusercontent.com/gridhead/pagure-exporter/main/data/03.png)
 
 4. As this is the source namespace, check all the ACLs that are required to read the asset information associated with a repository, set a safe expiration date for the API token and write an appropriate description for its usage before clicking on the [Create](#) button.
 
-    ![](data/04.png)
+    ![](https://raw.githubusercontent.com/gridhead/pagure-exporter/main/data/04.png)
 
 5. Make note of the API token generated and ensure that they are not shared with others or used for a different purpose.
 
-    ![](data/05.png)
+    ![](https://raw.githubusercontent.com/gridhead/pagure-exporter/main/data/05.png)
 
 6. Head over to a repository that the currently logged-in username has at least a READ access to.
 
-    ![](data/06.png)
+    ![](https://raw.githubusercontent.com/gridhead/pagure-exporter/main/data/06.png)
 
 7. Make note of the source namespace in the format of `HOLDER/REPONAME` where the `HOLDER` can be a group or a sole user.
    For example, in case of a repository located at `https://pagure.io/fedora-infra/ansible` - the source namespace would be `fedora-infra/ansible`.
 
-    ![](data/07.png)
+    ![](https://raw.githubusercontent.com/gridhead/pagure-exporter/main/data/07.png)
 
 8. In another internet browser tab or window, open up [GitLab](https://gitlab.com/) and login to your account.
 
-    ![](data/08.png)
+    ![](https://raw.githubusercontent.com/gridhead/pagure-exporter/main/data/08.png)
 
 9. Click on the [New project/repository](https://gitlab.com/projects/new) option from the sidebar of the profile page and then, click on the [Create blank project](https://gitlab.com/projects/new#blank_project) option.
 
-    ![](data/09.png)
+    ![](https://raw.githubusercontent.com/gridhead/pagure-exporter/main/data/09.png)
 
 10. Create a new empty repository which will act as the destination for the asset transfer. It is recommended to have the same name as the source namespace to avoid confusion, but it is not strictly required.
 
-    ![](data/10.png)
+    ![](https://raw.githubusercontent.com/gridhead/pagure-exporter/main/data/10.png)
 
 11. Head over to the created repository and make note of the `Project ID`.
     For example in this case, it is `42823949` for the destination repository named `gridhead/pagure-exporter-test`.
 
-    ![](data/11.png)
+    ![](https://raw.githubusercontent.com/gridhead/pagure-exporter/main/data/11.png)
 
 12. Expand the sidebar to head over to the [Access Tokens](https://gitlab.com/gridhead/pagure-exporter-test/-/settings/access_tokens) section from the `Settings` section.
 
-    ![](data/12.png)
+    ![](https://raw.githubusercontent.com/gridhead/pagure-exporter/main/data/12.png)
 
 13. In the [Project Access Token](https://gitlab.com/gridhead/pagure-exporter-test/-/settings/access_tokens) page, click on the [Add new token](#) button to begin creating a new access token.
 
-    ![](data/13.png)
+    ![](https://raw.githubusercontent.com/gridhead/pagure-exporter/main/data/13.png)
 
 14. As this is the destination namespace, check all the scopes that are required to write the asset information associated with a repository, pick an appropriate role, set a safe expiration date and write an appropriate description for its usage before clicking on the [Create project access token](#) button.
 
-    ![](data/14.png)
+    ![](https://raw.githubusercontent.com/gridhead/pagure-exporter/main/data/14.png)
 
 15. Make note of the API token generated and ensure that they are not shared with others or used for a different purpose.
 
-    ![](data/15.png)
+    ![](https://raw.githubusercontent.com/gridhead/pagure-exporter/main/data/15.png)
 
 16. Ensure that you have the following information handy before proceeding to the next steps.
 
@@ -256,7 +257,7 @@ A prototype project assets importer that moves repositories from Pagure to GitLa
 
 2. Using an internet browser of your choice, visit the source namespace repository page on Pagure to pick the branches that you wish to transfer.
 
-    ![](data/16.png)
+    ![](https://raw.githubusercontent.com/gridhead/pagure-exporter/main/data/16.png)
 
 3. Execute the following command to begin migrating the repository assets from the source namespace on Pagure to the destination namespace on GitLab.
 

@@ -1,5 +1,5 @@
 """
-protop2g
+Pagure Exporter
 Copyright (C) 2022-2023 Akashdeep Dhar
 
 This program is free software: you can redistribute it and/or modify
@@ -40,8 +40,8 @@ movestat = False
 # While the location for creating temporary directories is definitive, the temporary directories
 # are created with a random name constituting of a definitive prefix in runtime with only the user
 # that created the file having READ and WRITE access to them. Basically, while the location
-# `/var/tmp` is known from the beginning, the locations `/var/tmp/protop2g-tempsrce-$RANDOM` and
-# `/var/tmp/protop2g-tempdest-$RANDOM` are not and hence - that should not be a security concern.
+# `/var/tmp` is known from the beginning, the locations `/var/tmp/pexp-tempsrce-$RANDOM` and
+# `/var/tmp/pexp-tempdest-$RANDOM` are not and hence - that should not be a security concern.
 # For more information, please read
 # https://bandit.readthedocs.io/en/latest/plugins/b108_hardcoded_tmp_directory.html
 # https://security.openstack.org/guidelines/dg_using-temporary-files-securely.html
@@ -57,8 +57,8 @@ tempdrct = "/var/tmp"  # noqa: S108
 rqsttime = 60
 
 dfremote = "origin"
-prfxsrce = "protop2g-tempsrce-"
-prfxdest = "protop2g-tempdest-"
+prfxsrce = "pexp-tempsrce-"
+prfxdest = "pexp-tempdest-"
 frgesrce = "pagure.io"
 frgedest = "gitlab.com"
 nrmtname = "freshsrc"
@@ -183,7 +183,7 @@ _This issue ticket was originally created [here]({issulink}) on a Pagure reposit
 [**{dateinfo}** UTC](https://savvytime.com/converter/utc/{mo}-{dd}-{yy}/{hh}-{mm})._
 
 _This issue ticket was automatically created by the
-[**Pagure2GitLab Importer Service**](https://github.com/gridhead/protop2g)._
+[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._
 """
 
 # List of comment entities made under a ticket in the source namespace
@@ -223,7 +223,7 @@ _This comment was originally created [here]({cmtslink}) by [**{cmtsauth}**]({cmt
 [**{dateinfo}** UTC](https://savvytime.com/converter/utc/{mo}-{dd}-{yy}/{hh}-{mm})._
 
 _This comment was automatically created by the
-[**Pagure2GitLab Importer Service**](https://github.com/gridhead/protop2g)._
+[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._
 """
 
 # The default configuration for service logging

@@ -1,5 +1,5 @@
 """
-protop2g
+Pagure Exporter
 Copyright (C) 2022-2023 Akashdeep Dhar
 
 This program is free software: you can redistribute it and/or modify
@@ -25,7 +25,7 @@ of Red Hat, Inc.
 import pytest
 from click.testing import CliRunner
 
-from protop2g.main import main
+from pagure_exporter.main import main
 
 
 @pytest.mark.parametrize(
@@ -35,7 +35,7 @@ from protop2g.main import main
             "--help",
             0,
             [
-                "Usage: protop2g [OPTIONS] COMMAND [ARGS]...",
+                "Usage: pagure_exporter [OPTIONS] COMMAND [ARGS]...",
                 "Options:",
                 "Pagure Exporter",
                 "Source namespace for importing assets from",
@@ -53,7 +53,7 @@ from protop2g.main import main
             "-s a -d a -p a -g a -f a -t a tkts --help",
             0,
             [
-                "Usage: protop2g tkts [OPTIONS]",
+                "Usage: pagure_exporter tkts [OPTIONS]",
                 "Initiate transfer of issue tickets",
                 "Options:",
                 "Extract issue tickets of the mentioned status",
@@ -70,7 +70,7 @@ from protop2g.main import main
             "-s a -d a -p a -g a -f a -t a repo --help",
             0,
             [
-                "Usage: protop2g repo [OPTIONS]",
+                "Usage: pagure_exporter repo [OPTIONS]",
                 "Initialize transfer of repository assets",
                 "Options:",
                 "List of branches to extract",
@@ -82,8 +82,8 @@ from protop2g.main import main
             "-s a -d a -p a -g a -f a -t a tkts --select 4,2,0 --ranges 6 9",
             2,
             [
-                "Usage: protop2g tkts [OPTIONS]",
-                "Try 'protop2g tkts --help' for help.",
+                "Usage: pagure_exporter tkts [OPTIONS]",
+                "Try 'pagure_exporter tkts --help' for help.",
                 "Error: The `select` and `ranges` options cannot be used together",
             ],
             id="Using `select` and `ranges` options together",
@@ -92,8 +92,8 @@ from protop2g.main import main
             "-s a -d a -p a -g a -f a -t a tkts --select string",
             2,
             [
-                "Usage: protop2g tkts [OPTIONS]",
-                "Try 'protop2g tkts --help' for help.",
+                "Usage: pagure_exporter tkts [OPTIONS]",
+                "Try 'pagure_exporter tkts --help' for help.",
                 "Error: Invalid value: The provided parameters for the `select` option could not be parsed",  # noqa: E501
             ],
             id="Providing invalid string input to the `select` option",
@@ -102,8 +102,8 @@ from protop2g.main import main
             "-s a -d a -p a -g a -f a -t a tkts --ranges strA strB",
             2,
             [
-                "Usage: protop2g tkts [OPTIONS]",
-                "Try 'protop2g tkts --help' for help.",
+                "Usage: pagure_exporter tkts [OPTIONS]",
+                "Try 'pagure_exporter tkts --help' for help.",
                 "Error: Invalid value: The provided parameters for the `ranges` option could not be parsed",  # noqa: E501
             ],
             id="Providing invalid string input to the `ranges` option",
@@ -130,8 +130,8 @@ from protop2g.main import main
             "-s a -d a -p a -g a -f a -t a",
             2,
             [
-                "Usage: protop2g [OPTIONS] COMMAND [ARGS]...",
-                "Try 'protop2g --help' for help.",
+                "Usage: pagure_exporter [OPTIONS] COMMAND [ARGS]...",
+                "Try 'pagure_exporter --help' for help.",
                 "Error: Missing command.",
             ],
             id="Providing empty input for the commands",

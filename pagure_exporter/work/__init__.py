@@ -1,5 +1,5 @@
 """
-protop2g
+Pagure Exporter
 Copyright (C) 2022-2023 Akashdeep Dhar
 
 This program is free software: you can redistribute it and/or modify

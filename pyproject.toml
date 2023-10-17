@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "protop2g"
+name = "pagure-exporter"
 version = "0.1.0"
 description = "Simple exporter tool that helps migrate repository files, data assets and issue tickets from projects on Pagure to GitLab"
 authors = [
@@ -11,9 +11,9 @@ maintainers = [
     "Akashdeep Dhar <akashdeep.dhar@gmail.com>"
 ]
 readme = "README.md"
-homepage = "https://github.com/gridhead/protop2g"
-repository = "https://github.com/gridhead/protop2g"
-documentation = "https://github.com/gridhead/protop2g/blob/main/README.md"
+homepage = "https://github.com/gridhead/pagure-exporter"
+repository = "https://github.com/gridhead/pagure-exporter"
+documentation = "https://github.com/gridhead/pagure-exporter/blob/main/README.md"
 keywords = [
     "fedora",
     "pagure",
@@ -63,4 +63,4 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-protop2g = "protop2g.main:main"
+pagure-exporter = "pagure_exporter.main:main"

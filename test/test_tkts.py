@@ -1,5 +1,5 @@
 """
-protop2g
+Pagure Exporter
 Copyright (C) 2022-2023 Akashdeep Dhar
 
 This program is free software: you can redistribute it and/or modify
@@ -27,7 +27,7 @@ from os import environ as envr
 import pytest
 from click.testing import CliRunner
 
-from protop2g.main import main
+from pagure_exporter.main import main
 
 
 @pytest.mark.parametrize(

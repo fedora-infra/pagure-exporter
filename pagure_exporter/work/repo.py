@@ -1,5 +1,5 @@
 """
-protop2g
+Pagure Exporter
 Copyright (C) 2022-2023 Akashdeep Dhar
 
 This program is free software: you can redistribute it and/or modify
@@ -28,8 +28,8 @@ from tempfile import TemporaryDirectory
 
 from git import Repo
 
-from protop2g.conf import standard
-from protop2g.view.misc import tnfsprog, tnfswarn
+from pagure_exporter.conf import standard
+from pagure_exporter.view.misc import tnfsprog, tnfswarn
 
 
 class PushRepo:

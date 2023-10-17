@@ -1,5 +1,5 @@
 """
-protop2g
+Pagure Exporter
 Copyright (C) 2022-2023 Akashdeep Dhar
 
 This program is free software: you can redistribute it and/or modify
@@ -22,6 +22,24 @@ of Red Hat, Inc.
 """
 
 
-from importlib import metadata
+from pagure_exporter.view.dcrt import general, warning
 
-__version__ = metadata.version("protop2g")
+
+def tnfsprog(brchname, indx, qant, avbl):
+    if avbl:
+        general(
+            "[%d/%d] Branch '%s' was transferred to the destination namespace"
+            % (int(indx), int(qant), str(brchname))
+        )
+    else:
+        general(
+            "[%d/%d] Branch '%s' was not found in the source namespace"
+            % (int(indx), int(qant), str(brchname))
+        )
+
+
+def tnfswarn(avbl, qant):
+    if avbl:
+        warning("Transferring %d requested branches" % int(qant))
+    else:
+        warning("Transferring %d available branches" % int(qant))

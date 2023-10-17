@@ -1,5 +1,5 @@
 """
-protop2g
+Pagure Exporter
 Copyright (C) 2022-2023 Akashdeep Dhar
 
 This program is free software: you can redistribute it and/or modify
@@ -24,14 +24,14 @@ of Red Hat, Inc.
 
 import click
 
-from protop2g import __version__ as versobjc
-from protop2g.view.repo import showrepo
-from protop2g.view.stat import showstat
-from protop2g.view.tkts import showtkts
-from protop2g.work.keep import keepbrcs, keeptkts, storeinf
+from pagure_exporter import __version__ as versobjc
+from pagure_exporter.view.repo import showrepo
+from pagure_exporter.view.stat import showstat
+from pagure_exporter.view.tkts import showtkts
+from pagure_exporter.work.keep import keepbrcs, keeptkts, storeinf
 
 
-@click.group(name="protop2g")
+@click.group(name="pagure_exporter")
 @click.option(
     "-s",
     "--srce",
@@ -77,7 +77,7 @@ from protop2g.work.keep import keepbrcs, keeptkts, storeinf
 @click.version_option(
     version=versobjc,
     prog_name=click.style(
-        "protop2g by Akashdeep Dhar <t0xic0der@fedoraproject.org>",
+        "Pagure Exporter by Akashdeep Dhar <t0xic0der@fedoraproject.org>",
         fg="green",
         bold=True,
     ),

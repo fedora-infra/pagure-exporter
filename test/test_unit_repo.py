@@ -1,5 +1,5 @@
 """
-protop2g
+Pagure Exporter
 Copyright (C) 2022-2023 Akashdeep Dhar
 
 This program is free software: you can redistribute it and/or modify
@@ -28,8 +28,8 @@ from shutil import rmtree
 
 import pytest
 
-from protop2g.conf import standard
-from protop2g.work.repo import PushRepo
+from pagure_exporter.conf import standard
+from pagure_exporter.work.repo import PushRepo
 
 # TODO:
 # Change the `gridhead/protop2g-test` static reference to a dynamic reference where the

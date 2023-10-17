@@ -1,4 +1,4 @@
-# protop2g
+# Pagure Exporter
 A prototype project assets importer that moves repositories from Pagure to GitLab
 
 ## Usage
@@ -14,17 +14,17 @@ A prototype project assets importer that moves repositories from Pagure to GitLa
 2. Clone the repository to the local storage and make it the present working directory.
 
     ```
-    $ git clone https://github.com/gridhead/protop2g.git
+    $ git clone https://github.com/gridhead/pagure-exporter.git
     ```
 
     ```
-    $ cd protop2g
+    $ cd pagure-exporter
     ```
 
     Sample output
 
     ```
-    Cloning into 'protop2g'...
+    Cloning into 'pagure-exporter'...
     remote: Enumerating objects: 118, done.
     remote: Counting objects: 100% (118/118), done.
     remote: Compressing objects: 100% (78/78), done.
@@ -47,7 +47,7 @@ A prototype project assets importer that moves repositories from Pagure to GitLa
 
     ```
     created virtual environment CPython3.11.5.final.0-64 in 143ms
-      creator CPython3Posix(dest=/home/archdesk/Projects/protop2g/venv, clear=False, no_vcs_ignore=False, global=False)
+      creator CPython3Posix(dest=/home/archdesk/Projects/pagure-exporter/venv, clear=False, no_vcs_ignore=False, global=False)
       seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/home/archdesk/.local/share/virtualenv)
         added seed packages: pip==23.2.1, setuptools==68.0.0, wheel==0.41.1
       activators BashActivator,CShellActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
@@ -94,27 +94,27 @@ A prototype project assets importer that moves repositories from Pagure to GitLa
       • Installing requests (2.28.2)
       • Installing tqdm (4.64.1)
 
-    Installing the current project: protop2g (0.1.0)
+    Installing the current project: pagure-exporter (0.1.0)
     ```
 
 5. Check the current version of the installed project as well as the usage information.
 
     ```
-    (venv) $ protop2g --version
+    (venv) $ pagure-exporter --version
     ```
 
     ```
-    (venv) $ protop2g --help
+    (venv) $ pagure-exporter --help
     ```
 
     Sample output
 
     ```
-    protop2g by Akashdeep Dhar <t0xic0der@fedoraproject.org>, version 0.1.0
+    Pagure Exporter by Akashdeep Dhar <t0xic0der@fedoraproject.org>, version 0.1.0
     ```
 
     ```
-    Usage: protop2g [OPTIONS] COMMAND [ARGS]...
+    Usage: pagure-exporter [OPTIONS] COMMAND [ARGS]...
 
     Options:
       -s, --srce TEXT  Source namespace for importing assets from  [required]
@@ -138,17 +138,17 @@ A prototype project assets importer that moves repositories from Pagure to GitLa
 6. Check the usage information of the available subcommands.
 
     ```
-    (venv) $ protop2g -s a -d a -p a -g a -f a -t a repo --help
+    (venv) $ pagure-exporter -s a -d a -p a -g a -f a -t a repo --help
     ```
 
     ```
-    (venv) $ protop2g -s a -d a -p a -g a -f a -t a tkts --help
+    (venv) $ pagure-exporter -s a -d a -p a -g a -f a -t a tkts --help
     ```
 
     Sample output
 
     ```
-    Usage: protop2g repo [OPTIONS]
+    Usage: pagure-exporter repo [OPTIONS]
 
       Initialize transfer of repository assets
 
@@ -158,7 +158,7 @@ A prototype project assets importer that moves repositories from Pagure to GitLa
     ```
 
     ```
-    Usage: protop2g tkts [OPTIONS]
+    Usage: pagure-exporter tkts [OPTIONS]
 
       Initiate transfer of issue tickets
 
@@ -213,15 +213,15 @@ A prototype project assets importer that moves repositories from Pagure to GitLa
     ![](data/10.png)
 
 11. Head over to the created repository and make note of the `Project ID`.
-    For example in this case, it is `42823949` for the destination repository named `gridhead/protop2g-test`.
+    For example in this case, it is `42823949` for the destination repository named `gridhead/pagure-exporter-test`.
 
     ![](data/11.png)
 
-12. Expand the sidebar to head over to the [Access Tokens](https://gitlab.com/gridhead/protop2g-test/-/settings/access_tokens) section from the `Settings` section.
+12. Expand the sidebar to head over to the [Access Tokens](https://gitlab.com/gridhead/pagure-exporter-test/-/settings/access_tokens) section from the `Settings` section.
 
     ![](data/12.png)
 
-13. In the [Project Access Token](https://gitlab.com/gridhead/protop2g-test/-/settings/access_tokens) page, click on the [Add new token](#) button to begin creating a new access token.
+13. In the [Project Access Token](https://gitlab.com/gridhead/pagure-exporter-test/-/settings/access_tokens) page, click on the [Add new token](#) button to begin creating a new access token.
 
     ![](data/13.png)
 
@@ -247,7 +247,7 @@ A prototype project assets importer that moves repositories from Pagure to GitLa
 1. Ensure that the location where the project repository was cloned is the present working directory and that the previously populated virtual environment is enabled.
 
     ```
-    $ cd protop2g
+    $ cd pagure-exporter
     ```
 
     ```
@@ -263,7 +263,7 @@ A prototype project assets importer that moves repositories from Pagure to GitLa
     1. If only a set of branches are to be migrated
 
         ```
-        (venv) $ protop2g \
+        (venv) $ pagure-exporter \
                  --fusr srceuser --pkey srcecode --srce srcerepo \
                  --tusr destuser --gkey destcode --dest destrepo \
                  repo \
@@ -275,7 +275,7 @@ A prototype project assets importer that moves repositories from Pagure to GitLa
     2. If all the available branches are to be migrated
 
         ```
-        (venv) $ protop2g \
+        (venv) $ pagure-exporter \
                  --fusr srceuser --pkey srcecode --srce srcerepo \
                  --tusr destuser --gkey destcode --dest destrepo \
                  repo
@@ -288,7 +288,7 @@ A prototype project assets importer that moves repositories from Pagure to GitLa
 1. Ensure that the location where the project repository was cloned is the present working directory and that the previously populated virtual environment is enabled.
 
     ```
-    $ cd protop2g
+    $ cd pagure-exporter
     ```
 
     ```
@@ -300,7 +300,7 @@ A prototype project assets importer that moves repositories from Pagure to GitLa
    1. If the issue tickets of a certain status need to be transferred.
 
       ```
-      (venv) $ protop2g \
+      (venv) $ pagure-exporter \
                  --fusr srceuser --pkey srcecode --srce srcerepo \
                  --tusr destuser --gkey destcode --dest destrepo \
                  tkts \
@@ -310,7 +310,7 @@ A prototype project assets importer that moves repositories from Pagure to GitLa
    2. If the comments associated with the issue tickets need to be transferred.
 
       ```
-      (venv) $ protop2g \
+      (venv) $ pagure-exporter \
                  --fusr srceuser --pkey srcecode --srce srcerepo \
                  --tusr destuser --gkey destcode --dest destrepo \
                  tkts \
@@ -320,7 +320,7 @@ A prototype project assets importer that moves repositories from Pagure to GitLa
    3. If the labels associated with the issue tickets need to be transferred.
 
       ```
-      (venv) $ protop2g \
+      (venv) $ pagure-exporter \
                  --fusr srceuser --pkey srcecode --srce srcerepo \
                  --tusr destuser --gkey destcode --dest destrepo \
                  tkts \
@@ -330,7 +330,7 @@ A prototype project assets importer that moves repositories from Pagure to GitLa
    4. If the states associated with the issue tickets need to be transferred.
 
       ```
-      (venv) $ protop2g \
+      (venv) $ pagure-exporter \
                  --fusr srceuser --pkey srcecode --srce srcerepo \
                  --tusr destuser --gkey destcode --dest destrepo \
                  tkts \
@@ -340,7 +340,7 @@ A prototype project assets importer that moves repositories from Pagure to GitLa
    5. If the issue tickets from a range of issue identities need to be transferred.
 
       ```
-      (venv) $ protop2g \
+      (venv) $ pagure-exporter \
                  --fusr srceuser --pkey srcecode --srce srcerepo \
                  --tusr destuser --gkey destcode --dest destrepo \
                  tkts \
@@ -352,7 +352,7 @@ A prototype project assets importer that moves repositories from Pagure to GitLa
    6. If the issue tickets that need to be considered need to be cherry-picked.
 
       ```
-      (venv) $ protop2g \
+      (venv) $ pagure-exporter \
                  --fusr srceuser --pkey srcecode --srce srcerepo \
                  --tusr destuser --gkey destcode --dest destrepo \
                  tkts \
@@ -368,7 +368,7 @@ A prototype project assets importer that moves repositories from Pagure to GitLa
       1. The following command will migrate all issue tickets, the identities of which fall between the range of `STRT` and `STOP` both included, with status `OPEN` along with the associated comments and labels.
 
          ```
-         (venv) $ protop2g \
+         (venv) $ pagure-exporter \
                     --fusr srceuser --pkey srcecode --srce srcerepo \
                     --tusr destuser --gkey destcode --dest destrepo \
                     tkts \
@@ -381,7 +381,7 @@ A prototype project assets importer that moves repositories from Pagure to GitLa
       2. The following command will migrate all issue tickets with the identities `NUM1`, `NUM2`, `NUM3` ... with status `SHUT` along with the associated labels and states.
 
          ```
-         (venv) $ protop2g \
+         (venv) $ pagure-exporter \
                     --fusr srceuser --pkey srcecode --srce srcerepo \
                     --tusr destuser --gkey destcode --dest destrepo \
                     tkts \

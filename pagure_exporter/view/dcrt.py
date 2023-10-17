@@ -1,5 +1,5 @@
 """
-protop2g
+Pagure Exporter
 Copyright (C) 2022-2023 Akashdeep Dhar
 
 This program is free software: you can redistribute it and/or modify
@@ -24,7 +24,7 @@ of Red Hat, Inc.
 
 from click import style
 
-from protop2g.conf.standard import logger
+from pagure_exporter.conf.standard import logger
 
 PASS = style("[ PASS ]", fg="green", bold=True)
 FAIL = style("[ FAIL ]", fg="red", bold=True)

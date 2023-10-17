@@ -1,5 +1,5 @@
 """
-protop2g
+Pagure Exporter
 Copyright (C) 2022-2023 Akashdeep Dhar
 
 This program is free software: you can redistribute it and/or modify
@@ -27,7 +27,7 @@ from datetime import datetime
 
 import requests
 
-from protop2g.conf import standard
+from pagure_exporter.conf import standard
 
 
 class MoveTkts:
@@ -161,8 +161,8 @@ class MoveTkts:
             """
             Replace "@" in the `bodydata` with "&" to ensure that wrong people are not referenced
             in the destination namespace
-            Check https://github.com/gridhead/protop2g/issues/7 for more information about the
-            problem
+            Check https://github.com/gridhead/pagure-exporter/issues/7 for more information about
+            the problem
             """
             rqstdata = {"title": headdata, "description": bodydata.replace("@", "&")}
             if standard.movetags:
@@ -211,8 +211,8 @@ class MoveTkts:
             """
             Replace "@" in the `bodydata` with "&" to ensure that wrong people are not referenced
             in the destination namespace
-            Check https://github.com/gridhead/protop2g/issues/7 for more information about the
-            problem
+            Check https://github.com/gridhead/pagure-exporter/issues/7 for more information about
+            the problem
             """
             rqstdata = {"body": bodydata.replace("@", "&")}
             response = requests.post(

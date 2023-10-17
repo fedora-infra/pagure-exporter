@@ -21,6 +21,7 @@ License and may only be used or replicated with the express permission
 of Red Hat, Inc.
 """
 
+
 import sys
 
 from protop2g.conf import standard
@@ -74,7 +75,9 @@ def showtkts():
                                     general(
                                         "Assertion unnecessary due to the OPEN status of the ticket"  # noqa: E501
                                     )
-                                else:
+                                else:  # pragma: no cover
+                                    # Tested already in `test_unit_itertkts`
+                                    # From `test/test_unit_tkts`
                                     failure("Issue ticket status assertion failed!")
                                     general(
                                         f"Failed due to code '{statrslt[0]}' and reason '{statrslt[1]}' "  # noqa: E501
@@ -96,7 +99,9 @@ def showtkts():
                                         general(
                                             f"Transferred to {cmtsrslt[1]} in {cmtsrslt[2]} second(s)"  # noqa: E501
                                         )
-                                    else:
+                                    else:  # pragma: no cover
+                                        # Tested already in `test_unit_itercmts`
+                                        # From `test/test_unit_tkts`
                                         failure("Comment transfer failed!")
                                         general(
                                             f"Failed due to code '{cmtsrslt[0]}' and reason '{cmtsrslt[1]}' "  # noqa: E501
@@ -104,13 +109,17 @@ def showtkts():
                                         )
                                         sys.exit(1)
                                 standard.cmtsqant = 0
-                        else:
+                        else:  # pragma: no cover
+                            # Tested already in `test_unit_itertkts`
+                            # From `test/test_unit_tkts`
                             failure("Issue ticket migration failed!")
                             general(
                                 f"Failed due to code '{issurslt[0]}' and reason '{issurslt[1]}' "
                                 f"in {issurslt[2]} second(s)"
                             )
-                else:
+                else:  # pragma: no cover
+                    # Tested already in `test_unit_iterpage`
+                    # From `test/test_unit_tkts`
                     failure("Issue ticket information reading failed!")
                     general(
                         f"Failed due to code '{pagerslt[0]}' and reason '{pagerslt[1]}' in {pagerslt[2]} second(s)"  # noqa: E501
@@ -118,7 +127,9 @@ def showtkts():
             success("Namespace assets transferring queue processed!")
             general(f"{standard.issutnfs} issue ticket(s) transferred")
             sys.exit(0)
-        else:
+        else:  # pragma: no cover
+            # Tested already in `test_unit_getcount`
+            # From `test/test_unit_tkts`
             failure("Source namespace issue ticket count failed!")
             general(
                 f"Failed due to code '{qantrslt[0]}' and reason '{qantrslt[1]}' in {qantrslt[2]} second(s)"  # noqa: E501
@@ -150,7 +161,9 @@ def showtkts():
                                 general(
                                     "Assertion unnecessary due to the OPEN status of the ticket"
                                 )
-                            else:
+                            else:  # pragma: no cover
+                                # Tested already in `test_unit_itertkts`
+                                # From `test/test_unit_tkts`
                                 failure("Issue ticket status assertion failed!")
                                 general(
                                     f"Failed due to code '{statrslt[0]}' and reason '{statrslt[1]}' "  # noqa: E501
@@ -169,7 +182,9 @@ def showtkts():
                                     general(
                                         f"Transferred to {cmtsrslt[1]} in {cmtsrslt[2]} second(s)"
                                     )
-                                else:
+                                else:  # pragma: no cover
+                                    # Tested already in `test_unit_itercmts`
+                                    # From `test/test_unit_tkts`
                                     failure("Comment transfer failed!")
                                     general(
                                         f"Failed due to code '{cmtsrslt[0]}' and reason '{cmtsrslt[1]}'"  # noqa: E501
@@ -177,7 +192,9 @@ def showtkts():
                                     )
                                     sys.exit(1)
                             standard.cmtsqant = 0
-                    else:
+                    else:  # pragma: no cover
+                        # Tested already in `test_unit_iteriden`
+                        # From `test/test_unit_tkts`
                         failure("Issue ticket migration failed!")
                         general(
                             f"Failed due to code '{issurslt[0]}' and reason '{issurslt[1]}' in {issurslt[2]} second(s)"  # noqa: E501
@@ -186,7 +203,9 @@ def showtkts():
                     general(
                         "Skipping issue ticket as the issue ticket status does not match the provided status"  # noqa: E501
                     )
-            else:
+            else:  # pragma: no cover
+                # Tested already in `test_unit_getcount`
+                # From `test/test_unit_tkts`
                 failure("Issue ticket probing failed!")
                 general(
                     f"Failed due to code '{tkidrslt[0]}' and reason '{tkidrslt[1]}' in {tkidrslt[2]} second(s)"  # noqa: E501

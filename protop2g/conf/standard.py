@@ -54,7 +54,7 @@ tempdrct = "/var/tmp"  # noqa: S108
 # For more information, please read
 # https://bandit.readthedocs.io/en/latest/plugins/b113_request_without_timeout.html
 # https://datagy.io/python-requests-timeouts/
-rqsttime = 30
+rqsttime = 60
 
 dfremote = "origin"
 prfxsrce = "protop2g-tempsrce-"

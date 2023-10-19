@@ -3,7 +3,7 @@
 %global desc Simple exporter tool that helps migrate repository files, data assets and issue tickets from projects on Pagure to GitLab
 
 Name:           %{pkgname}
-Version:        0.1.0
+Version:        0.1.1
 Release:        1%{?dist}
 Summary:        %{desc}
 
@@ -37,7 +37,13 @@ BuildRequires:  python3-devel
 
 %changelog
 
-* Wed Oct 18 2023 Akashdeep Dhar <t0xic0der@fedoraproject.org> - 0.1.0-1
+* Thu Oct 19 2023 Akashdeep Dhar <t0xic0der@fedoraproject.org> - 0.1.1-1
+- Initialized packaging workflow with RPM specfile for the project codebase
+- Stepped down version of the runtime dependency requests from ^2.31.0 to ^2.28.0
+- Stepped down version of the runtime dependency GitPython from ^3.1.37 to ^3.1.0
+- Removed unnecessary runtime dependency tqdm from the list
+
+* Tue Oct 17 2023 Akashdeep Dhar <t0xic0der@fedoraproject.org> - 0.1.0-1
 - Created the initial release of the project
 - Added support for transferring repositories files from projects on Pagure to GitLab
 - Added support for transferring issue tickets from projects on Pagure to GitLab

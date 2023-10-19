@@ -38,6 +38,7 @@ BuildRequires:  python3-devel
 %changelog
 
 * Thu Oct 19 2023 Akashdeep Dhar <t0xic0der@fedoraproject.org> - 0.1.1-1
+- Reworked the documentation sections with proper updates
 - Initialized packaging workflow with RPM specfile for the project codebase
 - Stepped down version of the runtime dependency requests from ^2.31.0 to ^2.28.0
 - Stepped down version of the runtime dependency GitPython from ^3.1.37 to ^3.1.0

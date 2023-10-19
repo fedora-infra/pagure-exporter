@@ -2,9 +2,59 @@
 
 Simple exporter tool that helps migrate repository files, data assets and issue tickets from projects on Pagure to GitLab
 
-## Usage
+## Installation
 
-### Installation
+### From PyPI
+
+1. Ensure that you have `python3`, `virtualenv` and `python3-pip` installed.
+
+    ```
+    $ sudo dnf install python3 virtualenv python3-pip --setopt=install_weak_deps=False
+    ```
+
+2. Create and activate a Python virtual environment in that directory.
+
+    ```
+    $ virtualenv venv
+    ```
+
+    ```
+    (venv) $ source venv/bin/activate
+    ```
+
+    Sample output
+
+    ```
+    created virtual environment CPython3.11.5.final.0-64 in 143ms
+      creator CPython3Posix(dest=/home/archdesk/Projects/pagure-exporter/venv, clear=False, no_vcs_ignore=False, global=False)
+      seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/home/archdesk/.local/share/virtualenv)
+        added seed packages: pip==23.2.1, setuptools==68.0.0, wheel==0.41.1
+      activators BashActivator,CShellActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
+    ```
+
+3. Install `pagure-exporter` using `pip` in the activated virtual environment.
+
+    ```
+    (venv) $ pip install pagure-exporter
+    ```
+
+    Sample output
+
+    ```
+    Requirement already satisfied: pagure-exporter in ./venv/lib/python3.12/site-packages (0.1.0)
+    Requirement already satisfied: GitPython<4.0.0,>=3.1.37 in ./venv/lib/python3.12/site-packages (from pagure-exporter) (3.1.40)
+    Requirement already satisfied: click<9.0.0,>=8.1.3 in ./venv/lib/python3.12/site-packages (from pagure-exporter) (8.1.7)
+    Requirement already satisfied: requests<3.0.0,>=2.31.0 in ./venv/lib/python3.12/site-packages (from pagure-exporter) (2.31.0)
+    Requirement already satisfied: tqdm<5.0.0,>=4.64.1 in ./venv/lib/python3.12/site-packages (from pagure-exporter) (4.66.1)
+    Requirement already satisfied: gitdb<5,>=4.0.1 in ./venv/lib/python3.12/site-packages (from GitPython<4.0.0,>=3.1.37->pagure-exporter) (4.0.10)
+    Requirement already satisfied: charset-normalizer<4,>=2 in ./venv/lib64/python3.12/site-packages (from requests<3.0.0,>=2.31.0->pagure-exporter) (3.3.0)
+    Requirement already satisfied: idna<4,>=2.5 in ./venv/lib/python3.12/site-packages (from requests<3.0.0,>=2.31.0->pagure-exporter) (3.4)
+    Requirement already satisfied: urllib3<3,>=1.21.1 in ./venv/lib/python3.12/site-packages (from requests<3.0.0,>=2.31.0->pagure-exporter) (2.0.7)
+    Requirement already satisfied: certifi>=2017.4.17 in ./venv/lib/python3.12/site-packages (from requests<3.0.0,>=2.31.0->pagure-exporter) (2023.7.22)
+    Requirement already satisfied: smmap<6,>=3.0.1 in ./venv/lib/python3.12/site-packages (from gitdb<5,>=4.0.1->GitPython<4.0.0,>=3.1.37->pagure-exporter) (5.0.1)
+    ```
+
+### From source
 
 1. Ensure that you have `git`, `python3`, `virtualenv` and `poetry` installed.
 
@@ -98,79 +148,9 @@ Simple exporter tool that helps migrate repository files, data assets and issue 
     Installing the current project: pagure-exporter (0.1.0)
     ```
 
-5. Check the current version of the installed project as well as the usage information.
+## Usage
 
-    ```
-    (venv) $ pagure-exporter --version
-    ```
-
-    ```
-    (venv) $ pagure-exporter --help
-    ```
-
-    Sample output
-
-    ```
-    Pagure Exporter by Akashdeep Dhar <t0xic0der@fedoraproject.org>, version 0.1.0
-    ```
-
-    ```
-    Usage: pagure-exporter [OPTIONS] COMMAND [ARGS]...
-
-    Options:
-      -s, --srce TEXT  Source namespace for importing assets from  [required]
-      -d, --dest TEXT  Destination namespace for exporting assets to  [required]
-      -p, --pkey TEXT  Pagure API key for accessing the source namespace
-                       [required]
-      -g, --gkey TEXT  GitLab API key for accessing the destination namespace
-                       [required]
-      -f, --fusr TEXT  Username of the account that owns the Pagure API key
-                       [required]
-      -t, --tusr TEXT  Username of the account that owns the GitLab API key
-                       [required]
-      --version        Show the version and exit.
-      --help           Show this message and exit.
-
-    Commands:
-      repo  Initialize transfer of repository assets
-      tkts  Initiate transfer of issue tickets
-    ```
-
-6. Check the usage information of the available subcommands.
-
-    ```
-    (venv) $ pagure-exporter -s a -d a -p a -g a -f a -t a repo --help
-    ```
-
-    ```
-    (venv) $ pagure-exporter -s a -d a -p a -g a -f a -t a tkts --help
-    ```
-
-    Sample output
-
-    ```
-    Usage: pagure-exporter repo [OPTIONS]
-
-      Initialize transfer of repository assets
-
-    Options:
-      -b, --brcs TEXT  List of branches to extract
-      --help           Show this message and exit.
-    ```
-
-    ```
-    Usage: pagure-exporter tkts [OPTIONS]
-
-      Initiate transfer of issue tickets
-
-    Options:
-      -o, --open  Extract only the open issue tickets
-      -c, --shut  Extract only the closed issue tickets
-      -a, --full  Extract all the issue tickets
-      --help      Show this message and exit.
-    ```
-
-## Setup
+### Setup
 
 1. Using an internet browser of your choice, open up [Pagure](https://pagure.io) and login to your account.
 
@@ -243,7 +223,87 @@ Simple exporter tool that helps migrate repository files, data assets and issue 
     5. Access token belonging to that aforementioned account appropriate roles and scopes required for at least the WRITE permissions in the destination namespace (Say `destcode`)
     6. Name of the destination namespace in the format of uniquely identifiable `PROJECTID` string (Say `destrepo`)
 
-## Migrate repository assets
+## Operate
+
+### View help menu
+
+1. Check the current version of the installed project as well as the usage information.
+
+    ```
+    (venv) $ pagure-exporter --version
+    ```
+
+    ```
+    (venv) $ pagure-exporter --help
+    ```
+
+    Sample output
+
+    ```
+    Pagure Exporter by Akashdeep Dhar <t0xic0der@fedoraproject.org>, version 0.1.0
+    ```
+
+    ```
+    Usage: pagure-exporter [OPTIONS] COMMAND [ARGS]...
+
+    Options:
+      -s, --srce TEXT  Source namespace for importing assets from  [required]
+      -d, --dest TEXT  Destination namespace for exporting assets to  [required]
+      -p, --pkey TEXT  Pagure API key for accessing the source namespace
+                       [required]
+      -g, --gkey TEXT  GitLab API key for accessing the destination namespace
+                       [required]
+      -f, --fusr TEXT  Username of the account that owns the Pagure API key
+                       [required]
+      -t, --tusr TEXT  Username of the account that owns the GitLab API key
+                       [required]
+      --version        Show the version and exit.
+      --help           Show this message and exit.
+
+    Commands:
+      repo  Initialize transfer of repository assets
+      tkts  Initiate transfer of issue tickets
+    ```
+
+2. Check the usage information of the available subcommands.
+
+    ```
+    (venv) $ pagure-exporter -s a -d a -p a -g a -f a -t a repo --help
+    ```
+
+    ```
+    (venv) $ pagure-exporter -s a -d a -p a -g a -f a -t a tkts --help
+    ```
+
+    Sample output
+
+    ```
+    Usage: pagure-exporter repo [OPTIONS]
+
+      Initialize transfer of repository assets
+
+    Options:
+      -b, --brcs TEXT  List of branches to extract
+      --help           Show this message and exit.
+    ```
+
+    ```
+    Usage: pagure-exporter tkts [OPTIONS]
+
+      Initiate transfer of issue tickets
+
+    Options:
+      -s, --status [OPEN|SHUT|FULL]  Extract issue tickets of the mentioned status
+                                     [default: OPEN]
+      -r, --ranges TEXT...           Extract issue tickets in the mentioned ranges
+      -p, --select TEXT              Extract issue tickets of the selected numbers
+      -c, --comments                 Transfer all the associated comments
+      -l, --labels                   Migrate all the associated labels
+      -a, --commit                   Assert issue ticket states as they were
+      --help                         Show this message and exit.
+    ```
+
+### Migrate repository files
 
 1. Ensure that the location where the project repository was cloned is the present working directory and that the previously populated virtual environment is enabled.
 
@@ -284,7 +344,9 @@ Simple exporter tool that helps migrate repository files, data assets and issue 
 
        This is the default behaviour of the subcommand so if no branch names are provided, all the branches from the source namespace are migrated
 
-## Migrate issue tickets
+4. If there are any contents available in the branches of the destination namespace, they will be overwritten by the contents from the branches migrated from the source namespace.
+
+### Migrate issue tickets
 
 1. Ensure that the location where the project repository was cloned is the present working directory and that the previously populated virtual environment is enabled.
 

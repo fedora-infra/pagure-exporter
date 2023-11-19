@@ -51,3 +51,7 @@ def section(message):
 
 def general(message):
     logger.info(STDS + " " + message)
+
+
+def conceal(message):
+    return "".join("*" for _ in message)

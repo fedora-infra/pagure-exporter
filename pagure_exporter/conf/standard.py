@@ -112,6 +112,14 @@ dbrcavbl = []
 srcecloc = "UNAVAILABLE"
 destcloc = "UNAVAILABLE"
 
+rateindx = 0
+
+# Time in seconds to wait for when the rate limit for API requests is reached
+waittime = 60
+
+# Rate limit for API requests as defined by the destination forge
+ratebond = 500
+
 # Current count of branches on the namespaces to be transferred
 tnfsindx = 0
 

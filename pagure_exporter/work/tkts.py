@@ -128,6 +128,7 @@ class MoveTkts:
     def itertkts(self, dictobjc):
         try:
             strttime = time.time()
+            standard.rateindx += 1
             standard.issuname = dictobjc["title"]
             standard.issuiden = dictobjc["id"]
             standard.isclosed = True if dictobjc["status"] == "Closed" else False
@@ -186,6 +187,7 @@ class MoveTkts:
     def itercmts(self, dictobjc):
         try:
             strttime = time.time()
+            standard.rateindx += 1
             standard.cmtsiden = dictobjc["id"]
             standard.cmtslink = f"{standard.issulink}#comment-{standard.cmtsiden}"
             standard.cmtsauth = dictobjc["user"]["fullname"]
@@ -233,6 +235,7 @@ class MoveTkts:
     def iterstat(self):
         try:
             strttime, respcode, respresn = time.time(), 0, ""
+            standard.rateindx += 1
             if standard.isclosed:
                 rqstdata = {"state_event": "close"}
                 response = requests.put(

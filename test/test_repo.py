@@ -29,6 +29,7 @@ from click.testing import CliRunner
 
 from pagure_exporter.conf import standard
 from pagure_exporter.main import main
+from pagure_exporter.view.dcrt import conceal
 
 
 @pytest.mark.parametrize(
@@ -141,6 +142,22 @@ from pagure_exporter.main import main
                 "[ FAIL ] Namespace assets transfer failed!",
             ],
             id="Migrating repository contents with specifying four invalid branch names",
+        ),
+        pytest.param(
+            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo",  # noqa: E501
+            0,
+            [
+                f"Address: https://{envr['TEST_FUSR']}:{conceal(envr['TEST_PKEY'])}@pagure.io/{envr['TEST_SRCE']}.git",  # noqa: E501
+            ],
+            id="Checking the correctness of metadata censorship for source namespace",
+        ),
+        pytest.param(
+            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo",  # noqa: E501
+            0,
+            [
+                f"Address: https://{envr['TEST_TUSR']}:{conceal(envr['TEST_GKEY'])}@gitlab.com/{envr['TEST_TUSR']}",  # noqa: E501
+            ],
+            id="Checking the correctness of metadata censorship for destination namespace",
         ),
     ],
 )

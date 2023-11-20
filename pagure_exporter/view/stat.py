@@ -44,7 +44,7 @@ def showstat():
             )
         )
         general("Location: %s" % str(standard.srcedict["repolink"]))
-        general("Address: %s" % str(standard.srcehuto))
+        general("Address: %s" % str(standard.srcedisp))
         general("Created on: %s" % strftime("%c", localtime(int(standard.srcedict["makedate"]))))
         general(
             "Last modified on: %s" % strftime("%c", localtime(int(standard.srcedict["lastmode"])))
@@ -63,7 +63,7 @@ def showstat():
                 )
             )
             general("Location: %s" % str(standard.destdict["repolink"]))
-            general("Address: %s" % str(standard.desthuto))
+            general("Address: %s" % str(standard.destdisp))
             general("Created on: %s" % str(standard.destdict["makedate"]))
             general("Last modified on: %s" % str(standard.destdict["lastmode"]))
             general("Tags: %s" % str(standard.destdict["tagslist"]))

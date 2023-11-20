@@ -25,6 +25,7 @@ of Red Hat, Inc.
 import requests
 
 from pagure_exporter.conf import standard
+from pagure_exporter.view.dcrt import conceal
 
 
 class SrceData:
@@ -55,6 +56,12 @@ class SrceData:
             standard.srcehuto = "https://{}:{}@{}/{}.git".format(
                 standard.paguuser,
                 standard.pagucode,
+                standard.frgesrce,
+                standard.srcedict["reponame"],
+            )
+            standard.srcedisp = "https://{}:{}@{}/{}.git".format(
+                standard.paguuser,
+                conceal(standard.pagucode),
                 standard.frgesrce,
                 standard.srcedict["reponame"],
             )
@@ -90,6 +97,12 @@ class DestData:
             standard.desthuto = "https://{}:{}@{}/{}.git".format(
                 standard.gtlbuser,
                 standard.gtlbcode,
+                standard.frgedest,
+                standard.destdict["reponame"],
+            )
+            standard.destdisp = "https://{}:{}@{}/{}.git".format(
+                standard.gtlbuser,
+                conceal(standard.gtlbcode),
                 standard.frgedest,
                 standard.destdict["reponame"],
             )

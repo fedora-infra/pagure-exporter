@@ -85,6 +85,7 @@ srcedict = {
     },
 }
 srcehuto = "UNAVAILABLE"
+srcedisp = "UNAVAILABLE"
 
 gtlbuser = "UNAVAILABLE"
 gtlbcode = "UNAVAILABLE"
@@ -104,6 +105,7 @@ destdict = {
     },
 }
 desthuto = "UNAVAILABLE"
+destdisp = "UNAVAILABLE"
 
 brtocopy = []
 sbrcavbl = []

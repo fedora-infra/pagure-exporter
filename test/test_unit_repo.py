@@ -292,7 +292,6 @@ def test_unit_tnfsrepo(caplog, srcename, destname, gkey, pkey, fusr, tusr, brcs,
     test_pushrepo = PushRepo()
     test_pushrepo.downsrce()
     test_pushrepo.cbrcsrce()
-    print(caplog)
     if pull:
         # This helps to simulate the condition where the temporary directories where the repository
         # assets were cloned locally was removed by an external factor

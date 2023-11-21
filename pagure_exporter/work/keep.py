@@ -38,7 +38,7 @@ def keepbrcs(brcs):
     standard.brtocopy = list(brcs)
 
 
-def keeptkts(status, tktgroup, comments, labels, commit):
+def keeptkts(status, tktgroup, comments, labels, commit, secret):
     # Vote what kind of issue tickets are to be moved
     # Default Open
     if status == "SHUT":
@@ -63,3 +63,7 @@ def keeptkts(status, tktgroup, comments, labels, commit):
     # Vote if the state associated with the issue tickets are to be moved
     # Default False
     standard.movestat = commit
+
+    # Vote if the privacy associated with the issue tickets are to be moved
+    # Default False
+    standard.movehush = secret

@@ -138,6 +138,7 @@ class MoveTkts:
             standard.issulink = dictobjc["full_url"]
             standard.issutags = dictobjc["tags"]
             standard.issubody = dictobjc["content"]
+            standard.issecret = dictobjc["private"]
             standard.timedata = int(dictobjc["date_created"])
             headdata = standard.headtemp_ticket.format(
                 issuiden=standard.issuiden,
@@ -167,6 +168,8 @@ class MoveTkts:
             rqstdata = {"title": headdata, "description": bodydata.replace("@", "&")}
             if standard.movetags:
                 rqstdata["labels"] = ",".join(standard.issutags)
+            if standard.movehush:
+                rqstdata["confidential"] = standard.issecret
             response = requests.post(
                 url=f"{self.gurl}/issues",
                 data=rqstdata,

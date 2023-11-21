@@ -132,6 +132,33 @@ from pagure_exporter.main import main
             ],
             id="Transferring issue tickets with SHUT status along with states but without comments, without privacy and without labels",  # noqa: E501
         ),
+
+        pytest.param(
+            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status OPEN --secret",  # noqa: E501
+            0,
+            [
+                "[ WARN ] Extracting all open issue tickets without labels, without states, with privacy and without comments off the given selection",  # noqa: E501
+                "Found 2 issue ticket(s) across 1 page(s) in ",
+                "[ BUSY ] Migrating issue ticket without labels #1 'This is the title of the first test issue' by 'Akashdeep Dhar (ID t0xic0der)'...",  # noqa: E501
+                "Migrated to ",
+                "[ BUSY ] Migrating issue ticket without labels #3 'This is the title of the third test issue' by 'Akashdeep Dhar (ID t0xic0der)'...",  # noqa: E501
+                "Migrated to ",
+            ],
+            id="Transferring issue tickets with OPEN status along with privacy but without states, without comments and without labels",  # noqa: E501
+        ),
+        pytest.param(
+            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status SHUT --secret",  # noqa: E501
+            0,
+            [
+                "[ WARN ] Extracting all closed issue tickets without labels, without states, with privacy and without comments off the given selection",  # noqa: E501
+                "Found 2 issue ticket(s) across 1 page(s) in ",
+                "[ BUSY ] Migrating issue ticket without labels #2 'This is the title of the second test issue' by 'Akashdeep Dhar (ID t0xic0der)'...",  # noqa: E501
+                "Migrated to ",
+                "[ BUSY ] Migrating issue ticket without labels #4 'This is the title of the fourth test issue' by 'Akashdeep Dhar (ID t0xic0der)'...",  # noqa: E501
+                "Migrated to ",
+            ],
+            id="Transferring issue tickets with SHUT status along with privacy but without states, without comments and without labels",  # noqa: E501
+        ),
         pytest.param(
             f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status OPEN --select 1 --commit --comments",  # noqa: E501
             0,

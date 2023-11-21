@@ -1,0 +1,142 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://pagure.io/api/0/protop2g-test-srce
+  response:
+    body:
+      string: "{\n  \"access_groups\": {\n    \"admin\": [], \n    \"collaborator\":
+        [], \n    \"commit\": [], \n    \"ticket\": []\n  }, \n  \"access_users\":
+        {\n    \"admin\": [], \n    \"collaborator\": [], \n    \"commit\": [], \n
+        \   \"owner\": [\n      \"t0xic0der\"\n    ], \n    \"ticket\": []\n  }, \n
+        \ \"close_status\": [], \n  \"custom_keys\": [], \n  \"date_created\": \"1697168063\",
+        \n  \"date_modified\": \"1697168063\", \n  \"description\": \"The source namespace
+        for the Pagure Exporter project to run tests against\", \n  \"full_url\":
+        \"https://pagure.io/protop2g-test-srce\", \n  \"fullname\": \"protop2g-test-srce\",
+        \n  \"id\": 17042, \n  \"milestones\": {}, \n  \"name\": \"protop2g-test-srce\",
+        \n  \"namespace\": null, \n  \"parent\": null, \n  \"priorities\": {}, \n
+        \ \"tags\": [], \n  \"url_path\": \"protop2g-test-srce\", \n  \"user\": {\n
+        \   \"full_url\": \"https://pagure.io/user/t0xic0der\", \n    \"fullname\":
+        \"Akashdeep Dhar\", \n    \"name\": \"t0xic0der\", \n    \"url_path\": \"user/t0xic0der\"\n
+        \ }\n}\n"
+    headers:
+      Connection:
+      - Upgrade, Keep-Alive
+      Content-Length:
+      - '902'
+      Content-Security-Policy:
+      - default-src 'self';script-src 'self' 'nonce-T0QxG4IVVXawFK3xL8BBZlyAf'; style-src
+        'self' 'nonce-T0QxG4IVVXawFK3xL8BBZlyAf'; object-src 'none';base-uri 'self';img-src
+        'self' https:;connect-src 'self' https://pagure.io:8088;frame-src https://docs.pagure.org;frame-ancestors
+        https://pagure.io;
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 21 Nov 2023 17:57:50 GMT
+      Keep-Alive:
+      - timeout=5, max=100
+      Referrer-Policy:
+      - same-origin
+      Server:
+      - Apache/2.4.37 (Red Hat Enterprise Linux) OpenSSL/1.1.1k mod_wsgi/4.6.4 Python/3.6
+      Set-Cookie:
+      - REMOVED
+        Expires=Fri, 22-Dec-2023 17:57:50 GMT; Secure; HttpOnly; Path=/
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Upgrade:
+      - h2,h2c
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - ALLOW-FROM https://pagure.io/
+      X-Xss-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://gitlab.com/api/v4/projects/ZEROEXISTENT
+  response:
+    body:
+      string: '{"message":"404 Project Not Found"}'
+    headers:
+      CF-Cache-Status:
+      - MISS
+      CF-RAY:
+      - 829ad1433dc2f32b-BOM
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '35'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 21 Nov 2023 17:57:51 GMT
+      NEL:
+      - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=hyYIm05w1U12uDGjL8dkyPF6WVyFCkhP651vfw6mZwL2JAHXR4CTVTDqVOYfgQhXlPzy%2FGfP3LBFwdLeRIYl4YnN38nQgmSCJW5vtIypLq6Qqqa%2BfcN%2FHMLsZGY%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - REMOVED
+        path=/; domain=.gitlab.com; HttpOnly; Secure; SameSite=None
+      cache-control:
+      - no-cache
+      content-security-policy:
+      - default-src 'none'
+      gitlab-lb:
+      - haproxy-main-45-lb-gprd
+      gitlab-sv:
+      - localhost
+      ratelimit-limit:
+      - '2000'
+      ratelimit-observed:
+      - '13'
+      ratelimit-remaining:
+      - '1987'
+      ratelimit-reset:
+      - '1700589531'
+      ratelimit-resettime:
+      - Tue, 21 Nov 2023 17:58:51 GMT
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      strict-transport-security:
+      - max-age=31536000
+      vary:
+      - Origin, Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - SAMEORIGIN
+      x-gitlab-meta:
+      - '{"correlation_id":"91143ea6977e50cc94188e780736b6b0","version":"1"}'
+      x-request-id:
+      - 91143ea6977e50cc94188e780736b6b0
+      x-runtime:
+      - '0.049904'
+    status:
+      code: 404
+      message: Not Found
+version: 1

@@ -1,0 +1,79 @@
+interactions:
+- request:
+    body: state_event=close
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.31.0
+    method: PUT
+    uri: https://gitlab.com/api/v4/projects/42823949/issues/0
+  response:
+    body:
+      string: '{"message":"404 Not found"}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 829ae2199dbaf3f5-BOM
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '27'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 21 Nov 2023 18:09:21 GMT
+      NEL:
+      - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=O35sORnjhtO7UUYWhyArSPu6001SBSMGBfALU6X7XRL5kiFJIAuLICIX8WbsYk4KzeGO80JjDcSM%2B8JE3fTucHjfzBL4PT2SDPwG%2FW5kiANfo7Tjh8o3pXgG7KI%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - _cfuvid=fev3FozWKh.IAL2mK13laVgF4QG90sz1cvQjqe9uP9g-1700590161619-0-604800000;
+        path=/; domain=.gitlab.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
+      cache-control:
+      - no-cache
+      content-security-policy:
+      - default-src 'none'
+      gitlab-lb:
+      - haproxy-main-07-lb-gprd
+      gitlab-sv:
+      - localhost
+      ratelimit-limit:
+      - '2000'
+      ratelimit-observed:
+      - '5'
+      ratelimit-remaining:
+      - '1995'
+      ratelimit-reset:
+      - '1700590221'
+      ratelimit-resettime:
+      - Tue, 21 Nov 2023 18:10:21 GMT
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      strict-transport-security:
+      - max-age=31536000
+      vary:
+      - Origin, Accept-Encoding
+      x-gitlab-meta:
+      - '{"correlation_id":"ce884d686187f57bc34bbaf8eaa44be0","version":"1"}'
+      x-request-id:
+      - ce884d686187f57bc34bbaf8eaa44be0
+      x-runtime:
+      - '0.061428'
+    status:
+      code: 404
+      message: Not Found
+version: 1

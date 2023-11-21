@@ -32,6 +32,7 @@ from pagure_exporter.view.tkts import callwait
 from pagure_exporter.work.tkts import MoveTkts
 
 
+@pytest.mark.vcr(filter_headers=["Authorization"])
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, qant, stat, rslt",
     [
@@ -70,6 +71,7 @@ def test_unit_getcount(caplog, srce, dest, pkey, gkey, fusr, tusr, qant, stat, r
     assert qant <= standard.tktcount  # noqa: S101
 
 
+@pytest.mark.vcr(filter_headers=["Authorization"])
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, root, rslt",
     [
@@ -120,6 +122,7 @@ def test_unit_getcount_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, root, rs
     standard.pagulink = "https://pagure.io/api/0"
 
 
+@pytest.mark.vcr(filter_headers=["Authorization"])
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, size, indx, stat, rslt",
     [
@@ -172,6 +175,7 @@ def test_unit_iterpage(caplog, srce, dest, pkey, gkey, fusr, tusr, size, indx, s
     assert rslt == test_movetkts.iterpage(indx)[0]  # noqa: S101
 
 
+@pytest.mark.vcr(filter_headers=["Authorization"])
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, indx, root, rslt",
     [
@@ -225,6 +229,7 @@ def test_unit_iterpage_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, ro
     standard.pagulink = "https://pagure.io/api/0"
 
 
+@pytest.mark.vcr(filter_headers=["Authorization"])
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, indx, stat, skip, rslt",
     [
@@ -280,6 +285,7 @@ def test_unit_iteriden(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, stat, s
         assert skip == test_iteriden[1]  # noqa: S101
 
 
+@pytest.mark.vcr(filter_headers=["Authorization"])
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, indx, root, rslt",
     [
@@ -333,6 +339,7 @@ def test_unit_iteriden_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, ro
     standard.pagulink = "https://pagure.io/api/0"
 
 
+@pytest.mark.vcr(filter_headers=["Authorization"])
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, data, root, tags, rslt",
     [
@@ -485,6 +492,7 @@ def test_unit_itertkts(caplog, srce, dest, pkey, gkey, fusr, tusr, data, root, t
     standard.gtlblink = "https://gitlab.com/api/v4/projects"
 
 
+@pytest.mark.vcr(filter_headers=["Authorization"])
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, data, root, tkid, rslt",
     [
@@ -573,6 +581,7 @@ def test_unit_itercmts(caplog, srce, dest, pkey, gkey, fusr, tusr, data, root, t
     standard.gtlblink = "https://gitlab.com/api/v4/projects"
 
 
+@pytest.mark.vcr(filter_headers=["Authorization"])
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, root, tkid, shut, rslt",
     [

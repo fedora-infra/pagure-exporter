@@ -1,0 +1,54 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://pagure.io/api/0/stoopeed-repo/issue/1
+  response:
+    body:
+      string: "{\n  \"error\": \"Project not found\", \n  \"error_code\": \"ENOPROJECT\"\n}\n"
+    headers:
+      Connection:
+      - Upgrade, Keep-Alive
+      Content-Length:
+      - '66'
+      Content-Security-Policy:
+      - default-src 'self';script-src 'self' 'nonce-mxSbySsabTF2qtjZVFu95iLlc'; style-src
+        'self' 'nonce-mxSbySsabTF2qtjZVFu95iLlc'; object-src 'none';base-uri 'self';img-src
+        'self' https:;connect-src 'self' https://pagure.io:8088;frame-src https://docs.pagure.org;frame-ancestors
+        https://pagure.io;
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 21 Nov 2023 18:09:15 GMT
+      Keep-Alive:
+      - timeout=5, max=100
+      Referrer-Policy:
+      - same-origin
+      Server:
+      - Apache/2.4.37 (Red Hat Enterprise Linux) OpenSSL/1.1.1k mod_wsgi/4.6.4 Python/3.6
+      Set-Cookie:
+      - pagure=eyJfcGVybWFuZW50Ijp0cnVlLCJjc3JmX3Rva2VuIjoiYmVkM2M2ZDIxZTZkNjhmMDJiNGE4Y2U5MTc0ODI0NWFiMTcyNjA0YSJ9.GD6Dyw.PwO0yKu2_3WAkOYt9v3ROIWJVf0;
+        Expires=Fri, 22-Dec-2023 18:09:15 GMT; Secure; HttpOnly; Path=/
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Upgrade:
+      - h2,h2c
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - ALLOW-FROM https://pagure.io/
+      X-Xss-Protection:
+      - 1; mode=block
+    status:
+      code: 404
+      message: NOT FOUND
+version: 1

@@ -1,0 +1,97 @@
+interactions:
+- request:
+    body: state_event=close
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.31.0
+    method: PUT
+    uri: https://gitlab.com/api/v4/projects/42823949/issues/1
+  response:
+    body:
+      string: '{"id":134663521,"iid":1,"project_id":42823949,"title":"[SN#5] Fedora
+        India Twitter account strategies","description":"\nWe came up with a few ideas
+        to promote Fedora India community and onboard more people.\n\n* Let different
+        community members handle twitter account and talk about their interest and
+        work. Share what they do in the community, their favorite projects etc\n\n*
+        One \"Meet X from Fedora\"  and share contributors stories once a week\n\n_This
+        issue ticket was originally created on [here](https://pagure.io/fedora-india/Fedora-India/issue/5)
+        on a Pagure repository, [**fedora-india/Fedora-India**](https://pagure.io/fedora-india/Fedora-India)
+        by [**Vipul Siddharth**](https://pagure.io/user/siddharthvipul1) on [**Fri
+        May  7 13:52:53 2021**](https://savvytime.com/converter/utc/may-07-2021/13-52)._\n\n_This
+        issue ticket was automatically created by the [**Pagure2GitLab Importer Service**](https://github.com/gridhead/protop2g)._","state":"closed","created_at":"2023-09-14T10:11:53.592Z","updated_at":"2023-11-21T18:09:19.479Z","closed_at":"2023-10-16T09:23:56.514Z","closed_by":{"id":18339343,"username":"project_42823949_bot_992e5e9e997a7b44822ff32a4c634472","name":"protop2g-test","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/1b6289f6c729f1ba694aa2bc296a7277?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_992e5e9e997a7b44822ff32a4c634472"},"labels":[],"milestone":null,"assignees":[],"author":{"id":1243277,"username":"ghost1","name":"Ghost
+        User","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/4249f4df72b475e7894fabed1c5888cf?s=80\u0026d=identicon","web_url":"https://gitlab.com/ghost1"},"type":"ISSUE","assignee":null,"user_notes_count":123,"merge_requests_count":0,"upvotes":0,"downvotes":0,"due_date":null,"confidential":false,"discussion_locked":null,"issue_type":"issue","web_url":"https://gitlab.com/gridhead/protop2g-test/-/issues/1","time_stats":{"time_estimate":0,"total_time_spent":0,"human_time_estimate":null,"human_total_time_spent":null},"task_completion_status":{"count":0,"completed_count":0},"blocking_issues_count":0,"has_tasks":true,"task_status":"0
+        of 0 checklist items completed","_links":{"self":"https://gitlab.com/api/v4/projects/42823949/issues/1","notes":"https://gitlab.com/api/v4/projects/42823949/issues/1/notes","award_emoji":"https://gitlab.com/api/v4/projects/42823949/issues/1/award_emoji","project":"https://gitlab.com/api/v4/projects/42823949","closed_as_duplicate_of":null},"references":{"short":"#1","relative":"#1","full":"gridhead/protop2g-test#1"},"severity":"UNKNOWN","subscribed":true,"moved_to_id":null,"service_desk_reply_to":null}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 829ae215491131c4-BOM
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 21 Nov 2023 18:09:20 GMT
+      NEL:
+      - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=1joSYaR9MvnXgj9WZgBzIWOKx9n2Ci0iqf4m%2FwS5S6BsEqWjGD09M66KbLrDa2J9hmQIYBTY5Zxu4NVGUkVENzAs4On9RaLXVdNOPDxSK2dBI6Ar%2Fx0ZhFwB7x4%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - REMOVED
+        path=/; domain=.gitlab.com; HttpOnly; Secure; SameSite=None
+      Transfer-Encoding:
+      - chunked
+      cache-control:
+      - max-age=0, private, must-revalidate
+      content-security-policy:
+      - default-src 'none'
+      etag:
+      - W/"59a3d543ba36f0c39db6ec46c20f83b8"
+      gitlab-lb:
+      - haproxy-main-05-lb-gprd
+      gitlab-sv:
+      - localhost
+      ratelimit-limit:
+      - '2000'
+      ratelimit-observed:
+      - '4'
+      ratelimit-remaining:
+      - '1996'
+      ratelimit-reset:
+      - '1700590220'
+      ratelimit-resettime:
+      - Tue, 21 Nov 2023 18:10:20 GMT
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      strict-transport-security:
+      - max-age=31536000
+      vary:
+      - Origin, Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - SAMEORIGIN
+      x-gitlab-meta:
+      - '{"correlation_id":"6968b2cb128d3abc863fc34489a47b3c","version":"1"}'
+      x-request-id:
+      - 6968b2cb128d3abc863fc34489a47b3c
+      x-runtime:
+      - '0.371581'
+    status:
+      code: 200
+      message: OK
+version: 1

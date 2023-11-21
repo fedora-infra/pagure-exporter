@@ -2,31 +2,41 @@
 Pagure Exporter
 Copyright (C) 2022-2023 Akashdeep Dhar
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version.
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+details.
 
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>.
+You should have received a copy of the GNU General Public License along with
+this program.  If not, see <https://www.gnu.org/licenses/>.
 
-Any Red Hat trademarks that are incorporated in the source
-code or documentation are not subject to the GNU General Public
-License and may only be used or replicated with the express permission
-of Red Hat, Inc.
+Any Red Hat trademarks that are incorporated in the source code or
+documentation are not subject to the GNU General Public License and may only
+be used or replicated with the express permission of Red Hat, Inc.
 """
 
 
 import sys
+import time
 
 from pagure_exporter.conf import standard
 from pagure_exporter.view.dcrt import failure, general, section, success, warning
 from pagure_exporter.work.tkts import MoveTkts
+
+
+def callwait():
+    if standard.rateindx == standard.ratebond:
+        warning(f"Rate limit reached - {standard.ratebond} API requests made...")
+        general(
+            f"Waiting for {standard.waittime} second(s) and resetting the counter before resuming the transfer process"  # noqa: E501
+        )
+        time.sleep(standard.waittime)
+        standard.rateindx = 0
 
 
 def showtkts():
@@ -56,6 +66,7 @@ def showtkts():
                         f"page in {pagerslt[2]} second(s)"
                     )
                     for jndx in standard.pagerslt:
+                        callwait()
                         issurslt = moveobjc.itertkts(jndx)
                         section(
                             f"Migrating issue ticket {'with' if standard.movetags else 'without'} "  # noqa: E501
@@ -65,6 +76,7 @@ def showtkts():
                         if issurslt[0] == 201:
                             general(f"Migrated to {issurslt[1]} in {issurslt[2]} second(s)")
                             if standard.movestat:
+                                callwait()
                                 section("Asserting issue ticket status...")
                                 statrslt = moveobjc.iterstat()
                                 if statrslt[0] == 200:
@@ -90,6 +102,7 @@ def showtkts():
                                     f"Found {len(standard.issucmts)} entities in 0.00 second(s)"
                                 )
                                 for kndx in standard.issucmts:
+                                    callwait()
                                     cmtsrslt = moveobjc.itercmts(kndx)
                                     section(
                                         f"Transferring comment (Entity {standard.cmtsqant} of "
@@ -142,6 +155,7 @@ def showtkts():
             if tkidrslt[0] == 200:
                 if not tkidrslt[1]:
                     general(f"Information retrieved in {tkidrslt[2]} second(s)")
+                    callwait()
                     issurslt = moveobjc.itertkts(standard.issurslt)
                     section(
                         f"Migrating issue ticket {'with' if standard.movetags else 'without'} "
@@ -151,6 +165,7 @@ def showtkts():
                     if issurslt[0] == 201:
                         general(f"Migrated to {issurslt[1]} in {issurslt[2]} second(s)")
                         if standard.movestat:
+                            callwait()
                             section("Asserting issue ticket status...")
                             statrslt = moveobjc.iterstat()
                             if statrslt[0] == 200:
@@ -174,6 +189,7 @@ def showtkts():
                             standard.issucmts = standard.issurslt["comments"]
                             general(f"Found {len(standard.issucmts)} entities in 0.00 second(s)")
                             for kndx in standard.issucmts:
+                                callwait()
                                 cmtsrslt = moveobjc.itercmts(kndx)
                                 section(
                                     f"Transferring comment (Entity {standard.cmtsqant} of {len(standard.issucmts)})..."  # noqa: E501

@@ -2,23 +2,22 @@
 Pagure Exporter
 Copyright (C) 2022-2023 Akashdeep Dhar
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version.
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+details.
 
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>.
+You should have received a copy of the GNU General Public License along with
+this program.  If not, see <https://www.gnu.org/licenses/>.
 
-Any Red Hat trademarks that are incorporated in the source
-code or documentation are not subject to the GNU General Public
-License and may only be used or replicated with the express permission
-of Red Hat, Inc.
+Any Red Hat trademarks that are incorporated in the source code or
+documentation are not subject to the GNU General Public License and may only
+be used or replicated with the express permission of Red Hat, Inc.
 """
 
 
@@ -29,6 +28,7 @@ from time import time
 import pytest
 
 from pagure_exporter.conf import standard
+from pagure_exporter.view.tkts import callwait
 from pagure_exporter.work.tkts import MoveTkts
 
 
@@ -641,3 +641,51 @@ def test_unit_iterstat(caplog, srce, dest, pkey, gkey, fusr, tusr, root, tkid, s
     # Changing the shared variable back to its default
     # Please check https://github.com/gridhead/protop2g/issues/35 for additional details
     standard.gtlblink = "https://gitlab.com/api/v4/projects"
+
+
+@pytest.mark.parametrize(
+    "rateindx, ratebond, waittime, text",
+    [
+        pytest.param(
+            1,
+            5,
+            2,
+            [],
+            id="Testing to avoid waiting as the rate limit has not been reached",
+        ),
+        pytest.param(
+            5,
+            5,
+            2,
+            [
+                "Rate limit reached - {ratebond} API requests made...",
+                "Waiting for {waittime} second(s) and resetting the counter before resuming the transfer process",  # noqa: E501
+            ],
+            id="Testing to assert waiting as the rate limit has been reached",
+        ),
+    ],
+)
+def test_unit_callwait(caplog, rateindx, ratebond, waittime, text):
+    standard.rateindx, standard.ratebond, standard.waittime = rateindx, ratebond, waittime
+
+    strttime = time()
+    callwait()
+    stoptime = time()
+
+    if rateindx < ratebond:
+        assert (stoptime - strttime) <= standard.waittime  # noqa: S101
+        assert standard.rateindx == 1  # noqa: S101
+
+    if rateindx == ratebond:
+        assert (stoptime - strttime) >= standard.waittime  # noqa: S101
+        assert standard.rateindx == 0  # noqa: S101
+
+    if rateindx == ratebond:
+        text[0], text[1] = text[0].format(ratebond=ratebond), text[1].format(waittime=waittime)
+
+    for indx in text:
+        assert indx in caplog.text  # noqa: S101
+
+    # Changing the shared variable back to its default
+    # Please check https://github.com/gridhead/protop2g/issues/35 for additional details
+    standard.rateindx, standard.ratebond, standard.waittime = 0, 500, 60

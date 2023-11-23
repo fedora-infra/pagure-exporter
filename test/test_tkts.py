@@ -29,6 +29,7 @@ from click.testing import CliRunner
 from pagure_exporter.main import main
 
 
+@pytest.mark.vcr(filter_headers=["Authorization"])
 @pytest.mark.parametrize(
     "cmdl, code, text",
     [

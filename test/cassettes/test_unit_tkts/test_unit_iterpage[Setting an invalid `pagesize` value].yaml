@@ -1,0 +1,53 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.31.0
+    method: GET
+    uri: https://pagure.io/api/0/protop2g-test-srce/issues?per_page=0&page=1
+  response:
+    body:
+      string: "{\n  \"error\": \"The per_page value must be between 1 and 100\", \n
+        \ \"error_code\": \"EINVALIDPERPAGEVALUE\"\n}\n"
+    headers:
+      Connection:
+      - Upgrade, close
+      Content-Length:
+      - '103'
+      Content-Security-Policy:
+      - default-src 'self';script-src 'self' 'nonce-mbVHut1LsL5acdRm9PYnbuerN'; style-src
+        'self' 'nonce-mbVHut1LsL5acdRm9PYnbuerN'; object-src 'none';base-uri 'self';img-src
+        'self' https:;connect-src 'self' https://pagure.io:8088;frame-src https://docs.pagure.org;frame-ancestors
+        https://pagure.io;
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 21 Nov 2023 18:09:04 GMT
+      Referrer-Policy:
+      - same-origin
+      Server:
+      - Apache/2.4.37 (Red Hat Enterprise Linux) OpenSSL/1.1.1k mod_wsgi/4.6.4 Python/3.6
+      Set-Cookie:
+      - REMOVED
+        Expires=Fri, 22-Dec-2023 18:09:04 GMT; Secure; HttpOnly; Path=/
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Upgrade:
+      - h2,h2c
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - ALLOW-FROM https://pagure.io/
+      X-Xss-Protection:
+      - 1; mode=block
+    status:
+      code: 400
+      message: BAD REQUEST
+version: 1

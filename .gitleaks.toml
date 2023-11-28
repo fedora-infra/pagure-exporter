@@ -1,0 +1,8 @@
+[allowlist]
+regexTarget = "match"
+# If GitLab sends back their runner token as a part of the HTTP API response
+# then it is safe to assume that it is pretty harmless to have that exposed.
+# Either that or they must be reached out regarding this to confirm the same.
+regexes = [
+    "REMOVED",
+]

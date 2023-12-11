@@ -3,7 +3,7 @@
 %global desc Simple exporter tool that helps migrate repository files, data assets and issue tickets from projects on Pagure to GitLab
 
 Name:           %{pkgname}
-Version:        0.1.1
+Version:        0.1.2
 Release:        1%{?dist}
 Summary:        %{desc}
 
@@ -36,6 +36,15 @@ BuildRequires:  python3-devel
 %{_bindir}/%{name}
 
 %changelog
+
+* Mon Dec 11 2023 Akashdeep Dhar <t0xic0der@fedoraproject.org> - 0.1.2-1
+- Expanded the documentation to explain branch protection
+- Censor the sensitive information from STDOUT
+- Add support for automatic dependency updates using Renovate
+- Circumvent the rate limits on the GitLab API requests
+- Added support for migrating issue ticket confidentiality
+- Added advanced HTTP requests testing support using VCR.py
+- Added configuration to avoid false security flagging
 
 * Thu Oct 19 2023 Akashdeep Dhar <t0xic0der@fedoraproject.org> - 0.1.1-1
 - Reworked the documentation sections with proper updates

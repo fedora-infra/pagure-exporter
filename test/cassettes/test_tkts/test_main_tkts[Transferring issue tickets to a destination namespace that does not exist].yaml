@@ -34,23 +34,21 @@ interactions:
       Content-Length:
       - '902'
       Content-Security-Policy:
-      - default-src 'self';script-src 'self' 'nonce-T0QxG4IVVXawFK3xL8BBZlyAf'; style-src
-        'self' 'nonce-T0QxG4IVVXawFK3xL8BBZlyAf'; object-src 'none';base-uri 'self';img-src
+      - default-src 'self';script-src 'self' 'nonce-7451ZtmqIzXvQ7xzj7qtFRm6W'; style-src
+        'self' 'nonce-7451ZtmqIzXvQ7xzj7qtFRm6W'; object-src 'none';base-uri 'self';img-src
         'self' https:;connect-src 'self' https://pagure.io:8088;frame-src https://docs.pagure.org;frame-ancestors
         https://pagure.io;
       Content-Type:
       - application/json
       Date:
-      - Tue, 21 Nov 2023 17:57:50 GMT
+      - Mon, 11 Dec 2023 06:23:18 GMT
       Keep-Alive:
       - timeout=5, max=100
       Referrer-Policy:
       - same-origin
       Server:
       - Apache/2.4.37 (Red Hat Enterprise Linux) OpenSSL/1.1.1k mod_wsgi/4.6.4 Python/3.6
-      Set-Cookie:
-      - REMOVED
-        Expires=Fri, 22-Dec-2023 17:57:50 GMT; Secure; HttpOnly; Path=/
+      Set-Cookie: ''
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Upgrade:
@@ -84,7 +82,7 @@ interactions:
       CF-Cache-Status:
       - MISS
       CF-RAY:
-      - 829ad1433dc2f32b-BOM
+      - 833ba35dbc5284e3-BOM
       Connection:
       - keep-alive
       Content-Length:
@@ -92,34 +90,32 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Tue, 21 Nov 2023 17:57:51 GMT
+      - Mon, 11 Dec 2023 06:23:19 GMT
       NEL:
       - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=hyYIm05w1U12uDGjL8dkyPF6WVyFCkhP651vfw6mZwL2JAHXR4CTVTDqVOYfgQhXlPzy%2FGfP3LBFwdLeRIYl4YnN38nQgmSCJW5vtIypLq6Qqqa%2BfcN%2FHMLsZGY%3D"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=bnZjN0t7KVZ6epjghahzq7uB%2F8HxTJkvZ2TO1WyWEU7y0QAXMPpANCnbsdltyw0Y9dwvTUsRzymVCWV2wT4%2F%2BueikVX45bkl0Q61B9Oczz5hM8lZ1NnHJYT0nns%3D"}],"group":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
-      Set-Cookie:
-      - REMOVED
-        path=/; domain=.gitlab.com; HttpOnly; Secure; SameSite=None
+      Set-Cookie: ''
       cache-control:
       - no-cache
       content-security-policy:
       - default-src 'none'
       gitlab-lb:
-      - haproxy-main-45-lb-gprd
+      - haproxy-main-24-lb-gprd
       gitlab-sv:
       - localhost
       ratelimit-limit:
       - '2000'
       ratelimit-observed:
-      - '13'
+      - '15'
       ratelimit-remaining:
-      - '1987'
+      - '1985'
       ratelimit-reset:
-      - '1700589531'
+      - '1702275858'
       ratelimit-resettime:
-      - Tue, 21 Nov 2023 17:58:51 GMT
+      - Mon, 11 Dec 2023 06:24:18 GMT
       referrer-policy:
       - strict-origin-when-cross-origin
       strict-transport-security:
@@ -131,11 +127,11 @@ interactions:
       x-frame-options:
       - SAMEORIGIN
       x-gitlab-meta:
-      - '{"correlation_id":"91143ea6977e50cc94188e780736b6b0","version":"1"}'
+      - '{"correlation_id":"77d755e15ec6302bb838ae7d985d7de8","version":"1"}'
       x-request-id:
-      - 91143ea6977e50cc94188e780736b6b0
+      - 77d755e15ec6302bb838ae7d985d7de8
       x-runtime:
-      - '0.049904'
+      - '0.050146'
     status:
       code: 404
       message: Not Found

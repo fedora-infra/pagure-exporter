@@ -23,7 +23,7 @@ interactions:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 829ae2199dbaf3f5-BOM
+      - 833badfabb358549-BOM
       Connection:
       - keep-alive
       Content-Length:
@@ -31,16 +31,14 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Tue, 21 Nov 2023 18:09:21 GMT
+      - Mon, 11 Dec 2023 06:30:33 GMT
       NEL:
       - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=O35sORnjhtO7UUYWhyArSPu6001SBSMGBfALU6X7XRL5kiFJIAuLICIX8WbsYk4KzeGO80JjDcSM%2B8JE3fTucHjfzBL4PT2SDPwG%2FW5kiANfo7Tjh8o3pXgG7KI%3D"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=Ak0vnh7Rh4LMYthHv0kDvOwJ56kgH7ebsoUFw%2Fq%2ByGf2PWlBShrqP%2BdVt8QsahfD2FjBJe4XyrHw%2BvD3eSnWayNvYB87%2Bg%2FPJwwZKz8tTcRSjZuUSvy6cpciVRU%3D"}],"group":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
-      Set-Cookie:
-      - REMOVED
-        path=/; domain=.gitlab.com; HttpOnly; Secure; SameSite=None
+      Set-Cookie: ''
       X-Content-Type-Options:
       - nosniff
       cache-control:
@@ -48,19 +46,19 @@ interactions:
       content-security-policy:
       - default-src 'none'
       gitlab-lb:
-      - haproxy-main-07-lb-gprd
+      - haproxy-main-58-lb-gprd
       gitlab-sv:
       - localhost
       ratelimit-limit:
       - '2000'
       ratelimit-observed:
-      - '5'
+      - '6'
       ratelimit-remaining:
-      - '1995'
+      - '1994'
       ratelimit-reset:
-      - '1700590221'
+      - '1702276293'
       ratelimit-resettime:
-      - Tue, 21 Nov 2023 18:10:21 GMT
+      - Mon, 11 Dec 2023 06:31:33 GMT
       referrer-policy:
       - strict-origin-when-cross-origin
       strict-transport-security:
@@ -68,11 +66,11 @@ interactions:
       vary:
       - Origin, Accept-Encoding
       x-gitlab-meta:
-      - '{"correlation_id":"ce884d686187f57bc34bbaf8eaa44be0","version":"1"}'
+      - '{"correlation_id":"3c371376d478a6415db838dc4fc527d2","version":"1"}'
       x-request-id:
-      - ce884d686187f57bc34bbaf8eaa44be0
+      - 3c371376d478a6415db838dc4fc527d2
       x-runtime:
-      - '0.061428'
+      - '0.055450'
     status:
       code: 404
       message: Not Found

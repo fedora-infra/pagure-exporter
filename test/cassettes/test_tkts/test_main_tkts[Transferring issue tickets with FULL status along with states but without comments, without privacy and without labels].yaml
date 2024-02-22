@@ -34,14 +34,14 @@ interactions:
       Content-Length:
       - '902'
       Content-Security-Policy:
-      - default-src 'self';script-src 'self' 'nonce-f0NViRhep5MmO84hhUzSHDe9h'; style-src
-        'self' 'nonce-f0NViRhep5MmO84hhUzSHDe9h'; object-src 'none';base-uri 'self';img-src
+      - default-src 'self';script-src 'self' 'nonce-cJI296OMVZNKTtQ6pzHB75mJe'; style-src
+        'self' 'nonce-cJI296OMVZNKTtQ6pzHB75mJe'; object-src 'none';base-uri 'self';img-src
         'self' https:;connect-src 'self' https://pagure.io:8088;frame-src https://docs.pagure.org;frame-ancestors
         https://pagure.io;
       Content-Type:
       - application/json
       Date:
-      - Mon, 11 Dec 2023 06:24:06 GMT
+      - Thu, 22 Feb 2024 09:32:33 GMT
       Keep-Alive:
       - timeout=5, max=100
       Referrer-Policy:
@@ -71,21 +71,23 @@ interactions:
       - gzip, deflate
       Connection:
       - keep-alive
+      Content-type:
+      - application/json
       User-Agent:
-      - python-requests/2.31.0
+      - python-gitlab/4.4.0
     method: GET
     uri: https://gitlab.com/api/v4/projects/42823949
   response:
     body:
       string: '{"id":42823949,"description":null,"name":"protop2g-test","name_with_namespace":"Akashdeep
-        Dhar / protop2g-test","path":"protop2g-test","path_with_namespace":"gridhead/protop2g-test","created_at":"2023-01-23T16:18:30.217Z","default_branch":"main","tag_list":[],"topics":[],"ssh_url_to_repo":"git@gitlab.com:gridhead/protop2g-test.git","http_url_to_repo":"https://gitlab.com/gridhead/protop2g-test.git","web_url":"https://gitlab.com/gridhead/protop2g-test","readme_url":"https://gitlab.com/gridhead/protop2g-test/-/blob/main/README.md","forks_count":0,"avatar_url":null,"star_count":0,"last_activity_at":"2023-12-11T05:36:06.620Z","namespace":{"id":13984834,"name":"Akashdeep
-        Dhar","path":"gridhead","kind":"user","full_path":"gridhead","parent_id":null,"avatar_url":"https://secure.gravatar.com/avatar/eba3058f529195e3b87d3383ada41661?s=80\u0026d=identicon","web_url":"https://gitlab.com/gridhead"},"container_registry_image_prefix":"registry.gitlab.com/gridhead/protop2g-test","_links":{"self":"https://gitlab.com/api/v4/projects/42823949","issues":"https://gitlab.com/api/v4/projects/42823949/issues","merge_requests":"https://gitlab.com/api/v4/projects/42823949/merge_requests","repo_branches":"https://gitlab.com/api/v4/projects/42823949/repository/branches","labels":"https://gitlab.com/api/v4/projects/42823949/labels","events":"https://gitlab.com/api/v4/projects/42823949/events","members":"https://gitlab.com/api/v4/projects/42823949/members","cluster_agents":"https://gitlab.com/api/v4/projects/42823949/cluster_agents"},"packages_enabled":true,"empty_repo":false,"archived":false,"visibility":"public","owner":{"id":10115999,"username":"gridhead","name":"Akashdeep
-        Dhar","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/eba3058f529195e3b87d3383ada41661?s=80\u0026d=identicon","web_url":"https://gitlab.com/gridhead"},"resolve_outdated_diff_discussions":false,"container_expiration_policy":{"cadence":"1d","enabled":false,"keep_n":10,"older_than":"90d","name_regex":".*","name_regex_keep":null,"next_run_at":"2023-01-24T16:18:30.271Z"},"issues_enabled":true,"merge_requests_enabled":true,"wiki_enabled":true,"jobs_enabled":true,"snippets_enabled":true,"container_registry_enabled":true,"service_desk_enabled":true,"service_desk_address":"contact-project+gridhead-protop2g-test-42823949-issue-@incoming.gitlab.com","can_create_merge_request_in":true,"issues_access_level":"enabled","repository_access_level":"enabled","merge_requests_access_level":"enabled","forking_access_level":"enabled","wiki_access_level":"enabled","builds_access_level":"enabled","snippets_access_level":"enabled","pages_access_level":"enabled","analytics_access_level":"enabled","container_registry_access_level":"enabled","security_and_compliance_access_level":"private","releases_access_level":"private","environments_access_level":"enabled","feature_flags_access_level":"private","infrastructure_access_level":"private","monitor_access_level":"enabled","model_experiments_access_level":"enabled","emails_disabled":false,"emails_enabled":true,"shared_runners_enabled":true,"lfs_enabled":true,"creator_id":10115999,"import_url":null,"import_type":null,"import_status":"none","import_error":null,"open_issues_count":5077,"description_html":"","updated_at":"2023-12-11T05:36:06.620Z","ci_default_git_depth":20,"ci_forward_deployment_enabled":true,"ci_forward_deployment_rollback_allowed":true,"ci_job_token_scope_enabled":false,"ci_separated_caches":true,"ci_allow_fork_pipelines_to_run_in_parent_project":true,"build_git_strategy":"fetch","keep_latest_artifact":true,"restrict_user_defined_variables":false,"runners_token":"REMOVED","runner_token_expiration_interval":null,"group_runners_enabled":true,"auto_cancel_pending_pipelines":"enabled","build_timeout":3600,"auto_devops_enabled":false,"auto_devops_deploy_strategy":"continuous","ci_config_path":"","public_jobs":true,"shared_with_groups":[],"only_allow_merge_if_pipeline_succeeds":false,"allow_merge_on_skipped_pipeline":null,"request_access_enabled":true,"only_allow_merge_if_all_discussions_are_resolved":false,"remove_source_branch_after_merge":true,"printing_merge_request_link_enabled":true,"merge_method":"merge","squash_option":"default_off","enforce_auth_checks_on_uploads":true,"suggestion_commit_message":null,"merge_commit_template":null,"squash_commit_template":null,"issue_branch_template":null,"autoclose_referenced_issues":true,"external_authorization_classification_label":"","requirements_enabled":false,"requirements_access_level":"enabled","security_and_compliance_enabled":true,"compliance_frameworks":[],"permissions":{"project_access":{"access_level":40,"notification_level":3},"group_access":null}}'
+        Dhar / protop2g-test","path":"protop2g-test","path_with_namespace":"gridhead/protop2g-test","created_at":"2023-01-23T16:18:30.217Z","default_branch":"main","tag_list":[],"topics":[],"ssh_url_to_repo":"git@gitlab.com:gridhead/protop2g-test.git","http_url_to_repo":"https://gitlab.com/gridhead/protop2g-test.git","web_url":"https://gitlab.com/gridhead/protop2g-test","readme_url":"https://gitlab.com/gridhead/protop2g-test/-/blob/main/README.md","forks_count":0,"avatar_url":null,"star_count":0,"last_activity_at":"2024-02-22T09:31:08.610Z","namespace":{"id":13984834,"name":"Akashdeep
+        Dhar","path":"gridhead","kind":"user","full_path":"gridhead","parent_id":null,"avatar_url":"https://secure.gravatar.com/avatar/e412343841597e2fb1e952dd2b1077fc95537604ce04a27c5bfb94bdb0dc3da8?s=80\u0026d=identicon","web_url":"https://gitlab.com/gridhead"},"container_registry_image_prefix":"registry.gitlab.com/gridhead/protop2g-test","_links":{"self":"https://gitlab.com/api/v4/projects/42823949","issues":"https://gitlab.com/api/v4/projects/42823949/issues","merge_requests":"https://gitlab.com/api/v4/projects/42823949/merge_requests","repo_branches":"https://gitlab.com/api/v4/projects/42823949/repository/branches","labels":"https://gitlab.com/api/v4/projects/42823949/labels","events":"https://gitlab.com/api/v4/projects/42823949/events","members":"https://gitlab.com/api/v4/projects/42823949/members","cluster_agents":"https://gitlab.com/api/v4/projects/42823949/cluster_agents"},"packages_enabled":true,"empty_repo":false,"archived":false,"visibility":"public","owner":{"id":10115999,"username":"gridhead","name":"Akashdeep
+        Dhar","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/e412343841597e2fb1e952dd2b1077fc95537604ce04a27c5bfb94bdb0dc3da8?s=80\u0026d=identicon","web_url":"https://gitlab.com/gridhead"},"resolve_outdated_diff_discussions":false,"container_expiration_policy":{"cadence":"1d","enabled":false,"keep_n":10,"older_than":"90d","name_regex":".*","name_regex_keep":null,"next_run_at":"2023-01-24T16:18:30.271Z"},"repository_object_format":"sha1","issues_enabled":true,"merge_requests_enabled":true,"wiki_enabled":true,"jobs_enabled":true,"snippets_enabled":true,"container_registry_enabled":true,"service_desk_enabled":true,"service_desk_address":"contact-project+gridhead-protop2g-test-42823949-issue-@incoming.gitlab.com","can_create_merge_request_in":true,"issues_access_level":"enabled","repository_access_level":"enabled","merge_requests_access_level":"enabled","forking_access_level":"enabled","wiki_access_level":"enabled","builds_access_level":"enabled","snippets_access_level":"enabled","pages_access_level":"enabled","analytics_access_level":"enabled","container_registry_access_level":"enabled","security_and_compliance_access_level":"private","releases_access_level":"private","environments_access_level":"enabled","feature_flags_access_level":"private","infrastructure_access_level":"private","monitor_access_level":"enabled","model_experiments_access_level":"enabled","model_registry_access_level":"enabled","emails_disabled":false,"emails_enabled":true,"shared_runners_enabled":true,"lfs_enabled":true,"creator_id":10115999,"import_url":null,"import_type":null,"import_status":"none","import_error":null,"open_issues_count":5433,"description_html":"","updated_at":"2024-02-22T09:31:08.610Z","ci_default_git_depth":20,"ci_forward_deployment_enabled":true,"ci_forward_deployment_rollback_allowed":true,"ci_job_token_scope_enabled":false,"ci_separated_caches":true,"ci_allow_fork_pipelines_to_run_in_parent_project":true,"build_git_strategy":"fetch","keep_latest_artifact":true,"restrict_user_defined_variables":false,"runners_token":"SECURE_STANDARD_PASSWORD_HERE","runner_token_expiration_interval":null,"group_runners_enabled":true,"auto_cancel_pending_pipelines":"enabled","build_timeout":3600,"auto_devops_enabled":false,"auto_devops_deploy_strategy":"continuous","ci_config_path":"","public_jobs":true,"shared_with_groups":[],"only_allow_merge_if_pipeline_succeeds":false,"allow_merge_on_skipped_pipeline":null,"request_access_enabled":true,"only_allow_merge_if_all_discussions_are_resolved":false,"remove_source_branch_after_merge":true,"printing_merge_request_link_enabled":true,"merge_method":"merge","squash_option":"default_off","enforce_auth_checks_on_uploads":true,"suggestion_commit_message":null,"merge_commit_template":null,"squash_commit_template":null,"issue_branch_template":null,"warn_about_potentially_unwanted_characters":true,"autoclose_referenced_issues":true,"external_authorization_classification_label":"","requirements_enabled":false,"requirements_access_level":"enabled","security_and_compliance_enabled":true,"compliance_frameworks":[],"permissions":{"project_access":{"access_level":40,"notification_level":3},"group_access":null}}'
     headers:
       CF-Cache-Status:
       - MISS
       CF-RAY:
-      - 833ba48dacab2e4c-BOM
+      - 859638f9ba1094bf-CCU
       Connection:
       - keep-alive
       Content-Encoding:
@@ -93,11 +95,11 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Mon, 11 Dec 2023 06:24:07 GMT
+      - Thu, 22 Feb 2024 09:32:34 GMT
       NEL:
       - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=lDN8DO%2FJ9Wl6Ob5Y7i78qRNFXgkyzgH1CxS55FtRJWprOrOY66d2urdoHfuOIjNb2xTrNuQR1ALyHbDgC%2FiYkY%2FSUB1Ni%2B1rYGmF0wDA8AgDuWFDdjOl2ky8%2B4E%3D"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=VpE5PPcstfOyPGfYNjR8ogwJ0JyEk4LzFrahNOa1pgkKeQd5OkRgR%2B%2B5fTERpch9jL2gD5ib5pNK1S3Mq1LwFlPasG%2Boe6UjZLgSGRv1O1S%2F%2FhkkKY0alwGmL1wC8%2FhVIHes2iUyoyI%3D"}],"group":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
       Set-Cookie: ''
@@ -108,21 +110,11 @@ interactions:
       content-security-policy:
       - default-src 'none'
       etag:
-      - W/"52e87c40f723a14847db33a32e95c09c"
+      - W/"a937f65292ea5589e6eb054dc9a6e1f6"
       gitlab-lb:
-      - haproxy-main-35-lb-gprd
+      - haproxy-main-10-lb-gprd
       gitlab-sv:
-      - localhost
-      ratelimit-limit:
-      - '2000'
-      ratelimit-observed:
-      - '34'
-      ratelimit-remaining:
-      - '1966'
-      ratelimit-reset:
-      - '1702275907'
-      ratelimit-resettime:
-      - Mon, 11 Dec 2023 06:25:07 GMT
+      - api-gke-us-east1-c
       referrer-policy:
       - strict-origin-when-cross-origin
       strict-transport-security:
@@ -134,11 +126,11 @@ interactions:
       x-frame-options:
       - SAMEORIGIN
       x-gitlab-meta:
-      - '{"correlation_id":"d0b4c64e873df7b0d0bcc2821dac8b97","version":"1"}'
+      - '{"correlation_id":"e8cf9524859174cf1ed4efa925564191","version":"1"}'
       x-request-id:
-      - d0b4c64e873df7b0d0bcc2821dac8b97
+      - e8cf9524859174cf1ed4efa925564191
       x-runtime:
-      - '0.093406'
+      - '0.127270'
     status:
       code: 200
       message: OK
@@ -308,14 +300,14 @@ interactions:
       Content-Length:
       - '10774'
       Content-Security-Policy:
-      - default-src 'self';script-src 'self' 'nonce-UfaNwyx2Or0gAyUABlu4eAyvr'; style-src
-        'self' 'nonce-UfaNwyx2Or0gAyUABlu4eAyvr'; object-src 'none';base-uri 'self';img-src
+      - default-src 'self';script-src 'self' 'nonce-ZhMrqYCHZOEiyA3OUigNcKNhY'; style-src
+        'self' 'nonce-ZhMrqYCHZOEiyA3OUigNcKNhY'; object-src 'none';base-uri 'self';img-src
         'self' https:;connect-src 'self' https://pagure.io:8088;frame-src https://docs.pagure.org;frame-ancestors
         https://pagure.io;
       Content-Type:
       - application/json
       Date:
-      - Mon, 11 Dec 2023 06:24:08 GMT
+      - Thu, 22 Feb 2024 09:32:35 GMT
       Keep-Alive:
       - timeout=5, max=100
       Referrer-Policy:
@@ -502,14 +494,14 @@ interactions:
       Content-Length:
       - '10774'
       Content-Security-Policy:
-      - default-src 'self';script-src 'self' 'nonce-QJJh07FmH772gWNYyHleqJK7d'; style-src
-        'self' 'nonce-QJJh07FmH772gWNYyHleqJK7d'; object-src 'none';base-uri 'self';img-src
+      - default-src 'self';script-src 'self' 'nonce-93rfekqjOGEqKL7iZVdMyJxeR'; style-src
+        'self' 'nonce-93rfekqjOGEqKL7iZVdMyJxeR'; object-src 'none';base-uri 'self';img-src
         'self' https:;connect-src 'self' https://pagure.io:8088;frame-src https://docs.pagure.org;frame-ancestors
         https://pagure.io;
       Content-Type:
       - application/json
       Date:
-      - Mon, 11 Dec 2023 06:24:09 GMT
+      - Thu, 22 Feb 2024 09:32:36 GMT
       Keep-Alive:
       - timeout=5, max=100
       Referrer-Policy:
@@ -531,7 +523,12 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: title=%5BSN%234%5D+This+is+the+title+of+the+fourth+test+issue&description=%0AThis+is+the+body+of+the+fourth+test+issue%0A%0A_This+issue+ticket+was+originally+created+%5Bhere%5D%28https%3A%2F%2Fpagure.io%2Fprotop2g-test-srce%2Fissue%2F4%29+on+a+Pagure+repository%2C%0A%5B%2A%2Aprotop2g-test-srce%2A%2A%5D%28https%3A%2F%2Fpagure.io%2Fprotop2g-test-srce%29+by+%5B%2A%2AAkashdeep+Dhar%2A%2A%5D%28https%3A%2F%2Fpagure.io%2Fuser%2Ft0xic0der%29+on%0A%5B%2A%2ATue+Nov+21+08%3A06%3A56+2023%2A%2A+UTC%5D%28https%3A%2F%2Fsavvytime.com%2Fconverter%2Futc%2Fnov-21-2023%2F08-06%29._%0A%0A_This+issue+ticket+was+automatically+created+by+the%0A%5B%2A%2APagure+Exporter%2A%2A%5D%28https%3A%2F%2Fgithub.com%2Fgridhead%2Fpagure-exporter%29._%0A
+    body: '{"title": "[SN#4] This is the title of the fourth test issue", "description":
+      "\nThis is the body of the fourth test issue\n\n_This issue ticket was originally
+      created [here](https://pagure.io/protop2g-test-srce/issue/4) on a Pagure repository,\n[**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
+      by [**Akashdeep Dhar**](https://pagure.io/user/t0xic0der) on\n[**Tue Nov 21
+      08:06:56 2023** UTC](https://savvytime.com/converter/utc/nov-21-2023/08-06)._\n\n_This
+      issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._\n"}'
     headers:
       Accept:
       - '*/*'
@@ -540,40 +537,42 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '725'
-      Content-Type:
-      - application/x-www-form-urlencoded
+      - '591'
+      Content-type:
+      - application/json
+      Cookie:
+      - _cfuvid=xGaLcDSkJeTOx4zh8AVqlBJ_ryadTs4mIcFDMBqA9dI-1708594354616-0.0-604800000
       User-Agent:
-      - python-requests/2.31.0
+      - python-gitlab/4.4.0
     method: POST
     uri: https://gitlab.com/api/v4/projects/42823949/issues
   response:
     body:
-      string: '{"id":139467114,"iid":6085,"project_id":42823949,"title":"[SN#4] This
+      string: '{"id":142497527,"iid":13141,"project_id":42823949,"title":"[SN#4] This
         is the title of the fourth test issue","description":"\nThis is the body of
         the fourth test issue\n\n_This issue ticket was originally created [here](https://pagure.io/protop2g-test-srce/issue/4)
         on a Pagure repository,\n[**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
         by [**Akashdeep Dhar**](https://pagure.io/user/t0xic0der) on\n[**Tue Nov 21
         08:06:56 2023** UTC](https://savvytime.com/converter/utc/nov-21-2023/08-06)._\n\n_This
-        issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","state":"opened","created_at":"2023-12-11T06:24:10.899Z","updated_at":"2023-12-11T06:24:10.899Z","closed_at":null,"closed_by":null,"labels":[],"milestone":null,"assignees":[],"author":{"id":18339343,"username":"project_42823949_bot_992e5e9e997a7b44822ff32a4c634472","name":"protop2g-test","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/1b6289f6c729f1ba694aa2bc296a7277?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_992e5e9e997a7b44822ff32a4c634472"},"type":"ISSUE","assignee":null,"user_notes_count":0,"merge_requests_count":0,"upvotes":0,"downvotes":0,"due_date":null,"confidential":false,"discussion_locked":null,"issue_type":"issue","web_url":"https://gitlab.com/gridhead/protop2g-test/-/issues/6085","time_stats":{"time_estimate":0,"total_time_spent":0,"human_time_estimate":null,"human_total_time_spent":null},"task_completion_status":{"count":0,"completed_count":0},"blocking_issues_count":0,"has_tasks":true,"task_status":"0
-        of 0 checklist items completed","_links":{"self":"https://gitlab.com/api/v4/projects/42823949/issues/6085","notes":"https://gitlab.com/api/v4/projects/42823949/issues/6085/notes","award_emoji":"https://gitlab.com/api/v4/projects/42823949/issues/6085/award_emoji","project":"https://gitlab.com/api/v4/projects/42823949","closed_as_duplicate_of":null},"references":{"short":"#6085","relative":"#6085","full":"gridhead/protop2g-test#6085"},"severity":"UNKNOWN","subscribed":true,"moved_to_id":null,"service_desk_reply_to":null}'
+        issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","state":"opened","created_at":"2024-02-22T09:32:37.422Z","updated_at":"2024-02-22T09:32:37.422Z","closed_at":null,"closed_by":null,"labels":[],"milestone":null,"assignees":[],"author":{"id":18339343,"username":"project_42823949_bot_992e5e9e997a7b44822ff32a4c634472","name":"protop2g-test","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/d05ca08df001326fd4089761821e15d906b1315eceace144e831979f3d83379e?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_992e5e9e997a7b44822ff32a4c634472"},"type":"ISSUE","assignee":null,"user_notes_count":0,"merge_requests_count":0,"upvotes":0,"downvotes":0,"due_date":null,"confidential":false,"discussion_locked":null,"issue_type":"issue","web_url":"https://gitlab.com/gridhead/protop2g-test/-/issues/13141","time_stats":{"time_estimate":0,"total_time_spent":0,"human_time_estimate":null,"human_total_time_spent":null},"task_completion_status":{"count":0,"completed_count":0},"blocking_issues_count":0,"has_tasks":true,"task_status":"0
+        of 0 checklist items completed","_links":{"self":"https://gitlab.com/api/v4/projects/42823949/issues/13141","notes":"https://gitlab.com/api/v4/projects/42823949/issues/13141/notes","award_emoji":"https://gitlab.com/api/v4/projects/42823949/issues/13141/award_emoji","project":"https://gitlab.com/api/v4/projects/42823949","closed_as_duplicate_of":null},"references":{"short":"#13141","relative":"#13141","full":"gridhead/protop2g-test#13141"},"severity":"UNKNOWN","subscribed":true,"moved_to_id":null,"service_desk_reply_to":null}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 833ba4a1ad7631dc-BOM
+      - 8596390afbb594b6-CCU
       Connection:
       - keep-alive
       Content-Length:
-      - '2152'
+      - '2192'
       Content-Type:
       - application/json
       Date:
-      - Mon, 11 Dec 2023 06:24:11 GMT
+      - Thu, 22 Feb 2024 09:32:37 GMT
       NEL:
       - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=0j6NCAjW0Q%2FayTffalUu2EYjt3qO3zO2qjDphR%2BQYXLu9dQbMUOpQDMm3anwqIZKQ0UB8OpDzCa3JzwchsgqQb7cffRCwznZOgX%2FttmitN3PXDmSEL90cK4xuoI%3D"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=zd1Xb9eU3bm3qBX%2BalW8ku0bcUHAita7f5IjFNawMEpp9zeODt3lo8On1F5xeiBOOErvEGpOct5GFmDhUPAufP4Uq8j7YTMyict6JVdew7qwLeqsJGmZ5MCrjhdPgevsi6SO60pwB%2FE%3D"}],"group":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
       Set-Cookie: ''
@@ -582,21 +581,11 @@ interactions:
       content-security-policy:
       - default-src 'none'
       etag:
-      - W/"5b1d2d6833f5660a7d1ca5ce45ef2934"
+      - W/"476bdb5f58fffa03a1e50bd2e3c6b10d"
       gitlab-lb:
-      - haproxy-main-22-lb-gprd
+      - haproxy-main-48-lb-gprd
       gitlab-sv:
-      - localhost
-      ratelimit-limit:
-      - '2000'
-      ratelimit-observed:
-      - '33'
-      ratelimit-remaining:
-      - '1967'
-      ratelimit-reset:
-      - '1702275911'
-      ratelimit-resettime:
-      - Mon, 11 Dec 2023 06:25:11 GMT
+      - api-gke-us-east1-b
       referrer-policy:
       - strict-origin-when-cross-origin
       strict-transport-security:
@@ -608,16 +597,16 @@ interactions:
       x-frame-options:
       - SAMEORIGIN
       x-gitlab-meta:
-      - '{"correlation_id":"aec09a5023d36120a4e959d10cf90bc8","version":"1"}'
+      - '{"correlation_id":"286b3c8097dddb7b2fc0f7afc8481f0d","version":"1"}'
       x-request-id:
-      - aec09a5023d36120a4e959d10cf90bc8
+      - 286b3c8097dddb7b2fc0f7afc8481f0d
       x-runtime:
-      - '0.445348'
+      - '0.535511'
     status:
       code: 201
       message: Created
 - request:
-    body: state_event=close
+    body: null
     headers:
       Accept:
       - '*/*'
@@ -625,29 +614,29 @@ interactions:
       - gzip, deflate
       Connection:
       - keep-alive
-      Content-Length:
-      - '17'
-      Content-Type:
-      - application/x-www-form-urlencoded
+      Content-type:
+      - application/json
+      Cookie:
+      - _cfuvid=xGaLcDSkJeTOx4zh8AVqlBJ_ryadTs4mIcFDMBqA9dI-1708594354616-0.0-604800000
       User-Agent:
-      - python-requests/2.31.0
-    method: PUT
-    uri: https://gitlab.com/api/v4/projects/42823949/issues/6085
+      - python-gitlab/4.4.0
+    method: GET
+    uri: https://gitlab.com/api/v4/projects/42823949/issues/13141
   response:
     body:
-      string: '{"id":139467114,"iid":6085,"project_id":42823949,"title":"[SN#4] This
+      string: '{"id":142497527,"iid":13141,"project_id":42823949,"title":"[SN#4] This
         is the title of the fourth test issue","description":"\nThis is the body of
         the fourth test issue\n\n_This issue ticket was originally created [here](https://pagure.io/protop2g-test-srce/issue/4)
         on a Pagure repository,\n[**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
         by [**Akashdeep Dhar**](https://pagure.io/user/t0xic0der) on\n[**Tue Nov 21
         08:06:56 2023** UTC](https://savvytime.com/converter/utc/nov-21-2023/08-06)._\n\n_This
-        issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","state":"closed","created_at":"2023-12-11T06:24:10.899Z","updated_at":"2023-12-11T06:24:12.050Z","closed_at":"2023-12-11T06:24:12.036Z","closed_by":{"id":18339343,"username":"project_42823949_bot_992e5e9e997a7b44822ff32a4c634472","name":"protop2g-test","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/1b6289f6c729f1ba694aa2bc296a7277?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_992e5e9e997a7b44822ff32a4c634472"},"labels":[],"milestone":null,"assignees":[],"author":{"id":18339343,"username":"project_42823949_bot_992e5e9e997a7b44822ff32a4c634472","name":"protop2g-test","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/1b6289f6c729f1ba694aa2bc296a7277?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_992e5e9e997a7b44822ff32a4c634472"},"type":"ISSUE","assignee":null,"user_notes_count":0,"merge_requests_count":0,"upvotes":0,"downvotes":0,"due_date":null,"confidential":false,"discussion_locked":null,"issue_type":"issue","web_url":"https://gitlab.com/gridhead/protop2g-test/-/issues/6085","time_stats":{"time_estimate":0,"total_time_spent":0,"human_time_estimate":null,"human_total_time_spent":null},"task_completion_status":{"count":0,"completed_count":0},"blocking_issues_count":0,"has_tasks":true,"task_status":"0
-        of 0 checklist items completed","_links":{"self":"https://gitlab.com/api/v4/projects/42823949/issues/6085","notes":"https://gitlab.com/api/v4/projects/42823949/issues/6085/notes","award_emoji":"https://gitlab.com/api/v4/projects/42823949/issues/6085/award_emoji","project":"https://gitlab.com/api/v4/projects/42823949","closed_as_duplicate_of":null},"references":{"short":"#6085","relative":"#6085","full":"gridhead/protop2g-test#6085"},"severity":"UNKNOWN","subscribed":true,"moved_to_id":null,"service_desk_reply_to":null}'
+        issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","state":"opened","created_at":"2024-02-22T09:32:37.422Z","updated_at":"2024-02-22T09:32:37.422Z","closed_at":null,"closed_by":null,"labels":[],"milestone":null,"assignees":[],"author":{"id":18339343,"username":"project_42823949_bot_992e5e9e997a7b44822ff32a4c634472","name":"protop2g-test","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/d05ca08df001326fd4089761821e15d906b1315eceace144e831979f3d83379e?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_992e5e9e997a7b44822ff32a4c634472"},"type":"ISSUE","assignee":null,"user_notes_count":0,"merge_requests_count":0,"upvotes":0,"downvotes":0,"due_date":null,"confidential":false,"discussion_locked":null,"issue_type":"issue","web_url":"https://gitlab.com/gridhead/protop2g-test/-/issues/13141","time_stats":{"time_estimate":0,"total_time_spent":0,"human_time_estimate":null,"human_total_time_spent":null},"task_completion_status":{"count":0,"completed_count":0},"blocking_issues_count":0,"has_tasks":true,"task_status":"0
+        of 0 checklist items completed","_links":{"self":"https://gitlab.com/api/v4/projects/42823949/issues/13141","notes":"https://gitlab.com/api/v4/projects/42823949/issues/13141/notes","award_emoji":"https://gitlab.com/api/v4/projects/42823949/issues/13141/award_emoji","project":"https://gitlab.com/api/v4/projects/42823949","closed_as_duplicate_of":null},"references":{"short":"#13141","relative":"#13141","full":"gridhead/protop2g-test#13141"},"severity":"UNKNOWN","subscribed":true,"moved_to_id":null,"service_desk_reply_to":null}'
     headers:
       CF-Cache-Status:
-      - DYNAMIC
+      - MISS
       CF-RAY:
-      - 833ba4a93e6e8565-BOM
+      - 85963910aabd93c2-CCU
       Connection:
       - keep-alive
       Content-Encoding:
@@ -655,11 +644,11 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Mon, 11 Dec 2023 06:24:12 GMT
+      - Thu, 22 Feb 2024 09:32:38 GMT
       NEL:
       - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=8Bjjn3kvtMMXGTAIQ2r5RCUOfzjlTmlcbpd26IrgciS0FFdMDpqWqOOGRhTl4TQTK8xEjVckwuLG6mRZXaIhQtd4UISDRKY4YfiCTBP3iBlx%2BiinTCRObM4Hjog%3D"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=zDfp9XPBa%2BfSdB%2Bi7DXKoRAUfjxGafnMohxLF3CAOcPkijSJolfjrtel5m0LTce22X5AgKO0SvnF%2BY5P%2Fdz26QlTS5Q%2Bz81l0TH7M9ygvlGMu586aopdhNbsasKlXg%2BvzRcNxfKY%2Bl8%3D"}],"group":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
       Set-Cookie: ''
@@ -670,21 +659,11 @@ interactions:
       content-security-policy:
       - default-src 'none'
       etag:
-      - W/"47fbc4244caf74eb7a7dff713252e34d"
+      - W/"476bdb5f58fffa03a1e50bd2e3c6b10d"
       gitlab-lb:
-      - haproxy-main-36-lb-gprd
+      - haproxy-main-23-lb-gprd
       gitlab-sv:
-      - localhost
-      ratelimit-limit:
-      - '2000'
-      ratelimit-observed:
-      - '33'
-      ratelimit-remaining:
-      - '1967'
-      ratelimit-reset:
-      - '1702275912'
-      ratelimit-resettime:
-      - Mon, 11 Dec 2023 06:25:12 GMT
+      - api-gke-us-east1-d
       referrer-policy:
       - strict-origin-when-cross-origin
       strict-transport-security:
@@ -696,16 +675,16 @@ interactions:
       x-frame-options:
       - SAMEORIGIN
       x-gitlab-meta:
-      - '{"correlation_id":"fac91a8f0a0a7ca599f9d443d10abc86","version":"1"}'
+      - '{"correlation_id":"0ccc23f8dba9172294dadf765024e6d6","version":"1"}'
       x-request-id:
-      - fac91a8f0a0a7ca599f9d443d10abc86
+      - 0ccc23f8dba9172294dadf765024e6d6
       x-runtime:
-      - '0.378270'
+      - '0.314566'
     status:
       code: 200
       message: OK
 - request:
-    body: title=%5BSN%233%5D+This+is+the+title+of+the+third+test+issue&description=%0AThis+is+the+body+of+the+third+test+issue%0A%0A_This+issue+ticket+was+originally+created+%5Bhere%5D%28https%3A%2F%2Fpagure.io%2Fprotop2g-test-srce%2Fissue%2F3%29+on+a+Pagure+repository%2C%0A%5B%2A%2Aprotop2g-test-srce%2A%2A%5D%28https%3A%2F%2Fpagure.io%2Fprotop2g-test-srce%29+by+%5B%2A%2AAkashdeep+Dhar%2A%2A%5D%28https%3A%2F%2Fpagure.io%2Fuser%2Ft0xic0der%29+on%0A%5B%2A%2ATue+Nov+21+08%3A03%3A57+2023%2A%2A+UTC%5D%28https%3A%2F%2Fsavvytime.com%2Fconverter%2Futc%2Fnov-21-2023%2F08-03%29._%0A%0A_This+issue+ticket+was+automatically+created+by+the%0A%5B%2A%2APagure+Exporter%2A%2A%5D%28https%3A%2F%2Fgithub.com%2Fgridhead%2Fpagure-exporter%29._%0A
+    body: '{"state_event": "close"}'
     headers:
       Accept:
       - '*/*'
@@ -714,40 +693,127 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '723'
-      Content-Type:
-      - application/x-www-form-urlencoded
+      - '24'
+      Content-type:
+      - application/json
+      Cookie:
+      - _cfuvid=xGaLcDSkJeTOx4zh8AVqlBJ_ryadTs4mIcFDMBqA9dI-1708594354616-0.0-604800000
       User-Agent:
-      - python-requests/2.31.0
+      - python-gitlab/4.4.0
+    method: PUT
+    uri: https://gitlab.com/api/v4/projects/42823949/issues/13141
+  response:
+    body:
+      string: '{"id":142497527,"iid":13141,"project_id":42823949,"title":"[SN#4] This
+        is the title of the fourth test issue","description":"\nThis is the body of
+        the fourth test issue\n\n_This issue ticket was originally created [here](https://pagure.io/protop2g-test-srce/issue/4)
+        on a Pagure repository,\n[**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
+        by [**Akashdeep Dhar**](https://pagure.io/user/t0xic0der) on\n[**Tue Nov 21
+        08:06:56 2023** UTC](https://savvytime.com/converter/utc/nov-21-2023/08-06)._\n\n_This
+        issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","state":"closed","created_at":"2024-02-22T09:32:37.422Z","updated_at":"2024-02-22T09:32:39.382Z","closed_at":"2024-02-22T09:32:39.372Z","closed_by":{"id":18339343,"username":"project_42823949_bot_992e5e9e997a7b44822ff32a4c634472","name":"protop2g-test","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/d05ca08df001326fd4089761821e15d906b1315eceace144e831979f3d83379e?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_992e5e9e997a7b44822ff32a4c634472"},"labels":[],"milestone":null,"assignees":[],"author":{"id":18339343,"username":"project_42823949_bot_992e5e9e997a7b44822ff32a4c634472","name":"protop2g-test","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/d05ca08df001326fd4089761821e15d906b1315eceace144e831979f3d83379e?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_992e5e9e997a7b44822ff32a4c634472"},"type":"ISSUE","assignee":null,"user_notes_count":0,"merge_requests_count":0,"upvotes":0,"downvotes":0,"due_date":null,"confidential":false,"discussion_locked":null,"issue_type":"issue","web_url":"https://gitlab.com/gridhead/protop2g-test/-/issues/13141","time_stats":{"time_estimate":0,"total_time_spent":0,"human_time_estimate":null,"human_total_time_spent":null},"task_completion_status":{"count":0,"completed_count":0},"blocking_issues_count":0,"has_tasks":true,"task_status":"0
+        of 0 checklist items completed","_links":{"self":"https://gitlab.com/api/v4/projects/42823949/issues/13141","notes":"https://gitlab.com/api/v4/projects/42823949/issues/13141/notes","award_emoji":"https://gitlab.com/api/v4/projects/42823949/issues/13141/award_emoji","project":"https://gitlab.com/api/v4/projects/42823949","closed_as_duplicate_of":null},"references":{"short":"#13141","relative":"#13141","full":"gridhead/protop2g-test#13141"},"severity":"UNKNOWN","subscribed":true,"moved_to_id":null,"service_desk_reply_to":null}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 85963915597394b0-CCU
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 22 Feb 2024 09:32:39 GMT
+      NEL:
+      - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=M%2BJlid8G%2F%2BsjGhC8OP%2B6tBzYK3REblDDvWgnqUtEyIekoHExgSPoS4w35SvCutqQY6EoGFZstU9Q%2FdZdrHpCPvrrHuLRZrmomfzX50FJsb3j1U4KJ912kedo0krxdMpC4qIWXG3MtKc%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Set-Cookie: ''
+      Transfer-Encoding:
+      - chunked
+      cache-control:
+      - max-age=0, private, must-revalidate
+      content-security-policy:
+      - default-src 'none'
+      etag:
+      - W/"b7fab2820124c89fa700b824578841c7"
+      gitlab-lb:
+      - haproxy-main-16-lb-gprd
+      gitlab-sv:
+      - api-gke-us-east1-c
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      strict-transport-security:
+      - max-age=31536000
+      vary:
+      - Origin, Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - SAMEORIGIN
+      x-gitlab-meta:
+      - '{"correlation_id":"f73cd4e8bbdf0d979edfb6afea1da8cf","version":"1"}'
+      x-request-id:
+      - f73cd4e8bbdf0d979edfb6afea1da8cf
+      x-runtime:
+      - '0.308202'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"title": "[SN#3] This is the title of the third test issue", "description":
+      "\nThis is the body of the third test issue\n\n_This issue ticket was originally
+      created [here](https://pagure.io/protop2g-test-srce/issue/3) on a Pagure repository,\n[**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
+      by [**Akashdeep Dhar**](https://pagure.io/user/t0xic0der) on\n[**Tue Nov 21
+      08:03:57 2023** UTC](https://savvytime.com/converter/utc/nov-21-2023/08-03)._\n\n_This
+      issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._\n"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '589'
+      Content-type:
+      - application/json
+      Cookie:
+      - _cfuvid=xGaLcDSkJeTOx4zh8AVqlBJ_ryadTs4mIcFDMBqA9dI-1708594354616-0.0-604800000
+      User-Agent:
+      - python-gitlab/4.4.0
     method: POST
     uri: https://gitlab.com/api/v4/projects/42823949/issues
   response:
     body:
-      string: '{"id":139467115,"iid":6086,"project_id":42823949,"title":"[SN#3] This
+      string: '{"id":142497530,"iid":13142,"project_id":42823949,"title":"[SN#3] This
         is the title of the third test issue","description":"\nThis is the body of
         the third test issue\n\n_This issue ticket was originally created [here](https://pagure.io/protop2g-test-srce/issue/3)
         on a Pagure repository,\n[**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
         by [**Akashdeep Dhar**](https://pagure.io/user/t0xic0der) on\n[**Tue Nov 21
         08:03:57 2023** UTC](https://savvytime.com/converter/utc/nov-21-2023/08-03)._\n\n_This
-        issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","state":"opened","created_at":"2023-12-11T06:24:13.156Z","updated_at":"2023-12-11T06:24:13.156Z","closed_at":null,"closed_by":null,"labels":[],"milestone":null,"assignees":[],"author":{"id":18339343,"username":"project_42823949_bot_992e5e9e997a7b44822ff32a4c634472","name":"protop2g-test","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/1b6289f6c729f1ba694aa2bc296a7277?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_992e5e9e997a7b44822ff32a4c634472"},"type":"ISSUE","assignee":null,"user_notes_count":0,"merge_requests_count":0,"upvotes":0,"downvotes":0,"due_date":null,"confidential":false,"discussion_locked":null,"issue_type":"issue","web_url":"https://gitlab.com/gridhead/protop2g-test/-/issues/6086","time_stats":{"time_estimate":0,"total_time_spent":0,"human_time_estimate":null,"human_total_time_spent":null},"task_completion_status":{"count":0,"completed_count":0},"blocking_issues_count":0,"has_tasks":true,"task_status":"0
-        of 0 checklist items completed","_links":{"self":"https://gitlab.com/api/v4/projects/42823949/issues/6086","notes":"https://gitlab.com/api/v4/projects/42823949/issues/6086/notes","award_emoji":"https://gitlab.com/api/v4/projects/42823949/issues/6086/award_emoji","project":"https://gitlab.com/api/v4/projects/42823949","closed_as_duplicate_of":null},"references":{"short":"#6086","relative":"#6086","full":"gridhead/protop2g-test#6086"},"severity":"UNKNOWN","subscribed":true,"moved_to_id":null,"service_desk_reply_to":null}'
+        issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","state":"opened","created_at":"2024-02-22T09:32:40.317Z","updated_at":"2024-02-22T09:32:40.317Z","closed_at":null,"closed_by":null,"labels":[],"milestone":null,"assignees":[],"author":{"id":18339343,"username":"project_42823949_bot_992e5e9e997a7b44822ff32a4c634472","name":"protop2g-test","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/d05ca08df001326fd4089761821e15d906b1315eceace144e831979f3d83379e?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_992e5e9e997a7b44822ff32a4c634472"},"type":"ISSUE","assignee":null,"user_notes_count":0,"merge_requests_count":0,"upvotes":0,"downvotes":0,"due_date":null,"confidential":false,"discussion_locked":null,"issue_type":"issue","web_url":"https://gitlab.com/gridhead/protop2g-test/-/issues/13142","time_stats":{"time_estimate":0,"total_time_spent":0,"human_time_estimate":null,"human_total_time_spent":null},"task_completion_status":{"count":0,"completed_count":0},"blocking_issues_count":0,"has_tasks":true,"task_status":"0
+        of 0 checklist items completed","_links":{"self":"https://gitlab.com/api/v4/projects/42823949/issues/13142","notes":"https://gitlab.com/api/v4/projects/42823949/issues/13142/notes","award_emoji":"https://gitlab.com/api/v4/projects/42823949/issues/13142/award_emoji","project":"https://gitlab.com/api/v4/projects/42823949","closed_as_duplicate_of":null},"references":{"short":"#13142","relative":"#13142","full":"gridhead/protop2g-test#13142"},"severity":"UNKNOWN","subscribed":true,"moved_to_id":null,"service_desk_reply_to":null}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 833ba4aededa6ec2-BOM
+      - 8596391cdfcb94d0-CCU
       Connection:
       - keep-alive
       Content-Length:
-      - '2150'
+      - '2190'
       Content-Type:
       - application/json
       Date:
-      - Mon, 11 Dec 2023 06:24:13 GMT
+      - Thu, 22 Feb 2024 09:32:40 GMT
       NEL:
       - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=sjIzPjHaZGAN%2B7VBHBmDRf%2F5cDUXEPlJNSdlEq0jp%2BJ0tNUJ69suPGVpWKldxtckzkPUi1q9UBig7Q0ldtakFVG5zCDf1sGqU%2FICXE7Pj6ByIcr%2FYkvVpSrPU6k%3D"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=GmjfboZgrH1FCJSNKFUG2Ugsi7oQaDgak%2FwCQ4n1ehUTIIIUc%2FD5Uw46bJvGbh1Cy3%2ByKrvdTomwI3AjRYqx0oFmpeVhMLwPXQocDVs%2B9gJswOYBSlYpapah%2BptHQ3kfgGeXLBIxcB4%3D"}],"group":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
       Set-Cookie: ''
@@ -756,21 +822,11 @@ interactions:
       content-security-policy:
       - default-src 'none'
       etag:
-      - W/"ad462c9017c4efbbcd62afcf96019993"
+      - W/"2ffc69d0df8999aebb7e6ad35d4741a1"
       gitlab-lb:
-      - haproxy-main-19-lb-gprd
+      - haproxy-main-54-lb-gprd
       gitlab-sv:
-      - localhost
-      ratelimit-limit:
-      - '2000'
-      ratelimit-observed:
-      - '33'
-      ratelimit-remaining:
-      - '1966'
-      ratelimit-reset:
-      - '1702275913'
-      ratelimit-resettime:
-      - Mon, 11 Dec 2023 06:25:13 GMT
+      - api-gke-us-east1-b
       referrer-policy:
       - strict-origin-when-cross-origin
       strict-transport-security:
@@ -782,16 +838,21 @@ interactions:
       x-frame-options:
       - SAMEORIGIN
       x-gitlab-meta:
-      - '{"correlation_id":"6bbbaf4712f747a0493ae99be9734f4b","version":"1"}'
+      - '{"correlation_id":"057a83104ff1cbbb62ffe55e567dad32","version":"1"}'
       x-request-id:
-      - 6bbbaf4712f747a0493ae99be9734f4b
+      - 057a83104ff1cbbb62ffe55e567dad32
       x-runtime:
-      - '0.585194'
+      - '0.563546'
     status:
       code: 201
       message: Created
 - request:
-    body: title=%5BSN%232%5D+This+is+the+title+of+the+second+test+issue&description=%0AThis+is+the+body+of+the+second+test+issue%0A%0A_This+issue+ticket+was+originally+created+%5Bhere%5D%28https%3A%2F%2Fpagure.io%2Fprotop2g-test-srce%2Fissue%2F2%29+on+a+Pagure+repository%2C%0A%5B%2A%2Aprotop2g-test-srce%2A%2A%5D%28https%3A%2F%2Fpagure.io%2Fprotop2g-test-srce%29+by+%5B%2A%2AAkashdeep+Dhar%2A%2A%5D%28https%3A%2F%2Fpagure.io%2Fuser%2Ft0xic0der%29+on%0A%5B%2A%2AFri+Oct+13+04%3A01%3A16+2023%2A%2A+UTC%5D%28https%3A%2F%2Fsavvytime.com%2Fconverter%2Futc%2Foct-13-2023%2F04-01%29._%0A%0A_This+issue+ticket+was+automatically+created+by+the%0A%5B%2A%2APagure+Exporter%2A%2A%5D%28https%3A%2F%2Fgithub.com%2Fgridhead%2Fpagure-exporter%29._%0A
+    body: '{"title": "[SN#2] This is the title of the second test issue", "description":
+      "\nThis is the body of the second test issue\n\n_This issue ticket was originally
+      created [here](https://pagure.io/protop2g-test-srce/issue/2) on a Pagure repository,\n[**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
+      by [**Akashdeep Dhar**](https://pagure.io/user/t0xic0der) on\n[**Fri Oct 13
+      04:01:16 2023** UTC](https://savvytime.com/converter/utc/oct-13-2023/04-01)._\n\n_This
+      issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._\n"}'
     headers:
       Accept:
       - '*/*'
@@ -800,40 +861,42 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '725'
-      Content-Type:
-      - application/x-www-form-urlencoded
+      - '591'
+      Content-type:
+      - application/json
+      Cookie:
+      - _cfuvid=xGaLcDSkJeTOx4zh8AVqlBJ_ryadTs4mIcFDMBqA9dI-1708594354616-0.0-604800000
       User-Agent:
-      - python-requests/2.31.0
+      - python-gitlab/4.4.0
     method: POST
     uri: https://gitlab.com/api/v4/projects/42823949/issues
   response:
     body:
-      string: '{"id":139467116,"iid":6087,"project_id":42823949,"title":"[SN#2] This
+      string: '{"id":142497532,"iid":13143,"project_id":42823949,"title":"[SN#2] This
         is the title of the second test issue","description":"\nThis is the body of
         the second test issue\n\n_This issue ticket was originally created [here](https://pagure.io/protop2g-test-srce/issue/2)
         on a Pagure repository,\n[**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
         by [**Akashdeep Dhar**](https://pagure.io/user/t0xic0der) on\n[**Fri Oct 13
         04:01:16 2023** UTC](https://savvytime.com/converter/utc/oct-13-2023/04-01)._\n\n_This
-        issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","state":"opened","created_at":"2023-12-11T06:24:14.149Z","updated_at":"2023-12-11T06:24:14.149Z","closed_at":null,"closed_by":null,"labels":[],"milestone":null,"assignees":[],"author":{"id":18339343,"username":"project_42823949_bot_992e5e9e997a7b44822ff32a4c634472","name":"protop2g-test","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/1b6289f6c729f1ba694aa2bc296a7277?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_992e5e9e997a7b44822ff32a4c634472"},"type":"ISSUE","assignee":null,"user_notes_count":0,"merge_requests_count":0,"upvotes":0,"downvotes":0,"due_date":null,"confidential":false,"discussion_locked":null,"issue_type":"issue","web_url":"https://gitlab.com/gridhead/protop2g-test/-/issues/6087","time_stats":{"time_estimate":0,"total_time_spent":0,"human_time_estimate":null,"human_total_time_spent":null},"task_completion_status":{"count":0,"completed_count":0},"blocking_issues_count":0,"has_tasks":true,"task_status":"0
-        of 0 checklist items completed","_links":{"self":"https://gitlab.com/api/v4/projects/42823949/issues/6087","notes":"https://gitlab.com/api/v4/projects/42823949/issues/6087/notes","award_emoji":"https://gitlab.com/api/v4/projects/42823949/issues/6087/award_emoji","project":"https://gitlab.com/api/v4/projects/42823949","closed_as_duplicate_of":null},"references":{"short":"#6087","relative":"#6087","full":"gridhead/protop2g-test#6087"},"severity":"UNKNOWN","subscribed":true,"moved_to_id":null,"service_desk_reply_to":null}'
+        issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","state":"opened","created_at":"2024-02-22T09:32:41.234Z","updated_at":"2024-02-22T09:32:41.234Z","closed_at":null,"closed_by":null,"labels":[],"milestone":null,"assignees":[],"author":{"id":18339343,"username":"project_42823949_bot_992e5e9e997a7b44822ff32a4c634472","name":"protop2g-test","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/d05ca08df001326fd4089761821e15d906b1315eceace144e831979f3d83379e?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_992e5e9e997a7b44822ff32a4c634472"},"type":"ISSUE","assignee":null,"user_notes_count":0,"merge_requests_count":0,"upvotes":0,"downvotes":0,"due_date":null,"confidential":false,"discussion_locked":null,"issue_type":"issue","web_url":"https://gitlab.com/gridhead/protop2g-test/-/issues/13143","time_stats":{"time_estimate":0,"total_time_spent":0,"human_time_estimate":null,"human_total_time_spent":null},"task_completion_status":{"count":0,"completed_count":0},"blocking_issues_count":0,"has_tasks":true,"task_status":"0
+        of 0 checklist items completed","_links":{"self":"https://gitlab.com/api/v4/projects/42823949/issues/13143","notes":"https://gitlab.com/api/v4/projects/42823949/issues/13143/notes","award_emoji":"https://gitlab.com/api/v4/projects/42823949/issues/13143/award_emoji","project":"https://gitlab.com/api/v4/projects/42823949","closed_as_duplicate_of":null},"references":{"short":"#13143","relative":"#13143","full":"gridhead/protop2g-test#13143"},"severity":"UNKNOWN","subscribed":true,"moved_to_id":null,"service_desk_reply_to":null}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 833ba4b58d6431ab-BOM
+      - 85963922cdad94ce-CCU
       Connection:
       - keep-alive
       Content-Length:
-      - '2152'
+      - '2192'
       Content-Type:
       - application/json
       Date:
-      - Mon, 11 Dec 2023 06:24:14 GMT
+      - Thu, 22 Feb 2024 09:32:41 GMT
       NEL:
       - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=WqqANht8tgRxayWTBXECQs0jfc6EBrWrFlh3ZAjfcTRTmXGFg4XuiYZIqRFf93gxJ7boPZG6zu64D89QLsK0Gn%2Bz%2FQd7CqezkruXMGouF5TfkM9F7tOQynpy29E%3D"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=tjV%2Bu4L2RMMLZ4fPO295xr7lV6nSAPNEIdqnxSzEKoA8KThUiQBwCaOIiM5iqS9yoh1JhnHH9nbArzUZ%2B8Q1TPzaVf8fXQ5CqQhb7ePaS02XdNWDP%2BI%2Fy2%2FJsFt6GFp0wgiZ38cJkEA%3D"}],"group":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
       Set-Cookie: ''
@@ -842,21 +905,11 @@ interactions:
       content-security-policy:
       - default-src 'none'
       etag:
-      - W/"9a4c4c20596c1e5f58d2786519f4328a"
+      - W/"38e7811dbf74126eebe1f7b275dfc5e8"
       gitlab-lb:
-      - haproxy-main-57-lb-gprd
+      - haproxy-main-27-lb-gprd
       gitlab-sv:
-      - localhost
-      ratelimit-limit:
-      - '2000'
-      ratelimit-observed:
-      - '34'
-      ratelimit-remaining:
-      - '1966'
-      ratelimit-reset:
-      - '1702275914'
-      ratelimit-resettime:
-      - Mon, 11 Dec 2023 06:25:14 GMT
+      - api-gke-us-east1-b
       referrer-policy:
       - strict-origin-when-cross-origin
       strict-transport-security:
@@ -868,16 +921,16 @@ interactions:
       x-frame-options:
       - SAMEORIGIN
       x-gitlab-meta:
-      - '{"correlation_id":"aa1ea472d3c184214f53cf73277dcf69","version":"1"}'
+      - '{"correlation_id":"b5f28439c311779e527af70183354584","version":"1"}'
       x-request-id:
-      - aa1ea472d3c184214f53cf73277dcf69
+      - b5f28439c311779e527af70183354584
       x-runtime:
-      - '0.562639'
+      - '0.493841'
     status:
       code: 201
       message: Created
 - request:
-    body: state_event=close
+    body: null
     headers:
       Accept:
       - '*/*'
@@ -885,29 +938,29 @@ interactions:
       - gzip, deflate
       Connection:
       - keep-alive
-      Content-Length:
-      - '17'
-      Content-Type:
-      - application/x-www-form-urlencoded
+      Content-type:
+      - application/json
+      Cookie:
+      - _cfuvid=xGaLcDSkJeTOx4zh8AVqlBJ_ryadTs4mIcFDMBqA9dI-1708594354616-0.0-604800000
       User-Agent:
-      - python-requests/2.31.0
-    method: PUT
-    uri: https://gitlab.com/api/v4/projects/42823949/issues/6087
+      - python-gitlab/4.4.0
+    method: GET
+    uri: https://gitlab.com/api/v4/projects/42823949/issues/13143
   response:
     body:
-      string: '{"id":139467116,"iid":6087,"project_id":42823949,"title":"[SN#2] This
+      string: '{"id":142497532,"iid":13143,"project_id":42823949,"title":"[SN#2] This
         is the title of the second test issue","description":"\nThis is the body of
         the second test issue\n\n_This issue ticket was originally created [here](https://pagure.io/protop2g-test-srce/issue/2)
         on a Pagure repository,\n[**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
         by [**Akashdeep Dhar**](https://pagure.io/user/t0xic0der) on\n[**Fri Oct 13
         04:01:16 2023** UTC](https://savvytime.com/converter/utc/oct-13-2023/04-01)._\n\n_This
-        issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","state":"closed","created_at":"2023-12-11T06:24:14.149Z","updated_at":"2023-12-11T06:24:14.861Z","closed_at":"2023-12-11T06:24:14.851Z","closed_by":{"id":18339343,"username":"project_42823949_bot_992e5e9e997a7b44822ff32a4c634472","name":"protop2g-test","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/1b6289f6c729f1ba694aa2bc296a7277?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_992e5e9e997a7b44822ff32a4c634472"},"labels":[],"milestone":null,"assignees":[],"author":{"id":18339343,"username":"project_42823949_bot_992e5e9e997a7b44822ff32a4c634472","name":"protop2g-test","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/1b6289f6c729f1ba694aa2bc296a7277?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_992e5e9e997a7b44822ff32a4c634472"},"type":"ISSUE","assignee":null,"user_notes_count":0,"merge_requests_count":0,"upvotes":0,"downvotes":0,"due_date":null,"confidential":false,"discussion_locked":null,"issue_type":"issue","web_url":"https://gitlab.com/gridhead/protop2g-test/-/issues/6087","time_stats":{"time_estimate":0,"total_time_spent":0,"human_time_estimate":null,"human_total_time_spent":null},"task_completion_status":{"count":0,"completed_count":0},"blocking_issues_count":0,"has_tasks":true,"task_status":"0
-        of 0 checklist items completed","_links":{"self":"https://gitlab.com/api/v4/projects/42823949/issues/6087","notes":"https://gitlab.com/api/v4/projects/42823949/issues/6087/notes","award_emoji":"https://gitlab.com/api/v4/projects/42823949/issues/6087/award_emoji","project":"https://gitlab.com/api/v4/projects/42823949","closed_as_duplicate_of":null},"references":{"short":"#6087","relative":"#6087","full":"gridhead/protop2g-test#6087"},"severity":"UNKNOWN","subscribed":true,"moved_to_id":null,"service_desk_reply_to":null}'
+        issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","state":"opened","created_at":"2024-02-22T09:32:41.234Z","updated_at":"2024-02-22T09:32:41.234Z","closed_at":null,"closed_by":null,"labels":[],"milestone":null,"assignees":[],"author":{"id":18339343,"username":"project_42823949_bot_992e5e9e997a7b44822ff32a4c634472","name":"protop2g-test","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/d05ca08df001326fd4089761821e15d906b1315eceace144e831979f3d83379e?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_992e5e9e997a7b44822ff32a4c634472"},"type":"ISSUE","assignee":null,"user_notes_count":0,"merge_requests_count":0,"upvotes":0,"downvotes":0,"due_date":null,"confidential":false,"discussion_locked":null,"issue_type":"issue","web_url":"https://gitlab.com/gridhead/protop2g-test/-/issues/13143","time_stats":{"time_estimate":0,"total_time_spent":0,"human_time_estimate":null,"human_total_time_spent":null},"task_completion_status":{"count":0,"completed_count":0},"blocking_issues_count":0,"has_tasks":true,"task_status":"0
+        of 0 checklist items completed","_links":{"self":"https://gitlab.com/api/v4/projects/42823949/issues/13143","notes":"https://gitlab.com/api/v4/projects/42823949/issues/13143/notes","award_emoji":"https://gitlab.com/api/v4/projects/42823949/issues/13143/award_emoji","project":"https://gitlab.com/api/v4/projects/42823949","closed_as_duplicate_of":null},"references":{"short":"#13143","relative":"#13143","full":"gridhead/protop2g-test#13143"},"severity":"UNKNOWN","subscribed":true,"moved_to_id":null,"service_desk_reply_to":null}'
     headers:
       CF-Cache-Status:
-      - DYNAMIC
+      - MISS
       CF-RAY:
-      - 833ba4bb4c6a85a8-BOM
+      - 859639282ab394b9-CCU
       Connection:
       - keep-alive
       Content-Encoding:
@@ -915,11 +968,11 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Mon, 11 Dec 2023 06:24:15 GMT
+      - Thu, 22 Feb 2024 09:32:42 GMT
       NEL:
       - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=tTuyr4MqgeQR9QGvOyRl6qmAgOQVIIVUzXieRudTWQltVljxYK3Xplv2MDS3EuU6d334BfjP7lBuBKlACL2juYuHNMn%2FDOKoxrG9slyNlULEN72RXWkkeVAafu4%3D"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=2DiMX3XLYGfbY9GeEzn135h8fZ3TEtamtm1tztNAdZ167XNBssL7FJ7lQR8ZidKezLNvgppbivsbgpAAk8enykMBy8padJXlgCbiB3TnIrEsdrKwyAGWg%2F0u1BtwvXrHUahi%2BfVnPvU%3D"}],"group":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
       Set-Cookie: ''
@@ -930,21 +983,11 @@ interactions:
       content-security-policy:
       - default-src 'none'
       etag:
-      - W/"ae67632979055b3061f28517460d35db"
+      - W/"38e7811dbf74126eebe1f7b275dfc5e8"
       gitlab-lb:
-      - haproxy-main-23-lb-gprd
+      - haproxy-main-36-lb-gprd
       gitlab-sv:
-      - localhost
-      ratelimit-limit:
-      - '2000'
-      ratelimit-observed:
-      - '34'
-      ratelimit-remaining:
-      - '1965'
-      ratelimit-reset:
-      - '1702275915'
-      ratelimit-resettime:
-      - Mon, 11 Dec 2023 06:25:15 GMT
+      - api-gke-us-east1-b
       referrer-policy:
       - strict-origin-when-cross-origin
       strict-transport-security:
@@ -956,16 +999,16 @@ interactions:
       x-frame-options:
       - SAMEORIGIN
       x-gitlab-meta:
-      - '{"correlation_id":"f556124e0aa52ffd2e4ecd815bbe9361","version":"1"}'
+      - '{"correlation_id":"56067d23847bac5d7c7ada3b03a2d5da","version":"1"}'
       x-request-id:
-      - f556124e0aa52ffd2e4ecd815bbe9361
+      - 56067d23847bac5d7c7ada3b03a2d5da
       x-runtime:
-      - '0.257637'
+      - '0.152821'
     status:
       code: 200
       message: OK
 - request:
-    body: title=%5BSN%231%5D+This+is+the+title+of+the+first+test+issue&description=%0AThis+is+the+body+of+the+first+test+issue%0A%0A_This+issue+ticket+was+originally+created+%5Bhere%5D%28https%3A%2F%2Fpagure.io%2Fprotop2g-test-srce%2Fissue%2F1%29+on+a+Pagure+repository%2C%0A%5B%2A%2Aprotop2g-test-srce%2A%2A%5D%28https%3A%2F%2Fpagure.io%2Fprotop2g-test-srce%29+by+%5B%2A%2AAkashdeep+Dhar%2A%2A%5D%28https%3A%2F%2Fpagure.io%2Fuser%2Ft0xic0der%29+on%0A%5B%2A%2AFri+Oct+13+03%3A57%3A42+2023%2A%2A+UTC%5D%28https%3A%2F%2Fsavvytime.com%2Fconverter%2Futc%2Foct-13-2023%2F03-57%29._%0A%0A_This+issue+ticket+was+automatically+created+by+the%0A%5B%2A%2APagure+Exporter%2A%2A%5D%28https%3A%2F%2Fgithub.com%2Fgridhead%2Fpagure-exporter%29._%0A
+    body: '{"state_event": "close"}'
     headers:
       Accept:
       - '*/*'
@@ -974,40 +1017,127 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '723'
-      Content-Type:
-      - application/x-www-form-urlencoded
+      - '24'
+      Content-type:
+      - application/json
+      Cookie:
+      - _cfuvid=xGaLcDSkJeTOx4zh8AVqlBJ_ryadTs4mIcFDMBqA9dI-1708594354616-0.0-604800000
       User-Agent:
-      - python-requests/2.31.0
+      - python-gitlab/4.4.0
+    method: PUT
+    uri: https://gitlab.com/api/v4/projects/42823949/issues/13143
+  response:
+    body:
+      string: '{"id":142497532,"iid":13143,"project_id":42823949,"title":"[SN#2] This
+        is the title of the second test issue","description":"\nThis is the body of
+        the second test issue\n\n_This issue ticket was originally created [here](https://pagure.io/protop2g-test-srce/issue/2)
+        on a Pagure repository,\n[**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
+        by [**Akashdeep Dhar**](https://pagure.io/user/t0xic0der) on\n[**Fri Oct 13
+        04:01:16 2023** UTC](https://savvytime.com/converter/utc/oct-13-2023/04-01)._\n\n_This
+        issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","state":"closed","created_at":"2024-02-22T09:32:41.234Z","updated_at":"2024-02-22T09:32:42.934Z","closed_at":"2024-02-22T09:32:42.925Z","closed_by":{"id":18339343,"username":"project_42823949_bot_992e5e9e997a7b44822ff32a4c634472","name":"protop2g-test","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/d05ca08df001326fd4089761821e15d906b1315eceace144e831979f3d83379e?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_992e5e9e997a7b44822ff32a4c634472"},"labels":[],"milestone":null,"assignees":[],"author":{"id":18339343,"username":"project_42823949_bot_992e5e9e997a7b44822ff32a4c634472","name":"protop2g-test","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/d05ca08df001326fd4089761821e15d906b1315eceace144e831979f3d83379e?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_992e5e9e997a7b44822ff32a4c634472"},"type":"ISSUE","assignee":null,"user_notes_count":0,"merge_requests_count":0,"upvotes":0,"downvotes":0,"due_date":null,"confidential":false,"discussion_locked":null,"issue_type":"issue","web_url":"https://gitlab.com/gridhead/protop2g-test/-/issues/13143","time_stats":{"time_estimate":0,"total_time_spent":0,"human_time_estimate":null,"human_total_time_spent":null},"task_completion_status":{"count":0,"completed_count":0},"blocking_issues_count":0,"has_tasks":true,"task_status":"0
+        of 0 checklist items completed","_links":{"self":"https://gitlab.com/api/v4/projects/42823949/issues/13143","notes":"https://gitlab.com/api/v4/projects/42823949/issues/13143/notes","award_emoji":"https://gitlab.com/api/v4/projects/42823949/issues/13143/award_emoji","project":"https://gitlab.com/api/v4/projects/42823949","closed_as_duplicate_of":null},"references":{"short":"#13143","relative":"#13143","full":"gridhead/protop2g-test#13143"},"severity":"UNKNOWN","subscribed":true,"moved_to_id":null,"service_desk_reply_to":null}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 8596392b7c9b94ce-CCU
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 22 Feb 2024 09:32:43 GMT
+      NEL:
+      - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=6Gn9sfCWJSRnVrRWcW%2F%2B4rItrIGfDltnqsBjn4NoEH7XbVYTCRegAbsVaEHOWwKcVPWGgP81agFDoCNSbV3SzFVG1Oga%2FsU8bu5k3%2FZSVLRsI5tBM3d4%2FyOTdFe7wkjk09XdYoj2tZE%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Set-Cookie: ''
+      Transfer-Encoding:
+      - chunked
+      cache-control:
+      - max-age=0, private, must-revalidate
+      content-security-policy:
+      - default-src 'none'
+      etag:
+      - W/"eb22843a56b98374e56c93d2a23d32cc"
+      gitlab-lb:
+      - haproxy-main-10-lb-gprd
+      gitlab-sv:
+      - api-gke-us-east1-c
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      strict-transport-security:
+      - max-age=31536000
+      vary:
+      - Origin, Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - SAMEORIGIN
+      x-gitlab-meta:
+      - '{"correlation_id":"e176a43e77824dbb10b2c1faf5004c6e","version":"1"}'
+      x-request-id:
+      - e176a43e77824dbb10b2c1faf5004c6e
+      x-runtime:
+      - '0.342371'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"title": "[SN#1] This is the title of the first test issue", "description":
+      "\nThis is the body of the first test issue\n\n_This issue ticket was originally
+      created [here](https://pagure.io/protop2g-test-srce/issue/1) on a Pagure repository,\n[**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
+      by [**Akashdeep Dhar**](https://pagure.io/user/t0xic0der) on\n[**Fri Oct 13
+      03:57:42 2023** UTC](https://savvytime.com/converter/utc/oct-13-2023/03-57)._\n\n_This
+      issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._\n"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '589'
+      Content-type:
+      - application/json
+      Cookie:
+      - _cfuvid=xGaLcDSkJeTOx4zh8AVqlBJ_ryadTs4mIcFDMBqA9dI-1708594354616-0.0-604800000
+      User-Agent:
+      - python-gitlab/4.4.0
     method: POST
     uri: https://gitlab.com/api/v4/projects/42823949/issues
   response:
     body:
-      string: '{"id":139467117,"iid":6088,"project_id":42823949,"title":"[SN#1] This
+      string: '{"id":142497536,"iid":13144,"project_id":42823949,"title":"[SN#1] This
         is the title of the first test issue","description":"\nThis is the body of
         the first test issue\n\n_This issue ticket was originally created [here](https://pagure.io/protop2g-test-srce/issue/1)
         on a Pagure repository,\n[**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
         by [**Akashdeep Dhar**](https://pagure.io/user/t0xic0der) on\n[**Fri Oct 13
         03:57:42 2023** UTC](https://savvytime.com/converter/utc/oct-13-2023/03-57)._\n\n_This
-        issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","state":"opened","created_at":"2023-12-11T06:24:15.978Z","updated_at":"2023-12-11T06:24:15.978Z","closed_at":null,"closed_by":null,"labels":[],"milestone":null,"assignees":[],"author":{"id":18339343,"username":"project_42823949_bot_992e5e9e997a7b44822ff32a4c634472","name":"protop2g-test","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/1b6289f6c729f1ba694aa2bc296a7277?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_992e5e9e997a7b44822ff32a4c634472"},"type":"ISSUE","assignee":null,"user_notes_count":0,"merge_requests_count":0,"upvotes":0,"downvotes":0,"due_date":null,"confidential":false,"discussion_locked":null,"issue_type":"issue","web_url":"https://gitlab.com/gridhead/protop2g-test/-/issues/6088","time_stats":{"time_estimate":0,"total_time_spent":0,"human_time_estimate":null,"human_total_time_spent":null},"task_completion_status":{"count":0,"completed_count":0},"blocking_issues_count":0,"has_tasks":true,"task_status":"0
-        of 0 checklist items completed","_links":{"self":"https://gitlab.com/api/v4/projects/42823949/issues/6088","notes":"https://gitlab.com/api/v4/projects/42823949/issues/6088/notes","award_emoji":"https://gitlab.com/api/v4/projects/42823949/issues/6088/award_emoji","project":"https://gitlab.com/api/v4/projects/42823949","closed_as_duplicate_of":null},"references":{"short":"#6088","relative":"#6088","full":"gridhead/protop2g-test#6088"},"severity":"UNKNOWN","subscribed":true,"moved_to_id":null,"service_desk_reply_to":null}'
+        issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","state":"opened","created_at":"2024-02-22T09:32:43.900Z","updated_at":"2024-02-22T09:32:43.900Z","closed_at":null,"closed_by":null,"labels":[],"milestone":null,"assignees":[],"author":{"id":18339343,"username":"project_42823949_bot_992e5e9e997a7b44822ff32a4c634472","name":"protop2g-test","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/d05ca08df001326fd4089761821e15d906b1315eceace144e831979f3d83379e?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_992e5e9e997a7b44822ff32a4c634472"},"type":"ISSUE","assignee":null,"user_notes_count":0,"merge_requests_count":0,"upvotes":0,"downvotes":0,"due_date":null,"confidential":false,"discussion_locked":null,"issue_type":"issue","web_url":"https://gitlab.com/gridhead/protop2g-test/-/issues/13144","time_stats":{"time_estimate":0,"total_time_spent":0,"human_time_estimate":null,"human_total_time_spent":null},"task_completion_status":{"count":0,"completed_count":0},"blocking_issues_count":0,"has_tasks":true,"task_status":"0
+        of 0 checklist items completed","_links":{"self":"https://gitlab.com/api/v4/projects/42823949/issues/13144","notes":"https://gitlab.com/api/v4/projects/42823949/issues/13144/notes","award_emoji":"https://gitlab.com/api/v4/projects/42823949/issues/13144/award_emoji","project":"https://gitlab.com/api/v4/projects/42823949","closed_as_duplicate_of":null},"references":{"short":"#13144","relative":"#13144","full":"gridhead/protop2g-test#13144"},"severity":"UNKNOWN","subscribed":true,"moved_to_id":null,"service_desk_reply_to":null}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-RAY:
-      - 833ba4bf1d0ff323-BOM
+      - 859639337cd794b0-CCU
       Connection:
       - keep-alive
       Content-Length:
-      - '2150'
+      - '2190'
       Content-Type:
       - application/json
       Date:
-      - Mon, 11 Dec 2023 06:24:16 GMT
+      - Thu, 22 Feb 2024 09:32:44 GMT
       NEL:
       - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=PMijNHCFvCDo0%2F6zCP0yVt7tzW3n2sgBT1%2BvbHL5e0M5Iq%2F%2Fxm%2F5EwTkzbid65pM%2BT2MVsPcaaNnRlMpKzWJOeMnvPIqkB4nmk%2BFmzU8jGysFgaim%2BkBVC8gTx0%3D"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=ztJ8qvsRU47lSS23OdQYZpncolm9ZFVtwVQINMz9Lxh0CakJWMjXHfwMeuabPmaUJHr9UHqKRxZvl60f8AQYysVSt9%2F823yG%2BzOj7y9u%2B2ejiUlkmT1u8j6kEQD1BCLTepKaxGJ%2BstM%3D"}],"group":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
       Set-Cookie: ''
@@ -1016,21 +1146,11 @@ interactions:
       content-security-policy:
       - default-src 'none'
       etag:
-      - W/"f3cee0df7cfa9b263753e03ec4abc9b4"
+      - W/"0eebcb87a9f507771004307e6da709f8"
       gitlab-lb:
-      - haproxy-main-17-lb-gprd
+      - haproxy-main-06-lb-gprd
       gitlab-sv:
-      - localhost
-      ratelimit-limit:
-      - '2000'
-      ratelimit-observed:
-      - '35'
-      ratelimit-remaining:
-      - '1965'
-      ratelimit-reset:
-      - '1702275916'
-      ratelimit-resettime:
-      - Mon, 11 Dec 2023 06:25:16 GMT
+      - api-gke-us-east1-b
       referrer-policy:
       - strict-origin-when-cross-origin
       strict-transport-security:
@@ -1042,11 +1162,11 @@ interactions:
       x-frame-options:
       - SAMEORIGIN
       x-gitlab-meta:
-      - '{"correlation_id":"4a2385b6606a7565b505784b0bc643c8","version":"1"}'
+      - '{"correlation_id":"8985868daab8db5447f209781dead760","version":"1"}'
       x-request-id:
-      - 4a2385b6606a7565b505784b0bc643c8
+      - 8985868daab8db5447f209781dead760
       x-runtime:
-      - '0.873075'
+      - '0.539259'
     status:
       code: 201
       message: Created

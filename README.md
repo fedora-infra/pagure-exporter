@@ -6,30 +6,20 @@ Simple exporter tool that helps migrate repository files, data assets and issue 
 
 ### From PyPI
 
-1. Ensure that you have `python3`, `virtualenv` and `python3-pip` installed.
+1. Ensure that you have `python3` and `python3-pip` installed.
 
     ```
-    $ sudo dnf install python3 virtualenv python3-pip --setopt=install_weak_deps=False
+    $ sudo dnf install python3 python3-pip --setopt=install_weak_deps=False
     ```
 
 2. Create and activate a Python virtual environment in that directory.
 
     ```
-    $ virtualenv venv
+    $ python3 -m venv venv
     ```
 
     ```
     (venv) $ source venv/bin/activate
-    ```
-
-    Sample output
-
-    ```
-    created virtual environment CPython3.11.5.final.0-64 in 143ms
-      creator CPython3Posix(dest=/home/archdesk/Projects/pagure-exporter/venv, clear=False, no_vcs_ignore=False, global=False)
-      seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/home/archdesk/.local/share/virtualenv)
-        added seed packages: pip==23.2.1, setuptools==68.0.0, wheel==0.41.1
-      activators BashActivator,CShellActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
     ```
 
 3. Install `pagure-exporter` using `pip` in the activated virtual environment.
@@ -56,10 +46,10 @@ Simple exporter tool that helps migrate repository files, data assets and issue 
 
 ### From source
 
-1. Ensure that you have `git`, `python3`, `virtualenv` and `poetry` installed.
+1. Ensure that you have `git`, `python3` and `poetry` installed.
 
     ```
-    $ sudo dnf install git python3 virtualenv poetry --setopt=install_weak_deps=False
+    $ sudo dnf install git python3 poetry --setopt=install_weak_deps=False
     ```
 
 2. Clone the repository to the local storage and make it the present working directory.
@@ -87,21 +77,11 @@ Simple exporter tool that helps migrate repository files, data assets and issue 
 3. Create and activate a Python virtual environment in that directory.
 
     ```
-    $ virtualenv venv
+    $ python3 -m venv venv
     ```
 
     ```
     (venv) $ source venv/bin/activate
-    ```
-
-    Sample output
-
-    ```
-    created virtual environment CPython3.11.5.final.0-64 in 143ms
-      creator CPython3Posix(dest=/home/archdesk/Projects/pagure-exporter/venv, clear=False, no_vcs_ignore=False, global=False)
-      seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/home/archdesk/.local/share/virtualenv)
-        added seed packages: pip==23.2.1, setuptools==68.0.0, wheel==0.41.1
-      activators BashActivator,CShellActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
     ```
 
 4. Check the project configuration's validity and then install the project dependencies.

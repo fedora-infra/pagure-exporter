@@ -114,6 +114,12 @@ dbrcavbl = []
 srcecloc = "UNAVAILABLE"
 destcloc = "UNAVAILABLE"
 
+# GitLab client object to be used while interacting with the destination namespace
+gobj = None
+
+# Project object of the destination namespace type of the GitLab client class
+gpro = None
+
 rateindx = 0
 
 # Time in seconds to wait for when the rate limit for API requests is reached

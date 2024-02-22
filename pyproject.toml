@@ -53,9 +53,11 @@ vcrpy = "^5.1.0"
 pytest-recording = "^0.13.0"
 
 [tool.ruff]
-select = ["E", "F", "W", "I", "S", "B", "UP"]
 line-length = 100
 fix = true
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "S", "B", "UP"]
 
 [tool.black]
 line-length = 100

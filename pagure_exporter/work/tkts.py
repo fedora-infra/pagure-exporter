@@ -25,11 +25,10 @@ import time
 from datetime import datetime
 
 import requests
+from gitlab import GitlabCreateError, GitlabGetError, GitlabUpdateError
 
 from pagure_exporter.conf import standard
-from gitlab import Gitlab as gtlb
 
-from gitlab import GitlabAuthenticationError, GitlabHttpError, GitlabCreateError, GitlabUpdateError
 
 class MoveTkts:
     def __init__(self):
@@ -37,18 +36,6 @@ class MoveTkts:
         self.gurl = f"{standard.gtlblink}/{standard.destname}"
         self.phed = {"Authorization": f"token {standard.pagucode}"}
         self.ghed = {"Authorization": f"Bearer {standard.gtlbcode}"}
-        try:
-            self.gobj = gtlb(
-                session=requests.Session(),
-                url="https://gitlab.com",
-                private_token=standard.gtlbcode,
-                retry_transient_errors=True,
-                timeout=standard.rqsttime,
-            ).projects.get(id=standard.destname)
-        except GitlabAuthenticationError as authexpt:
-            raise
-        except GitlabHttpError as httpexpt:
-            raise
 
     def getcount(self):
         try:
@@ -183,14 +170,14 @@ class MoveTkts:
                 rqstdata["labels"] = standard.issutags
             if standard.movehush:
                 rqstdata["confidential"] = standard.issecret
-            rslt = self.gobj.issues.create(data=rqstdata)
+            rslt = standard.gpro.issues.create(data=rqstdata)
             respcode, respresn = 201, rslt.web_url
             standard.gtlbtkid = rslt.iid
             standard.issutnfs += 1
             stoptime = time.time()
             timereqd = "%.2f" % (stoptime - strttime)
             return respcode, respresn, timereqd
-        except GitlabCreateError as expt:
+        except (GitlabCreateError, Exception) as expt:
             return False, expt, "0"
 
     def itercmts(self, dictobjc):
@@ -224,21 +211,22 @@ class MoveTkts:
             the problem
             """
             rqstdata = {"body": bodydata.replace("@", "&")}
-            tkto = self.gobj.issues.get(id=standard.gtlbtkid)
-            rslt = tkto.discussions.create(data=rqstdata)
-            respcode, respresn = 201, f"{standard.destdict['repolink']}/-/issues/{standard.gtlbtkid}#note_{rslt.id}"
+            rslt = standard.gpro.issues.get(id=standard.gtlbtkid).discussions.create(data=rqstdata)
+            respcode, respresn = (
+                201, f"{standard.destdict['repolink']}/-/issues/{standard.gtlbtkid}#note_{rslt.id}"
+            )
             standard.cmtsqant += 1
             stoptime = time.time()
             timereqd = "%.2f" % (stoptime - strttime)
             return respcode, respresn, timereqd
-        except GitlabCreateError as expt:
+        except (GitlabCreateError, Exception) as expt:
             return False, expt, "0"
 
     def iterstat(self):
         try:
             strttime, respcode, respresn = time.time(), 0, ""
             if standard.isclosed:
-                tkto = self.gobj.issues.get(id=standard.gtlbtkid)
+                tkto = standard.gpro.issues.get(id=standard.gtlbtkid)
                 tkto.state_event = "close"
                 tkto.save()
                 respcode, respresn = 200, "0"
@@ -247,5 +235,5 @@ class MoveTkts:
             stoptime = time.time()
             timereqd = "%.2f" % (stoptime - strttime)
             return respcode, respresn, timereqd
-        except GitlabUpdateError as expt:
-            return False, expt, "0"
+        except (GitlabUpdateError, GitlabGetError, Exception) as expt:
+            return False, str(expt), "0"

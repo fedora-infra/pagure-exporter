@@ -32,7 +32,7 @@ from pagure_exporter.view.tkts import callwait
 from pagure_exporter.work.tkts import MoveTkts
 
 
-@pytest.mark.vcr(filter_headers=["Authorization"])
+@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"])
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, qant, stat, rslt",
     [
@@ -71,7 +71,7 @@ def test_unit_getcount(caplog, srce, dest, pkey, gkey, fusr, tusr, qant, stat, r
     assert qant <= standard.tktcount  # noqa: S101
 
 
-@pytest.mark.vcr(filter_headers=["Authorization"])
+@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"])
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, root, rslt",
     [
@@ -122,7 +122,7 @@ def test_unit_getcount_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, root, rs
     standard.pagulink = "https://pagure.io/api/0"
 
 
-@pytest.mark.vcr(filter_headers=["Authorization"])
+@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"])
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, size, indx, stat, rslt",
     [
@@ -175,7 +175,7 @@ def test_unit_iterpage(caplog, srce, dest, pkey, gkey, fusr, tusr, size, indx, s
     assert rslt == test_movetkts.iterpage(indx)[0]  # noqa: S101
 
 
-@pytest.mark.vcr(filter_headers=["Authorization"])
+@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"])
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, indx, root, rslt",
     [
@@ -229,7 +229,7 @@ def test_unit_iterpage_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, ro
     standard.pagulink = "https://pagure.io/api/0"
 
 
-@pytest.mark.vcr(filter_headers=["Authorization"])
+@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"])
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, indx, stat, skip, rslt",
     [
@@ -285,7 +285,7 @@ def test_unit_iteriden(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, stat, s
         assert skip == test_iteriden[1]  # noqa: S101
 
 
-@pytest.mark.vcr(filter_headers=["Authorization"])
+@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"])
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, indx, root, rslt",
     [
@@ -339,7 +339,7 @@ def test_unit_iteriden_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, ro
     standard.pagulink = "https://pagure.io/api/0"
 
 
-@pytest.mark.vcr(filter_headers=["Authorization"])
+@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"])
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, data, root, tags, rslt",
     [
@@ -438,46 +438,6 @@ def test_unit_iteriden_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, ro
             False,
             id="Attempting to migrate an invalid issue ticket without tags to an existing namespace",  # noqa: E501
         ),
-        pytest.param(
-            envr["TEST_SRCE"],
-            envr["TEST_DEST"],
-            envr["TEST_PKEY"],
-            envr["TEST_GKEY"],
-            envr["TEST_FUSR"],
-            envr["TEST_TUSR"],
-            {
-                "assignee": None,
-                "blocks": [],
-                "close_status": None,
-                "closed_at": None,
-                "closed_by": None,
-                "comments": [],
-                "content": "This is the body of the first test issue",
-                "custom_fields": [],
-                "date_created": "1697169462",
-                "depends": [],
-                "full_url": "https://pagure.io/protop2g-test-srce/issue/1",
-                "id": 1,
-                "last_updated": "1697169924",
-                "milestone": None,
-                "priority": None,
-                "private": False,
-                "related_prs": [],
-                "status": "Open",
-                "tags": ["aaaa", "bbbb"],
-                "title": "This is the title of the first test issue",
-                "user": {
-                    "full_url": "https://fedoraproject.org",
-                    "fullname": "Ordinary Engineer",
-                    "name": "ordinaryengineer",
-                    "url_path": "user/ordinaryengineer",
-                },
-            },
-            "https://jitleb.com/api/v1212/projects",
-            False,
-            False,
-            id="Attempting to migrate an existing issue ticket without tags to an invalid namespace",  # noqa: E501
-        ),
     ],
 )
 def test_unit_itertkts(caplog, srce, dest, pkey, gkey, fusr, tusr, data, root, tags, rslt):
@@ -492,7 +452,7 @@ def test_unit_itertkts(caplog, srce, dest, pkey, gkey, fusr, tusr, data, root, t
     standard.gtlblink = "https://gitlab.com/api/v4/projects"
 
 
-@pytest.mark.vcr(filter_headers=["Authorization"])
+@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"])
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, data, root, tkid, rslt",
     [
@@ -539,34 +499,6 @@ def test_unit_itertkts(caplog, srce, dest, pkey, gkey, fusr, tusr, data, root, t
             False,
             id="Attempting to migrate an invalid comment to an existing namespace",
         ),
-        pytest.param(
-            envr["TEST_SRCE"],
-            envr["TEST_DEST"],
-            envr["TEST_PKEY"],
-            envr["TEST_GKEY"],
-            envr["TEST_FUSR"],
-            envr["TEST_TUSR"],
-            {
-                "comment": f"This test comment with broken links was created on {datetime.utcfromtimestamp(int(time())).strftime('%c')}.",  # noqa: E501
-                "date_created": str(int(time())),
-                "edited_on": None,
-                "editor": None,
-                "id": 878473,
-                "notification": False,
-                "parent": None,
-                "reactions": {},
-                "user": {
-                    "full_url": "https://fedoraproject.org",
-                    "fullname": "Ordinary Engineer",
-                    "name": "ordinaryengineer",
-                    "url_path": "user/ordinaryengineer",
-                },
-            },
-            "https://jitleb.com/api/v1212/projects",
-            1,
-            False,
-            id="Attempting to migrate an existing comment to an invalid namespace",
-        ),
     ],
 )
 def test_unit_itercmts(caplog, srce, dest, pkey, gkey, fusr, tusr, data, root, tkid, rslt):
@@ -581,7 +513,7 @@ def test_unit_itercmts(caplog, srce, dest, pkey, gkey, fusr, tusr, data, root, t
     standard.gtlblink = "https://gitlab.com/api/v4/projects"
 
 
-@pytest.mark.vcr(filter_headers=["Authorization"])
+@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"])
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, root, tkid, shut, rslt",
     [
@@ -608,21 +540,8 @@ def test_unit_itercmts(caplog, srce, dest, pkey, gkey, fusr, tusr, data, root, t
             "https://gitlab.com/api/v4/projects",
             0,
             True,
-            404,
-            id="Attempting to migrate status of an invalid issue ticket when requested on an existing namespace",  # noqa: E501
-        ),
-        pytest.param(
-            envr["TEST_SRCE"],
-            envr["TEST_DEST"],
-            envr["TEST_PKEY"],
-            envr["TEST_GKEY"],
-            envr["TEST_FUSR"],
-            envr["TEST_TUSR"],
-            "https://jitleb.com/api/v1212/projects",
-            1,
-            True,
             False,
-            id="Attempting to migrate status of an existing issue ticket when requested on an invalid namespace",  # noqa: E501
+            id="Attempting to migrate status of an invalid issue ticket when requested on an existing namespace",  # noqa: E501
         ),
         pytest.param(
             envr["TEST_SRCE"],

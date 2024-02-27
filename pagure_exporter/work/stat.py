@@ -21,7 +21,10 @@ be used or replicated with the express permission of Red Hat, Inc.
 """
 
 
+
 import requests
+from gitlab import Gitlab as gtlb
+from gitlab import GitlabAuthenticationError, GitlabGetError
 
 from pagure_exporter.conf import standard
 from pagure_exporter.view.dcrt import conceal
@@ -73,12 +76,18 @@ class DestData:
         self.loca = standard.gtlblink
         self.code = standard.gtlbcode
         self.head = {"Authorization": "Bearer %s" % self.code}
+        standard.gobj = gtlb(
+            session=requests.Session(),
+            url="https://gitlab.com",
+            private_token=self.code,
+            retry_transient_errors=True,
+            timeout=standard.rqsttime,
+        )
 
     def obtninfo(self):
-        rqstloca = f"{self.loca}/{self.repo}"
-        response = requests.get(rqstloca, headers=self.head, timeout=standard.rqsttime)
-        if response.status_code == 200:
-            jsondict = response.json()
+        try:
+            standard.gpro = standard.gobj.projects.get(id=standard.destname)
+            jsondict = standard.gpro.asdict()
             standard.destdict = {
                 "makedate": jsondict["created_at"],
                 "lastmode": jsondict["last_activity_at"],
@@ -88,8 +97,8 @@ class DestData:
                 "identity": jsondict["id"],
                 "tagslist": jsondict["tag_list"],
                 "maintain": {
-                    "username": jsondict["namespace"]["name"],
-                    "fullname": jsondict["namespace"]["path"],
+                    "username": jsondict["namespace"]["path"],
+                    "fullname": jsondict["namespace"]["name"],
                 },
             }
             standard.desthuto = jsondict["http_url_to_repo"]
@@ -105,4 +114,6 @@ class DestData:
                 standard.frgedest,
                 standard.destdict["reponame"],
             )
-        return response.status_code, response.reason
+            return 200, "OK"
+        except (GitlabAuthenticationError, GitlabGetError, Exception) as expt:
+            return 0, str(expt)

@@ -66,3 +66,4 @@ def keeptkts(status, tktgroup, comments, labels, commit, secret):
     # Vote if the privacy associated with the issue tickets are to be moved
     # Default False
     standard.movehush = secret
+

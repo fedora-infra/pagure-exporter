@@ -29,7 +29,7 @@ from click.testing import CliRunner
 from pagure_exporter.main import main
 
 
-@pytest.mark.vcr(filter_headers=["Authorization"])
+@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"])
 @pytest.mark.parametrize(
     "cmdl, code, text",
     [
@@ -93,8 +93,8 @@ from pagure_exporter.main import main
             [
                 "[ FAIL ] Destination namespace metadata acquisition failed!",
                 "The namespace metadata could not be acquired.",
-                "Code: 404",
-                "Reason: Not Found",
+                "Code: 0",
+                "Reason: 404: 404 Project Not Found",
             ],
             id="Transferring issue tickets to a destination namespace that does not exist",
         ),

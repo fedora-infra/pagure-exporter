@@ -1,6 +1,6 @@
 interactions:
 - request:
-    body: state_event=close
+    body: null
     headers:
       Accept:
       - '*/*'
@@ -8,22 +8,22 @@ interactions:
       - gzip, deflate
       Connection:
       - keep-alive
-      Content-Length:
-      - '17'
-      Content-Type:
-      - application/x-www-form-urlencoded
+      Content-type:
+      - application/json
+      Cookie:
+      - _cfuvid=vu8WFvYnYBoMr_rXlAqCO4OhQXmFXlp2D2FwLpYVZ7g-1708594478626-0.0-604800000
       User-Agent:
-      - python-requests/2.31.0
-    method: PUT
+      - python-gitlab/4.4.0
+    method: GET
     uri: https://gitlab.com/api/v4/projects/42823949/issues/0
   response:
     body:
       string: '{"message":"404 Not found"}'
     headers:
       CF-Cache-Status:
-      - DYNAMIC
+      - MISS
       CF-RAY:
-      - 833badfabb358549-BOM
+      - 85963f194d3b93cb-CCU
       Connection:
       - keep-alive
       Content-Length:
@@ -31,11 +31,11 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Mon, 11 Dec 2023 06:30:33 GMT
+      - Thu, 22 Feb 2024 09:36:45 GMT
       NEL:
       - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=Ak0vnh7Rh4LMYthHv0kDvOwJ56kgH7ebsoUFw%2Fq%2ByGf2PWlBShrqP%2BdVt8QsahfD2FjBJe4XyrHw%2BvD3eSnWayNvYB87%2Bg%2FPJwwZKz8tTcRSjZuUSvy6cpciVRU%3D"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=gt90hgaEc7yd0FH8DHcJRH%2F5Y%2BsUG8lCXr68qapR%2FRtfaSxZfgf6dEtfBG8XPycpCW5KEKDVEQKwitVOkOYXEf29r3lJS%2Fwe6Ihb0RfwpYRjR28tKnzCPGLP416c1vnYi%2BvzK70u7MU%3D"}],"group":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
       Set-Cookie: ''
@@ -46,19 +46,9 @@ interactions:
       content-security-policy:
       - default-src 'none'
       gitlab-lb:
-      - haproxy-main-58-lb-gprd
+      - haproxy-main-36-lb-gprd
       gitlab-sv:
-      - localhost
-      ratelimit-limit:
-      - '2000'
-      ratelimit-observed:
-      - '6'
-      ratelimit-remaining:
-      - '1994'
-      ratelimit-reset:
-      - '1702276293'
-      ratelimit-resettime:
-      - Mon, 11 Dec 2023 06:31:33 GMT
+      - api-gke-us-east1-b
       referrer-policy:
       - strict-origin-when-cross-origin
       strict-transport-security:
@@ -66,11 +56,11 @@ interactions:
       vary:
       - Origin, Accept-Encoding
       x-gitlab-meta:
-      - '{"correlation_id":"3c371376d478a6415db838dc4fc527d2","version":"1"}'
+      - '{"correlation_id":"b8841305080dbf4112a0575722b8a9b8","version":"1"}'
       x-request-id:
-      - 3c371376d478a6415db838dc4fc527d2
+      - b8841305080dbf4112a0575722b8a9b8
       x-runtime:
-      - '0.055450'
+      - '0.056521'
     status:
       code: 404
       message: Not Found

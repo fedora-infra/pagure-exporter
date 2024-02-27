@@ -25,6 +25,7 @@ import time
 from datetime import datetime
 
 import requests
+from gitlab import GitlabCreateError, GitlabGetError, GitlabUpdateError
 
 from pagure_exporter.conf import standard
 
@@ -128,7 +129,6 @@ class MoveTkts:
     def itertkts(self, dictobjc):
         try:
             strttime = time.time()
-            standard.rateindx += 1
             standard.issuname = dictobjc["title"]
             standard.issuiden = dictobjc["id"]
             standard.isclosed = True if dictobjc["status"] == "Closed" else False
@@ -167,30 +167,22 @@ class MoveTkts:
             """
             rqstdata = {"title": headdata, "description": bodydata.replace("@", "&")}
             if standard.movetags:
-                rqstdata["labels"] = ",".join(standard.issutags)
+                rqstdata["labels"] = standard.issutags
             if standard.movehush:
                 rqstdata["confidential"] = standard.issecret
-            response = requests.post(
-                url=f"{self.gurl}/issues",
-                data=rqstdata,
-                headers=self.ghed,
-                timeout=standard.rqsttime,
-            )
-            respcode, respresn = response.status_code, response.reason
-            if respcode == 201:
-                respresn = response.json()["web_url"]
-                standard.gtlbtkid = response.json()["iid"]
-                standard.issutnfs += 1
+            rslt = standard.gpro.issues.create(data=rqstdata)
+            respcode, respresn = 201, rslt.web_url
+            standard.gtlbtkid = rslt.iid
+            standard.issutnfs += 1
             stoptime = time.time()
             timereqd = "%.2f" % (stoptime - strttime)
             return respcode, respresn, timereqd
-        except Exception as expt:
+        except (GitlabCreateError, Exception) as expt:
             return False, expt, "0"
 
     def itercmts(self, dictobjc):
         try:
             strttime = time.time()
-            standard.rateindx += 1
             standard.cmtsiden = dictobjc["id"]
             standard.cmtslink = f"{standard.issulink}#comment-{standard.cmtsiden}"
             standard.cmtsauth = dictobjc["user"]["fullname"]
@@ -219,39 +211,29 @@ class MoveTkts:
             the problem
             """
             rqstdata = {"body": bodydata.replace("@", "&")}
-            response = requests.post(
-                url=f"{self.gurl}/issues/{standard.gtlbtkid}/notes",
-                data=rqstdata,
-                headers=self.ghed,
-                timeout=standard.rqsttime,
+            rslt = standard.gpro.issues.get(id=standard.gtlbtkid).discussions.create(data=rqstdata)
+            respcode, respresn = (
+                201, f"{standard.destdict['repolink']}/-/issues/{standard.gtlbtkid}#note_{rslt.id}"
             )
-            respcode, respresn = response.status_code, response.reason
-            if respcode == 201:
-                respresn = f"{standard.destdict['repolink']}/-/issues/{standard.gtlbtkid}#note_{response.json()['id']}"  # noqa: E501
-                standard.cmtsqant += 1
+            standard.cmtsqant += 1
             stoptime = time.time()
             timereqd = "%.2f" % (stoptime - strttime)
             return respcode, respresn, timereqd
-        except Exception as expt:
+        except (GitlabCreateError, Exception) as expt:
             return False, expt, "0"
 
     def iterstat(self):
         try:
             strttime, respcode, respresn = time.time(), 0, ""
-            standard.rateindx += 1
             if standard.isclosed:
-                rqstdata = {"state_event": "close"}
-                response = requests.put(
-                    url=f"{self.gurl}/issues/{standard.gtlbtkid}",
-                    data=rqstdata,
-                    headers=self.ghed,
-                    timeout=standard.rqsttime,
-                )
-                respcode, respresn = response.status_code, response.reason
+                tkto = standard.gpro.issues.get(id=standard.gtlbtkid)
+                tkto.state_event = "close"
+                tkto.save()
+                respcode, respresn = 200, "0"
             else:
                 respcode, respresn = 0, "0"
             stoptime = time.time()
             timereqd = "%.2f" % (stoptime - strttime)
             return respcode, respresn, timereqd
-        except Exception as expt:
-            return False, expt, "0"
+        except (GitlabUpdateError, GitlabGetError, Exception) as expt:
+            return False, str(expt), "0"

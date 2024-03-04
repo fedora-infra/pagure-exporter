@@ -34,14 +34,14 @@ interactions:
       Content-Length:
       - '902'
       Content-Security-Policy:
-      - default-src 'self';script-src 'self' 'nonce-AufEq5W9XT0VBKdtMwedS03oW'; style-src
-        'self' 'nonce-AufEq5W9XT0VBKdtMwedS03oW'; object-src 'none';base-uri 'self';img-src
+      - default-src 'self';script-src 'self' 'nonce-XZctqJYRUNnKPrYgIwKioSVAL'; style-src
+        'self' 'nonce-XZctqJYRUNnKPrYgIwKioSVAL'; object-src 'none';base-uri 'self';img-src
         'self' https:;connect-src 'self' https://pagure.io:8088;frame-src https://docs.pagure.org;frame-ancestors
         https://pagure.io;
       Content-Type:
       - application/json
       Date:
-      - Thu, 22 Feb 2024 09:32:31 GMT
+      - Mon, 04 Mar 2024 11:22:21 GMT
       Keep-Alive:
       - timeout=5, max=100
       Referrer-Policy:
@@ -80,14 +80,14 @@ interactions:
   response:
     body:
       string: '{"id":42823949,"description":null,"name":"protop2g-test","name_with_namespace":"Akashdeep
-        Dhar / protop2g-test","path":"protop2g-test","path_with_namespace":"gridhead/protop2g-test","created_at":"2023-01-23T16:18:30.217Z","default_branch":"main","tag_list":[],"topics":[],"ssh_url_to_repo":"git@gitlab.com:gridhead/protop2g-test.git","http_url_to_repo":"https://gitlab.com/gridhead/protop2g-test.git","web_url":"https://gitlab.com/gridhead/protop2g-test","readme_url":"https://gitlab.com/gridhead/protop2g-test/-/blob/main/README.md","forks_count":0,"avatar_url":null,"star_count":0,"last_activity_at":"2024-02-22T09:31:08.610Z","namespace":{"id":13984834,"name":"Akashdeep
+        Dhar / protop2g-test","path":"protop2g-test","path_with_namespace":"gridhead/protop2g-test","created_at":"2023-01-23T16:18:30.217Z","default_branch":"main","tag_list":[],"topics":[],"ssh_url_to_repo":"git@gitlab.com:gridhead/protop2g-test.git","http_url_to_repo":"https://gitlab.com/gridhead/protop2g-test.git","web_url":"https://gitlab.com/gridhead/protop2g-test","readme_url":"https://gitlab.com/gridhead/protop2g-test/-/blob/main/README.md","forks_count":0,"avatar_url":null,"star_count":0,"last_activity_at":"2024-03-04T11:20:52.799Z","namespace":{"id":13984834,"name":"Akashdeep
         Dhar","path":"gridhead","kind":"user","full_path":"gridhead","parent_id":null,"avatar_url":"https://secure.gravatar.com/avatar/e412343841597e2fb1e952dd2b1077fc95537604ce04a27c5bfb94bdb0dc3da8?s=80\u0026d=identicon","web_url":"https://gitlab.com/gridhead"},"container_registry_image_prefix":"registry.gitlab.com/gridhead/protop2g-test","_links":{"self":"https://gitlab.com/api/v4/projects/42823949","issues":"https://gitlab.com/api/v4/projects/42823949/issues","merge_requests":"https://gitlab.com/api/v4/projects/42823949/merge_requests","repo_branches":"https://gitlab.com/api/v4/projects/42823949/repository/branches","labels":"https://gitlab.com/api/v4/projects/42823949/labels","events":"https://gitlab.com/api/v4/projects/42823949/events","members":"https://gitlab.com/api/v4/projects/42823949/members","cluster_agents":"https://gitlab.com/api/v4/projects/42823949/cluster_agents"},"packages_enabled":true,"empty_repo":false,"archived":false,"visibility":"public","owner":{"id":10115999,"username":"gridhead","name":"Akashdeep
-        Dhar","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/e412343841597e2fb1e952dd2b1077fc95537604ce04a27c5bfb94bdb0dc3da8?s=80\u0026d=identicon","web_url":"https://gitlab.com/gridhead"},"resolve_outdated_diff_discussions":false,"container_expiration_policy":{"cadence":"1d","enabled":false,"keep_n":10,"older_than":"90d","name_regex":".*","name_regex_keep":null,"next_run_at":"2023-01-24T16:18:30.271Z"},"repository_object_format":"sha1","issues_enabled":true,"merge_requests_enabled":true,"wiki_enabled":true,"jobs_enabled":true,"snippets_enabled":true,"container_registry_enabled":true,"service_desk_enabled":true,"service_desk_address":"contact-project+gridhead-protop2g-test-42823949-issue-@incoming.gitlab.com","can_create_merge_request_in":true,"issues_access_level":"enabled","repository_access_level":"enabled","merge_requests_access_level":"enabled","forking_access_level":"enabled","wiki_access_level":"enabled","builds_access_level":"enabled","snippets_access_level":"enabled","pages_access_level":"enabled","analytics_access_level":"enabled","container_registry_access_level":"enabled","security_and_compliance_access_level":"private","releases_access_level":"private","environments_access_level":"enabled","feature_flags_access_level":"private","infrastructure_access_level":"private","monitor_access_level":"enabled","model_experiments_access_level":"enabled","model_registry_access_level":"enabled","emails_disabled":false,"emails_enabled":true,"shared_runners_enabled":true,"lfs_enabled":true,"creator_id":10115999,"import_url":null,"import_type":null,"import_status":"none","import_error":null,"open_issues_count":5433,"description_html":"","updated_at":"2024-02-22T09:31:08.610Z","ci_default_git_depth":20,"ci_forward_deployment_enabled":true,"ci_forward_deployment_rollback_allowed":true,"ci_job_token_scope_enabled":false,"ci_separated_caches":true,"ci_allow_fork_pipelines_to_run_in_parent_project":true,"build_git_strategy":"fetch","keep_latest_artifact":true,"restrict_user_defined_variables":false,"runners_token":"GR1348941S11UuXmU2P9KZ9wAZhCB","runner_token_expiration_interval":null,"group_runners_enabled":true,"auto_cancel_pending_pipelines":"enabled","build_timeout":3600,"auto_devops_enabled":false,"auto_devops_deploy_strategy":"continuous","ci_config_path":"","public_jobs":true,"shared_with_groups":[],"only_allow_merge_if_pipeline_succeeds":false,"allow_merge_on_skipped_pipeline":null,"request_access_enabled":true,"only_allow_merge_if_all_discussions_are_resolved":false,"remove_source_branch_after_merge":true,"printing_merge_request_link_enabled":true,"merge_method":"merge","squash_option":"default_off","enforce_auth_checks_on_uploads":true,"suggestion_commit_message":null,"merge_commit_template":null,"squash_commit_template":null,"issue_branch_template":null,"warn_about_potentially_unwanted_characters":true,"autoclose_referenced_issues":true,"external_authorization_classification_label":"","requirements_enabled":false,"requirements_access_level":"enabled","security_and_compliance_enabled":true,"compliance_frameworks":[],"permissions":{"project_access":{"access_level":40,"notification_level":3},"group_access":null}}'
+        Dhar","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/e412343841597e2fb1e952dd2b1077fc95537604ce04a27c5bfb94bdb0dc3da8?s=80\u0026d=identicon","web_url":"https://gitlab.com/gridhead"},"resolve_outdated_diff_discussions":false,"container_expiration_policy":{"cadence":"1d","enabled":false,"keep_n":10,"older_than":"90d","name_regex":".*","name_regex_keep":null,"next_run_at":"2023-01-24T16:18:30.271Z"},"repository_object_format":"sha1","issues_enabled":true,"merge_requests_enabled":true,"wiki_enabled":true,"jobs_enabled":true,"snippets_enabled":true,"container_registry_enabled":true,"service_desk_enabled":true,"service_desk_address":"contact-project+gridhead-protop2g-test-42823949-issue-@incoming.gitlab.com","can_create_merge_request_in":true,"issues_access_level":"enabled","repository_access_level":"enabled","merge_requests_access_level":"enabled","forking_access_level":"enabled","wiki_access_level":"enabled","builds_access_level":"enabled","snippets_access_level":"enabled","pages_access_level":"enabled","analytics_access_level":"enabled","container_registry_access_level":"enabled","security_and_compliance_access_level":"private","releases_access_level":"private","environments_access_level":"enabled","feature_flags_access_level":"private","infrastructure_access_level":"private","monitor_access_level":"enabled","model_experiments_access_level":"enabled","model_registry_access_level":"enabled","emails_disabled":false,"emails_enabled":true,"shared_runners_enabled":true,"lfs_enabled":true,"creator_id":10115999,"import_url":null,"import_type":null,"import_status":"none","import_error":null,"open_issues_count":13,"description_html":"","updated_at":"2024-03-04T11:20:52.799Z","ci_default_git_depth":20,"ci_forward_deployment_enabled":true,"ci_forward_deployment_rollback_allowed":true,"ci_job_token_scope_enabled":false,"ci_separated_caches":true,"ci_allow_fork_pipelines_to_run_in_parent_project":true,"build_git_strategy":"fetch","keep_latest_artifact":true,"restrict_user_defined_variables":false,"runners_token":"GR1348941S11UuXmU2P9KZ9wAZhCB","runner_token_expiration_interval":null,"group_runners_enabled":true,"auto_cancel_pending_pipelines":"enabled","build_timeout":3600,"auto_devops_enabled":false,"auto_devops_deploy_strategy":"continuous","ci_config_path":"","public_jobs":true,"shared_with_groups":[],"only_allow_merge_if_pipeline_succeeds":false,"allow_merge_on_skipped_pipeline":null,"request_access_enabled":true,"only_allow_merge_if_all_discussions_are_resolved":false,"remove_source_branch_after_merge":true,"printing_merge_request_link_enabled":true,"merge_method":"merge","squash_option":"default_off","enforce_auth_checks_on_uploads":true,"suggestion_commit_message":null,"merge_commit_template":null,"squash_commit_template":null,"issue_branch_template":null,"warn_about_potentially_unwanted_characters":true,"autoclose_referenced_issues":true,"external_authorization_classification_label":"","requirements_enabled":false,"requirements_access_level":"enabled","security_and_compliance_enabled":true,"compliance_frameworks":[],"permissions":{"project_access":{"access_level":50,"notification_level":3},"group_access":null}}'
     headers:
       CF-Cache-Status:
       - MISS
       CF-RAY:
-      - 859638e83db893c2-CCU
+      - 85f17cf14aa594d0-CCU
       Connection:
       - keep-alive
       Content-Encoding:
@@ -95,11 +95,11 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Thu, 22 Feb 2024 09:32:31 GMT
+      - Mon, 04 Mar 2024 11:22:22 GMT
       NEL:
       - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=BLjrqw9yiNljbqNchDG0lz2p6yTwX9yKQ%2FhQy0H8ifKgqBXLkr23ATQSdLn8U3R1nvPIy3s8fOgOYPv%2F8b6ajrp%2FYEQr60hE%2FpRgbxXWwWbbPvRPzTMl6u3yHFzukEpnTNnZ9INBfMg%3D"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=31c%2FVfaYP%2B2%2FTna8Jqz7uI49WtqctKSQ5PQGoJsiRNlfzUsq20Y9F6zNnVIcLqH9CdNBcDYn2wSaWxQhk5KQkh60HYbzhWmQXRKfniXrv%2FqddGo19jwtJGBaxcT5XVx8253Xt8mN9nQ%3D"}],"group":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
       Set-Cookie: ''
@@ -110,11 +110,11 @@ interactions:
       content-security-policy:
       - default-src 'none'
       etag:
-      - W/"a937f65292ea5589e6eb054dc9a6e1f6"
+      - W/"bd281e03757a53ee34290cd306b360f0"
       gitlab-lb:
-      - haproxy-main-03-lb-gprd
+      - haproxy-main-47-lb-gprd
       gitlab-sv:
-      - api-gke-us-east1-b
+      - api-gke-us-east1-d
       referrer-policy:
       - strict-origin-when-cross-origin
       strict-transport-security:
@@ -126,11 +126,11 @@ interactions:
       x-frame-options:
       - SAMEORIGIN
       x-gitlab-meta:
-      - '{"correlation_id":"f0788468c235ece35833ca1152bc36fb","version":"1"}'
+      - '{"correlation_id":"4d2a717c230daeb89c26a05fb9e78f31","version":"1"}'
       x-request-id:
-      - f0788468c235ece35833ca1152bc36fb
+      - 4d2a717c230daeb89c26a05fb9e78f31
       x-runtime:
-      - '0.164462'
+      - '0.206579'
     status:
       code: 200
       message: OK
@@ -186,14 +186,14 @@ interactions:
       Content-Length:
       - '2135'
       Content-Security-Policy:
-      - default-src 'self';script-src 'self' 'nonce-aVJA5ZdZjeIl5Xc5dkUxQIORY'; style-src
-        'self' 'nonce-aVJA5ZdZjeIl5Xc5dkUxQIORY'; object-src 'none';base-uri 'self';img-src
+      - default-src 'self';script-src 'self' 'nonce-G8vFELmNl2LRjZZB5pW9WVQCH'; style-src
+        'self' 'nonce-G8vFELmNl2LRjZZB5pW9WVQCH'; object-src 'none';base-uri 'self';img-src
         'self' https:;connect-src 'self' https://pagure.io:8088;frame-src https://docs.pagure.org;frame-ancestors
         https://pagure.io;
       Content-Type:
       - application/json
       Date:
-      - Thu, 22 Feb 2024 09:32:32 GMT
+      - Mon, 04 Mar 2024 11:22:23 GMT
       Keep-Alive:
       - timeout=5, max=100
       Referrer-Policy:

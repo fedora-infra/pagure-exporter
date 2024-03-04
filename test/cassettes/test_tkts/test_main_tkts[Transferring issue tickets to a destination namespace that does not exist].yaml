@@ -34,14 +34,14 @@ interactions:
       Content-Length:
       - '902'
       Content-Security-Policy:
-      - default-src 'self';script-src 'self' 'nonce-yT5SVeHoBnIMuKGJTYFJbnvIP'; style-src
-        'self' 'nonce-yT5SVeHoBnIMuKGJTYFJbnvIP'; object-src 'none';base-uri 'self';img-src
+      - default-src 'self';script-src 'self' 'nonce-Mdd9YBY4dlVGRKqd1Wl7udTfR'; style-src
+        'self' 'nonce-Mdd9YBY4dlVGRKqd1Wl7udTfR'; object-src 'none';base-uri 'self';img-src
         'self' https:;connect-src 'self' https://pagure.io:8088;frame-src https://docs.pagure.org;frame-ancestors
         https://pagure.io;
       Content-Type:
       - application/json
       Date:
-      - Thu, 22 Feb 2024 09:31:26 GMT
+      - Mon, 04 Mar 2024 11:21:16 GMT
       Keep-Alive:
       - timeout=5, max=100
       Referrer-Policy:
@@ -84,7 +84,7 @@ interactions:
       CF-Cache-Status:
       - MISS
       CF-RAY:
-      - 859637569bf594be-CCU
+      - 85f17b55ad9894b0-CCU
       Connection:
       - keep-alive
       Content-Length:
@@ -92,11 +92,11 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Thu, 22 Feb 2024 09:31:27 GMT
+      - Mon, 04 Mar 2024 11:21:16 GMT
       NEL:
       - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=H80VxgDn4kpKGhUHBDs3gCiuUS6E6IndHiUCGTsyvLjUMVe2S8qgRjYh2ueRiHdPtVVl9eXJalSCU%2F5sZ%2BSYWuGGcXroBxRFY7K3%2FM4s9LwwnnvFpYHe4Rj74oO9QhE9uk2LdkTsZqw%3D"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=usHSKh04sFoN4KG5mEr8dRVoTN%2BrarHqh7dClHkXD6w7fH%2FkndkqF5kDUR3eyXB3ELDSHvXTE%2FLjPuCS2shTgU5MdCM67KbOlSJeAouWJ9yjK4tMa9fibtKU1Zd2C3zDIiez8IwW5bc%3D"}],"group":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
       Set-Cookie: ''
@@ -105,9 +105,9 @@ interactions:
       content-security-policy:
       - default-src 'none'
       gitlab-lb:
-      - haproxy-main-39-lb-gprd
+      - haproxy-main-55-lb-gprd
       gitlab-sv:
-      - api-gke-us-east1-b
+      - api-gke-us-east1-c
       referrer-policy:
       - strict-origin-when-cross-origin
       strict-transport-security:
@@ -119,11 +119,11 @@ interactions:
       x-frame-options:
       - SAMEORIGIN
       x-gitlab-meta:
-      - '{"correlation_id":"8d0db6fcfc55f80560df54fd9392fab8","version":"1"}'
+      - '{"correlation_id":"88f21d2ebcf80fc92b28937c6eb2e1a3","version":"1"}'
       x-request-id:
-      - 8d0db6fcfc55f80560df54fd9392fab8
+      - 88f21d2ebcf80fc92b28937c6eb2e1a3
       x-runtime:
-      - '0.044481'
+      - '0.045448'
     status:
       code: 404
       message: Not Found

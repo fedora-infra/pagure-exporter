@@ -125,10 +125,6 @@ rateindx = 0
 # Time in seconds to wait for when the rate limit for API requests is reached
 waittime = 60
 
-# Rate limit for API requests as defined by the destination forge
-# See https://github.com/fedora-infra/pagure-exporter/issues/60#issuecomment-1820304156
-ratebond = 195
-
 # Current count of branches on the namespaces to be transferred
 tnfsindx = 0
 

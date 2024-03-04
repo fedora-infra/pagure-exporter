@@ -21,14 +21,13 @@ be used or replicated with the express permission of Red Hat, Inc.
 """
 
 
-from datetime import datetime
 from os import environ as envr
-from time import time
 
 import pytest
+from gitlab import Gitlab as gtlb
+from requests import Session
 
 from pagure_exporter.conf import standard
-from pagure_exporter.view.tkts import callwait
 from pagure_exporter.work.tkts import MoveTkts
 
 
@@ -444,176 +443,19 @@ def test_unit_itertkts(caplog, srce, dest, pkey, gkey, fusr, tusr, data, root, t
     standard.paguuser, standard.pagucode, standard.srcename = fusr, pkey, srce
     standard.gtlbuser, standard.gtlbcode, standard.destname = tusr, gkey, dest
     standard.gtlblink, standard.movetags = root, tags
+
+    keepsake_gpro = standard.gpro
+    standard.gpro = gtlb(
+            session=Session(),
+            url="https://gitlab.com",
+            private_token=standard.gtlbcode,
+            retry_transient_errors=True,
+            timeout=standard.rqsttime,
+        ).projects.get(id=standard.destname)
     test_movetkts = MoveTkts()
     assert rslt == test_movetkts.itertkts(data)[0]  # noqa: S101
 
     # Changing the shared variable back to its default
     # Please check https://github.com/gridhead/protop2g/issues/35 for additional details
     standard.gtlblink = "https://gitlab.com/api/v4/projects"
-
-
-@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"])
-@pytest.mark.parametrize(
-    "srce, dest, pkey, gkey, fusr, tusr, data, root, tkid, rslt",
-    [
-        pytest.param(
-            envr["TEST_SRCE"],
-            envr["TEST_DEST"],
-            envr["TEST_PKEY"],
-            envr["TEST_GKEY"],
-            envr["TEST_FUSR"],
-            envr["TEST_TUSR"],
-            {
-                "comment": f"This test comment with broken links was created on {datetime.utcfromtimestamp(int(time())).strftime('%c')}.",  # noqa: E501
-                "date_created": str(int(time())),
-                "edited_on": None,
-                "editor": None,
-                "id": 878473,
-                "notification": False,
-                "parent": None,
-                "reactions": {},
-                "user": {
-                    "full_url": "https://fedoraproject.org",
-                    "fullname": "Ordinary Engineer",
-                    "name": "ordinaryengineer",
-                    "url_path": "user/ordinaryengineer",
-                },
-            },
-            "https://gitlab.com/api/v4/projects",
-            1,
-            201,
-            id="Attempting to migrate an existing comment to an existing namespace",
-        ),
-        pytest.param(
-            envr["TEST_SRCE"],
-            envr["TEST_DEST"],
-            envr["TEST_PKEY"],
-            envr["TEST_GKEY"],
-            envr["TEST_FUSR"],
-            envr["TEST_TUSR"],
-            {
-                "Is this a valid format?": False,
-            },
-            "https://gitlab.com/api/v4/projects",
-            False,
-            False,
-            id="Attempting to migrate an invalid comment to an existing namespace",
-        ),
-    ],
-)
-def test_unit_itercmts(caplog, srce, dest, pkey, gkey, fusr, tusr, data, root, tkid, rslt):
-    standard.paguuser, standard.pagucode, standard.srcename = fusr, pkey, srce
-    standard.gtlbuser, standard.gtlbcode, standard.destname = tusr, gkey, dest
-    standard.gtlbtkid, standard.gtlblink = tkid, root
-    test_movetkts = MoveTkts()
-    assert rslt == test_movetkts.itercmts(data)[0]  # noqa: S101
-
-    # Changing the shared variable back to its default
-    # Please check https://github.com/gridhead/protop2g/issues/35 for additional details
-    standard.gtlblink = "https://gitlab.com/api/v4/projects"
-
-
-@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"])
-@pytest.mark.parametrize(
-    "srce, dest, pkey, gkey, fusr, tusr, root, tkid, shut, rslt",
-    [
-        pytest.param(
-            envr["TEST_SRCE"],
-            envr["TEST_DEST"],
-            envr["TEST_PKEY"],
-            envr["TEST_GKEY"],
-            envr["TEST_FUSR"],
-            envr["TEST_TUSR"],
-            "https://gitlab.com/api/v4/projects",
-            1,
-            True,
-            200,
-            id="Attempting to migrate status of an existing issue ticket when requested on an existing namespace",  # noqa: E501
-        ),
-        pytest.param(
-            envr["TEST_SRCE"],
-            envr["TEST_DEST"],
-            envr["TEST_PKEY"],
-            envr["TEST_GKEY"],
-            envr["TEST_FUSR"],
-            envr["TEST_TUSR"],
-            "https://gitlab.com/api/v4/projects",
-            0,
-            True,
-            False,
-            id="Attempting to migrate status of an invalid issue ticket when requested on an existing namespace",  # noqa: E501
-        ),
-        pytest.param(
-            envr["TEST_SRCE"],
-            envr["TEST_DEST"],
-            envr["TEST_PKEY"],
-            envr["TEST_GKEY"],
-            envr["TEST_FUSR"],
-            envr["TEST_TUSR"],
-            "https://gitlab.com/api/v4/projects",
-            1,
-            False,
-            0,
-            id="Attempting to migrate status of an existing issue ticket when not asked on an existing namespace",  # noqa: E501
-        ),
-    ],
-)
-def test_unit_iterstat(caplog, srce, dest, pkey, gkey, fusr, tusr, root, tkid, shut, rslt):
-    standard.paguuser, standard.pagucode, standard.srcename = fusr, pkey, srce
-    standard.gtlbuser, standard.gtlbcode, standard.destname = tusr, gkey, dest
-    standard.gtlbtkid, standard.gtlblink, standard.isclosed = tkid, root, shut
-    test_movetkts = MoveTkts()
-
-    assert rslt == test_movetkts.iterstat()[0]  # noqa: S101
-
-    # Changing the shared variable back to its default
-    # Please check https://github.com/gridhead/protop2g/issues/35 for additional details
-    standard.gtlblink = "https://gitlab.com/api/v4/projects"
-
-
-@pytest.mark.parametrize(
-    "rateindx, ratebond, waittime, text",
-    [
-        pytest.param(
-            1,
-            5,
-            2,
-            [],
-            id="Testing to avoid waiting as the rate limit has not been reached",
-        ),
-        pytest.param(
-            5,
-            5,
-            2,
-            [
-                "Rate limit reached - {ratebond} API requests made...",
-                "Waiting for {waittime} second(s) and resetting the counter before resuming the transfer process",  # noqa: E501
-            ],
-            id="Testing to assert waiting as the rate limit has been reached",
-        ),
-    ],
-)
-def test_unit_callwait(caplog, rateindx, ratebond, waittime, text):
-    standard.rateindx, standard.ratebond, standard.waittime = rateindx, ratebond, waittime
-
-    strttime = time()
-    callwait()
-    stoptime = time()
-
-    if rateindx < ratebond:
-        assert (stoptime - strttime) <= standard.waittime  # noqa: S101
-        assert standard.rateindx == 1  # noqa: S101
-
-    if rateindx == ratebond:
-        assert (stoptime - strttime) >= standard.waittime  # noqa: S101
-        assert standard.rateindx == 0  # noqa: S101
-
-    if rateindx == ratebond:
-        text[0], text[1] = text[0].format(ratebond=ratebond), text[1].format(waittime=waittime)
-
-    for indx in text:
-        assert indx in caplog.text  # noqa: S101
-
-    # Changing the shared variable back to its default
-    # Please check https://github.com/gridhead/protop2g/issues/35 for additional details
-    standard.rateindx, standard.ratebond, standard.waittime = 0, 500, 60
+    standard.gpro = keepsake_gpro

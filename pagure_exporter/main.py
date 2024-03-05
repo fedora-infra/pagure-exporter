@@ -149,7 +149,15 @@ def main(srce, dest, pkey, gkey, fusr, tusr):
     default=False,
     is_flag=True,
 )
-def main_transfer_tkts(status, select, ranges, comments, labels, commit, secret):
+@click.option(
+    "-o",
+    "--series",
+    "series",
+    help="Ensure issue ticket sequence as they were",
+    default=False,
+    is_flag=True
+)
+def main_transfer_tkts(status, select, ranges, comments, labels, commit, secret, series):
     if select is not None and ranges is not None:
         raise click.UsageError("The `select` and `ranges` options cannot be used together")
 
@@ -172,7 +180,7 @@ def main_transfer_tkts(status, select, ranges, comments, labels, commit, secret)
                 message="The provided parameters for the `ranges` option could not be parsed"
             ) from expt
 
-    keeptkts(status, tktgroup, comments, labels, commit, secret)
+    keeptkts(status, tktgroup, comments, labels, commit, secret, series)
     showstat()
     showtkts()
 

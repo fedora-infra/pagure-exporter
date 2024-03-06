@@ -33,10 +33,13 @@ def showtkts():
     section("Attempting source namespace issue ticket count...")
     warning(
         f"Extracting {'all ' if standard.tktstate == 'open' or standard.tktstate == 'closed' else ''}"  # noqa: E501
-        f"{standard.tktstate} issue tickets {'with' if standard.movetags else 'without'} labels, "
+        f"{standard.tktstate} issue tickets "
+        f"{'with' if standard.movetags else 'without'} labels, "
         f"{'with' if standard.movestat else 'without'} states, "
-        f"{'with' if standard.movehush else 'without'} privacy and "
-        f"{'with' if standard.movecmts else 'without'} comments off the given selection"
+        f"{'with' if standard.movehush else 'without'} privacy, "
+        f"{'with' if standard.movecmts else 'without'} comments and "
+        f"{'with' if standard.sequence else 'without'} order "
+        f"off the given selection"
     )
     if not standard.tktgroup:
         qantrslt = moveobjc.getcount()

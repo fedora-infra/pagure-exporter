@@ -38,6 +38,8 @@ movestat = False
 
 movehush = False
 
+sequence = False
+
 # While the location for creating temporary directories is definitive, the temporary directories
 # are created with a random name constituting of a definitive prefix in runtime with only the user
 # that created the file having READ and WRITE access to them. Basically, while the location

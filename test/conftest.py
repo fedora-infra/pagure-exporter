@@ -21,6 +21,15 @@ be used or replicated with the express permission of Red Hat, Inc.
 """
 
 
+from os import environ as envr
+
+import pytest
+from gitlab import Gitlab
+from requests import Session
+
+from pagure_exporter.conf import standard
+
+
 def wipe_cookies():
     def before_record_response(response):
         response["headers"]["Set-Cookie"] = ""
@@ -30,3 +39,30 @@ def wipe_cookies():
 
 def pytest_recording_configure(config, vcr):
     vcr.before_record_response = wipe_cookies()
+
+
+@pytest.fixture(scope="function")
+def wipe_issues():
+    """
+    Clean all existing issue tickets before running the issue creation related tests
+    """
+
+    gobj = Gitlab(
+        url="https://gitlab.com",
+        private_token=envr['TEST_GKEY'],
+        timeout=30,
+        retry_transient_errors=True,
+        session=Session()
+    )
+    gpro = gobj.projects.get(id=envr["TEST_DEST"])
+
+    # There are a maximum of 4 issue tickets at https://pagure.io/protop2g-test-srce/issues
+    # Change this variable if the issue tickets are created or deleted from there
+    qant = 4
+
+    for indx in range(1, qant+1):
+        try:
+            gpro.issues.delete(str(indx))
+            standard.logger.info(f"Issue #{indx} was deleted")
+        except Exception as expt:
+            standard.logger.info(f"Issue #{indx} could not be deleted due to {expt}")

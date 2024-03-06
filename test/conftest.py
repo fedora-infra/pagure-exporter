@@ -22,6 +22,7 @@ be used or replicated with the express permission of Red Hat, Inc.
 
 
 from os import environ as envr
+from re import sub
 
 import pytest
 from gitlab import Gitlab
@@ -33,6 +34,11 @@ from pagure_exporter.conf import standard
 def wipe_cookies():
     def before_record_response(response):
         response["headers"]["Set-Cookie"] = ""
+        response["body"]["string"] = sub(
+            standard.detect,
+            standard.cutout,
+            response["body"]["string"].decode()
+        ).encode()
         return response
     return before_record_response
 

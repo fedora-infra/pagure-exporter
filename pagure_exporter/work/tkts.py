@@ -170,6 +170,8 @@ class MoveTkts:
                 rqstdata["labels"] = standard.issutags
             if standard.movehush:
                 rqstdata["confidential"] = standard.issecret
+            if standard.sequence:
+                rqstdata["iid"] = standard.issuiden
             rslt = standard.gpro.issues.create(data=rqstdata)
             respcode, respresn = 201, rslt.web_url
             standard.gtlbtkid = rslt.iid

@@ -439,10 +439,23 @@ def test_unit_iteriden_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, ro
         ),
     ],
 )
-def test_unit_itertkts(caplog, srce, dest, pkey, gkey, fusr, tusr, data, root, tags, rslt):
+def test_unit_itertkts(
+        wipe_issues,
+        caplog,
+        srce,
+        dest,
+        pkey,
+        gkey,
+        fusr,
+        tusr,
+        data,
+        root,
+        tags,
+        rslt
+):
     standard.paguuser, standard.pagucode, standard.srcename = fusr, pkey, srce
     standard.gtlbuser, standard.gtlbcode, standard.destname = tusr, gkey, dest
-    standard.gtlblink, standard.movetags = root, tags
+    standard.gtlblink, standard.movetags, standard.sequence = root, tags, True
 
     keepsake_gpro = standard.gpro
     standard.gpro = gtlb(

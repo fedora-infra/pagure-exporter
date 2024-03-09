@@ -168,6 +168,14 @@ def main(srce, dest, pkey, gkey, fusr, tusr, timeout):
     default=False,
     is_flag=True
 )
+@click.option(
+    "-tm",
+    "--timeout",
+    "timeout",
+    type=int,
+    help="Specify the request timeout",
+    default=60,
+)
 def main_transfer_tkts(status, select, ranges, comments, labels, commit, secret, series, timeout):
     if select is not None and ranges is not None:
         raise click.UsageError("The `select` and `ranges` options cannot be used together")

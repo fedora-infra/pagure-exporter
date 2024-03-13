@@ -1,0 +1,6 @@
+summary: Check some CLI commands
+execute:
+  script:
+    - pagure-exporter --help
+    - pagure-exporter -s a -d a -p a -g a -f a -t a repo --help
+    - pagure-exporter -s a -d a -p a -g a -f a -t a tkts --help

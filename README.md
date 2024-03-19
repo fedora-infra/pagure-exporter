@@ -289,6 +289,7 @@ Simple exporter tool that helps migrate repository files, data assets and issue 
       -l, --labels                   Migrate all the associated labels
       -a, --commit                   Assert issue ticket states as they were
       -t, --secret                   Confirm issue ticket privacy as they were
+      -o, --series                   Ensure issue tickets sequence as they were
       --help                         Show this message and exit.
     ```
 
@@ -399,7 +400,17 @@ Simple exporter tool that helps migrate repository files, data assets and issue 
                  --secret
       ```
 
-   6. If the issue tickets from a range of issue identities need to be transferred.
+    6. If the issue tickets need to be transferred in the sequence they were in.
+
+     ```
+     (venv) $ pagure-exporter \
+                 --fusr srceuser --pkey srcecode --srce srcerepo \
+                 --tusr destuser --gkey destcode --dest destrepo \
+                 tkts \
+                 --series
+     ```
+
+   7. If the issue tickets from a range of issue identities need to be transferred.
 
       ```
       (venv) $ pagure-exporter \
@@ -411,7 +422,7 @@ Simple exporter tool that helps migrate repository files, data assets and issue 
 
       Issue tickets with identities `STRT`, `STRT+1` ... `STOP-1`, `STOP` would be considered here.
 
-   7. If the issue tickets that need to be considered need to be cherry-picked.
+   8. If the issue tickets that need to be considered need to be cherry-picked.
 
       ```
       (venv) $ pagure-exporter \
@@ -422,12 +433,12 @@ Simple exporter tool that helps migrate repository files, data assets and issue 
       ```
 
       Issue tickets with identities `NUM1`, `NUM2`, `NUM3` ... would be considered here.
-
+      
    While these options can be mixed and matched to be used together, the options `--ranges` and `--select` cannot be used at the same time as they perform identical functions.
 
    For example,
 
-      1. The following command will migrate all issue tickets, the identities of which fall between the range of `STRT` and `STOP` both included, with status `OPEN` along with the associated comments, labels and privacy.
+      1. The following command will migrate all issue tickets, the identities of which fall between the range of `STRT` and `STOP` both included, with status `OPEN` along with the associated comments, labels, privacy and identifiers.
 
          ```
          (venv) $ pagure-exporter \
@@ -438,10 +449,11 @@ Simple exporter tool that helps migrate repository files, data assets and issue 
                     --comments \
                     --labels \
                     --secret \
+                    --series \
                     --ranges STRT STOP
          ```
 
-      2. The following command will migrate all issue tickets with the identities `NUM1`, `NUM2`, `NUM3` ... with status `SHUT` along with the associated labels, states and privacy.
+      2. The following command will migrate all issue tickets with the identities `NUM1`, `NUM2`, `NUM3` ... with status `SHUT` along with the associated labels, states, privacy and identifiers.
 
          ```
          (venv) $ pagure-exporter \
@@ -452,5 +464,6 @@ Simple exporter tool that helps migrate repository files, data assets and issue 
                     --labels \
                     --commit \
                     --secret \
+                    --series \
                     --select NUM1,NUM2,NUM3 ...
          ```

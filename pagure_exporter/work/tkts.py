@@ -133,7 +133,7 @@ class MoveTkts:
             standard.issuiden = dictobjc["id"]
             standard.isclosed = True if dictobjc["status"] == "Closed" else False
             standard.authname = dictobjc["user"]["fullname"]
-            standard.authlink = dictobjc["user"]["full_url"]
+            standard.authlink = f'{standard.fedora_acc}/{dictobjc["user"]["url_path"]}'
             standard.authorid = dictobjc["user"]["name"]
             standard.issulink = dictobjc["full_url"]
             standard.issutags = dictobjc["tags"]
@@ -188,7 +188,7 @@ class MoveTkts:
             standard.cmtsiden = dictobjc["id"]
             standard.cmtslink = f"{standard.issulink}#comment-{standard.cmtsiden}"
             standard.cmtsauth = dictobjc["user"]["fullname"]
-            standard.cmtsaurl = dictobjc["user"]["full_url"]
+            standard.cmtsaurl = f'{standard.fedora_acc}/{dictobjc["user"]["url_path"]}'
             standard.cmtstime = int(dictobjc["date_created"])
             standard.cmtsbody = dictobjc["comment"]
             bodydata = standard.bodytemp_cmts.format(

@@ -65,7 +65,7 @@ prfxdest = "pexp-tempdest-"
 frgesrce = "pagure.io"
 frgedest = "gitlab.com"
 nrmtname = "freshsrc"
-
+fedora_acc = "https://accounts.fedoraproject.org"
 """
 INTERNAL CONFIGURATION VARIABLES
 """

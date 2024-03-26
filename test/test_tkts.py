@@ -35,7 +35,7 @@ from pagure_exporter.main import main
     "cmdl, code, text",
     [
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status OPEN --series",  # noqa: E501
+            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status OPEN --labels --commit --secret --comments",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all open issue tickets without labels, without states, without privacy, without comments and with order off the given selection",  # noqa: E501
@@ -48,7 +48,7 @@ from pagure_exporter.main import main
             id="Transferring issue tickets with OPEN status without labels, without states, without privacy, without comments and with order",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status SHUT --series",  # noqa: E501
+            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --labels --commit --secret --comments",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all closed issue tickets without labels, without states, without privacy, without comments and with order off the given selection",  # noqa: E501
@@ -61,7 +61,7 @@ from pagure_exporter.main import main
             id="Transferring issue tickets with SHUT status without labels, without states, without privacy, without comments and with order",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status FULL --series",  # noqa: E501
+            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --labels --commit --secret --comments",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all issue tickets without labels, without states, without privacy, without comments and with order off the given selection",  # noqa: E501
@@ -100,7 +100,7 @@ from pagure_exporter.main import main
             id="Transferring issue tickets to a destination namespace that does not exist",
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status OPEN --commit --series",  # noqa: E501
+            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status OPEN --comments --secret --labels",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all open issue tickets without labels, with states, without privacy, without comments and with order off the given selection",  # noqa: E501
@@ -117,7 +117,7 @@ from pagure_exporter.main import main
             id="Transferring issue tickets with OPEN status along with states but without comments, without privacy, without labels and with order",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status SHUT --commit --series",  # noqa: E501
+            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status SHUT --comments --secret --labels",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all closed issue tickets without labels, with states, without privacy, without comments and with order off the given selection",  # noqa: E501
@@ -135,7 +135,7 @@ from pagure_exporter.main import main
         ),
 
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status OPEN --secret --series",  # noqa: E501
+            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status OPEN --commit --comments --labels",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all open issue tickets without labels, without states, with privacy, without comments and with order off the given selection",  # noqa: E501
@@ -148,7 +148,7 @@ from pagure_exporter.main import main
             id="Transferring issue tickets with OPEN status along with privacy but without states, without comments, without labels and with order",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status SHUT --secret --series",  # noqa: E501
+            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status SHUT --commit --comments --labels",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all closed issue tickets without labels, without states, with privacy, without comments and with order off the given selection",  # noqa: E501
@@ -161,7 +161,7 @@ from pagure_exporter.main import main
             id="Transferring issue tickets with SHUT status along with privacy but without states, without comments, without labels and with order",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status OPEN --select 1 --commit --comments --series",  # noqa: E501
+            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status OPEN --select 1 --labels --secret",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all open issue tickets without labels, with states, without privacy, with comments and with order off the given selection",  # noqa: E501
@@ -183,7 +183,7 @@ from pagure_exporter.main import main
             id="Transferring particular issue tickets with OPEN status along with states and comments but without labels, without privacy and with order",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status SHUT --select 2 --commit --comments --series",  # noqa: E501
+            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status SHUT --select 2 --labels --secret",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all closed issue tickets without labels, with states, without privacy, with comments and with order off the given selection",  # noqa: E501
@@ -207,7 +207,7 @@ from pagure_exporter.main import main
             id="Transferring particular issue tickets with SHUT status along with states and comments but without labels, without privacy and with order",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status SHUT --select 1 --series",  # noqa: E501
+            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status SHUT --select 1 --labels --commit --secret --comment",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all closed issue tickets without labels, without states, without privacy, without comments and with order off the given selection",  # noqa: E501
@@ -217,7 +217,7 @@ from pagure_exporter.main import main
             id="Transferring particular issue tickets with OPEN status without labels, without states, without privacy, without comments and with order when SHUT status is prescribed",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status FULL --commit --series",  # noqa: E501
+            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --comments --secret --labels",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all issue tickets without labels, with states, without privacy, without comments and with order off the given selection",  # noqa: E501
@@ -242,7 +242,7 @@ from pagure_exporter.main import main
             id="Transferring issue tickets with FULL status along with states but without comments, without privacy, without labels and with order",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status OPEN --labels --series",  # noqa: E501
+            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status OPEN --commit --secret --comments",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all open issue tickets with labels, without states, without privacy, without comments and with order off the given selection",  # noqa: E501
@@ -255,7 +255,7 @@ from pagure_exporter.main import main
             id="Transferring issue tickets with OPEN status along with labels but without states, without privacy, without comments and with order",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status SHUT --labels --series",  # noqa: E501
+            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --commit --secret --comments",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all closed issue tickets with labels, without states, without privacy, without comments and with order off the given selection",  # noqa: E501
@@ -268,7 +268,7 @@ from pagure_exporter.main import main
             id="Transferring issue tickets with SHUT status along with labels but without states, without privacy, without comments and with order",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status FULL --labels --series",  # noqa: E501
+            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --commit --secret --comments",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all issue tickets with labels, without states, without privacy, without comments and with order off the given selection",  # noqa: E501
@@ -285,7 +285,7 @@ from pagure_exporter.main import main
             id="Transferring issue tickets with FULL status along with labels but without states, without privacy, without comments and with order",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status OPEN --comments --series",  # noqa: E501
+            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status OPEN --labels --secret --commit",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all open issue tickets without labels, without states, without privacy, with comments and with order off the given selection",  # noqa: E501
@@ -312,7 +312,7 @@ from pagure_exporter.main import main
             id="Transferring issue tickets with OPEN status along with comments but without labels, without privacy, without states and with order",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status SHUT --comments --series",  # noqa: E501
+            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status SHUT --labels --secret --commit",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all closed issue tickets without labels, without states, without privacy, with comments and with order off the given selection",  # noqa: E501
@@ -343,7 +343,7 @@ from pagure_exporter.main import main
             id="Transferring issue tickets with SHUT status along with comments but without labels, without privacy, without states and with order",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status FULL --comments --series",  # noqa: E501
+            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --labels --secret --commit",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all issue tickets without labels, without states, without privacy, with comments and with order off the given selection",  # noqa: E501
@@ -392,7 +392,7 @@ from pagure_exporter.main import main
             id="Transferring issue tickets with FULL status along with comments but without labels, without privacy, without states and with order",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status OPEN --ranges 1 2 --series",  # noqa: E501
+            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status OPEN --ranges 1 2 --labels --commit --secret --comments",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all open issue tickets without labels, without states, without privacy, without comments and with order off the given selection",  # noqa: E501
@@ -406,7 +406,7 @@ from pagure_exporter.main import main
             id="Transferring issue tickets with OPEN status without labels, without states, without privacy, without comments and with order the identities of which fall in the given range",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status SHUT --ranges 1 2 --series",  # noqa: E501
+            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status SHUT --ranges 1 2 --labels --commit --secret --comments",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all closed issue tickets without labels, without states, without privacy, without comments and with order off the given selection",  # noqa: E501
@@ -420,7 +420,7 @@ from pagure_exporter.main import main
             id="Transferring issue tickets with SHUT status without labels, without states, without privacy, without comments and with order the identities of which fall in the given range",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status FULL --ranges 1 2 --series",  # noqa: E501
+            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --ranges 1 2 --labels --commit --secret --comments",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all issue tickets without labels, without states, without privacy, without comments and with order off the given selection",  # noqa: E501
@@ -436,7 +436,7 @@ from pagure_exporter.main import main
             id="Transferring issue tickets with FULL status without labels, without states, without privacy, without comments and with order the identities of which fall in the given range",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status OPEN --select 1,2 --series",  # noqa: E501
+            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status OPEN --select 1,2 --labels --commit --secret --comments",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all open issue tickets without labels, without states, without privacy, without comments and with order off the given selection",  # noqa: E501
@@ -450,7 +450,7 @@ from pagure_exporter.main import main
             id="Transferring issue tickets with OPEN status without labels, without states, without privacy, without comments and with order the identities of which fall in the given selection",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status SHUT --select 1,2 --series",  # noqa: E501
+            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status SHUT --select 1,2 --labels --commit --secret --comments",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all closed issue tickets without labels, without states, without privacy, without comments and with order off the given selection",  # noqa: E501
@@ -464,7 +464,7 @@ from pagure_exporter.main import main
             id="Transferring issue tickets with SHUT status without labels, without states, without privacy, without comments and with order the identities of which fall in the given selection",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status FULL --select 1,2 --series",  # noqa: E501
+            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --select 1,2 --labels --commit --secret --comments",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all issue tickets without labels, without states, without privacy, without comments and with order off the given selection",  # noqa: E501

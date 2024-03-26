@@ -99,7 +99,7 @@ def main(srce, dest, pkey, gkey, fusr, tusr):
     "status",
     type=click.Choice(["OPEN", "SHUT", "FULL"], case_sensitive=False),
     help="Extract issue tickets of the mentioned status",
-    default="OPEN",
+    default="FULL",
 )
 @click.option(
     "-r",
@@ -122,7 +122,7 @@ def main(srce, dest, pkey, gkey, fusr, tusr):
     "--comments",
     "comments",
     help="Transfer all the associated comments",
-    default=False,
+    default=True,
     is_flag=True,
 )
 @click.option(
@@ -130,7 +130,7 @@ def main(srce, dest, pkey, gkey, fusr, tusr):
     "--labels",
     "labels",
     help="Migrate all the associated labels",
-    default=False,
+    default=True,
     is_flag=True,
 )
 @click.option(
@@ -138,7 +138,7 @@ def main(srce, dest, pkey, gkey, fusr, tusr):
     "--commit",
     "commit",
     help="Assert issue ticket states as they were",
-    default=False,
+    default=True,
     is_flag=True,
 )
 @click.option(
@@ -146,7 +146,7 @@ def main(srce, dest, pkey, gkey, fusr, tusr):
     "--secret",
     "secret",
     help="Confirm issue ticket privacy as they were",
-    default=False,
+    default=True,
     is_flag=True,
 )
 @click.option(
@@ -154,7 +154,7 @@ def main(srce, dest, pkey, gkey, fusr, tusr):
     "--series",
     "series",
     help="Ensure issue ticket sequence as they were",
-    default=False,
+    default=True,
     is_flag=True
 )
 def main_transfer_tkts(status, select, ranges, comments, labels, commit, secret, series):

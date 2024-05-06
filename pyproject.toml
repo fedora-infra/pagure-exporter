@@ -59,6 +59,9 @@ fix = true
 [tool.ruff.lint]
 select = ["E", "F", "W", "I", "S", "B", "UP"]
 
+[tool.ruff.lint.per-file-ignores]
+"test/*" = ["UP031"]
+
 [tool.black]
 line-length = 100
 

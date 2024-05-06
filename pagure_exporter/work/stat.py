@@ -35,7 +35,7 @@ class SrceData:
         self.repo = standard.srcename
         self.loca = standard.pagulink
         self.code = standard.pagucode
-        self.head = {"Authorization": "token %s" % self.code}
+        self.head = {"Authorization": f"token {self.code}"}
 
     def obtninfo(self):
         rqstloca = f"{self.loca}/{self.repo}"
@@ -75,7 +75,7 @@ class DestData:
         self.repo = standard.destname
         self.loca = standard.gtlblink
         self.code = standard.gtlbcode
-        self.head = {"Authorization": "Bearer %s" % self.code}
+        self.head = {"Authorization": f"Bearer {self.code}"}
         standard.gobj = gtlb(
             session=requests.Session(),
             url="https://gitlab.com",

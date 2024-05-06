@@ -74,7 +74,7 @@ class MoveTkts:
                         lastqant = int(lastdict["total_issues"])
                         standard.tktcount = (standard.pageqant - 1) * standard.pagesize + lastqant
             stoptime = time.time()
-            timereqd = "%.2f" % (stoptime - strttime)
+            timereqd = "%.2f" % (stoptime - strttime)  # noqa : UP031
             return respcode, respresn, timereqd
         except Exception as expt:
             return False, expt, "0"
@@ -95,7 +95,7 @@ class MoveTkts:
             if respcode == 200:
                 standard.pagerslt = response.json()["issues"]
             stoptime = time.time()
-            timereqd = "%.2f" % (stoptime - strttime)
+            timereqd = "%.2f" % (stoptime - strttime)  # noqa : UP031
             return respcode, respresn, timereqd
         except Exception as expt:
             return False, expt, "0"
@@ -121,7 +121,7 @@ class MoveTkts:
             else:
                 issuskip = response.reason
             stoptime = time.time()
-            timereqd = "%.2f" % (stoptime - strttime)
+            timereqd = "%.2f" % (stoptime - strttime)  # noqa : UP031
             return respcode, issuskip, timereqd
         except Exception as expt:
             return False, expt, "0"
@@ -177,7 +177,7 @@ class MoveTkts:
             standard.gtlbtkid = rslt.iid
             standard.issutnfs += 1
             stoptime = time.time()
-            timereqd = "%.2f" % (stoptime - strttime)
+            timereqd = "%.2f" % (stoptime - strttime)  # noqa : UP031
             return respcode, respresn, timereqd
         except (GitlabCreateError, Exception) as expt:
             return False, expt, "0"
@@ -219,7 +219,7 @@ class MoveTkts:
             )
             standard.cmtsqant += 1
             stoptime = time.time()
-            timereqd = "%.2f" % (stoptime - strttime)
+            timereqd = "%.2f" % (stoptime - strttime)  # noqa : UP031
             return respcode, respresn, timereqd
         except (GitlabCreateError, Exception) as expt:
             return False, expt, "0"
@@ -235,7 +235,7 @@ class MoveTkts:
             else:
                 respcode, respresn = 0, "0"
             stoptime = time.time()
-            timereqd = "%.2f" % (stoptime - strttime)
+            timereqd = "%.2f" % (stoptime - strttime)  # noqa : UP031
             return respcode, respresn, timereqd
         except (GitlabUpdateError, GitlabGetError, Exception) as expt:
             return False, str(expt), "0"

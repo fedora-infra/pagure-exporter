@@ -50,7 +50,7 @@ class PushRepo:
             strttime = time.time()
             Repo.clone_from(url=self.srce, to_path=self.sloc.name)
             stoptime = time.time()
-            return True, "%.2f" % (stoptime - strttime)
+            return True, "%.2f" % (stoptime - strttime)  # noqa : UP031
         except Exception as expt:
             return False, str(expt)
 
@@ -59,7 +59,7 @@ class PushRepo:
             strttime = time.time()
             Repo.clone_from(url=self.dest, to_path=self.dloc.name)
             stoptime = time.time()
-            return True, "%.2f" % (stoptime - strttime)
+            return True, "%.2f" % (stoptime - strttime)  # noqa : UP031
         except Exception as expt:
             return False, str(expt)
 
@@ -67,7 +67,7 @@ class PushRepo:
         if os.path.exists(os.path.join(self.sloc.name, ".git")):
             repoobjc = Repo(path=self.sloc.name)
             brcslist = [
-                refx.name.replace("%s/" % standard.dfremote, "")
+                refx.name.replace(f"{standard.dfremote}/", "")
                 for refx in repoobjc.remote(standard.dfremote).refs
             ]
             standard.sbrcavbl = list(brcslist)
@@ -79,7 +79,7 @@ class PushRepo:
         if os.path.exists(os.path.join(self.dloc.name, ".git")):
             repoobjc = Repo(path=self.dloc.name)
             brcslist = [
-                refx.name.replace("%s/" % standard.dfremote, "")
+                refx.name.replace(f"{standard.dfremote}/", "")
                 for refx in repoobjc.remote(standard.dfremote).refs
             ]
             standard.dbrcavbl = list(brcslist)
@@ -96,7 +96,7 @@ class PushRepo:
                 standard.tnfsqant = len(standard.sbrcavbl)
                 tnfswarn(False, standard.tnfsqant)
                 for brdx in standard.sbrcavbl:
-                    repoobjc.git.checkout("%s" % brdx)
+                    repoobjc.git.checkout(f"{brdx}")
                     repoobjc.git.push(standard.nrmtname, "--set-upstream", brdx, "--force")
                     tnfsprog(
                         brdx,
@@ -110,7 +110,7 @@ class PushRepo:
                 tnfswarn(True, standard.tnfsqant)
                 for brdx in standard.brtocopy:
                     if brdx in standard.sbrcavbl:
-                        repoobjc.git.checkout("%s" % brdx)
+                        repoobjc.git.checkout(f"{brdx}")
                         repoobjc.git.push(standard.nrmtname, "--set-upstream", brdx, "--force")
                         tnfsprog(
                             brdx,
@@ -127,6 +127,6 @@ class PushRepo:
                             False,
                         )
             stoptime = time.time()
-            return True, "%.2f" % (stoptime - strttime)
+            return True, "%.2f" % (stoptime - strttime)  # noqa : UP031
         else:
             return False, "Cloned namespace assets could not be found"

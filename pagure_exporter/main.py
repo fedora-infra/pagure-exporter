@@ -73,6 +73,16 @@ from pagure_exporter.work.keep import keepbrcs, keeptkts, storeinf
     required=True,
     help="Username of the account that owns the GitLab API key",
 )
+
+@click.option(
+    "-tm",
+    "--timeout",
+    "timeout",
+    type=int,
+    help="Specify the request timeout",
+    default=60,
+)
+
 @click.version_option(
     version=versobjc,
     prog_name=click.style(
@@ -81,11 +91,11 @@ from pagure_exporter.work.keep import keepbrcs, keeptkts, storeinf
         bold=True,
     ),
 )
-def main(srce, dest, pkey, gkey, fusr, tusr):
+def main(srce, dest, pkey, gkey, fusr, tusr, timeout):
     """
     Pagure Exporter
     """
-    storeinf(srce, dest, pkey, gkey, fusr, tusr)
+    storeinf(srce, dest, pkey, gkey, fusr, tusr, timeout)
 
 
 @main.command(
@@ -109,6 +119,7 @@ def main(srce, dest, pkey, gkey, fusr, tusr):
     help="Extract issue tickets in the mentioned ranges",
     default=None,
 )
+
 @click.option(
     "-p",
     "--select",
@@ -157,7 +168,15 @@ def main(srce, dest, pkey, gkey, fusr, tusr):
     default=False,
     is_flag=True
 )
-def main_transfer_tkts(status, select, ranges, comments, labels, commit, secret, series):
+@click.option(
+    "-tm",
+    "--timeout",
+    "timeout",
+    type=int,
+    help="Specify the request timeout",
+    default=60,
+)
+def main_transfer_tkts(status, select, ranges, comments, labels, commit, secret, series, timeout):
     if select is not None and ranges is not None:
         raise click.UsageError("The `select` and `ranges` options cannot be used together")
 
@@ -180,7 +199,7 @@ def main_transfer_tkts(status, select, ranges, comments, labels, commit, secret,
                 message="The provided parameters for the `ranges` option could not be parsed"
             ) from expt
 
-    keeptkts(status, tktgroup, comments, labels, commit, secret, series)
+    keeptkts(status, tktgroup, comments, labels, commit, secret, series, timeout)
     showstat()
     showtkts()
 

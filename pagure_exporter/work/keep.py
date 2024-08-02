@@ -24,20 +24,20 @@ be used or replicated with the express permission of Red Hat, Inc.
 from pagure_exporter.conf import standard
 
 
-def storeinf(srce, dest, pkey, gkey, fusr, tusr):
+def storeinf(srce, dest, pkey, gkey, fusr, tusr, timeout):
     standard.srcename = srce
     standard.destname = dest
     standard.pagucode = pkey
     standard.gtlbcode = gkey
     standard.paguuser = fusr
     standard.gtlbuser = tusr
-
+    standard.rqsttime = timeout
 
 def keepbrcs(brcs):
     standard.brtocopy = list(brcs)
 
 
-def keeptkts(status, tktgroup, comments, labels, commit, secret, series):
+def keeptkts(status, tktgroup, comments, labels, commit, secret, series, timeout):
     # Vote what kind of issue tickets are to be moved
     # Default Open
     if status == "SHUT":
@@ -50,7 +50,7 @@ def keeptkts(status, tktgroup, comments, labels, commit, secret, series):
     # Set a list of ticket identities to be moved
     # Default Empty
     standard.tktgroup = tktgroup
-
+    standard.rqsttime = timeout
     # Vote if comments associated with the issue tickets are to be moved
     # Default False
     standard.movecmts = comments

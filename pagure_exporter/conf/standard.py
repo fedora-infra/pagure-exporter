@@ -117,10 +117,10 @@ srcecloc = "UNAVAILABLE"
 destcloc = "UNAVAILABLE"
 
 # Regular expression to help detection of the GitLab Runners token in response body
-detect = "\"runners_token\":\"[A-Za-z0-9]+\""
+detect = r"\b(?:glrt-|GR1348941)[\w\-]{20,23}"
 
 # Placeholder string to substitute the detected GitLab Runners tokens in response body
-cutout = "\"runners_token\":\"SECURE_STANDARD_PASSWORD_HERE\""
+cutout = "EXPUNGED"
 
 # GitLab client object to be used while interacting with the destination namespace
 gobj = None

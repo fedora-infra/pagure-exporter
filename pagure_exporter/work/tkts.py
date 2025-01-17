@@ -22,7 +22,7 @@ be used or replicated with the express permission of Red Hat, Inc.
 
 
 import time
-from datetime import datetime
+from datetime import datetime, timezone
 
 import requests
 from gitlab import GitlabCreateError, GitlabGetError, GitlabUpdateError
@@ -152,12 +152,12 @@ class MoveTkts:
                 repolink=standard.srcedict["repolink"],
                 authname=standard.authname,
                 authlink=standard.authlink,
-                dateinfo=datetime.utcfromtimestamp(standard.timedata).strftime("%c"),
-                mo=datetime.utcfromtimestamp(standard.timedata).strftime("%b").lower(),
-                dd=datetime.utcfromtimestamp(standard.timedata).strftime("%d"),
-                yy=datetime.utcfromtimestamp(standard.timedata).strftime("%Y"),
-                hh=datetime.utcfromtimestamp(standard.timedata).strftime("%H"),
-                mm=datetime.utcfromtimestamp(standard.timedata).strftime("%M"),
+                dateinfo=datetime.fromtimestamp(standard.cmtstime, timezone.utc).strftime("%c"),
+                mo=datetime.fromtimestamp(standard.cmtstime, timezone.utc).strftime("%b").lower(),
+                dd=datetime.fromtimestamp(standard.cmtstime, timezone.utc).strftime("%d"),
+                yy=datetime.fromtimestamp(standard.cmtstime, timezone.utc).strftime("%Y"),
+                hh=datetime.fromtimestamp(standard.cmtstime, timezone.utc).strftime("%H"),
+                mm=datetime.fromtimestamp(standard.cmtstime, timezone.utc).strftime("%M"),
             )
             """
             Replace "@" in the `bodydata` with "&" to ensure that wrong people are not referenced
@@ -199,12 +199,12 @@ class MoveTkts:
                 issulink=standard.issulink,
                 reponame=standard.srcename,
                 repolink=standard.srcedict["repolink"],
-                dateinfo=datetime.utcfromtimestamp(standard.cmtstime).strftime("%c"),
-                mo=datetime.utcfromtimestamp(standard.cmtstime).strftime("%b").lower(),
-                dd=datetime.utcfromtimestamp(standard.cmtstime).strftime("%d"),
-                yy=datetime.utcfromtimestamp(standard.cmtstime).strftime("%Y"),
-                hh=datetime.utcfromtimestamp(standard.cmtstime).strftime("%H"),
-                mm=datetime.utcfromtimestamp(standard.cmtstime).strftime("%M"),
+                dateinfo=datetime.fromtimestamp(standard.cmtstime, timezone.utc).strftime("%c"),
+                mo=datetime.fromtimestamp(standard.cmtstime, timezone.utc).strftime("%b").lower(),
+                dd=datetime.fromtimestamp(standard.cmtstime, timezone.utc).strftime("%d"),
+                yy=datetime.fromtimestamp(standard.cmtstime, timezone.utc).strftime("%Y"),
+                hh=datetime.fromtimestamp(standard.cmtstime, timezone.utc).strftime("%H"),
+                mm=datetime.fromtimestamp(standard.cmtstime, timezone.utc).strftime("%M"),
             )
             """
             Replace "@" in the `bodydata` with "&" to ensure that wrong people are not referenced

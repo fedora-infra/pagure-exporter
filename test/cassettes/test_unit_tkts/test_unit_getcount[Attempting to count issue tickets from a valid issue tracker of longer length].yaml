@@ -19,12 +19,330 @@ interactions:
         \ \n    \"priority\": null, \n    \"since\": null, \n    \"status\": \"all\"\
         , \n    \"tags\": []\n  }, \n  \"issues\": [\n    {\n      \"assignee\": null,\
         \ \n      \"blocks\": [], \n      \"close_status\": null, \n      \"closed_at\"\
-        : null, \n      \"closed_by\": null, \n      \"comments\": [\n        {\n\
-        \          \"comment\": \"I don't see any blockage or problems in our logs.\
-        \ \\r\\n\\r\\nHere's a test list post from the 16th:\\r\\n\\r\\n```\\r\\nJan\
-        \ 16 05:25:30 bastion01 postfix/qmgr[3429177]: A6DF02030209: from=<test-bounces@lists.fedoraproject.org>,\
-        \ size=11810, nrcpt=45 (queue active)\\r\\nJan 16 05:25:33 bastion01 postfix/smtp[3328183]:\
-        \ A6DF02030209: to=<grgoffe@yahoo.com>, relay=mta5.am0.yahoodns.net[67.195.228.109]:25,\
+        : null, \n      \"closed_by\": null, \n      \"comments\": [], \n      \"\
+        content\": \"When trying to add new admin ( ljavorsk@redhat.com ) to project\
+        \ \\\"star\\\" through https://src.fedoraproject.org/rpms/star/settings ,\
+        \ I get following error message:\\r\\n\\r\\nPage not found (404)\\r\\nWith\
+        \ the message:\\r\\n\\r\\nProject not found\\r\\n\\r\\nYou have either entered\
+        \ a bad URL or the page has moved, removed, or otherwise rendered unavailable.\\\
+        r\\nPlease use the main navigation menu to get (re)started.\\r\\n\\r\\nAs\
+        \ he now owns the package in RHEL, I would like to have him admin access for\
+        \ the package, especially as the package is now FTBFS.\\r\\n\\r\\nThanks in\
+        \ advance for resolving/looking into it...\\r\\n\", \n      \"custom_fields\"\
+        : [], \n      \"date_created\": \"1737620316\", \n      \"depends\": [], \n\
+        \      \"full_url\": \"https://pagure.io/fedora-infrastructure/issue/12372\"\
+        , \n      \"id\": 12372, \n      \"last_updated\": \"1737620351\", \n    \
+        \  \"milestone\": null, \n      \"priority\": 1, \n      \"private\": false,\
+        \ \n      \"related_prs\": [], \n      \"status\": \"Open\", \n      \"tags\"\
+        : [], \n      \"title\": \"Problem with adding new admin to a star project\"\
+        , \n      \"user\": {\n        \"full_url\": \"https://pagure.io/user/ovasik\"\
+        , \n        \"fullname\": \"Ondrej Vasik\", \n        \"name\": \"ovasik\"\
+        , \n        \"url_path\": \"user/ovasik\"\n      }\n    }, \n    {\n     \
+        \ \"assignee\": null, \n      \"blocks\": [], \n      \"close_status\": \"\
+        Invalid\", \n      \"closed_at\": \"1737555987\", \n      \"closed_by\": {\n\
+        \        \"full_url\": \"https://pagure.io/user/aaradhak\", \n        \"fullname\"\
+        : \"Aashish Radhakrishnan\", \n        \"name\": \"aaradhak\", \n        \"\
+        url_path\": \"user/aaradhak\"\n      }, \n      \"comments\": [\n        {\n\
+        \          \"comment\": \"**Metadata Update from @aaradhak**:\\n- Issue close_status\
+        \ updated to: Invalid\\n- Issue status updated to: Closed (was: Open)\", \n\
+        \          \"date_created\": \"1737555988\", \n          \"edited_on\": null,\
+        \ \n          \"editor\": null, \n          \"id\": 952180, \n          \"\
+        notification\": true, \n          \"parent\": null, \n          \"reactions\"\
+        : {}, \n          \"user\": {\n            \"full_url\": \"https://pagure.io/user/aaradhak\"\
+        , \n            \"fullname\": \"Aashish Radhakrishnan\", \n            \"\
+        name\": \"aaradhak\", \n            \"url_path\": \"user/aaradhak\"\n    \
+        \      }\n        }\n      ], \n      \"content\": \"\\r\\n\\r\\n# Describe\
+        \ what you would like us to do:\\r\\nInclude the ap-southeast-5 region for\
+        \ cloud and coreos image deployments in Amazon EC2.\\r\\nhttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html\\\
+        r\\n\\r\\n# To Enable a region\\r\\nSign in to the AWS Management Console.\\\
+        r\\nIn the upper right corner of the console, choose your account name or\
+        \ number and then choose My Account.\\r\\nIn the AWS Regions section, next\
+        \ to the name of the Region that you want to enable, choose Enable.\\r\\nIn\
+        \ the dialog box, review the informational text and choose Enable Region.\\\
+        r\\nWait until the Region is ready to use.\\r\\n\\r\\nWe would also like to\
+        \ get AWS public access enabled for this region. Please use the following\
+        \ command:\\r\\n    \\\"aws ec2 disable-image-block-public-access --region\
+        \ ap-southeast-5\\\"\\r\\n\\r\\nLet's also adjust the quota to match the other\
+        \ regions :\\r\\n    \\\"aws service-quotas request-service-quota-increase\
+        \ --region=ap-southeast-5 --service-code=ec2 --quota-code=L-0E3CBAB9 --desired-value\
+        \ 1000.00\\\"\\r\\n\\r\\n# When do you need this to be done by? (YYYY/MM/DD)\\\
+        r\\nWhen it is possible preferably before our next FCOS release.\\r\\n\",\
+        \ \n      \"custom_fields\": [], \n      \"date_created\": \"1737555669\"\
+        , \n      \"depends\": [], \n      \"full_url\": \"https://pagure.io/fedora-infrastructure/issue/12371\"\
+        , \n      \"id\": 12371, \n      \"last_updated\": \"1737555988\", \n    \
+        \  \"milestone\": null, \n      \"priority\": 1, \n      \"private\": false,\
+        \ \n      \"related_prs\": [], \n      \"status\": \"Closed\", \n      \"\
+        tags\": [], \n      \"title\": \"Opt-in for AWS region to ap-southeast-5 acct:125523088429\"\
+        , \n      \"user\": {\n        \"full_url\": \"https://pagure.io/user/aaradhak\"\
+        , \n        \"fullname\": \"Aashish Radhakrishnan\", \n        \"name\": \"\
+        aaradhak\", \n        \"url_path\": \"user/aaradhak\"\n      }\n    }, \n\
+        \    {\n      \"assignee\": null, \n      \"blocks\": [], \n      \"close_status\"\
+        : null, \n      \"closed_at\": null, \n      \"closed_by\": null, \n     \
+        \ \"comments\": [\n        {\n          \"comment\": \"**Metadata Update from\
+        \ @t0xic0der**:\\n- Assignee reset\", \n          \"date_created\": \"1737461072\"\
+        , \n          \"edited_on\": null, \n          \"editor\": null, \n      \
+        \    \"id\": 951906, \n          \"notification\": true, \n          \"parent\"\
+        : null, \n          \"reactions\": {}, \n          \"user\": {\n         \
+        \   \"full_url\": \"https://pagure.io/user/t0xic0der\", \n            \"fullname\"\
+        : \"Akashdeep Dhar\", \n            \"name\": \"t0xic0der\", \n          \
+        \  \"url_path\": \"user/t0xic0der\"\n          }\n        }\n      ], \n \
+        \     \"content\": \"\\nThis is to inform that the TLS certificate for **fmn**\
+        \ service will expire in about **30 day(s)** from now on **2025-02-20 08:36:01\
+        \ UTC**. The following are information relevant to the associated TLS certificate.\\\
+        n\\n- **Service name** - **fmn** (Certificate stored as **fmn.crt**)\\n- **Issuing\
+        \ authority** - RabbitMQ PRODUCTION CA (**#162150655829460256587416608253163311815**)\\\
+        n- **Validity starting** - **2022-11-18 08:36:01 UTC** (**796 day(s)** passed\
+        \ since beginning)\\n- **Validity ending** - **2025-02-20 08:36:01 UTC** (**29\
+        \ day(s)** left before expiring)\\n\\nThe point of contact for the service\
+        \ have been tagged into this ticket and notified about the same. It is strongly\
+        \ recommended to promptly renew the TLS certificate for the service before\
+        \ the existing one expires.\\n\\n_This issue ticket was automatically created\
+        \ by the [**Firmitas notification service**](https://gitlab.com/t0xic0der/firmitas).\
+        \ Please contact [**Fedora Infrastructure**](https://pagure.io/fedora-infrastructure/issues)\
+        \ team if you believe that this notification is mistaken._\\n\", \n      \"\
+        custom_fields\": [], \n      \"date_created\": \"1737457417\", \n      \"\
+        depends\": [], \n      \"full_url\": \"https://pagure.io/fedora-infrastructure/issue/12370\"\
+        , \n      \"id\": 12370, \n      \"last_updated\": \"1737461072\", \n    \
+        \  \"milestone\": null, \n      \"priority\": null, \n      \"private\": false,\
+        \ \n      \"related_prs\": [], \n      \"status\": \"Open\", \n      \"tags\"\
+        : [\n        \"automate\", \n        \"firmitas\", \n        \"notifier\"\n\
+        \      ], \n      \"title\": \"[FMTS] TLS certificate for fmn service is about\
+        \ to expire in 30 days\", \n      \"user\": {\n        \"full_url\": \"https://pagure.io/user/firmitas-automata\"\
+        , \n        \"fullname\": \"Firmitas Automata\", \n        \"name\": \"firmitas-automata\"\
+        , \n        \"url_path\": \"user/firmitas-automata\"\n      }\n    }, \n \
+        \   {\n      \"assignee\": null, \n      \"blocks\": [], \n      \"close_status\"\
+        : null, \n      \"closed_at\": null, \n      \"closed_by\": null, \n     \
+        \ \"comments\": [\n        {\n          \"comment\": \"**Metadata Update from\
+        \ @zlopez**:\\n- Issue priority set to: Waiting on Assignee (was: Needs Review)\\\
+        n- Issue tagged with: gitlab, medium-gain, medium-trouble\", \n          \"\
+        date_created\": \"1737457113\", \n          \"edited_on\": null, \n      \
+        \    \"editor\": null, \n          \"id\": 951896, \n          \"notification\"\
+        : true, \n          \"parent\": null, \n          \"reactions\": {}, \n  \
+        \        \"user\": {\n            \"full_url\": \"https://pagure.io/user/zlopez\"\
+        , \n            \"fullname\": \"Michal Kone\\u010dn\\u00fd\", \n         \
+        \   \"name\": \"zlopez\", \n            \"url_path\": \"user/zlopez\"\n  \
+        \        }\n        }, \n        {\n          \"comment\": \"Hi. I directed\
+        \ you here from the discussion thread, but I don't think I understood what\
+        \ you were asking for. \\r\\n\\r\\nI thought it was some infrastructure problem\
+        \ with the various repos... but that seems wrong.\\r\\n\\r\\nIf I now understand\
+        \ you, you would like this adjustment to the official fedora images we produce?\
+        \ Is that right?\\r\\n\\r\\n\", \n          \"date_created\": \"1737487872\"\
+        , \n          \"edited_on\": null, \n          \"editor\": null, \n      \
+        \    \"id\": 952075, \n          \"notification\": false, \n          \"parent\"\
+        : null, \n          \"reactions\": {}, \n          \"user\": {\n         \
+        \   \"full_url\": \"https://pagure.io/user/kevin\", \n            \"fullname\"\
+        : \"Kevin Fenzi\", \n            \"name\": \"kevin\", \n            \"url_path\"\
+        : \"user/kevin\"\n          }\n        }, \n        {\n          \"comment\"\
+        : \"> I thought it was some infrastructure problem with the various repos...\
+        \ but that seems wrong.\\r\\n\\r\\nNow there is also infrastructure problem\
+        \ with various repos, but in the end I just want updated image.\\r\\n\\r\\\
+        nI am certain people will experience workflow disruption if instead of root\
+        \ they will have to deal with user, so I would provide a separate image, like\
+        \ `fedora:41-ci`.\", \n          \"date_created\": \"1737489800\", \n    \
+        \      \"edited_on\": null, \n          \"editor\": null, \n          \"id\"\
+        : 952081, \n          \"notification\": false, \n          \"parent\": null,\
+        \ \n          \"reactions\": {}, \n          \"user\": {\n            \"full_url\"\
+        : \"https://pagure.io/user/abitrolly\", \n            \"fullname\": \"Anatoli\
+        \ Babenia\", \n            \"name\": \"abitrolly\", \n            \"url_path\"\
+        : \"user/abitrolly\"\n          }\n        }, \n        {\n          \"comment\"\
+        : \"What would this be for? What do you need a user inside of a default container\
+        \ image for?\", \n          \"date_created\": \"1737492138\", \n         \
+        \ \"edited_on\": null, \n          \"editor\": null, \n          \"id\": 952091,\
+        \ \n          \"notification\": false, \n          \"parent\": null, \n  \
+        \        \"reactions\": {}, \n          \"user\": {\n            \"full_url\"\
+        : \"https://pagure.io/user/ngompa\", \n            \"fullname\": \"Neal Gompa\"\
+        , \n            \"name\": \"ngompa\", \n            \"url_path\": \"user/ngompa\"\
+        \n          }\n        }, \n        {\n          \"comment\": \"@ngompa for\
+        \ this https://gitlab.com/gitlab-org/gitlab-development-kit/-/issues/1636\"\
+        , \n          \"date_created\": \"1737493396\", \n          \"edited_on\"\
+        : null, \n          \"editor\": null, \n          \"id\": 952095, \n     \
+        \     \"notification\": false, \n          \"parent\": null, \n          \"\
+        reactions\": {}, \n          \"user\": {\n            \"full_url\": \"https://pagure.io/user/abitrolly\"\
+        , \n            \"fullname\": \"Anatoli Babenia\", \n            \"name\"\
+        : \"abitrolly\", \n            \"url_path\": \"user/abitrolly\"\n        \
+        \  }\n        }\n      ], \n      \"content\": \"# Describe what you would\
+        \ like us to do:\\r\\n----\\r\\nOfficial Fedora container image with a user\
+        \ inside. Basically:\\r\\n\\r\\n```docker\\r\\nFROM fedora:latest\\r\\n\\\
+        r\\n# add `fedora` user to admin group and disable `sudo` password for it\\\
+        r\\nRUN adduser fedora -G wheel \\\\\\r\\n  && echo \\\"fedora       ALL=(ALL)\
+        \       NOPASSWD: ALL\\\" > /etc/sudoers.d/fedora\\r\\n\\r\\nUSER fedora\\\
+        r\\n```\\r\\nAsked here https://github.com/fedora-cloud/docker-brew-fedora/issues/118\
+        \ but two weeks no decision. \\r\\n\\r\\nThen here https://gitlab.com/fedora/infrastructure/konflux/infra-deployments/-/issues/8\
+        \ no answers.\\r\\n\\r\\nFinally @kevin here https://discussion.fedoraproject.org/t/enable-image-repository-on-gitlab/142905\
+        \ gave me the pointer to this Pagure.\\r\\n\\r\\n\\r\\n# When do you need\
+        \ this to be done by? (YYYY/MM/DD)\\r\\n----\\r\\nWell, I would already use\
+        \ it for https://gitlab.com/gitlab-org/gitlab-development-kit/-/merge_requests/4362\"\
+        , \n      \"custom_fields\": [], \n      \"date_created\": \"1737455576\"\
+        , \n      \"depends\": [], \n      \"full_url\": \"https://pagure.io/fedora-infrastructure/issue/12369\"\
+        , \n      \"id\": 12369, \n      \"last_updated\": \"1737493396\", \n    \
+        \  \"milestone\": null, \n      \"priority\": 3, \n      \"private\": false,\
+        \ \n      \"related_prs\": [], \n      \"status\": \"Open\", \n      \"tags\"\
+        : [\n        \"gitlab\", \n        \"medium-gain\", \n        \"medium-trouble\"\
+        \n      ], \n      \"title\": \"Need CI container image with sudo enabled\
+        \ user\", \n      \"user\": {\n        \"full_url\": \"https://pagure.io/user/abitrolly\"\
+        , \n        \"fullname\": \"Anatoli Babenia\", \n        \"name\": \"abitrolly\"\
+        , \n        \"url_path\": \"user/abitrolly\"\n      }\n    }, \n    {\n  \
+        \    \"assignee\": {\n        \"full_url\": \"https://pagure.io/user/zlopez\"\
+        , \n        \"fullname\": \"Michal Kone\\u010dn\\u00fd\", \n        \"name\"\
+        : \"zlopez\", \n        \"url_path\": \"user/zlopez\"\n      }, \n      \"\
+        blocks\": [], \n      \"boards\": [\n        {\n          \"board\": {\n \
+        \           \"active\": true, \n            \"full_url\": \"https://pagure.io/fedora-infrastructure/boards/ops\"\
+        , \n            \"name\": \"ops\", \n            \"status\": [\n         \
+        \     {\n                \"bg_color\": \"#ffb300\", \n                \"close\"\
+        : false, \n                \"close_status\": null, \n                \"default\"\
+        : true, \n                \"name\": \"Backlog\"\n              }, \n     \
+        \         {\n                \"bg_color\": \"#f4ff64\", \n               \
+        \ \"close\": false, \n                \"close_status\": null, \n         \
+        \       \"default\": false, \n                \"name\": \"Triaged\"\n    \
+        \          }, \n              {\n                \"bg_color\": \"#99d200\"\
+        , \n                \"close\": false, \n                \"close_status\":\
+        \ null, \n                \"default\": false, \n                \"name\":\
+        \ \"In Progress\"\n              }, \n              {\n                \"\
+        bg_color\": \"#3c7bff\", \n                \"close\": false, \n          \
+        \      \"close_status\": null, \n                \"default\": false, \n  \
+        \              \"name\": \"In Review\"\n              }, \n              {\n\
+        \                \"bg_color\": \"#15d415\", \n                \"close\": true,\
+        \ \n                \"close_status\": \"Fixed\", \n                \"default\"\
+        : false, \n                \"name\": \"Done\"\n              }, \n       \
+        \       {\n                \"bg_color\": \"#e80909\", \n                \"\
+        close\": false, \n                \"close_status\": null, \n             \
+        \   \"default\": false, \n                \"name\": \"Blocked\"\n        \
+        \      }\n            ], \n            \"tag\": {\n              \"tag\":\
+        \ \"ops\", \n              \"tag_color\": \"#3efa0e\", \n              \"\
+        tag_description\": \"ops problem now...\"\n            }\n          }, \n\
+        \          \"rank\": 1189, \n          \"status\": {\n            \"bg_color\"\
+        : \"#ffb300\", \n            \"close\": false, \n            \"close_status\"\
+        : null, \n            \"default\": true, \n            \"name\": \"Backlog\"\
+        \n          }\n        }\n      ], \n      \"close_status\": \"Fixed\", \n\
+        \      \"closed_at\": \"1737457256\", \n      \"closed_by\": {\n        \"\
+        full_url\": \"https://pagure.io/user/zlopez\", \n        \"fullname\": \"\
+        Michal Kone\\u010dn\\u00fd\", \n        \"name\": \"zlopez\", \n        \"\
+        url_path\": \"user/zlopez\"\n      }, \n      \"comments\": [\n        {\n\
+        \          \"comment\": \"**Metadata Update from @zlopez**:\\n- Issue assigned\
+        \ to zlopez\\n- Issue priority set to: Waiting on Assignee (was: Needs Review)\\\
+        n- Issue tagged with: low-gain, low-trouble, ops\", \n          \"date_created\"\
+        : \"1737457140\", \n          \"edited_on\": null, \n          \"editor\"\
+        : null, \n          \"id\": 951897, \n          \"notification\": true, \n\
+        \          \"parent\": null, \n          \"reactions\": {}, \n          \"\
+        user\": {\n            \"full_url\": \"https://pagure.io/user/zlopez\", \n\
+        \            \"fullname\": \"Michal Kone\\u010dn\\u00fd\", \n            \"\
+        name\": \"zlopez\", \n            \"url_path\": \"user/zlopez\"\n        \
+        \  }\n        }, \n        {\n          \"comment\": \"Mail deleted and the\
+        \ e-mail banned.\", \n          \"date_created\": \"1737457261\", \n     \
+        \     \"edited_on\": null, \n          \"editor\": null, \n          \"id\"\
+        : 951898, \n          \"notification\": false, \n          \"parent\": null,\
+        \ \n          \"reactions\": {}, \n          \"user\": {\n            \"full_url\"\
+        : \"https://pagure.io/user/zlopez\", \n            \"fullname\": \"Michal\
+        \ Kone\\u010dn\\u00fd\", \n            \"name\": \"zlopez\", \n          \
+        \  \"url_path\": \"user/zlopez\"\n          }\n        }, \n        {\n  \
+        \        \"comment\": \"**Metadata Update from @zlopez**:\\n- Issue close_status\
+        \ updated to: Fixed\\n- Issue status updated to: Closed (was: Open)\", \n\
+        \          \"date_created\": \"1737457263\", \n          \"edited_on\": null,\
+        \ \n          \"editor\": null, \n          \"id\": 951899, \n          \"\
+        notification\": true, \n          \"parent\": null, \n          \"reactions\"\
+        : {}, \n          \"user\": {\n            \"full_url\": \"https://pagure.io/user/zlopez\"\
+        , \n            \"fullname\": \"Michal Kone\\u010dn\\u00fd\", \n         \
+        \   \"name\": \"zlopez\", \n            \"url_path\": \"user/zlopez\"\n  \
+        \        }\n        }\n      ], \n      \"content\": \"https://lists.fedoraproject.org/archives/list/devel@lists.fedoraproject.org/thread/T5KWQ52O6VSLB5NBAIBXFENH3VIZXJ34/\"\
+        , \n      \"custom_fields\": [], \n      \"date_created\": \"1737455339\"\
+        , \n      \"depends\": [], \n      \"full_url\": \"https://pagure.io/fedora-infrastructure/issue/12368\"\
+        , \n      \"id\": 12368, \n      \"last_updated\": \"1737457263\", \n    \
+        \  \"milestone\": null, \n      \"priority\": 3, \n      \"private\": false,\
+        \ \n      \"related_prs\": [], \n      \"status\": \"Closed\", \n      \"\
+        tags\": [\n        \"low-gain\", \n        \"low-trouble\", \n        \"ops\"\
+        \n      ], \n      \"title\": \"Spam in devel mailing list\", \n      \"user\"\
+        : {\n        \"full_url\": \"https://pagure.io/user/ppisar\", \n        \"\
+        fullname\": \"Petr Pisar\", \n        \"name\": \"ppisar\", \n        \"url_path\"\
+        : \"user/ppisar\"\n      }\n    }, \n    {\n      \"assignee\": null, \n \
+        \     \"blocks\": [], \n      \"close_status\": \"Invalid\", \n      \"closed_at\"\
+        : \"1737450080\", \n      \"closed_by\": {\n        \"full_url\": \"https://pagure.io/user/zlopez\"\
+        , \n        \"fullname\": \"Michal Kone\\u010dn\\u00fd\", \n        \"name\"\
+        : \"zlopez\", \n        \"url_path\": \"user/zlopez\"\n      }, \n      \"\
+        comments\": [\n        {\n          \"comment\": \"Hi,\\r\\n\\r\\nthis repository\
+        \ is for issues in Fedora infrastructure. You should either reach to [Fedora\
+        \ KDE bug tracker](https://pagure.io/fedora-kde/SIG/issues) (I'm not sure\
+        \ if this is the correct tracker) or ask in https://discussion.fedoraproject.org/.\"\
+        , \n          \"date_created\": \"1737450081\", \n          \"edited_on\"\
+        : null, \n          \"editor\": null, \n          \"id\": 951892, \n     \
+        \     \"notification\": false, \n          \"parent\": null, \n          \"\
+        reactions\": {}, \n          \"user\": {\n            \"full_url\": \"https://pagure.io/user/zlopez\"\
+        , \n            \"fullname\": \"Michal Kone\\u010dn\\u00fd\", \n         \
+        \   \"name\": \"zlopez\", \n            \"url_path\": \"user/zlopez\"\n  \
+        \        }\n        }, \n        {\n          \"comment\": \"**Metadata Update\
+        \ from @zlopez**:\\n- Issue close_status updated to: Invalid\\n- Issue status\
+        \ updated to: Closed (was: Open)\", \n          \"date_created\": \"1737450081\"\
+        , \n          \"edited_on\": null, \n          \"editor\": null, \n      \
+        \    \"id\": 951893, \n          \"notification\": true, \n          \"parent\"\
+        : null, \n          \"reactions\": {}, \n          \"user\": {\n         \
+        \   \"full_url\": \"https://pagure.io/user/zlopez\", \n            \"fullname\"\
+        : \"Michal Kone\\u010dn\\u00fd\", \n            \"name\": \"zlopez\", \n \
+        \           \"url_path\": \"user/zlopez\"\n          }\n        }, \n    \
+        \    {\n          \"comment\": \"Ok Im sorry!\", \n          \"date_created\"\
+        : \"1737463753\", \n          \"edited_on\": null, \n          \"editor\"\
+        : null, \n          \"id\": 951909, \n          \"notification\": false, \n\
+        \          \"parent\": null, \n          \"reactions\": {}, \n          \"\
+        user\": {\n            \"full_url\": \"https://pagure.io/user/whermerson\"\
+        , \n            \"fullname\": \"whermerson rodrigues marques\", \n       \
+        \     \"name\": \"whermerson\", \n            \"url_path\": \"user/whermerson\"\
+        \n          }\n        }\n      ], \n      \"content\": \"Hello guys\\r\\\
+        n\\r\\nI'm getting an error when I'm using fedora with KDE. I don't know why\
+        \ but when I'm logged in the system and using it, randomly the system is freezing.\
+        \ I added widgets to monitoring the ram memory and processor, but it' appears\
+        \ to be normal. The last freezing occurred when it was about 24% of use both,\
+        \ processor and memory. I cant use Fedora after 10 minutes... It's my second\
+        \ chance to using Fedora KDE, but I cant again because of that.\\r\\n\\r\\\
+        nHardware:\\r\\nMotherboard: Asus Tuf Gaming x570 Br\\r\\nProcessor: AMD Ryzen\
+        \ 3 2200G\\r\\nMemory: XPG 32GB\\r\\nSSD: NVME Samsung SSD 1TB NVMe 980 M.2\
+        \ V-NAND\\r\\n\\r\\nFedora KDE configurations:\\r\\nIn image uploaded.\\r\\\
+        n\\r\\n[![Captura_de_imagem_20250120_223546.png](/fedora-infrastructure/issue/raw/files/567259ba5b8e045dd1af79d9b6a310e349d0ec90d5fbf44e23ebfc91dfec54c2-Captura_de_imagem_20250120_223546.png)](/fedora-infrastructure/issue/raw/files/567259ba5b8e045dd1af79d9b6a310e349d0ec90d5fbf44e23ebfc91dfec54c2-Captura_de_imagem_20250120_223546.png)\\\
+        r\\n\", \n      \"custom_fields\": [], \n      \"date_created\": \"1737423411\"\
+        , \n      \"depends\": [], \n      \"full_url\": \"https://pagure.io/fedora-infrastructure/issue/12367\"\
+        , \n      \"id\": 12367, \n      \"last_updated\": \"1737463753\", \n    \
+        \  \"milestone\": null, \n      \"priority\": 1, \n      \"private\": false,\
+        \ \n      \"related_prs\": [], \n      \"status\": \"Closed\", \n      \"\
+        tags\": [], \n      \"title\": \"Fedora KDE is ramdomly freezing\", \n   \
+        \   \"user\": {\n        \"full_url\": \"https://pagure.io/user/whermerson\"\
+        , \n        \"fullname\": \"whermerson rodrigues marques\", \n        \"name\"\
+        : \"whermerson\", \n        \"url_path\": \"user/whermerson\"\n      }\n \
+        \   }, \n    {\n      \"assignee\": null, \n      \"blocks\": [], \n     \
+        \ \"boards\": [\n        {\n          \"board\": {\n            \"active\"\
+        : true, \n            \"full_url\": \"https://pagure.io/fedora-infrastructure/boards/ops\"\
+        , \n            \"name\": \"ops\", \n            \"status\": [\n         \
+        \     {\n                \"bg_color\": \"#ffb300\", \n                \"close\"\
+        : false, \n                \"close_status\": null, \n                \"default\"\
+        : true, \n                \"name\": \"Backlog\"\n              }, \n     \
+        \         {\n                \"bg_color\": \"#f4ff64\", \n               \
+        \ \"close\": false, \n                \"close_status\": null, \n         \
+        \       \"default\": false, \n                \"name\": \"Triaged\"\n    \
+        \          }, \n              {\n                \"bg_color\": \"#99d200\"\
+        , \n                \"close\": false, \n                \"close_status\":\
+        \ null, \n                \"default\": false, \n                \"name\":\
+        \ \"In Progress\"\n              }, \n              {\n                \"\
+        bg_color\": \"#3c7bff\", \n                \"close\": false, \n          \
+        \      \"close_status\": null, \n                \"default\": false, \n  \
+        \              \"name\": \"In Review\"\n              }, \n              {\n\
+        \                \"bg_color\": \"#15d415\", \n                \"close\": true,\
+        \ \n                \"close_status\": \"Fixed\", \n                \"default\"\
+        : false, \n                \"name\": \"Done\"\n              }, \n       \
+        \       {\n                \"bg_color\": \"#e80909\", \n                \"\
+        close\": false, \n                \"close_status\": null, \n             \
+        \   \"default\": false, \n                \"name\": \"Blocked\"\n        \
+        \      }\n            ], \n            \"tag\": {\n              \"tag\":\
+        \ \"ops\", \n              \"tag_color\": \"#3efa0e\", \n              \"\
+        tag_description\": \"ops problem now...\"\n            }\n          }, \n\
+        \          \"rank\": 1188, \n          \"status\": {\n            \"bg_color\"\
+        : \"#ffb300\", \n            \"close\": false, \n            \"close_status\"\
+        : null, \n            \"default\": true, \n            \"name\": \"Backlog\"\
+        \n          }\n        }\n      ], \n      \"close_status\": \"Fixed\", \n\
+        \      \"closed_at\": \"1737599037\", \n      \"closed_by\": {\n        \"\
+        full_url\": \"https://pagure.io/user/kevin\", \n        \"fullname\": \"Kevin\
+        \ Fenzi\", \n        \"name\": \"kevin\", \n        \"url_path\": \"user/kevin\"\
+        \n      }, \n      \"comments\": [\n        {\n          \"comment\": \"I\
+        \ don't see any blockage or problems in our logs. \\r\\n\\r\\nHere's a test\
+        \ list post from the 16th:\\r\\n\\r\\n```\\r\\nJan 16 05:25:30 bastion01 postfix/qmgr[3429177]:\
+        \ A6DF02030209: from=<test-bounces@lists.fedoraproject.org>, size=11810, nrcpt=45\
+        \ (queue active)\\r\\nJan 16 05:25:33 bastion01 postfix/smtp[3328183]: A6DF02030209:\
+        \ to=<grgoffe@yahoo.com>, relay=mta5.am0.yahoodns.net[67.195.228.109]:25,\
         \ delay=3.5, delays=0.11/1.8/0.49/1.1, dsn=2.0.0, status=sent (250 ok dirdel\
         \ 2/2)\\r\\n```\\r\\n\\r\\nPerhaps yahoo is putting them in a spam folder\
         \ or something?\\r\\n\\r\\nDid you really mean 'test-request'? Thats the administative\
@@ -35,18 +353,55 @@ interactions:
         \          \"parent\": null, \n          \"reactions\": {}, \n          \"\
         user\": {\n            \"full_url\": \"https://pagure.io/user/kevin\", \n\
         \            \"fullname\": \"Kevin Fenzi\", \n            \"name\": \"kevin\"\
-        , \n            \"url_path\": \"user/kevin\"\n          }\n        }\n   \
-        \   ], \n      \"content\": \"Howdy,\\r\\n\\r\\nI am a member of this list\
-        \ but lately (about 2 months) my messages are either arriving late or NOT\
-        \ AT ALL.\\r\\n\\r\\nI have been a member since January 2006.\\r\\n\\r\\nMy\
-        \ email address has always been grgoffe@yahoo.com. Is yahoo.com being blocked\
-        \ now?\\r\\n\\r\\nPlease help.\\r\\n\\r\\nBest regards,\\r\\n\\r\\nGeorge...\\\
-        r\\n\", \n      \"custom_fields\": [], \n      \"date_created\": \"1737166066\"\
-        , \n      \"depends\": [], \n      \"full_url\": \"https://pagure.io/fedora-infrastructure/issue/12366\"\
-        , \n      \"id\": 12366, \n      \"last_updated\": \"1737227914\", \n    \
-        \  \"milestone\": null, \n      \"priority\": 1, \n      \"private\": false,\
-        \ \n      \"related_prs\": [], \n      \"status\": \"Open\", \n      \"tags\"\
-        : [], \n      \"title\": \"Messages sent to test-request@lists.fedoraproject.org\
+        , \n            \"url_path\": \"user/kevin\"\n          }\n        }, \n \
+        \       {\n          \"comment\": \"**Metadata Update from @phsmoura**:\\\
+        n- Issue priority set to: Waiting on Assignee (was: Needs Review)\\n- Issue\
+        \ tagged with: low-gain, low-trouble, ops\", \n          \"date_created\"\
+        : \"1737403367\", \n          \"edited_on\": null, \n          \"editor\"\
+        : null, \n          \"id\": 951839, \n          \"notification\": true, \n\
+        \          \"parent\": null, \n          \"reactions\": {}, \n          \"\
+        user\": {\n            \"full_url\": \"https://pagure.io/user/phsmoura\",\
+        \ \n            \"fullname\": \"Pedro Moura\", \n            \"name\": \"\
+        phsmoura\", \n            \"url_path\": \"user/phsmoura\"\n          }\n \
+        \       }, \n        {\n          \"comment\": \"**Metadata Update from @phsmoura**:\\\
+        n- Issue priority set to: Waiting on Reporter (was: Waiting on Assignee)\"\
+        , \n          \"date_created\": \"1737403383\", \n          \"edited_on\"\
+        : null, \n          \"editor\": null, \n          \"id\": 951840, \n     \
+        \     \"notification\": true, \n          \"parent\": null, \n          \"\
+        reactions\": {}, \n          \"user\": {\n            \"full_url\": \"https://pagure.io/user/phsmoura\"\
+        , \n            \"fullname\": \"Pedro Moura\", \n            \"name\": \"\
+        phsmoura\", \n            \"url_path\": \"user/phsmoura\"\n          }\n \
+        \       }, \n        {\n          \"comment\": \"Anyhow, if you can find some\
+        \ message thats in the archive that you didn't get we can track further, but\
+        \ it looks like it's delivering fine, and possibly something is happening\
+        \ to it after that (spam folder, etc)?\\r\\n\\r\\nFeel free to reopen if you\
+        \ are still seeing any issues we can help with.\\r\\n\", \n          \"date_created\"\
+        : \"1737599039\", \n          \"edited_on\": null, \n          \"editor\"\
+        : null, \n          \"id\": 952296, \n          \"notification\": false, \n\
+        \          \"parent\": null, \n          \"reactions\": {}, \n          \"\
+        user\": {\n            \"full_url\": \"https://pagure.io/user/kevin\", \n\
+        \            \"fullname\": \"Kevin Fenzi\", \n            \"name\": \"kevin\"\
+        , \n            \"url_path\": \"user/kevin\"\n          }\n        }, \n \
+        \       {\n          \"comment\": \"**Metadata Update from @kevin**:\\n- Issue\
+        \ close_status updated to: Fixed\\n- Issue status updated to: Closed (was:\
+        \ Open)\", \n          \"date_created\": \"1737599040\", \n          \"edited_on\"\
+        : null, \n          \"editor\": null, \n          \"id\": 952297, \n     \
+        \     \"notification\": true, \n          \"parent\": null, \n          \"\
+        reactions\": {}, \n          \"user\": {\n            \"full_url\": \"https://pagure.io/user/kevin\"\
+        , \n            \"fullname\": \"Kevin Fenzi\", \n            \"name\": \"\
+        kevin\", \n            \"url_path\": \"user/kevin\"\n          }\n       \
+        \ }\n      ], \n      \"content\": \"Howdy,\\r\\n\\r\\nI am a member of this\
+        \ list but lately (about 2 months) my messages are either arriving late or\
+        \ NOT AT ALL.\\r\\n\\r\\nI have been a member since January 2006.\\r\\n\\\
+        r\\nMy email address has always been grgoffe@yahoo.com. Is yahoo.com being\
+        \ blocked now?\\r\\n\\r\\nPlease help.\\r\\n\\r\\nBest regards,\\r\\n\\r\\\
+        nGeorge...\\r\\n\", \n      \"custom_fields\": [], \n      \"date_created\"\
+        : \"1737166066\", \n      \"depends\": [], \n      \"full_url\": \"https://pagure.io/fedora-infrastructure/issue/12366\"\
+        , \n      \"id\": 12366, \n      \"last_updated\": \"1737599040\", \n    \
+        \  \"milestone\": null, \n      \"priority\": 4, \n      \"private\": false,\
+        \ \n      \"related_prs\": [], \n      \"status\": \"Closed\", \n      \"\
+        tags\": [\n        \"low-gain\", \n        \"low-trouble\", \n        \"ops\"\
+        \n      ], \n      \"title\": \"Messages sent to test-request@lists.fedoraproject.org\
         \ are failing to arrive\", \n      \"user\": {\n        \"full_url\": \"https://pagure.io/user/grgoffe\"\
         , \n        \"fullname\": \"George R. Goffe\", \n        \"name\": \"grgoffe\"\
         , \n        \"url_path\": \"user/grgoffe\"\n      }\n    }, \n    {\n    \
@@ -610,34 +965,62 @@ interactions:
         \          \"rank\": 1182, \n          \"status\": {\n            \"bg_color\"\
         : \"#ffb300\", \n            \"close\": false, \n            \"close_status\"\
         : null, \n            \"default\": true, \n            \"name\": \"Backlog\"\
-        \n          }\n        }\n      ], \n      \"close_status\": null, \n    \
-        \  \"closed_at\": null, \n      \"closed_by\": null, \n      \"comments\"\
-        : [\n        {\n          \"comment\": \"**Metadata Update from @jnsamyak**:\\\
-        n- Issue assigned to jnsamyak\", \n          \"date_created\": \"1736879976\"\
+        \n          }\n        }\n      ], \n      \"close_status\": \"Fixed\", \n\
+        \      \"closed_at\": \"1737618117\", \n      \"closed_by\": {\n        \"\
+        full_url\": \"https://pagure.io/user/praiskup\", \n        \"fullname\": \"\
+        Pavel Raiskup\", \n        \"name\": \"praiskup\", \n        \"url_path\"\
+        : \"user/praiskup\"\n      }, \n      \"comments\": [\n        {\n       \
+        \   \"comment\": \"**Metadata Update from @jnsamyak**:\\n- Issue assigned\
+        \ to jnsamyak\", \n          \"date_created\": \"1736879976\", \n        \
+        \  \"edited_on\": null, \n          \"editor\": null, \n          \"id\":\
+        \ 951246, \n          \"notification\": true, \n          \"parent\": null,\
+        \ \n          \"reactions\": {}, \n          \"user\": {\n            \"full_url\"\
+        : \"https://pagure.io/user/jnsamyak\", \n            \"fullname\": \"Samyak\
+        \ Jain\", \n            \"name\": \"jnsamyak\", \n            \"url_path\"\
+        : \"user/jnsamyak\"\n          }\n        }, \n        {\n          \"comment\"\
+        : \"**Metadata Update from @phsmoura**:\\n- Issue priority set to: Waiting\
+        \ on Assignee (was: Needs Review)\\n- Issue tagged with: low-gain, low-trouble,\
+        \ ops\", \n          \"date_created\": \"1736885223\", \n          \"edited_on\"\
+        : null, \n          \"editor\": null, \n          \"id\": 951257, \n     \
+        \     \"notification\": true, \n          \"parent\": null, \n          \"\
+        reactions\": {}, \n          \"user\": {\n            \"full_url\": \"https://pagure.io/user/phsmoura\"\
+        , \n            \"fullname\": \"Pedro Moura\", \n            \"name\": \"\
+        phsmoura\", \n            \"url_path\": \"user/phsmoura\"\n          }\n \
+        \       }, \n        {\n          \"comment\": \"This was done. It should\
+        \ be in rawhide now. Did you need it for other releases, or is that good enough?\\\
+        r\\n\", \n          \"date_created\": \"1737598964\", \n          \"edited_on\"\
+        : null, \n          \"editor\": null, \n          \"id\": 952295, \n     \
+        \     \"notification\": false, \n          \"parent\": null, \n          \"\
+        reactions\": {}, \n          \"user\": {\n            \"full_url\": \"https://pagure.io/user/kevin\"\
+        , \n            \"fullname\": \"Kevin Fenzi\", \n            \"name\": \"\
+        kevin\", \n            \"url_path\": \"user/kevin\"\n          }\n       \
+        \ }, \n        {\n          \"comment\": \"From my perspective this is done\
+        \ (we were able to release distribution-gpg-keys and mock-core-configs with\
+        \ branched 42 support), thank you!\", \n          \"date_created\": \"1737618120\"\
         , \n          \"edited_on\": null, \n          \"editor\": null, \n      \
-        \    \"id\": 951246, \n          \"notification\": true, \n          \"parent\"\
+        \    \"id\": 952317, \n          \"notification\": false, \n          \"parent\"\
         : null, \n          \"reactions\": {}, \n          \"user\": {\n         \
-        \   \"full_url\": \"https://pagure.io/user/jnsamyak\", \n            \"fullname\"\
-        : \"Samyak Jain\", \n            \"name\": \"jnsamyak\", \n            \"\
-        url_path\": \"user/jnsamyak\"\n          }\n        }, \n        {\n     \
-        \     \"comment\": \"**Metadata Update from @phsmoura**:\\n- Issue priority\
-        \ set to: Waiting on Assignee (was: Needs Review)\\n- Issue tagged with: low-gain,\
-        \ low-trouble, ops\", \n          \"date_created\": \"1736885223\", \n   \
-        \       \"edited_on\": null, \n          \"editor\": null, \n          \"\
-        id\": 951257, \n          \"notification\": true, \n          \"parent\":\
-        \ null, \n          \"reactions\": {}, \n          \"user\": {\n         \
-        \   \"full_url\": \"https://pagure.io/user/phsmoura\", \n            \"fullname\"\
-        : \"Pedro Moura\", \n            \"name\": \"phsmoura\", \n            \"\
-        url_path\": \"user/phsmoura\"\n          }\n        }\n      ], \n      \"\
-        content\": \"And update fedora-repos accordingly.  We'd like to have the key\
-        \ available ~14 days before\\r\\nthe branching event, more info here https://pagure.io/releng/issue/12001\\\
-        r\\n\", \n      \"custom_fields\": [], \n      \"date_created\": \"1736877814\"\
-        , \n      \"depends\": [], \n      \"full_url\": \"https://pagure.io/fedora-infrastructure/issue/12360\"\
-        , \n      \"id\": 12360, \n      \"last_updated\": \"1736885223\", \n    \
+        \   \"full_url\": \"https://pagure.io/user/praiskup\", \n            \"fullname\"\
+        : \"Pavel Raiskup\", \n            \"name\": \"praiskup\", \n            \"\
+        url_path\": \"user/praiskup\"\n          }\n        }, \n        {\n     \
+        \     \"comment\": \"**Metadata Update from @praiskup**:\\n- Issue close_status\
+        \ updated to: Fixed\\n- Issue status updated to: Closed (was: Open)\", \n\
+        \          \"date_created\": \"1737618121\", \n          \"edited_on\": null,\
+        \ \n          \"editor\": null, \n          \"id\": 952318, \n          \"\
+        notification\": true, \n          \"parent\": null, \n          \"reactions\"\
+        : {}, \n          \"user\": {\n            \"full_url\": \"https://pagure.io/user/praiskup\"\
+        , \n            \"fullname\": \"Pavel Raiskup\", \n            \"name\": \"\
+        praiskup\", \n            \"url_path\": \"user/praiskup\"\n          }\n \
+        \       }\n      ], \n      \"content\": \"And update fedora-repos accordingly.\
+        \  We'd like to have the key available ~14 days before\\r\\nthe branching\
+        \ event, more info here https://pagure.io/releng/issue/12001\\r\\n\", \n \
+        \     \"custom_fields\": [], \n      \"date_created\": \"1736877814\", \n\
+        \      \"depends\": [], \n      \"full_url\": \"https://pagure.io/fedora-infrastructure/issue/12360\"\
+        , \n      \"id\": 12360, \n      \"last_updated\": \"1737618121\", \n    \
         \  \"milestone\": null, \n      \"priority\": 3, \n      \"private\": false,\
-        \ \n      \"related_prs\": [], \n      \"status\": \"Open\", \n      \"tags\"\
-        : [\n        \"low-gain\", \n        \"low-trouble\", \n        \"ops\"\n\
-        \      ], \n      \"title\": \"Please generate the Fedora 44 gpg key\", \n\
+        \ \n      \"related_prs\": [], \n      \"status\": \"Closed\", \n      \"\
+        tags\": [\n        \"low-gain\", \n        \"low-trouble\", \n        \"ops\"\
+        \n      ], \n      \"title\": \"Please generate the Fedora 44 gpg key\", \n\
         \      \"user\": {\n        \"full_url\": \"https://pagure.io/user/praiskup\"\
         , \n        \"fullname\": \"Pavel Raiskup\", \n        \"name\": \"praiskup\"\
         , \n        \"url_path\": \"user/praiskup\"\n      }\n    }, \n    {\n   \
@@ -728,30 +1111,30 @@ interactions:
         \          \"rank\": 1181, \n          \"status\": {\n            \"bg_color\"\
         : \"#ffb300\", \n            \"close\": false, \n            \"close_status\"\
         : null, \n            \"default\": true, \n            \"name\": \"Backlog\"\
-        \n          }\n        }\n      ], \n      \"close_status\": null, \n    \
-        \  \"closed_at\": \"1736802173\", \n      \"closed_by\": {\n        \"full_url\"\
-        : \"https://pagure.io/user/kevin\", \n        \"fullname\": \"Kevin Fenzi\"\
-        , \n        \"name\": \"kevin\", \n        \"url_path\": \"user/kevin\"\n\
-        \      }, \n      \"comments\": [\n        {\n          \"comment\": \"**Metadata\
-        \ Update from @kevin**:\\n- Issue assigned to kevin\", \n          \"date_created\"\
-        : \"1736802147\", \n          \"edited_on\": null, \n          \"editor\"\
-        : null, \n          \"id\": 951102, \n          \"notification\": true, \n\
-        \          \"parent\": null, \n          \"reactions\": {}, \n          \"\
-        user\": {\n            \"full_url\": \"https://pagure.io/user/kevin\", \n\
-        \            \"fullname\": \"Kevin Fenzi\", \n            \"name\": \"kevin\"\
-        , \n            \"url_path\": \"user/kevin\"\n          }\n        }, \n \
-        \       {\n          \"comment\": \"Done (well, it's pending, but should enable\
-        \ soon). \\r\\n\\r\\nThanks for the heads up. \\r\\n\", \n          \"date_created\"\
-        : \"1736802174\", \n          \"edited_on\": null, \n          \"editor\"\
-        : null, \n          \"id\": 951103, \n          \"notification\": false, \n\
-        \          \"parent\": null, \n          \"reactions\": {}, \n          \"\
-        user\": {\n            \"full_url\": \"https://pagure.io/user/kevin\", \n\
-        \            \"fullname\": \"Kevin Fenzi\", \n            \"name\": \"kevin\"\
-        , \n            \"url_path\": \"user/kevin\"\n          }\n        }, \n \
-        \       {\n          \"comment\": \"**Metadata Update from @kevin**:\\n- Issue\
-        \ close_status updated to: Fixed with Explanation\\n- Issue status updated\
-        \ to: Closed (was: Open)\", \n          \"date_created\": \"1736802174\",\
-        \ \n          \"edited_on\": null, \n          \"editor\": null, \n      \
+        \n          }\n        }\n      ], \n      \"close_status\": \"Fixed\", \n\
+        \      \"closed_at\": \"1737501759\", \n      \"closed_by\": {\n        \"\
+        full_url\": \"https://pagure.io/user/aaradhak\", \n        \"fullname\": \"\
+        Aashish Radhakrishnan\", \n        \"name\": \"aaradhak\", \n        \"url_path\"\
+        : \"user/aaradhak\"\n      }, \n      \"comments\": [\n        {\n       \
+        \   \"comment\": \"**Metadata Update from @kevin**:\\n- Issue assigned to\
+        \ kevin\", \n          \"date_created\": \"1736802147\", \n          \"edited_on\"\
+        : null, \n          \"editor\": null, \n          \"id\": 951102, \n     \
+        \     \"notification\": true, \n          \"parent\": null, \n          \"\
+        reactions\": {}, \n          \"user\": {\n            \"full_url\": \"https://pagure.io/user/kevin\"\
+        , \n            \"fullname\": \"Kevin Fenzi\", \n            \"name\": \"\
+        kevin\", \n            \"url_path\": \"user/kevin\"\n          }\n       \
+        \ }, \n        {\n          \"comment\": \"Done (well, it's pending, but should\
+        \ enable soon). \\r\\n\\r\\nThanks for the heads up. \\r\\n\", \n        \
+        \  \"date_created\": \"1736802174\", \n          \"edited_on\": null, \n \
+        \         \"editor\": null, \n          \"id\": 951103, \n          \"notification\"\
+        : false, \n          \"parent\": null, \n          \"reactions\": {}, \n \
+        \         \"user\": {\n            \"full_url\": \"https://pagure.io/user/kevin\"\
+        , \n            \"fullname\": \"Kevin Fenzi\", \n            \"name\": \"\
+        kevin\", \n            \"url_path\": \"user/kevin\"\n          }\n       \
+        \ }, \n        {\n          \"comment\": \"**Metadata Update from @kevin**:\\\
+        n- Issue close_status updated to: Fixed with Explanation\\n- Issue status\
+        \ updated to: Closed (was: Open)\", \n          \"date_created\": \"1736802174\"\
+        , \n          \"edited_on\": null, \n          \"editor\": null, \n      \
         \    \"id\": 951104, \n          \"notification\": true, \n          \"parent\"\
         : null, \n          \"reactions\": {}, \n          \"user\": {\n         \
         \   \"full_url\": \"https://pagure.io/user/kevin\", \n            \"fullname\"\
@@ -868,8 +1251,57 @@ interactions:
         \          \"parent\": null, \n          \"reactions\": {}, \n          \"\
         user\": {\n            \"full_url\": \"https://pagure.io/user/kevin\", \n\
         \            \"fullname\": \"Kevin Fenzi\", \n            \"name\": \"kevin\"\
-        , \n            \"url_path\": \"user/kevin\"\n          }\n        }\n   \
-        \   ], \n      \"content\": \"\\r\\n# Describe what you would like us to do:\\\
+        , \n            \"url_path\": \"user/kevin\"\n          }\n        }, \n \
+        \       {\n          \"comment\": \"Thanks for clarifying on the quota limit.\
+        \ I think its at a level that we wanted.\", \n          \"date_created\":\
+        \ \"1737478370\", \n          \"edited_on\": null, \n          \"editor\"\
+        : null, \n          \"id\": 952021, \n          \"notification\": false, \n\
+        \          \"parent\": null, \n          \"reactions\": {}, \n          \"\
+        user\": {\n            \"full_url\": \"https://pagure.io/user/aaradhak\",\
+        \ \n            \"fullname\": \"Aashish Radhakrishnan\", \n            \"\
+        name\": \"aaradhak\", \n            \"url_path\": \"user/aaradhak\"\n    \
+        \      }\n        }, \n        {\n          \"comment\": \"@kevin  We have\
+        \ hit another hurdle now\\r\\n\\r\\n\\r\\n[2025-01-21T14:15:45.705Z] 2025-01-21T14:15:45Z\
+        \ plume: couldn't publish image in mx-central-1: couldn't grant launch permission\
+        \ on ami-0a84f654b751d4103: OperationNotPermitted: You can\\ufffd\\ufffd\\\
+        ufffdt publicly share this image because block public access for AMIs is enabled\
+        \ for this account. To publicly share the image, you must call the DisableImageBlockPublicAccess\
+        \ API.\\r\\n\\r\\n\\r\\nCan we also get AWS public access enabled for this\
+        \ region?\\r\\n- aws ec2 disable-image-block-public-access --region mx-central-1\\\
+        r\\n\", \n          \"date_created\": \"1737478486\", \n          \"edited_on\"\
+        : \"1737479163\", \n          \"editor\": {\n            \"full_url\": \"\
+        https://pagure.io/user/aaradhak\", \n            \"fullname\": \"Aashish Radhakrishnan\"\
+        , \n            \"name\": \"aaradhak\", \n            \"url_path\": \"user/aaradhak\"\
+        \n          }, \n          \"id\": 952023, \n          \"notification\": false,\
+        \ \n          \"parent\": null, \n          \"reactions\": {}, \n        \
+        \  \"user\": {\n            \"full_url\": \"https://pagure.io/user/aaradhak\"\
+        , \n            \"fullname\": \"Aashish Radhakrishnan\", \n            \"\
+        name\": \"aaradhak\", \n            \"url_path\": \"user/aaradhak\"\n    \
+        \      }\n        }, \n        {\n          \"comment\": \"Unblocked. Can\
+        \ you confirm it's working now?\", \n          \"date_created\": \"1737488030\"\
+        , \n          \"edited_on\": null, \n          \"editor\": null, \n      \
+        \    \"id\": 952077, \n          \"notification\": false, \n          \"parent\"\
+        : null, \n          \"reactions\": {}, \n          \"user\": {\n         \
+        \   \"full_url\": \"https://pagure.io/user/kevin\", \n            \"fullname\"\
+        : \"Kevin Fenzi\", \n            \"name\": \"kevin\", \n            \"url_path\"\
+        : \"user/kevin\"\n          }\n        }, \n        {\n          \"comment\"\
+        : \"Its working now. Thanks for enabling the public access. \", \n       \
+        \   \"date_created\": \"1737501752\", \n          \"edited_on\": null, \n\
+        \          \"editor\": null, \n          \"id\": 952111, \n          \"notification\"\
+        : false, \n          \"parent\": null, \n          \"reactions\": {}, \n \
+        \         \"user\": {\n            \"full_url\": \"https://pagure.io/user/aaradhak\"\
+        , \n            \"fullname\": \"Aashish Radhakrishnan\", \n            \"\
+        name\": \"aaradhak\", \n            \"url_path\": \"user/aaradhak\"\n    \
+        \      }\n        }, \n        {\n          \"comment\": \"**Metadata Update\
+        \ from @aaradhak**:\\n- Issue close_status updated to: Fixed\\n- Issue status\
+        \ updated to: Closed (was: Open)\", \n          \"date_created\": \"1737501760\"\
+        , \n          \"edited_on\": null, \n          \"editor\": null, \n      \
+        \    \"id\": 952112, \n          \"notification\": true, \n          \"parent\"\
+        : null, \n          \"reactions\": {}, \n          \"user\": {\n         \
+        \   \"full_url\": \"https://pagure.io/user/aaradhak\", \n            \"fullname\"\
+        : \"Aashish Radhakrishnan\", \n            \"name\": \"aaradhak\", \n    \
+        \        \"url_path\": \"user/aaradhak\"\n          }\n        }\n      ],\
+        \ \n      \"content\": \"\\r\\n# Describe what you would like us to do:\\\
         r\\nInclude the mx-central-1 region for cloud and coreos image deployments\
         \ in Amazon EC2.\\r\\nhttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html\\\
         r\\n\\r\\n# To Enable a region\\r\\nSign in to the AWS Management Console.\\\
@@ -882,17 +1314,19 @@ interactions:
         \ before our next FCOS release.\\r\\n\", \n      \"custom_fields\": [], \n\
         \      \"date_created\": \"1736801824\", \n      \"depends\": [], \n     \
         \ \"full_url\": \"https://pagure.io/fedora-infrastructure/issue/12358\", \n\
-        \      \"id\": 12358, \n      \"last_updated\": \"1736973179\", \n      \"\
+        \      \"id\": 12358, \n      \"last_updated\": \"1737501760\", \n      \"\
         milestone\": null, \n      \"priority\": 3, \n      \"private\": false, \n\
-        \      \"related_prs\": [], \n      \"status\": \"Open\", \n      \"tags\"\
+        \      \"related_prs\": [], \n      \"status\": \"Closed\", \n      \"tags\"\
         : [\n        \"low-gain\", \n        \"low-trouble\", \n        \"ops\"\n\
         \      ], \n      \"title\": \"Opt-in for AWS region to mx-central-1 acct:125523088429\"\
         , \n      \"user\": {\n        \"full_url\": \"https://pagure.io/user/aaradhak\"\
         , \n        \"fullname\": \"Aashish Radhakrishnan\", \n        \"name\": \"\
         aaradhak\", \n        \"url_path\": \"user/aaradhak\"\n      }\n    }, \n\
-        \    {\n      \"assignee\": null, \n      \"blocks\": [], \n      \"boards\"\
-        : [\n        {\n          \"board\": {\n            \"active\": true, \n \
-        \           \"full_url\": \"https://pagure.io/fedora-infrastructure/boards/ops\"\
+        \    {\n      \"assignee\": {\n        \"full_url\": \"https://pagure.io/user/dkirwan\"\
+        , \n        \"fullname\": \"David Kirwan\", \n        \"name\": \"dkirwan\"\
+        , \n        \"url_path\": \"user/dkirwan\"\n      }, \n      \"blocks\": [],\
+        \ \n      \"boards\": [\n        {\n          \"board\": {\n            \"\
+        active\": true, \n            \"full_url\": \"https://pagure.io/fedora-infrastructure/boards/ops\"\
         , \n            \"name\": \"ops\", \n            \"status\": [\n         \
         \     {\n                \"bg_color\": \"#ffb300\", \n                \"close\"\
         : false, \n                \"close_status\": null, \n                \"default\"\
@@ -937,8 +1371,24 @@ interactions:
         : null, \n          \"reactions\": {}, \n          \"user\": {\n         \
         \   \"full_url\": \"https://pagure.io/user/zlopez\", \n            \"fullname\"\
         : \"Michal Kone\\u010dn\\u00fd\", \n            \"name\": \"zlopez\", \n \
-        \           \"url_path\": \"user/zlopez\"\n          }\n        }\n      ],\
-        \ \n      \"content\": \"**NOTE**\\r\\n\\r\\nIf your issue is for security\
+        \           \"url_path\": \"user/zlopez\"\n          }\n        }, \n    \
+        \    {\n          \"comment\": \"@dkirwan Could you look at this?\", \n  \
+        \        \"date_created\": \"1737536711\", \n          \"edited_on\": null,\
+        \ \n          \"editor\": null, \n          \"id\": 952156, \n          \"\
+        notification\": false, \n          \"parent\": null, \n          \"reactions\"\
+        : {\n            \"Thumbs up\": [\n              \"dkirwan\"\n           \
+        \ ]\n          }, \n          \"user\": {\n            \"full_url\": \"https://pagure.io/user/zlopez\"\
+        , \n            \"fullname\": \"Michal Kone\\u010dn\\u00fd\", \n         \
+        \   \"name\": \"zlopez\", \n            \"url_path\": \"user/zlopez\"\n  \
+        \        }\n        }, \n        {\n          \"comment\": \"**Metadata Update\
+        \ from @dkirwan**:\\n- Issue assigned to dkirwan\", \n          \"date_created\"\
+        : \"1737539642\", \n          \"edited_on\": null, \n          \"editor\"\
+        : null, \n          \"id\": 952157, \n          \"notification\": true, \n\
+        \          \"parent\": null, \n          \"reactions\": {}, \n          \"\
+        user\": {\n            \"full_url\": \"https://pagure.io/user/dkirwan\", \n\
+        \            \"fullname\": \"David Kirwan\", \n            \"name\": \"dkirwan\"\
+        , \n            \"url_path\": \"user/dkirwan\"\n          }\n        }\n \
+        \     ], \n      \"content\": \"**NOTE**\\r\\n\\r\\nIf your issue is for security\
         \ or deals with sensitive info please\\r\\nmark it as private using the checkbox\
         \ below.\\r\\n\\r\\n# Describe what you would like us to do:\\r\\n----\\r\\\
         nWe\\u2019re looking to evaluate Open Data Hub as an alternative to our current\
@@ -957,7 +1407,7 @@ interactions:
         \ be great! This should be a low risk activity to deploy.\", \n      \"custom_fields\"\
         : [], \n      \"date_created\": \"1736618076\", \n      \"depends\": [], \n\
         \      \"full_url\": \"https://pagure.io/fedora-infrastructure/issue/12357\"\
-        , \n      \"id\": 12357, \n      \"last_updated\": \"1737023751\", \n    \
+        , \n      \"id\": 12357, \n      \"last_updated\": \"1737539642\", \n    \
         \  \"milestone\": null, \n      \"priority\": 3, \n      \"private\": false,\
         \ \n      \"related_prs\": [], \n      \"status\": \"Open\", \n      \"tags\"\
         : [\n        \"communishift\", \n        \"medium-gain\", \n        \"medium-trouble\"\
@@ -994,18 +1444,21 @@ interactions:
         \          \"rank\": 1178, \n          \"status\": {\n            \"bg_color\"\
         : \"#ffb300\", \n            \"close\": false, \n            \"close_status\"\
         : null, \n            \"default\": true, \n            \"name\": \"Backlog\"\
-        \n          }\n        }\n      ], \n      \"close_status\": null, \n    \
-        \  \"closed_at\": null, \n      \"closed_by\": null, \n      \"comments\"\
-        : [\n        {\n          \"comment\": \"So, we don't run the service, but\
-        \ we do provide a email gateway (so it can send as fedoraproject.org, etc).\
-        \ \\r\\n\\r\\nI just looked at logs and don't see it sending anything to michel@michel-slm.name\
-        \ at all. ;( \\r\\n\\r\\nSo, I wonder if there's something in the app thats\
-        \ not accepting that as a valid email or something?\\r\\n\\r\\n@jflory7 can\
-        \ you see if we can get more debugging or info from the app side?\\r\\n\"\
-        , \n          \"date_created\": \"1736546043\", \n          \"edited_on\"\
-        : null, \n          \"editor\": null, \n          \"id\": 950822, \n     \
-        \     \"notification\": false, \n          \"parent\": null, \n          \"\
-        reactions\": {}, \n          \"user\": {\n            \"full_url\": \"https://pagure.io/user/kevin\"\
+        \n          }\n        }\n      ], \n      \"close_status\": \"Upstream\"\
+        , \n      \"closed_at\": \"1737598867\", \n      \"closed_by\": {\n      \
+        \  \"full_url\": \"https://pagure.io/user/kevin\", \n        \"fullname\"\
+        : \"Kevin Fenzi\", \n        \"name\": \"kevin\", \n        \"url_path\":\
+        \ \"user/kevin\"\n      }, \n      \"comments\": [\n        {\n          \"\
+        comment\": \"So, we don't run the service, but we do provide a email gateway\
+        \ (so it can send as fedoraproject.org, etc). \\r\\n\\r\\nI just looked at\
+        \ logs and don't see it sending anything to michel@michel-slm.name at all.\
+        \ ;( \\r\\n\\r\\nSo, I wonder if there's something in the app thats not accepting\
+        \ that as a valid email or something?\\r\\n\\r\\n@jflory7 can you see if we\
+        \ can get more debugging or info from the app side?\\r\\n\", \n          \"\
+        date_created\": \"1736546043\", \n          \"edited_on\": null, \n      \
+        \    \"editor\": null, \n          \"id\": 950822, \n          \"notification\"\
+        : false, \n          \"parent\": null, \n          \"reactions\": {}, \n \
+        \         \"user\": {\n            \"full_url\": \"https://pagure.io/user/kevin\"\
         , \n            \"fullname\": \"Kevin Fenzi\", \n            \"name\": \"\
         kevin\", \n            \"url_path\": \"user/kevin\"\n          }\n       \
         \ }, \n        {\n          \"comment\": \"> So, we don't run the service,\
@@ -1155,31 +1608,55 @@ interactions:
         user\": {\n            \"full_url\": \"https://pagure.io/user/phsmoura\",\
         \ \n            \"fullname\": \"Pedro Moura\", \n            \"name\": \"\
         phsmoura\", \n            \"url_path\": \"user/phsmoura\"\n          }\n \
-        \       }\n      ], \n      \"content\": \"**NOTE**\\r\\n\\r\\nIf your issue\
-        \ is for security or deals with sensitive info please\\r\\nmark it as private\
-        \ using the checkbox below.\\r\\n\\r\\n# Describe what you would like us to\
-        \ do:\\r\\n----\\r\\nI noticed over the past few months that I never got any\
-        \ notification for talk acceptances and schedule updates for the past two\
-        \ CentOS events (CentOS Showcase in November, CentOS Connect @ FOSDEM this\
-        \ January)\\r\\n\\r\\nI tested changing my email to another domain two days\
-        \ ago, and sent myself a password reset request - and that worked. Today I\
-        \ changed it back to michel@michel-slm.name, sent a password reset request...\
-        \ and nothing again.\\r\\n\\r\\nThe system is set to only allow a password\
-        \ reset request every 24 hours, so this is obviously rather inconvenient to\
-        \ debug.\\r\\n\\r\\nMy email provider is hosted by mailbox.org, so I can try\
-        \ to change the email to a normal mailbox.org address tomorrow or the day\
-        \ after; if that works at least emails will go to the right inbox, but I'm\
-        \ not sure what's going wrong here.\\r\\n\\r\\n# When do you need this to\
-        \ be done by? (YYYY/MM/DD)\\r\\n----\\r\\n2025/01/24\\r\\n\\r\\nNot urgent,\
-        \ but just flagging. This address works fine for receiving lists.fedoraproject.org\
+        \       }, \n        {\n          \"comment\": \"Thanks for your help triaging\
+        \ this issue @misc! :thumbsup: \", \n          \"date_created\": \"1737575211\"\
+        , \n          \"edited_on\": null, \n          \"editor\": null, \n      \
+        \    \"id\": 952204, \n          \"notification\": false, \n          \"parent\"\
+        : null, \n          \"reactions\": {}, \n          \"user\": {\n         \
+        \   \"full_url\": \"https://pagure.io/user/jflory7\", \n            \"fullname\"\
+        : \"Justin W. Flory\", \n            \"name\": \"jflory7\", \n           \
+        \ \"url_path\": \"user/jflory7\"\n          }\n        }, \n        {\n  \
+        \        \"comment\": \"That all sounds good to me. I'll close this now...\
+        \ let us know if there's anything we can do from the fedora side.\", \n  \
+        \        \"date_created\": \"1737598868\", \n          \"edited_on\": null,\
+        \ \n          \"editor\": null, \n          \"id\": 952293, \n          \"\
+        notification\": false, \n          \"parent\": null, \n          \"reactions\"\
+        : {}, \n          \"user\": {\n            \"full_url\": \"https://pagure.io/user/kevin\"\
+        , \n            \"fullname\": \"Kevin Fenzi\", \n            \"name\": \"\
+        kevin\", \n            \"url_path\": \"user/kevin\"\n          }\n       \
+        \ }, \n        {\n          \"comment\": \"**Metadata Update from @kevin**:\\\
+        n- Issue close_status updated to: Upstream\\n- Issue status updated to: Closed\
+        \ (was: Open)\", \n          \"date_created\": \"1737598869\", \n        \
+        \  \"edited_on\": null, \n          \"editor\": null, \n          \"id\":\
+        \ 952294, \n          \"notification\": true, \n          \"parent\": null,\
+        \ \n          \"reactions\": {}, \n          \"user\": {\n            \"full_url\"\
+        : \"https://pagure.io/user/kevin\", \n            \"fullname\": \"Kevin Fenzi\"\
+        , \n            \"name\": \"kevin\", \n            \"url_path\": \"user/kevin\"\
+        \n          }\n        }\n      ], \n      \"content\": \"**NOTE**\\r\\n\\\
+        r\\nIf your issue is for security or deals with sensitive info please\\r\\\
+        nmark it as private using the checkbox below.\\r\\n\\r\\n# Describe what you\
+        \ would like us to do:\\r\\n----\\r\\nI noticed over the past few months that\
+        \ I never got any notification for talk acceptances and schedule updates for\
+        \ the past two CentOS events (CentOS Showcase in November, CentOS Connect\
+        \ @ FOSDEM this January)\\r\\n\\r\\nI tested changing my email to another\
+        \ domain two days ago, and sent myself a password reset request - and that\
+        \ worked. Today I changed it back to michel@michel-slm.name, sent a password\
+        \ reset request... and nothing again.\\r\\n\\r\\nThe system is set to only\
+        \ allow a password reset request every 24 hours, so this is obviously rather\
+        \ inconvenient to debug.\\r\\n\\r\\nMy email provider is hosted by mailbox.org,\
+        \ so I can try to change the email to a normal mailbox.org address tomorrow\
+        \ or the day after; if that works at least emails will go to the right inbox,\
+        \ but I'm not sure what's going wrong here.\\r\\n\\r\\n# When do you need\
+        \ this to be done by? (YYYY/MM/DD)\\r\\n----\\r\\n2025/01/24\\r\\n\\r\\nNot\
+        \ urgent, but just flagging. This address works fine for receiving lists.fedoraproject.org\
         \ emails, though for sending it triggers DMARC issues\", \n      \"custom_fields\"\
         : [], \n      \"date_created\": \"1736542743\", \n      \"depends\": [], \n\
         \      \"full_url\": \"https://pagure.io/fedora-infrastructure/issue/12356\"\
-        , \n      \"id\": 12356, \n      \"last_updated\": \"1736798862\", \n    \
+        , \n      \"id\": 12356, \n      \"last_updated\": \"1737598869\", \n    \
         \  \"milestone\": null, \n      \"priority\": 3, \n      \"private\": false,\
-        \ \n      \"related_prs\": [], \n      \"status\": \"Open\", \n      \"tags\"\
-        : [\n        \"low-gain\", \n        \"low-trouble\", \n        \"ops\"\n\
-        \      ], \n      \"title\": \"Need help investigating cfp.fedoraproject.org\
+        \ \n      \"related_prs\": [], \n      \"status\": \"Closed\", \n      \"\
+        tags\": [\n        \"low-gain\", \n        \"low-trouble\", \n        \"ops\"\
+        \n      ], \n      \"title\": \"Need help investigating cfp.fedoraproject.org\
         \ email delivery failure to michel@michel-slm.name (pretalx.com works fine)\"\
         , \n      \"user\": {\n        \"full_url\": \"https://pagure.io/user/salimma\"\
         , \n        \"fullname\": \"Michel Lind\", \n        \"name\": \"salimma\"\
@@ -1588,22 +2065,22 @@ interactions:
         \          \"rank\": 1180, \n          \"status\": {\n            \"bg_color\"\
         : \"#ffb300\", \n            \"close\": false, \n            \"close_status\"\
         : null, \n            \"default\": true, \n            \"name\": \"Backlog\"\
-        \n          }\n        }\n      ], \n      \"close_status\": null, \n    \
-        \  \"closed_at\": \"1736372418\", \n      \"closed_by\": {\n        \"full_url\"\
-        : \"https://pagure.io/user/kevin\", \n        \"fullname\": \"Kevin Fenzi\"\
-        , \n        \"name\": \"kevin\", \n        \"url_path\": \"user/kevin\"\n\
-        \      }, \n      \"comments\": [\n        {\n          \"comment\": \"**Metadata\
-        \ Update from @kevin**:\\n- Issue assigned to kevin\", \n          \"date_created\"\
-        : \"1736372337\", \n          \"edited_on\": null, \n          \"editor\"\
-        : null, \n          \"id\": 950555, \n          \"notification\": true, \n\
-        \          \"parent\": null, \n          \"reactions\": {}, \n          \"\
-        user\": {\n            \"full_url\": \"https://pagure.io/user/kevin\", \n\
-        \            \"fullname\": \"Kevin Fenzi\", \n            \"name\": \"kevin\"\
-        , \n            \"url_path\": \"user/kevin\"\n          }\n        }, \n \
-        \       {\n          \"comment\": \"Done. (at least it's \\\"enabling\\\"\
-        ).\\r\\n\\r\\nLet us know if you need anything else. \\r\\n\", \n        \
-        \  \"date_created\": \"1736372420\", \n          \"edited_on\": null, \n \
-        \         \"editor\": null, \n          \"id\": 950556, \n          \"notification\"\
+        \n          }\n        }\n      ], \n      \"close_status\": \"Fixed\", \n\
+        \      \"closed_at\": \"1737501781\", \n      \"closed_by\": {\n        \"\
+        full_url\": \"https://pagure.io/user/aaradhak\", \n        \"fullname\": \"\
+        Aashish Radhakrishnan\", \n        \"name\": \"aaradhak\", \n        \"url_path\"\
+        : \"user/aaradhak\"\n      }, \n      \"comments\": [\n        {\n       \
+        \   \"comment\": \"**Metadata Update from @kevin**:\\n- Issue assigned to\
+        \ kevin\", \n          \"date_created\": \"1736372337\", \n          \"edited_on\"\
+        : null, \n          \"editor\": null, \n          \"id\": 950555, \n     \
+        \     \"notification\": true, \n          \"parent\": null, \n          \"\
+        reactions\": {}, \n          \"user\": {\n            \"full_url\": \"https://pagure.io/user/kevin\"\
+        , \n            \"fullname\": \"Kevin Fenzi\", \n            \"name\": \"\
+        kevin\", \n            \"url_path\": \"user/kevin\"\n          }\n       \
+        \ }, \n        {\n          \"comment\": \"Done. (at least it's \\\"enabling\\\
+        \").\\r\\n\\r\\nLet us know if you need anything else. \\r\\n\", \n      \
+        \    \"date_created\": \"1736372420\", \n          \"edited_on\": null, \n\
+        \          \"editor\": null, \n          \"id\": 950556, \n          \"notification\"\
         : false, \n          \"parent\": null, \n          \"reactions\": {}, \n \
         \         \"user\": {\n            \"full_url\": \"https://pagure.io/user/kevin\"\
         , \n            \"fullname\": \"Kevin Fenzi\", \n            \"name\": \"\
@@ -1676,9 +2153,65 @@ interactions:
         user\": {\n            \"full_url\": \"https://pagure.io/user/phsmoura\",\
         \ \n            \"fullname\": \"Pedro Moura\", \n            \"name\": \"\
         phsmoura\", \n            \"url_path\": \"user/phsmoura\"\n          }\n \
-        \       }\n      ], \n      \"content\": \"\\r\\n# Describe what you would\
-        \ like us to do:\\r\\nInclude the ap-southeast-7 region for cloud and coreos\
-        \ image deployments in Amazon EC2.\\r\\nhttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html\\\
+        \       }, \n        {\n          \"comment\": \"Thanks for the update on\
+        \ the quota.\", \n          \"date_created\": \"1737477955\", \n         \
+        \ \"edited_on\": null, \n          \"editor\": null, \n          \"id\": 952018,\
+        \ \n          \"notification\": false, \n          \"parent\": null, \n  \
+        \        \"reactions\": {}, \n          \"user\": {\n            \"full_url\"\
+        : \"https://pagure.io/user/aaradhak\", \n            \"fullname\": \"Aashish\
+        \ Radhakrishnan\", \n            \"name\": \"aaradhak\", \n            \"\
+        url_path\": \"user/aaradhak\"\n          }\n        }, \n        {\n     \
+        \     \"comment\": \"@kevin We have hit another hurdle now\\r\\n\\r\\n[2025-01-21T14:16:18.055Z]\
+        \ 2025-01-21T14:16:18Z plume: couldn't publish image in ap-southeast-7: couldn't\
+        \ grant launch permission on ami-0af4d523c7fbf5cd8: OperationNotPermitted:\
+        \ You can\\ufffd\\ufffd\\ufffdt publicly share this image because block public\
+        \ access for AMIs is enabled for this account. To publicly share the image,\
+        \ you must call the DisableImageBlockPublicAccess API.\\r\\n\\r\\nCan we also\
+        \ get AWS public access enabled for this region?\\r\\n - aws ec2 disable-image-block-public-access\
+        \ --region ap-southeast-7\\r\\n\", \n          \"date_created\": \"1737478150\"\
+        , \n          \"edited_on\": \"1737479124\", \n          \"editor\": {\n \
+        \           \"full_url\": \"https://pagure.io/user/aaradhak\", \n        \
+        \    \"fullname\": \"Aashish Radhakrishnan\", \n            \"name\": \"aaradhak\"\
+        , \n            \"url_path\": \"user/aaradhak\"\n          }, \n         \
+        \ \"id\": 952020, \n          \"notification\": false, \n          \"parent\"\
+        : null, \n          \"reactions\": {}, \n          \"user\": {\n         \
+        \   \"full_url\": \"https://pagure.io/user/aaradhak\", \n            \"fullname\"\
+        : \"Aashish Radhakrishnan\", \n            \"name\": \"aaradhak\", \n    \
+        \        \"url_path\": \"user/aaradhak\"\n          }\n        }, \n     \
+        \   {\n          \"comment\": \"Done.\\r\\n\\r\\nCan you confirm it's working\
+        \ now?\", \n          \"date_created\": \"1737487995\", \n          \"edited_on\"\
+        : null, \n          \"editor\": null, \n          \"id\": 952076, \n     \
+        \     \"notification\": false, \n          \"parent\": null, \n          \"\
+        reactions\": {}, \n          \"user\": {\n            \"full_url\": \"https://pagure.io/user/kevin\"\
+        , \n            \"fullname\": \"Kevin Fenzi\", \n            \"name\": \"\
+        kevin\", \n            \"url_path\": \"user/kevin\"\n          }\n       \
+        \ }, \n        {\n          \"comment\": \"Its working now. Thanks for enabling\
+        \ the public access.\", \n          \"date_created\": \"1737501788\", \n \
+        \         \"edited_on\": null, \n          \"editor\": null, \n          \"\
+        id\": 952113, \n          \"notification\": false, \n          \"parent\"\
+        : null, \n          \"reactions\": {}, \n          \"user\": {\n         \
+        \   \"full_url\": \"https://pagure.io/user/aaradhak\", \n            \"fullname\"\
+        : \"Aashish Radhakrishnan\", \n            \"name\": \"aaradhak\", \n    \
+        \        \"url_path\": \"user/aaradhak\"\n          }\n        }, \n     \
+        \   {\n          \"comment\": \"**Metadata Update from @aaradhak**:\\n- Issue\
+        \ close_status updated to: Fixed\\n- Issue status updated to: Closed (was:\
+        \ Open)\", \n          \"date_created\": \"1737501792\", \n          \"edited_on\"\
+        : null, \n          \"editor\": null, \n          \"id\": 952114, \n     \
+        \     \"notification\": true, \n          \"parent\": null, \n          \"\
+        reactions\": {}, \n          \"user\": {\n            \"full_url\": \"https://pagure.io/user/aaradhak\"\
+        , \n            \"fullname\": \"Aashish Radhakrishnan\", \n            \"\
+        name\": \"aaradhak\", \n            \"url_path\": \"user/aaradhak\"\n    \
+        \      }\n        }, \n        {\n          \"comment\": \"Its working now.\
+        \ Thanks for enabling the public access.\", \n          \"date_created\":\
+        \ \"1737501793\", \n          \"edited_on\": null, \n          \"editor\"\
+        : null, \n          \"id\": 952115, \n          \"notification\": false, \n\
+        \          \"parent\": null, \n          \"reactions\": {}, \n          \"\
+        user\": {\n            \"full_url\": \"https://pagure.io/user/aaradhak\",\
+        \ \n            \"fullname\": \"Aashish Radhakrishnan\", \n            \"\
+        name\": \"aaradhak\", \n            \"url_path\": \"user/aaradhak\"\n    \
+        \      }\n        }\n      ], \n      \"content\": \"\\r\\n# Describe what\
+        \ you would like us to do:\\r\\nInclude the ap-southeast-7 region for cloud\
+        \ and coreos image deployments in Amazon EC2.\\r\\nhttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html\\\
         r\\n\\r\\n#To Enable a region\\r\\nSign in to the AWS Management Console.\\\
         r\\nIn the upper right corner of the console, choose your account name or\
         \ number and then choose My Account.\\r\\nIn the AWS Regions section, next\
@@ -1689,9 +2222,9 @@ interactions:
         \ before our next FCOS release.\\r\\n\", \n      \"custom_fields\": [], \n\
         \      \"date_created\": \"1736370137\", \n      \"depends\": [], \n     \
         \ \"full_url\": \"https://pagure.io/fedora-infrastructure/issue/12351\", \n\
-        \      \"id\": 12351, \n      \"last_updated\": \"1736885039\", \n      \"\
+        \      \"id\": 12351, \n      \"last_updated\": \"1737501793\", \n      \"\
         milestone\": null, \n      \"priority\": 3, \n      \"private\": false, \n\
-        \      \"related_prs\": [], \n      \"status\": \"Open\", \n      \"tags\"\
+        \      \"related_prs\": [], \n      \"status\": \"Closed\", \n      \"tags\"\
         : [\n        \"low-gain\", \n        \"low-trouble\", \n        \"ops\"\n\
         \      ], \n      \"title\": \"Opt-in for AWS region to ap-southeast-7 acct:125523088429\"\
         , \n      \"user\": {\n        \"full_url\": \"https://pagure.io/user/aaradhak\"\
@@ -2973,12 +3506,31 @@ interactions:
         \         \"user\": {\n            \"full_url\": \"https://pagure.io/user/abompard\"\
         , \n            \"fullname\": \"Aur\\u00e9lien Bompard\", \n            \"\
         name\": \"abompard\", \n            \"url_path\": \"user/abompard\"\n    \
-        \      }\n        }\n      ], \n      \"content\": \"400 - Bad Request\\r\\\
-        nInvalid transaction id\\r\\n\\r\\nIf the error persists and if you think\
-        \ this is an error, contact Fedora Infra to resolve the problem.\\r\\n\\r\\\
-        n-Tobin\", \n      \"custom_fields\": [], \n      \"date_created\": \"1734630543\"\
-        , \n      \"depends\": [], \n      \"full_url\": \"https://pagure.io/fedora-infrastructure/issue/12338\"\
-        , \n      \"id\": 12338, \n      \"last_updated\": \"1736340099\", \n    \
+        \      }\n        }, \n        {\n          \"comment\": \"Generally it seems\
+        \ I receive a 400 after logging in on FAS when initiated from any other place.\
+        \ If I then go back to the application and click login again it redirect to\
+        \ FAS and back and I'm logged in.\\r\\n\\r\\nApparently it says 400; but it\
+        \ has actually logged me in the first time.\", \n          \"date_created\"\
+        : \"1737555458\", \n          \"edited_on\": null, \n          \"editor\"\
+        : null, \n          \"id\": 952176, \n          \"notification\": false, \n\
+        \          \"parent\": null, \n          \"reactions\": {}, \n          \"\
+        user\": {\n            \"full_url\": \"https://pagure.io/user/supakeen\",\
+        \ \n            \"fullname\": \"Simon de Vlieger\", \n            \"name\"\
+        : \"supakeen\", \n            \"url_path\": \"user/supakeen\"\n          }\n\
+        \        }, \n        {\n          \"comment\": \"This issue might be the\
+        \ same as https://pagure.io/fedora-infrastructure/issue/11962\\r\\n\", \n\
+        \          \"date_created\": \"1737598809\", \n          \"edited_on\": null,\
+        \ \n          \"editor\": null, \n          \"id\": 952292, \n          \"\
+        notification\": false, \n          \"parent\": null, \n          \"reactions\"\
+        : {}, \n          \"user\": {\n            \"full_url\": \"https://pagure.io/user/kevin\"\
+        , \n            \"fullname\": \"Kevin Fenzi\", \n            \"name\": \"\
+        kevin\", \n            \"url_path\": \"user/kevin\"\n          }\n       \
+        \ }\n      ], \n      \"content\": \"400 - Bad Request\\r\\nInvalid transaction\
+        \ id\\r\\n\\r\\nIf the error persists and if you think this is an error, contact\
+        \ Fedora Infra to resolve the problem.\\r\\n\\r\\n-Tobin\", \n      \"custom_fields\"\
+        : [], \n      \"date_created\": \"1734630543\", \n      \"depends\": [], \n\
+        \      \"full_url\": \"https://pagure.io/fedora-infrastructure/issue/12338\"\
+        , \n      \"id\": 12338, \n      \"last_updated\": \"1737598809\", \n    \
         \  \"milestone\": null, \n      \"priority\": 3, \n      \"private\": false,\
         \ \n      \"related_prs\": [], \n      \"status\": \"Open\", \n      \"tags\"\
         : [\n        \"low-gain\", \n        \"low-trouble\", \n        \"ops\"\n\
@@ -3083,436 +3635,7 @@ interactions:
         \n      ], \n      \"title\": \" Request for new FAS group: mkdocs-sig\",\
         \ \n      \"user\": {\n        \"full_url\": \"https://pagure.io/user/dcavalca\"\
         , \n        \"fullname\": \"Davide Cavalca\", \n        \"name\": \"dcavalca\"\
-        , \n        \"url_path\": \"user/dcavalca\"\n      }\n    }, \n    {\n   \
-        \   \"assignee\": null, \n      \"blocks\": [], \n      \"boards\": [\n  \
-        \      {\n          \"board\": {\n            \"active\": true, \n       \
-        \     \"full_url\": \"https://pagure.io/fedora-infrastructure/boards/ops\"\
-        , \n            \"name\": \"ops\", \n            \"status\": [\n         \
-        \     {\n                \"bg_color\": \"#ffb300\", \n                \"close\"\
-        : false, \n                \"close_status\": null, \n                \"default\"\
-        : true, \n                \"name\": \"Backlog\"\n              }, \n     \
-        \         {\n                \"bg_color\": \"#f4ff64\", \n               \
-        \ \"close\": false, \n                \"close_status\": null, \n         \
-        \       \"default\": false, \n                \"name\": \"Triaged\"\n    \
-        \          }, \n              {\n                \"bg_color\": \"#99d200\"\
-        , \n                \"close\": false, \n                \"close_status\":\
-        \ null, \n                \"default\": false, \n                \"name\":\
-        \ \"In Progress\"\n              }, \n              {\n                \"\
-        bg_color\": \"#3c7bff\", \n                \"close\": false, \n          \
-        \      \"close_status\": null, \n                \"default\": false, \n  \
-        \              \"name\": \"In Review\"\n              }, \n              {\n\
-        \                \"bg_color\": \"#15d415\", \n                \"close\": true,\
-        \ \n                \"close_status\": \"Fixed\", \n                \"default\"\
-        : false, \n                \"name\": \"Done\"\n              }, \n       \
-        \       {\n                \"bg_color\": \"#e80909\", \n                \"\
-        close\": false, \n                \"close_status\": null, \n             \
-        \   \"default\": false, \n                \"name\": \"Blocked\"\n        \
-        \      }\n            ], \n            \"tag\": {\n              \"tag\":\
-        \ \"ops\", \n              \"tag_color\": \"#3efa0e\", \n              \"\
-        tag_description\": \"ops problem now...\"\n            }\n          }, \n\
-        \          \"rank\": 1165, \n          \"status\": {\n            \"bg_color\"\
-        : \"#ffb300\", \n            \"close\": false, \n            \"close_status\"\
-        : null, \n            \"default\": true, \n            \"name\": \"Backlog\"\
-        \n          }\n        }\n      ], \n      \"close_status\": \"Fixed\", \n\
-        \      \"closed_at\": \"1734445449\", \n      \"closed_by\": {\n        \"\
-        full_url\": \"https://pagure.io/user/abompard\", \n        \"fullname\": \"\
-        Aur\\u00e9lien Bompard\", \n        \"name\": \"abompard\", \n        \"url_path\"\
-        : \"user/abompard\"\n      }, \n      \"comments\": [\n        {\n       \
-        \   \"comment\": \"I also saw this today (for the first time). Thanks for\
-        \ the tip about clearing cookies!\", \n          \"date_created\": \"1734363951\"\
-        , \n          \"edited_on\": null, \n          \"editor\": null, \n      \
-        \    \"id\": 948496, \n          \"notification\": false, \n          \"parent\"\
-        : null, \n          \"reactions\": {}, \n          \"user\": {\n         \
-        \   \"full_url\": \"https://pagure.io/user/nikic\", \n            \"fullname\"\
-        : \"\", \n            \"name\": \"nikic\", \n            \"url_path\": \"\
-        user/nikic\"\n          }\n        }, \n        {\n          \"comment\":\
-        \ \"**Metadata Update from @phsmoura**:\\n- Issue priority set to: Waiting\
-        \ on Assignee (was: Needs Review)\\n- Issue tagged with: Needs investigation,\
-        \ high-gain, medium-trouble, ops\", \n          \"date_created\": \"1734379499\"\
-        , \n          \"edited_on\": null, \n          \"editor\": null, \n      \
-        \    \"id\": 948537, \n          \"notification\": true, \n          \"parent\"\
-        : null, \n          \"reactions\": {}, \n          \"user\": {\n         \
-        \   \"full_url\": \"https://pagure.io/user/phsmoura\", \n            \"fullname\"\
-        : \"Pedro Moura\", \n            \"name\": \"phsmoura\", \n            \"\
-        url_path\": \"user/phsmoura\"\n          }\n        }, \n        {\n     \
-        \     \"comment\": \"Happened to me too.\\r\\nDeleting data (including cookies)\
-        \ for fedoraproject.org did not helped in my case. It showed the front page\
-        \ and after successful login I got 500 again. Just after redirects from login\
-        \ server.\\r\\nWhen I use FF in private mode I am able to use src.f.o again.\"\
-        , \n          \"date_created\": \"1734414030\", \n          \"edited_on\"\
-        : null, \n          \"editor\": null, \n          \"id\": 948566, \n     \
-        \     \"notification\": false, \n          \"parent\": null, \n          \"\
-        reactions\": {}, \n          \"user\": {\n            \"full_url\": \"https://pagure.io/user/msuchy\"\
-        , \n            \"fullname\": \"Miroslav Such\\u00fd\", \n            \"name\"\
-        : \"msuchy\", \n            \"url_path\": \"user/msuchy\"\n          }\n \
-        \       }, \n        {\n          \"comment\": \"This was caused by https://www.pagure.io/pagure/pull-request/5510\
-        \ which we fixed on pagure.io but did not fix on distgit. It's applied now,\
-        \ please reopen if it happens again.\", \n          \"date_created\": \"1734445452\"\
-        , \n          \"edited_on\": null, \n          \"editor\": null, \n      \
-        \    \"id\": 948638, \n          \"notification\": false, \n          \"parent\"\
-        : null, \n          \"reactions\": {}, \n          \"user\": {\n         \
-        \   \"full_url\": \"https://pagure.io/user/abompard\", \n            \"fullname\"\
-        : \"Aur\\u00e9lien Bompard\", \n            \"name\": \"abompard\", \n   \
-        \         \"url_path\": \"user/abompard\"\n          }\n        }, \n    \
-        \    {\n          \"comment\": \"**Metadata Update from @abompard**:\\n- Issue\
-        \ close_status updated to: Fixed\\n- Issue status updated to: Closed (was:\
-        \ Open)\", \n          \"date_created\": \"1734445452\", \n          \"edited_on\"\
-        : null, \n          \"editor\": null, \n          \"id\": 948639, \n     \
-        \     \"notification\": true, \n          \"parent\": null, \n          \"\
-        reactions\": {}, \n          \"user\": {\n            \"full_url\": \"https://pagure.io/user/abompard\"\
-        , \n            \"fullname\": \"Aur\\u00e9lien Bompard\", \n            \"\
-        name\": \"abompard\", \n            \"url_path\": \"user/abompard\"\n    \
-        \      }\n        }, \n        {\n          \"comment\": \"Thanks.\", \n \
-        \         \"date_created\": \"1734446094\", \n          \"edited_on\": null,\
-        \ \n          \"editor\": null, \n          \"id\": 948641, \n          \"\
-        notification\": false, \n          \"parent\": null, \n          \"reactions\"\
-        : {}, \n          \"user\": {\n            \"full_url\": \"https://pagure.io/user/churchyard\"\
-        , \n            \"fullname\": \"\", \n            \"name\": \"churchyard\"\
-        , \n            \"url_path\": \"user/churchyard\"\n          }\n        }\n\
-        \      ], \n      \"content\": \"**NOTE**\\r\\n\\r\\nIf your issue is for\
-        \ security or deals with sensitive info please\\r\\nmark it as private using\
-        \ the checkbox below.\\r\\n\\r\\n# Describe what you would like us to do:\\\
-        r\\n----\\r\\nFor cca 1 week, I occasionally hit a situation where all pages\
-        \ on https://src.fedoraproject.org/ give error 500. When I clear cookies,\
-        \ the error stops happening. Until it happens again in couple days.\\r\\n\\\
-        r\\nIt is a bit tedious. Could you please figure out (from the logs maybe),\
-        \ why this happens?\\r\\n\\r\\n# When do you need this to be done by? (YYYY/MM/DD)\\\
-        r\\n----\\r\\nany time\", \n      \"custom_fields\": [], \n      \"date_created\"\
-        : \"1734359410\", \n      \"depends\": [], \n      \"full_url\": \"https://pagure.io/fedora-infrastructure/issue/12336\"\
-        , \n      \"id\": 12336, \n      \"last_updated\": \"1734446094\", \n    \
-        \  \"milestone\": null, \n      \"priority\": 3, \n      \"private\": false,\
-        \ \n      \"related_prs\": [], \n      \"status\": \"Closed\", \n      \"\
-        tags\": [\n        \"Needs investigation\", \n        \"high-gain\", \n  \
-        \      \"medium-trouble\", \n        \"ops\"\n      ], \n      \"title\":\
-        \ \"500 errors on src.fp.o until I clear cookies, later again\", \n      \"\
-        user\": {\n        \"full_url\": \"https://pagure.io/user/churchyard\", \n\
-        \        \"fullname\": \"\", \n        \"name\": \"churchyard\", \n      \
-        \  \"url_path\": \"user/churchyard\"\n      }\n    }, \n    {\n      \"assignee\"\
-        : {\n        \"full_url\": \"https://pagure.io/user/abompard\", \n       \
-        \ \"fullname\": \"Aur\\u00e9lien Bompard\", \n        \"name\": \"abompard\"\
-        , \n        \"url_path\": \"user/abompard\"\n      }, \n      \"blocks\":\
-        \ [], \n      \"boards\": [\n        {\n          \"board\": {\n         \
-        \   \"active\": true, \n            \"full_url\": \"https://pagure.io/fedora-infrastructure/boards/ops\"\
-        , \n            \"name\": \"ops\", \n            \"status\": [\n         \
-        \     {\n                \"bg_color\": \"#ffb300\", \n                \"close\"\
-        : false, \n                \"close_status\": null, \n                \"default\"\
-        : true, \n                \"name\": \"Backlog\"\n              }, \n     \
-        \         {\n                \"bg_color\": \"#f4ff64\", \n               \
-        \ \"close\": false, \n                \"close_status\": null, \n         \
-        \       \"default\": false, \n                \"name\": \"Triaged\"\n    \
-        \          }, \n              {\n                \"bg_color\": \"#99d200\"\
-        , \n                \"close\": false, \n                \"close_status\":\
-        \ null, \n                \"default\": false, \n                \"name\":\
-        \ \"In Progress\"\n              }, \n              {\n                \"\
-        bg_color\": \"#3c7bff\", \n                \"close\": false, \n          \
-        \      \"close_status\": null, \n                \"default\": false, \n  \
-        \              \"name\": \"In Review\"\n              }, \n              {\n\
-        \                \"bg_color\": \"#15d415\", \n                \"close\": true,\
-        \ \n                \"close_status\": \"Fixed\", \n                \"default\"\
-        : false, \n                \"name\": \"Done\"\n              }, \n       \
-        \       {\n                \"bg_color\": \"#e80909\", \n                \"\
-        close\": false, \n                \"close_status\": null, \n             \
-        \   \"default\": false, \n                \"name\": \"Blocked\"\n        \
-        \      }\n            ], \n            \"tag\": {\n              \"tag\":\
-        \ \"ops\", \n              \"tag_color\": \"#3efa0e\", \n              \"\
-        tag_description\": \"ops problem now...\"\n            }\n          }, \n\
-        \          \"rank\": 1164, \n          \"status\": {\n            \"bg_color\"\
-        : \"#ffb300\", \n            \"close\": false, \n            \"close_status\"\
-        : null, \n            \"default\": true, \n            \"name\": \"Backlog\"\
-        \n          }\n        }\n      ], \n      \"close_status\": null, \n    \
-        \  \"closed_at\": null, \n      \"closed_by\": null, \n      \"comments\"\
-        : [\n        {\n          \"comment\": \"I see prod is doing this too... ;(\
-        \ \\r\\n\\r\\nIt seems like its getting a bunch of 502's from pagure?\\r\\\
-        n\", \n          \"date_created\": \"1734197515\", \n          \"edited_on\"\
-        : null, \n          \"editor\": null, \n          \"id\": 948411, \n     \
-        \     \"notification\": false, \n          \"parent\": null, \n          \"\
-        reactions\": {}, \n          \"user\": {\n            \"full_url\": \"https://pagure.io/user/kevin\"\
-        , \n            \"fullname\": \"Kevin Fenzi\", \n            \"name\": \"\
-        kevin\", \n            \"url_path\": \"user/kevin\"\n          }\n       \
-        \ }, \n        {\n          \"comment\": \"**Metadata Update from @abompard**:\\\
-        n- Issue assigned to abompard\", \n          \"date_created\": \"1734340861\"\
-        , \n          \"edited_on\": null, \n          \"editor\": null, \n      \
-        \    \"id\": 948461, \n          \"notification\": true, \n          \"parent\"\
-        : null, \n          \"reactions\": {}, \n          \"user\": {\n         \
-        \   \"full_url\": \"https://pagure.io/user/abompard\", \n            \"fullname\"\
-        : \"Aur\\u00e9lien Bompard\", \n            \"name\": \"abompard\", \n   \
-        \         \"url_path\": \"user/abompard\"\n          }\n        }, \n    \
-        \    {\n          \"comment\": \"> 1. Why is the stg poddler talking to production?\
-        \ shouldn't it use src.stg.fedoraproject.org?\\r\\n\\r\\nLooks like the dist-git\
-        \ URL is hardcoded in todders: https://pagure.io/fedora-infra/toddlers/blob/main/f/toddlers/utils/pagure.py#_1120\\\
-        r\\n\\r\\n> 2. Why is is redownloading over and over the same json files.\
-        \ ;(\\r\\n\\r\\nI don't know but it doesn't sound right indeed, I'll add some\
-        \ caching.\\r\\n\", \n          \"date_created\": \"1734341417\", \n     \
-        \     \"edited_on\": null, \n          \"editor\": null, \n          \"id\"\
-        : 948462, \n          \"notification\": false, \n          \"parent\": null,\
-        \ \n          \"reactions\": {}, \n          \"user\": {\n            \"full_url\"\
-        : \"https://pagure.io/user/abompard\", \n            \"fullname\": \"Aur\\\
-        u00e9lien Bompard\", \n            \"name\": \"abompard\", \n            \"\
-        url_path\": \"user/abompard\"\n          }\n        }, \n        {\n     \
-        \     \"comment\": \"**Metadata Update from @phsmoura**:\\n- Issue priority\
-        \ set to: Waiting on Assignee (was: Needs Review)\\n- Issue tagged with: Needs\
-        \ investigation, high-gain, medium-trouble, ops\", \n          \"date_created\"\
-        : \"1734379395\", \n          \"edited_on\": null, \n          \"editor\"\
-        : null, \n          \"id\": 948536, \n          \"notification\": true, \n\
-        \          \"parent\": null, \n          \"reactions\": {}, \n          \"\
-        user\": {\n            \"full_url\": \"https://pagure.io/user/phsmoura\",\
-        \ \n            \"fullname\": \"Pedro Moura\", \n            \"name\": \"\
-        phsmoura\", \n            \"url_path\": \"user/phsmoura\"\n          }\n \
-        \       }, \n        {\n          \"comment\": \"The caching is in place in\
-        \ prod (since a couple days ago), there should be way less requests. Also,\
-        \ I've removed the hardcoding of src.fp.o, staging is now hitting staging\
-        \ and not prod:\\r\\n\\r\\n```\\r\\n# ansible -a 'grep 10.3.166.119 /var/log/httpd/src.fedoraproject.org-access.log\
-        \ | wc -l' -m shell proxy01.iad\\\\*:proxy10.iad\\\\*\\r\\nproxy10.iad2.fedoraproject.org\
-        \ | CHANGED | rc=0 >>\\r\\n0\\r\\nproxy01.iad2.fedoraproject.org | CHANGED\
-        \ | rc=0 >>\\r\\n0\\r\\n# ansible -a 'grep 10.3.166.119 /var/log/httpd/src.fedoraproject.org-access.log\
-        \ | wc -l' -m shell proxy01.stg.iad\\\\*\\r\\nproxy01.stg.iad2.fedoraproject.org\
-        \ | CHANGED | rc=0 >>\\r\\n213\\r\\n```\\r\\n\\r\\nAdding cache can lead to\
-        \ bugs and issues when the cache is stale, so please keep an eye open too\
-        \ for things not working around toddlers.\", \n          \"date_created\"\
-        : \"1734625506\", \n          \"edited_on\": null, \n          \"editor\"\
-        : null, \n          \"id\": 948849, \n          \"notification\": false, \n\
-        \          \"parent\": null, \n          \"reactions\": {}, \n          \"\
-        user\": {\n            \"full_url\": \"https://pagure.io/user/abompard\",\
-        \ \n            \"fullname\": \"Aur\\u00e9lien Bompard\", \n            \"\
-        name\": \"abompard\", \n            \"url_path\": \"user/abompard\"\n    \
-        \      }\n        }\n      ], \n      \"content\": \"There were reports of\
-        \ 500's from src.fedoraproject.org and on investigation it looks like a staging\
-        \ bugzilla-sync-toddler was stuck downloading the retired json files over\
-        \ and over again:\\r\\n\\r\\n```\\r\\nansible -a 'grep 10.3.166.119 /var/log/httpd/src.fedoraproject.org-access.log\
-        \ | wc -l' -m shell proxy01.iad\\\\*:proxy10.iad\\\\*\\r\\nproxy10.iad2.fedoraproject.org\
-        \ | CHANGED | rc=0 >>\\r\\n408158\\r\\nproxy01.iad2.fedoraproject.org | CHANGED\
-        \ | rc=0 >>\\r\\n358202\\r\\n```\\r\\n\\r\\nI blocked it on proxy01/10 to\
-        \ get things back to normal. \\r\\n\\r\\nQuestions: \\r\\n\\r\\n1. Why is\
-        \ the stg poddler talking to production? shouldn't it use src.stg.fedoraproject.org?\\\
-        r\\n\\r\\n2. Why is is redownloading over and over the same json files. ;(\
-        \ \\r\\n\", \n      \"custom_fields\": [], \n      \"date_created\": \"1734196389\"\
-        , \n      \"depends\": [], \n      \"full_url\": \"https://pagure.io/fedora-infrastructure/issue/12335\"\
-        , \n      \"id\": 12335, \n      \"last_updated\": \"1734625506\", \n    \
-        \  \"milestone\": null, \n      \"priority\": 3, \n      \"private\": false,\
-        \ \n      \"related_prs\": [], \n      \"status\": \"Open\", \n      \"tags\"\
-        : [\n        \"Needs investigation\", \n        \"high-gain\", \n        \"\
-        medium-trouble\", \n        \"ops\"\n      ], \n      \"title\": \"distgit-bugzilla-sync\
-        \ poddlers in both staging and prod downloading a lot from production\", \n\
-        \      \"user\": {\n        \"full_url\": \"https://pagure.io/user/kevin\"\
-        , \n        \"fullname\": \"Kevin Fenzi\", \n        \"name\": \"kevin\",\
-        \ \n        \"url_path\": \"user/kevin\"\n      }\n    }, \n    {\n      \"\
-        assignee\": null, \n      \"blocks\": [], \n      \"close_status\": \"Upstream\"\
-        , \n      \"closed_at\": \"1734128295\", \n      \"closed_by\": {\n      \
-        \  \"full_url\": \"https://pagure.io/user/kevin\", \n        \"fullname\"\
-        : \"Kevin Fenzi\", \n        \"name\": \"kevin\", \n        \"url_path\":\
-        \ \"user/kevin\"\n      }, \n      \"comments\": [\n        {\n          \"\
-        comment\": \"Yeah, just a wild guess. \\r\\n\\r\\nI don't see anything odd\
-        \ on the builders. No network errors or other issues. \\r\\nAlso, the only\
-        \ thing that changed on them since this started was a pam update.\\r\\n\\\
-        r\\nCC: @kdudka @jamacku any chance this could be curl related?\\r\\n\\r\\\
-        nIt looks like all these are f42/rawhide... \\r\\n\", \n          \"date_created\"\
-        : \"1734127817\", \n          \"edited_on\": null, \n          \"editor\"\
-        : null, \n          \"id\": 948382, \n          \"notification\": false, \n\
-        \          \"parent\": null, \n          \"reactions\": {}, \n          \"\
-        user\": {\n            \"full_url\": \"https://pagure.io/user/kevin\", \n\
-        \            \"fullname\": \"Kevin Fenzi\", \n            \"name\": \"kevin\"\
-        , \n            \"url_path\": \"user/kevin\"\n          }\n        }, \n \
-        \       {\n          \"comment\": \"*(fixed comment zero to indicate that\
-        \ only rawhide seems to be affected, which would point at the curl 8.10 \\\
-        u2192 8.11 update)*\", \n          \"date_created\": \"1734128006\", \n  \
-        \        \"edited_on\": null, \n          \"editor\": null, \n          \"\
-        id\": 948383, \n          \"notification\": false, \n          \"parent\"\
-        : null, \n          \"reactions\": {}, \n          \"user\": {\n         \
-        \   \"full_url\": \"https://pagure.io/user/decathorpe\", \n            \"\
-        fullname\": \"Fabio Valentini\", \n            \"name\": \"decathorpe\", \n\
-        \            \"url_path\": \"user/decathorpe\"\n          }\n        }, \n\
-        \        {\n          \"comment\": \"Looks like this might very well be: \\\
-        r\\nhttps://github.com/curl/curl/issues/15725\\r\\n\\r\\nI am going to untag\
-        \ 8.11.1 for now and @decathorpe is gonna file a bugzilla.redhat.com curl\
-        \ bug to track it. \\r\\n\", \n          \"date_created\": \"1734128296\"\
-        , \n          \"edited_on\": null, \n          \"editor\": null, \n      \
-        \    \"id\": 948384, \n          \"notification\": false, \n          \"parent\"\
-        : null, \n          \"reactions\": {}, \n          \"user\": {\n         \
-        \   \"full_url\": \"https://pagure.io/user/kevin\", \n            \"fullname\"\
-        : \"Kevin Fenzi\", \n            \"name\": \"kevin\", \n            \"url_path\"\
-        : \"user/kevin\"\n          }\n        }, \n        {\n          \"comment\"\
-        : \"**Metadata Update from @kevin**:\\n- Issue close_status updated to: Upstream\\\
-        n- Issue status updated to: Closed (was: Open)\", \n          \"date_created\"\
-        : \"1734128297\", \n          \"edited_on\": null, \n          \"editor\"\
-        : null, \n          \"id\": 948385, \n          \"notification\": true, \n\
-        \          \"parent\": null, \n          \"reactions\": {}, \n          \"\
-        user\": {\n            \"full_url\": \"https://pagure.io/user/kevin\", \n\
-        \            \"fullname\": \"Kevin Fenzi\", \n            \"name\": \"kevin\"\
-        , \n            \"url_path\": \"user/kevin\"\n          }\n        }, \n \
-        \       {\n          \"comment\": \"for reference, I filed: https://bugzilla.redhat.com/show_bug.cgi?id=2332350\"\
-        , \n          \"date_created\": \"1734128480\", \n          \"edited_on\"\
-        : null, \n          \"editor\": null, \n          \"id\": 948386, \n     \
-        \     \"notification\": false, \n          \"parent\": null, \n          \"\
-        reactions\": {}, \n          \"user\": {\n            \"full_url\": \"https://pagure.io/user/decathorpe\"\
-        , \n            \"fullname\": \"Fabio Valentini\", \n            \"name\"\
-        : \"decathorpe\", \n            \"url_path\": \"user/decathorpe\"\n      \
-        \    }\n        }\n      ], \n      \"content\": \"I do not see any pattern\
-        \ to this, but dnf in koji started to frequently fail to download and install\
-        \ the default buildroot:\\r\\n\\r\\n```\\r\\n(...)\\r\\nAfter this operation,\
-        \ 9 MiB extra will be used (install 9 MiB, remove 0 B).\\r\\nUnexpected error\
-        \ 9 on netlink descriptor 10.\\r\\n```\\r\\n\\r\\nThe descriptor number sometimes\
-        \ changes, but the errno is the same. I've also seen it happen on x86_64 and\
-        \ aarch64, so it is not specific to one builder or even one architecture.\
-        \ Some example failed tasks:\\r\\n\\r\\nhttps://koji.fedoraproject.org/koji/taskinfo?taskID=126808008\\\
-        r\\nhttps://koji.fedoraproject.org/koji/taskinfo?taskID=126807956\\r\\nhttps://koji.fedoraproject.org/koji/taskinfo?taskID=126810170\\\
-        r\\nhttps://koji.fedoraproject.org/koji/taskinfo?taskID=126810459\\r\\nhttps://koji.fedoraproject.org/koji/taskinfo?taskID=126810037\\\
-        r\\n\\r\\n@kevin suspects a recent curl update in rawhide (i.e. 8.10 \\u2192\
-        \ 8.11) might be to blame.\\r\\n\", \n      \"custom_fields\": [], \n    \
-        \  \"date_created\": \"1734127349\", \n      \"depends\": [], \n      \"full_url\"\
-        : \"https://pagure.io/fedora-infrastructure/issue/12334\", \n      \"id\"\
-        : 12334, \n      \"last_updated\": \"1734128480\", \n      \"milestone\":\
-        \ null, \n      \"priority\": 1, \n      \"private\": false, \n      \"related_prs\"\
-        : [], \n      \"status\": \"Closed\", \n      \"tags\": [], \n      \"title\"\
-        : \"koji: seemingly random `Unexpected error 9 on netlink descriptor 10.`\
-        \ errors failing builds\", \n      \"user\": {\n        \"full_url\": \"https://pagure.io/user/decathorpe\"\
-        , \n        \"fullname\": \"Fabio Valentini\", \n        \"name\": \"decathorpe\"\
-        , \n        \"url_path\": \"user/decathorpe\"\n      }\n    }, \n    {\n \
-        \     \"assignee\": null, \n      \"blocks\": [], \n      \"close_status\"\
-        : \"Fixed\", \n      \"closed_at\": \"1734196458\", \n      \"closed_by\"\
-        : {\n        \"full_url\": \"https://pagure.io/user/kevin\", \n        \"\
-        fullname\": \"Kevin Fenzi\", \n        \"name\": \"kevin\", \n        \"url_path\"\
-        : \"user/kevin\"\n      }, \n      \"comments\": [\n        {\n          \"\
-        comment\": \"After waiting a while it seems to have fixed itself:\\r\\nhttps://koji.fedoraproject.org/koji/taskinfo?taskID=126799766\"\
-        , \n          \"date_created\": \"1734103889\", \n          \"edited_on\"\
-        : null, \n          \"editor\": null, \n          \"id\": 948364, \n     \
-        \     \"notification\": false, \n          \"parent\": null, \n          \"\
-        reactions\": {}, \n          \"user\": {\n            \"full_url\": \"https://pagure.io/user/rjones\"\
-        , \n            \"fullname\": \"Richard W.M. Jones\", \n            \"name\"\
-        : \"rjones\", \n            \"url_path\": \"user/rjones\"\n          }\n \
-        \       }, \n        {\n          \"comment\": \"I think this might be / related\
-        \ to #12335 \\r\\n\\r\\nI guess lets close this, but if you are still seeing\
-        \ it after the fix in the above ticket, please do reopen. \", \n         \
-        \ \"date_created\": \"1734196459\", \n          \"edited_on\": null, \n  \
-        \        \"editor\": null, \n          \"id\": 948409, \n          \"notification\"\
-        : false, \n          \"parent\": null, \n          \"reactions\": {}, \n \
-        \         \"user\": {\n            \"full_url\": \"https://pagure.io/user/kevin\"\
-        , \n            \"fullname\": \"Kevin Fenzi\", \n            \"name\": \"\
-        kevin\", \n            \"url_path\": \"user/kevin\"\n          }\n       \
-        \ }, \n        {\n          \"comment\": \"**Metadata Update from @kevin**:\\\
-        n- Issue close_status updated to: Fixed\\n- Issue status updated to: Closed\
-        \ (was: Open)\", \n          \"date_created\": \"1734196460\", \n        \
-        \  \"edited_on\": null, \n          \"editor\": null, \n          \"id\":\
-        \ 948410, \n          \"notification\": true, \n          \"parent\": null,\
-        \ \n          \"reactions\": {}, \n          \"user\": {\n            \"full_url\"\
-        : \"https://pagure.io/user/kevin\", \n            \"fullname\": \"Kevin Fenzi\"\
-        , \n            \"name\": \"kevin\", \n            \"url_path\": \"user/kevin\"\
-        \n          }\n        }\n      ], \n      \"content\": \"I see weird problems\
-        \ when trying to build qemu in a side tag:\\r\\n\\r\\n```\\r\\n$ git clone\
-        \ -n https://src.fedoraproject.org/rpms/qemu.git /var/lib/mock/f42-build-side-102002-55589343-6536798/root/chroot_tmpdir/scmroot/qemu\\\
-        r\\nCloning into '/var/lib/mock/f42-build-side-102002-55589343-6536798/root/chroot_tmpdir/scmroot/qemu'...\\\
-        r\\nerror: RPC failed; HTTP 500 curl 22 The requested URL returned error:\
-        \ 500\\r\\nfatal: the remote end hung up unexpectedly\\r\\n```\\r\\n\\r\\\
-        nhttps://koji.fedoraproject.org/koji/taskinfo?taskID=126797999\\r\\nhttps://koji.fedoraproject.org/koji/taskinfo?taskID=126798281\\\
-        r\\n\", \n      \"custom_fields\": [], \n      \"date_created\": \"1734099680\"\
-        , \n      \"depends\": [], \n      \"full_url\": \"https://pagure.io/fedora-infrastructure/issue/12333\"\
-        , \n      \"id\": 12333, \n      \"last_updated\": \"1734196460\", \n    \
-        \  \"milestone\": null, \n      \"priority\": 1, \n      \"private\": false,\
-        \ \n      \"related_prs\": [], \n      \"status\": \"Closed\", \n      \"\
-        tags\": [], \n      \"title\": \"500 errors in Koji when checking out from\
-        \ dist-git\", \n      \"user\": {\n        \"full_url\": \"https://pagure.io/user/rjones\"\
-        , \n        \"fullname\": \"Richard W.M. Jones\", \n        \"name\": \"rjones\"\
-        , \n        \"url_path\": \"user/rjones\"\n      }\n    }, \n    {\n     \
-        \ \"assignee\": {\n        \"full_url\": \"https://pagure.io/user/kevin\"\
-        , \n        \"fullname\": \"Kevin Fenzi\", \n        \"name\": \"kevin\",\
-        \ \n        \"url_path\": \"user/kevin\"\n      }, \n      \"blocks\": [],\
-        \ \n      \"close_status\": \"Fixed with Explanation\", \n      \"closed_at\"\
-        : \"1734033980\", \n      \"closed_by\": {\n        \"full_url\": \"https://pagure.io/user/kevin\"\
-        , \n        \"fullname\": \"Kevin Fenzi\", \n        \"name\": \"kevin\",\
-        \ \n        \"url_path\": \"user/kevin\"\n      }, \n      \"comments\": [\n\
-        \        {\n          \"comment\": \"**Metadata Update from @phsmoura**:\\\
-        n- Issue priority set to: Waiting on Assignee (was: Needs Review)\\n- Issue\
-        \ tagged with: low-trouble, medium-gain, ops\", \n          \"date_created\"\
-        : \"1734033808\", \n          \"edited_on\": null, \n          \"editor\"\
-        : null, \n          \"id\": 948283, \n          \"notification\": true, \n\
-        \          \"parent\": null, \n          \"reactions\": {}, \n          \"\
-        user\": {\n            \"full_url\": \"https://pagure.io/user/phsmoura\",\
-        \ \n            \"fullname\": \"Pedro Moura\", \n            \"name\": \"\
-        phsmoura\", \n            \"url_path\": \"user/phsmoura\"\n          }\n \
-        \       }, \n        {\n          \"comment\": \"**Metadata Update from @kevin**:\\\
-        n- Issue assigned to kevin\", \n          \"date_created\": \"1734033936\"\
-        , \n          \"edited_on\": null, \n          \"editor\": null, \n      \
-        \    \"id\": 948284, \n          \"notification\": true, \n          \"parent\"\
-        : null, \n          \"reactions\": {}, \n          \"user\": {\n         \
-        \   \"full_url\": \"https://pagure.io/user/kevin\", \n            \"fullname\"\
-        : \"Kevin Fenzi\", \n            \"name\": \"kevin\", \n            \"url_path\"\
-        : \"user/kevin\"\n          }\n        }, \n        {\n          \"comment\"\
-        : \"It seems that we don't have it. \\r\\n\\r\\nThe group setting has 2 bottons:\\\
-        r\\n\\r\\nPurchase Seats \\r\\n\\r\\nand\\r\\n\\r\\nContact Sales\\r\\n\\\
-        r\\nI guess they haven't enabled it for community things yet. \\r\\n\\r\\\
-        nThanks for the heads up though... and if you see them saying they are rolling\
-        \ it out more let us know and we can check for it. \\r\\n\", \n          \"\
-        date_created\": \"1734033981\", \n          \"edited_on\": null, \n      \
-        \    \"editor\": null, \n          \"id\": 948285, \n          \"notification\"\
-        : false, \n          \"parent\": null, \n          \"reactions\": {}, \n \
-        \         \"user\": {\n            \"full_url\": \"https://pagure.io/user/kevin\"\
-        , \n            \"fullname\": \"Kevin Fenzi\", \n            \"name\": \"\
-        kevin\", \n            \"url_path\": \"user/kevin\"\n          }\n       \
-        \ }, \n        {\n          \"comment\": \"**Metadata Update from @kevin**:\\\
-        n- Issue **un**tagged with: low-trouble, medium-gain, ops\\n- Issue close_status\
-        \ updated to: Fixed with Explanation\\n- Issue priority set to: Needs Review\
-        \ (was: Waiting on Assignee)\\n- Issue status updated to: Closed (was: Open)\"\
-        , \n          \"date_created\": \"1734033982\", \n          \"edited_on\"\
-        : null, \n          \"editor\": null, \n          \"id\": 948286, \n     \
-        \     \"notification\": true, \n          \"parent\": null, \n          \"\
-        reactions\": {}, \n          \"user\": {\n            \"full_url\": \"https://pagure.io/user/kevin\"\
-        , \n            \"fullname\": \"Kevin Fenzi\", \n            \"name\": \"\
-        kevin\", \n            \"url_path\": \"user/kevin\"\n          }\n       \
-        \ }\n      ], \n      \"content\": \"# Describe what you would like us to\
-        \ do:\\r\\n----\\r\\n[GitLab Duo](https://docs.gitlab.com/ee/user/gitlab_duo/)\
-        \ is a new \\\"feature\\\" that GitLab silently enabled automatically for\
-        \ everyone that adds some AI stuff, and may or may not use repo contents for\
-        \ training such AI (the ToS are ambiguous). In CentOS we've [decided](https://pagure.io/centos-infra/issue/1557)\
-        \ to disable it by default at the group level, so that individual repos need\
-        \ to turn it on explicitly if they want it. I would recommend Fedora to do\
-        \ the same for the [fedora](https://gitlab.com/fedora) GitLab group.\\r\\\
-        n\\r\\n# When do you need this to be done by? (YYYY/MM/DD)\\r\\n----\\r\\\
-        nasap\", \n      \"custom_fields\": [], \n      \"date_created\": \"1733996106\"\
-        , \n      \"depends\": [], \n      \"full_url\": \"https://pagure.io/fedora-infrastructure/issue/12332\"\
-        , \n      \"id\": 12332, \n      \"last_updated\": \"1734033982\", \n    \
-        \  \"milestone\": null, \n      \"priority\": 1, \n      \"private\": false,\
-        \ \n      \"related_prs\": [], \n      \"status\": \"Closed\", \n      \"\
-        tags\": [], \n      \"title\": \"Consider turning off GitLab Duo for the fedora\
-        \ group\", \n      \"user\": {\n        \"full_url\": \"https://pagure.io/user/dcavalca\"\
-        , \n        \"fullname\": \"Davide Cavalca\", \n        \"name\": \"dcavalca\"\
-        , \n        \"url_path\": \"user/dcavalca\"\n      }\n    }, \n    {\n   \
-        \   \"assignee\": {\n        \"full_url\": \"https://pagure.io/user/pingou\"\
-        , \n        \"fullname\": \"Pierre-YvesChibon\", \n        \"name\": \"pingou\"\
-        , \n        \"url_path\": \"user/pingou\"\n      }, \n      \"blocks\": [],\
-        \ \n      \"close_status\": \"Fixed\", \n      \"closed_at\": \"1734002992\"\
-        , \n      \"closed_by\": {\n        \"full_url\": \"https://pagure.io/user/pingou\"\
-        , \n        \"fullname\": \"Pierre-YvesChibon\", \n        \"name\": \"pingou\"\
-        , \n        \"url_path\": \"user/pingou\"\n      }, \n      \"comments\":\
-        \ [\n        {\n          \"comment\": \"I've cleaned up these users but I\
-        \ see a large number of projects that are matching the same pattern with random\
-        \ names and random descriptions. I fear these are all bots/spams.\\r\\n\\\
-        r\\nWe may want to spend a little time trying to clean some of these and block\
-        \ the corresponding account\", \n          \"date_created\": \"1734002973\"\
-        , \n          \"edited_on\": null, \n          \"editor\": null, \n      \
-        \    \"id\": 948252, \n          \"notification\": false, \n          \"parent\"\
-        : null, \n          \"reactions\": {}, \n          \"user\": {\n         \
-        \   \"full_url\": \"https://pagure.io/user/pingou\", \n            \"fullname\"\
-        : \"Pierre-YvesChibon\", \n            \"name\": \"pingou\", \n          \
-        \  \"url_path\": \"user/pingou\"\n          }\n        }, \n        {\n  \
-        \        \"comment\": \"**Metadata Update from @pingou**:\\n- Issue close_status\
-        \ updated to: Fixed\\n- Issue status updated to: Closed (was: Open)\", \n\
-        \          \"date_created\": \"1734002993\", \n          \"edited_on\": null,\
-        \ \n          \"editor\": null, \n          \"id\": 948253, \n          \"\
-        notification\": true, \n          \"parent\": null, \n          \"reactions\"\
-        : {}, \n          \"user\": {\n            \"full_url\": \"https://pagure.io/user/pingou\"\
-        , \n            \"fullname\": \"Pierre-YvesChibon\", \n            \"name\"\
-        : \"pingou\", \n            \"url_path\": \"user/pingou\"\n          }\n \
-        \       }\n      ], \n      \"content\": \"Just to track down users that I\
-        \ have blocked on pagure.io and disabled in IPA for spamming:\\r\\n\\r\\n-\
-        \ trunafinpos\\r\\n- usmask\\r\\n-  sajeguko4321\\r\\n- voiceover64\", \n\
-        \      \"custom_fields\": [], \n      \"date_created\": \"1733993959\", \n\
-        \      \"depends\": [], \n      \"full_url\": \"https://pagure.io/fedora-infrastructure/issue/12331\"\
-        , \n      \"id\": 12331, \n      \"last_updated\": \"1734002993\", \n    \
-        \  \"milestone\": null, \n      \"priority\": 1, \n      \"private\": false,\
-        \ \n      \"related_prs\": [], \n      \"status\": \"Closed\", \n      \"\
-        tags\": [], \n      \"title\": \"spam users on pagure\", \n      \"user\"\
-        : {\n        \"full_url\": \"https://pagure.io/user/pingou\", \n        \"\
-        fullname\": \"Pierre-YvesChibon\", \n        \"name\": \"pingou\", \n    \
-        \    \"url_path\": \"user/pingou\"\n      }\n    }\n  ], \n  \"pagination\"\
+        , \n        \"url_path\": \"user/dcavalca\"\n      }\n    }\n  ], \n  \"pagination\"\
         : {\n    \"first\": \"https://pagure.io/api/0/fedora-infrastructure/issues?per_page=35&status=all&page=1\"\
         , \n    \"last\": \"https://pagure.io/api/0/fedora-infrastructure/issues?per_page=35&status=all&page=346\"\
         , \n    \"next\": \"https://pagure.io/api/0/fedora-infrastructure/issues?per_page=35&status=all&page=2\"\
@@ -3522,16 +3645,16 @@ interactions:
       Connection:
       - Upgrade, Keep-Alive
       Content-Length:
-      - '246680'
+      - '255402'
       Content-Security-Policy:
-      - default-src 'self';script-src 'self' 'nonce-gYahbOrnpQtyYRp0jTyswlX5b'; style-src
-        'self' 'nonce-gYahbOrnpQtyYRp0jTyswlX5b'; object-src 'none';base-uri 'self';img-src
+      - default-src 'self';script-src 'self' 'nonce-2apiKdCF0lK7x6iPHAT9m0jwV'; style-src
+        'self' 'nonce-2apiKdCF0lK7x6iPHAT9m0jwV'; object-src 'none';base-uri 'self';img-src
         'self' https:;connect-src 'self' https://pagure.io:8088;frame-src https://docs.pagure.org;frame-ancestors
         https://pagure.io;
       Content-Type:
       - application/json
       Date:
-      - Mon, 20 Jan 2025 05:55:58 GMT
+      - Thu, 23 Jan 2025 09:40:51 GMT
       Keep-Alive:
       - timeout=5, max=100
       Referrer-Policy:
@@ -3575,18 +3698,206 @@ interactions:
         : \"Mike McGrath\", \n        \"name\": \"mmcgrath\", \n        \"url_path\"\
         : \"user/mmcgrath\"\n      }, \n      \"blocks\": [], \n      \"close_status\"\
         : \"Fixed\", \n      \"closed_at\": null, \n      \"closed_by\": null, \n\
-        \      \"comments\": [\n        {\n          \"comment\": \"Fixed.  Now links\
-        \ back to hosted main page.\", \n          \"date_created\": \"1183617483\"\
-        , \n          \"edited_on\": null, \n          \"editor\": null, \n      \
-        \    \"id\": 20561, \n          \"notification\": false, \n          \"parent\"\
+        \      \"comments\": [\n        {\n          \"comment\": \"We're all set.\
+        \  Backup pc has been removed and bacula is in place.  I'm still working out\
+        \ the right schedule.\", \n          \"date_created\": \"1186519214\", \n\
+        \          \"edited_on\": null, \n          \"editor\": null, \n         \
+        \ \"id\": 6451, \n          \"notification\": false, \n          \"parent\"\
         : null, \n          \"reactions\": {}, \n          \"user\": {\n         \
         \   \"full_url\": \"https://pagure.io/user/mmcgrath\", \n            \"fullname\"\
         : \"Mike McGrath\", \n            \"name\": \"mmcgrath\", \n            \"\
         url_path\": \"user/mmcgrath\"\n          }\n        }\n      ], \n      \"\
-        content\": \"The Fedora Infrastructure header image at the top of the Trac\
-        \ pages still links to http://example.org/\\r\\n\\r\\nIt should link to the\
-        \ main Trac wiki page or http://fedoraproject.org/wiki/Infrastructure/\",\
-        \ \n      \"custom_fields\": [], \n      \"date_created\": \"1183596699\"\
+        content\": \"Currently blocking on: https://bugzilla.redhat.com/230344\",\
+        \ \n      \"custom_fields\": [], \n      \"date_created\": \"1183756816\"\
+        , \n      \"depends\": [], \n      \"full_url\": \"https://pagure.io/fedora-infrastructure/issue/13\"\
+        , \n      \"id\": 13, \n      \"last_updated\": \"1186519214\", \n      \"\
+        milestone\": null, \n      \"priority\": null, \n      \"private\": false,\
+        \ \n      \"related_prs\": [], \n      \"status\": \"Closed\", \n      \"\
+        tags\": [], \n      \"title\": \"Transition to Bacula\", \n      \"user\"\
+        : {\n        \"full_url\": \"https://pagure.io/user/mmcgrath\", \n       \
+        \ \"fullname\": \"Mike McGrath\", \n        \"name\": \"mmcgrath\", \n   \
+        \     \"url_path\": \"user/mmcgrath\"\n      }\n    }, \n    {\n      \"assignee\"\
+        : {\n        \"full_url\": \"https://pagure.io/user/mmcgrath\", \n       \
+        \ \"fullname\": \"Mike McGrath\", \n        \"name\": \"mmcgrath\", \n   \
+        \     \"url_path\": \"user/mmcgrath\"\n      }, \n      \"blocks\": [], \n\
+        \      \"close_status\": \"Fixed\", \n      \"closed_at\": null, \n      \"\
+        closed_by\": null, \n      \"comments\": [\n        {\n          \"comment\"\
+        : \"Same as 25\", \n          \"date_created\": \"1185851711\", \n       \
+        \   \"edited_on\": null, \n          \"editor\": null, \n          \"id\"\
+        : 22076, \n          \"notification\": false, \n          \"parent\": null,\
+        \ \n          \"reactions\": {}, \n          \"user\": {\n            \"full_url\"\
+        : \"https://pagure.io/user/mmcgrath\", \n            \"fullname\": \"Mike\
+        \ McGrath\", \n            \"name\": \"mmcgrath\", \n            \"url_path\"\
+        : \"user/mmcgrath\"\n          }\n        }\n      ], \n      \"content\"\
+        : \"db1 and the creation of db2 will occur on Monday July 9th.  We'll be upgrading\
+        \ systems.  All tests show that this should go off without a hitch.\", \n\
+        \      \"custom_fields\": [], \n      \"date_created\": \"1183756660\", \n\
+        \      \"depends\": [], \n      \"full_url\": \"https://pagure.io/fedora-infrastructure/issue/12\"\
+        , \n      \"id\": 12, \n      \"last_updated\": \"1185851711\", \n      \"\
+        milestone\": null, \n      \"priority\": null, \n      \"private\": false,\
+        \ \n      \"related_prs\": [], \n      \"status\": \"Closed\", \n      \"\
+        tags\": [], \n      \"title\": \"db1 upgrade\", \n      \"user\": {\n    \
+        \    \"full_url\": \"https://pagure.io/user/mmcgrath\", \n        \"fullname\"\
+        : \"Mike McGrath\", \n        \"name\": \"mmcgrath\", \n        \"url_path\"\
+        : \"user/mmcgrath\"\n      }\n    }, \n    {\n      \"assignee\": {\n    \
+        \    \"full_url\": \"https://pagure.io/user/mmcgrath\", \n        \"fullname\"\
+        : \"Mike McGrath\", \n        \"name\": \"mmcgrath\", \n        \"url_path\"\
+        : \"user/mmcgrath\"\n      }, \n      \"blocks\": [], \n      \"close_status\"\
+        : \"Fixed\", \n      \"closed_at\": null, \n      \"closed_by\": null, \n\
+        \      \"comments\": [\n        {\n          \"comment\": \"This is picked.\
+        \  I'll be sending out a notification soon.\", \n          \"date_created\"\
+        : \"1183756405\", \n          \"edited_on\": null, \n          \"editor\"\
+        : null, \n          \"id\": 14342, \n          \"notification\": false, \n\
+        \          \"parent\": null, \n          \"reactions\": {}, \n          \"\
+        user\": {\n            \"full_url\": \"https://pagure.io/user/mmcgrath\",\
+        \ \n            \"fullname\": \"Mike McGrath\", \n            \"name\": \"\
+        mmcgrath\", \n            \"url_path\": \"user/mmcgrath\"\n          }\n \
+        \       }\n      ], \n      \"content\": \"OTRS just wasn't cutting it.  Lets\
+        \ try trac!\", \n      \"custom_fields\": [], \n      \"date_created\": \"\
+        1183756318\", \n      \"depends\": [], \n      \"full_url\": \"https://pagure.io/fedora-infrastructure/issue/11\"\
+        , \n      \"id\": 11, \n      \"last_updated\": \"1183756405\", \n      \"\
+        milestone\": null, \n      \"priority\": null, \n      \"private\": false,\
+        \ \n      \"related_prs\": [], \n      \"status\": \"Closed\", \n      \"\
+        tags\": [], \n      \"title\": \"New Ticketing system\", \n      \"user\"\
+        : {\n        \"full_url\": \"https://pagure.io/user/mmcgrath\", \n       \
+        \ \"fullname\": \"Mike McGrath\", \n        \"name\": \"mmcgrath\", \n   \
+        \     \"url_path\": \"user/mmcgrath\"\n      }\n    }, \n    {\n      \"assignee\"\
+        : {\n        \"full_url\": \"https://pagure.io/user/mmcgrath\", \n       \
+        \ \"fullname\": \"Mike McGrath\", \n        \"name\": \"mmcgrath\", \n   \
+        \     \"url_path\": \"user/mmcgrath\"\n      }, \n      \"blocks\": [], \n\
+        \      \"close_status\": \"Fixed\", \n      \"closed_at\": null, \n      \"\
+        closed_by\": null, \n      \"comments\": [\n        {\n          \"comment\"\
+        : \"I'm actually almost done with this already.\", \n          \"date_created\"\
+        : \"1183757406\", \n          \"edited_on\": null, \n          \"editor\"\
+        : null, \n          \"id\": 14785, \n          \"notification\": false, \n\
+        \          \"parent\": null, \n          \"reactions\": {}, \n          \"\
+        user\": {\n            \"full_url\": \"https://pagure.io/user/mmcgrath\",\
+        \ \n            \"fullname\": \"Mike McGrath\", \n            \"name\": \"\
+        mmcgrath\", \n            \"url_path\": \"user/mmcgrath\"\n          }\n \
+        \       }, \n        {\n          \"comment\": \"Its updated, there are currently\
+        \ 4 plugins that need to be installed with our standard hosted install, git,\
+        \ mercurial, webadmin, and the toc macro.\\r\\n\\r\\nI'll be shutting down\
+        \ publictest3 now but not deleting it (in case anything goes wrong)  \", \n\
+        \          \"date_created\": \"1184623484\", \n          \"edited_on\": null,\
+        \ \n          \"editor\": null, \n          \"id\": 14784, \n          \"\
+        notification\": false, \n          \"parent\": null, \n          \"reactions\"\
+        : {}, \n          \"user\": {\n            \"full_url\": \"https://pagure.io/user/mmcgrath\"\
+        , \n            \"fullname\": \"Mike McGrath\", \n            \"name\": \"\
+        mmcgrath\", \n            \"url_path\": \"user/mmcgrath\"\n          }\n \
+        \       }\n      ], \n      \"content\": \"Hosted needs to be moved to our\
+        \ production environment.\\r\\n\\r\\nIt will be running on RHEL5.  Jesse just\
+        \ got the git and mercurial plugins built.  It will be stored on xen6 (though\
+        \ the image may be compressed)\", \n      \"custom_fields\": [], \n      \"\
+        date_created\": \"1183755997\", \n      \"depends\": [], \n      \"full_url\"\
+        : \"https://pagure.io/fedora-infrastructure/issue/10\", \n      \"id\": 10,\
+        \ \n      \"last_updated\": \"1184623484\", \n      \"milestone\": null, \n\
+        \      \"priority\": null, \n      \"private\": false, \n      \"related_prs\"\
+        : [], \n      \"status\": \"Closed\", \n      \"tags\": [], \n      \"title\"\
+        : \"Hosted Cluster\", \n      \"user\": {\n        \"full_url\": \"https://pagure.io/user/mmcgrath\"\
+        , \n        \"fullname\": \"Mike McGrath\", \n        \"name\": \"mmcgrath\"\
+        , \n        \"url_path\": \"user/mmcgrath\"\n      }\n    }, \n    {\n   \
+        \   \"assignee\": {\n        \"full_url\": \"https://pagure.io/user/mmcgrath\"\
+        , \n        \"fullname\": \"Mike McGrath\", \n        \"name\": \"mmcgrath\"\
+        , \n        \"url_path\": \"user/mmcgrath\"\n      }, \n      \"blocks\":\
+        \ [], \n      \"close_status\": \"Fixed\", \n      \"closed_at\": null, \n\
+        \      \"closed_by\": null, \n      \"comments\": [\n        {\n         \
+        \ \"comment\": \"Moving this to Fedora 9.  Its just too late in the cycle\
+        \ to implement (it was too late even months ago)\", \n          \"date_created\"\
+        : \"1193347621\", \n          \"edited_on\": null, \n          \"editor\"\
+        : null, \n          \"id\": 14220, \n          \"notification\": false, \n\
+        \          \"parent\": null, \n          \"reactions\": {}, \n          \"\
+        user\": {\n            \"full_url\": \"https://pagure.io/user/mmcgrath\",\
+        \ \n            \"fullname\": \"Mike McGrath\", \n            \"name\": \"\
+        mmcgrath\", \n            \"url_path\": \"user/mmcgrath\"\n          }\n \
+        \       }, \n        {\n          \"comment\": \"Closing this, since we're\
+        \ no longer using LDAP.\", \n          \"date_created\": \"1203771959\", \n\
+        \          \"edited_on\": null, \n          \"editor\": null, \n         \
+        \ \"id\": 14221, \n          \"notification\": false, \n          \"parent\"\
+        : null, \n          \"reactions\": {}, \n          \"user\": {\n         \
+        \   \"full_url\": \"https://pagure.io/user/ricky\", \n            \"fullname\"\
+        : \"Ricky Zhou (\\u5468\\u5bb6\\u6770)\", \n            \"name\": \"ricky\"\
+        , \n            \"url_path\": \"user/ricky\"\n          }\n        }\n   \
+        \   ], \n      \"content\": \"The next version of the Fedora Accounts system\
+        \ uses LDAP. Some of its work is already completed.  The source can be found\
+        \ here:\\r\\n\\r\\nhttp://git.fedoraproject.org/hosted/fedora-infrastructure.git/fas/\\\
+        r\\n\\r\\nThe current app can be found at:\\r\\n\\r\\nhttps://admin.fedoraproject.org/fas/\\\
+        r\\n\\r\\nMore info at:\\r\\n\\r\\nhttp://fedoraproject.org/wiki/Infrastructure/AccountSystem2\"\
+        , \n      \"custom_fields\": [], \n      \"date_created\": \"1183755811\"\
+        , \n      \"depends\": [], \n      \"full_url\": \"https://pagure.io/fedora-infrastructure/issue/9\"\
+        , \n      \"id\": 9, \n      \"last_updated\": \"1203771959\", \n      \"\
+        milestone\": null, \n      \"priority\": null, \n      \"private\": false,\
+        \ \n      \"related_prs\": [], \n      \"status\": \"Closed\", \n      \"\
+        tags\": [], \n      \"title\": \"Fedora Accounts System - LDAP\", \n     \
+        \ \"user\": {\n        \"full_url\": \"https://pagure.io/user/mmcgrath\",\
+        \ \n        \"fullname\": \"Mike McGrath\", \n        \"name\": \"mmcgrath\"\
+        , \n        \"url_path\": \"user/mmcgrath\"\n      }\n    }, \n    {\n   \
+        \   \"assignee\": null, \n      \"blocks\": [], \n      \"close_status\":\
+        \ \"Fixed\", \n      \"closed_at\": null, \n      \"closed_by\": null, \n\
+        \      \"comments\": [\n        {\n          \"comment\": \"Jeremy and I are\
+        \ working to get this figured out.  Jeremy did recently get commit notifications\
+        \ working.  He's still testing on it but I'll keep you informed.\", \n   \
+        \       \"date_created\": \"1183933250\", \n          \"edited_on\": null,\
+        \ \n          \"editor\": null, \n          \"id\": 8315, \n          \"notification\"\
+        : false, \n          \"parent\": null, \n          \"reactions\": {}, \n \
+        \         \"user\": {\n            \"full_url\": \"https://pagure.io/user/mmcgrath\"\
+        , \n            \"fullname\": \"Mike McGrath\", \n            \"name\": \"\
+        mmcgrath\", \n            \"url_path\": \"user/mmcgrath\"\n          }\n \
+        \       }, \n        {\n          \"comment\": \"Transifex is in place with\
+        \ transifex{cvs,svn,hg,git} accounts on all our VCSs.\\r\\n\\r\\nNotifications\
+        \ seem to work for git, but not yet for hg.\", \n          \"date_created\"\
+        : \"1190950585\", \n          \"edited_on\": null, \n          \"editor\"\
+        : null, \n          \"id\": 8314, \n          \"notification\": false, \n\
+        \          \"parent\": null, \n          \"reactions\": {}, \n          \"\
+        user\": {\n            \"full_url\": \"https://pagure.io/user/glezos\", \n\
+        \            \"fullname\": \"Dimitris Glezos\", \n            \"name\": \"\
+        glezos\", \n            \"url_path\": \"user/glezos\"\n          }\n     \
+        \   }, \n        {\n          \"comment\": \"Mercurial notifications should\
+        \ be working, see [http://fedoraproject.org/wiki/Infrastructure/ProjectHosting/RepositorySetup#head-bc6b70636b0450dcfda2cae515c4236105a58f8a\
+        \ the wiki] for information on how to set it up.\", \n          \"date_created\"\
+        : \"1204166628\", \n          \"edited_on\": null, \n          \"editor\"\
+        : null, \n          \"id\": 8313, \n          \"notification\": false, \n\
+        \          \"parent\": null, \n          \"reactions\": {}, \n          \"\
+        user\": {\n            \"full_url\": \"https://pagure.io/user/jcollie\", \n\
+        \            \"fullname\": \"Jeffrey C. Ollie\", \n            \"name\": \"\
+        jcollie\", \n            \"url_path\": \"user/jcollie\"\n          }\n   \
+        \     }, \n        {\n          \"comment\": \"I think we have VCS notifications\
+        \ working for the most part.  Feel free to reopen if I missed something.\"\
+        , \n          \"date_created\": \"1223078341\", \n          \"edited_on\"\
+        : null, \n          \"editor\": null, \n          \"id\": 8312, \n       \
+        \   \"notification\": false, \n          \"parent\": null, \n          \"\
+        reactions\": {}, \n          \"user\": {\n            \"full_url\": \"https://pagure.io/user/ricky\"\
+        , \n            \"fullname\": \"Ricky Zhou (\\u5468\\u5bb6\\u6770)\", \n \
+        \           \"name\": \"ricky\", \n            \"url_path\": \"user/ricky\"\
+        \n          }\n        }\n      ], \n      \"content\": \"For Fedora Translations\
+        \ (transifex), we need to give FAS user fedoral10n access to the GIT source\
+        \ repository module 'revisor', but only *.po files in the po/ directory. Creation\
+        \ of files matchting the po/*.po pattern should be allowed also. Source would\
+        \ be the translate.fedoraproject.org website/server.\", \n      \"custom_fields\"\
+        : [], \n      \"date_created\": \"1183691443\", \n      \"depends\": [], \n\
+        \      \"full_url\": \"https://pagure.io/fedora-infrastructure/issue/8\",\
+        \ \n      \"id\": 8, \n      \"last_updated\": \"1223078341\", \n      \"\
+        milestone\": null, \n      \"priority\": null, \n      \"private\": false,\
+        \ \n      \"related_prs\": [], \n      \"status\": \"Closed\", \n      \"\
+        tags\": [], \n      \"title\": \"Get VCS notifications working\", \n     \
+        \ \"user\": {\n        \"full_url\": \"https://pagure.io/user/kanarip\", \n\
+        \        \"fullname\": \"Jeroen van Meeuwen\", \n        \"name\": \"kanarip\"\
+        , \n        \"url_path\": \"user/kanarip\"\n      }\n    }, \n    {\n    \
+        \  \"assignee\": {\n        \"full_url\": \"https://pagure.io/user/mmcgrath\"\
+        , \n        \"fullname\": \"Mike McGrath\", \n        \"name\": \"mmcgrath\"\
+        , \n        \"url_path\": \"user/mmcgrath\"\n      }, \n      \"blocks\":\
+        \ [], \n      \"close_status\": \"Fixed\", \n      \"closed_at\": null, \n\
+        \      \"closed_by\": null, \n      \"comments\": [\n        {\n         \
+        \ \"comment\": \"Fixed.  Now links back to hosted main page.\", \n       \
+        \   \"date_created\": \"1183617483\", \n          \"edited_on\": null, \n\
+        \          \"editor\": null, \n          \"id\": 20561, \n          \"notification\"\
+        : false, \n          \"parent\": null, \n          \"reactions\": {}, \n \
+        \         \"user\": {\n            \"full_url\": \"https://pagure.io/user/mmcgrath\"\
+        , \n            \"fullname\": \"Mike McGrath\", \n            \"name\": \"\
+        mmcgrath\", \n            \"url_path\": \"user/mmcgrath\"\n          }\n \
+        \       }\n      ], \n      \"content\": \"The Fedora Infrastructure header\
+        \ image at the top of the Trac pages still links to http://example.org/\\\
+        r\\n\\r\\nIt should link to the main Trac wiki page or http://fedoraproject.org/wiki/Infrastructure/\"\
+        , \n      \"custom_fields\": [], \n      \"date_created\": \"1183596699\"\
         , \n      \"depends\": [], \n      \"full_url\": \"https://pagure.io/fedora-infrastructure/issue/7\"\
         , \n      \"id\": 7, \n      \"last_updated\": \"1183617483\", \n      \"\
         milestone\": null, \n      \"priority\": null, \n      \"private\": false,\
@@ -3770,21 +4081,21 @@ interactions:
         , \n    \"last\": \"https://pagure.io/api/0/fedora-infrastructure/issues?per_page=35&status=all&page=346\"\
         , \n    \"next\": null, \n    \"page\": 346, \n    \"pages\": 346, \n    \"\
         per_page\": 35, \n    \"prev\": \"https://pagure.io/api/0/fedora-infrastructure/issues?per_page=35&status=all&page=345\"\
-        \n  }, \n  \"total_issues\": 7\n}\n"
+        \n  }, \n  \"total_issues\": 13\n}\n"
     headers:
       Connection:
       - Upgrade, Keep-Alive
       Content-Length:
-      - '13913'
+      - '26877'
       Content-Security-Policy:
-      - default-src 'self';script-src 'self' 'nonce-3IN1435lFl8njoesQrJz3DEcp'; style-src
-        'self' 'nonce-3IN1435lFl8njoesQrJz3DEcp'; object-src 'none';base-uri 'self';img-src
+      - default-src 'self';script-src 'self' 'nonce-Nr45IRl5QPx83KUTOaWzYHnvt'; style-src
+        'self' 'nonce-Nr45IRl5QPx83KUTOaWzYHnvt'; object-src 'none';base-uri 'self';img-src
         'self' https:;connect-src 'self' https://pagure.io:8088;frame-src https://docs.pagure.org;frame-ancestors
         https://pagure.io;
       Content-Type:
       - application/json
       Date:
-      - Mon, 20 Jan 2025 05:56:10 GMT
+      - Thu, 23 Jan 2025 09:40:55 GMT
       Keep-Alive:
       - timeout=5, max=100
       Referrer-Policy:

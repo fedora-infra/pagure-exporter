@@ -21,7 +21,7 @@ be used or replicated with the express permission of Red Hat, Inc.
 """
 
 
-from datetime import datetime
+from datetime import datetime, timezone
 from os import environ as envr
 from time import time
 from unittest.mock import Mock
@@ -94,7 +94,7 @@ def test_unit_gitlab_itertkts(caplog, data, rslt):
     [
         pytest.param(
             {
-                "comment": f"This test comment with broken links was created on {datetime.utcfromtimestamp(int(time())).strftime('%c')}.",  # noqa: E501
+                "comment": f"This test comment with broken links was created on {datetime.fromtimestamp(int(time()), timezone.utc).strftime('%c')}.",  # noqa: E501
                 "date_created": str(int(time())),
                 "edited_on": None,
                 "editor": None,

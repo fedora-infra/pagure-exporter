@@ -24,17 +24,25 @@ be used or replicated with the express permission of Red Hat, Inc.
 from ..conf import standard
 
 
-def storeinf(srce, dest, pkey, gkey, fusr, tusr):
+def storeinf(platform, srce, dest, pkey, gkey, fusr, tusr):
     standard.srcename = srce
     standard.destname = dest
-    standard.pagucode = pkey
+    standard.srcecode = pkey
     standard.gtlbcode = gkey
-    standard.paguuser = fusr
+    standard.srceuser = fusr
     standard.gtlbuser = tusr
+    standard.srcelink = keepplatform(platform)
 
 
 def keepbrcs(brcs):
     standard.brtocopy = list(brcs)
+
+
+def keepplatform(platform):
+    if platform == "pagure":
+        return standard.pagulink
+    else:
+        return standard.centoslink
 
 
 def keeptkts(status, tktgroup, comments, labels, commit, secret, series):

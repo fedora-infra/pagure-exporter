@@ -151,7 +151,7 @@ def test_unit_gitlab_itercmts(caplog, data, rslt):
     ]
 )
 def test_unit_gitlab_iterstat(caplog, srce, dest, pkey, gkey, fusr, tusr, root, tkid, shut, rslt):
-    standard.paguuser, standard.pagucode, standard.srcename = fusr, pkey, srce
+    standard.srceuser, standard.srcecode, standard.srcename = fusr, pkey, srce
     standard.gtlbuser, standard.gtlbcode, standard.destname = tusr, gkey, dest
     standard.gtlbtkid, standard.gtlblink, standard.isclosed = tkid, root, shut
     test_movetkts = MoveTkts()

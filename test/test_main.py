@@ -21,6 +21,8 @@ be used or replicated with the express permission of Red Hat, Inc.
 """
 
 
+import re
+
 import pytest
 from click.testing import CliRunner
 
@@ -37,6 +39,7 @@ from pagure_exporter.main import main
                 "Usage: pagure_exporter [OPTIONS] COMMAND [ARGS]...",
                 "Options:",
                 "Pagure Exporter",
+                "Source Git platform name",
                 "Source namespace for importing assets from",
                 "Destination namespace for exporting assets to",
                 "Pagure API key for accessing the source namespace",
@@ -49,7 +52,7 @@ from pagure_exporter.main import main
             id="Basic help",
         ),
         pytest.param(
-            "-s a -d a -p a -g a -f a -t a tkts --help",
+            "-gp pagure -s a -d a -p a -g a -f a -t a tkts --help",
             0,
             [
                 "Usage: pagure_exporter tkts [OPTIONS]",
@@ -66,7 +69,7 @@ from pagure_exporter.main import main
             id="Tickets help",
         ),
         pytest.param(
-            "-s a -d a -p a -g a -f a -t a repo --help",
+            "-gp pagure -s a -d a -p a -g a -f a -t a repo --help",
             0,
             [
                 "Usage: pagure_exporter repo [OPTIONS]",
@@ -78,7 +81,7 @@ from pagure_exporter.main import main
             id="Repositories help",
         ),
         pytest.param(
-            "-s a -d a -p a -g a -f a -t a tkts --select 4,2,0 --ranges 6 9",
+            "-gp pagure -s a -d a -p a -g a -f a -t a tkts --select 4,2,0 --ranges 6 9",
             2,
             [
                 "Usage: pagure_exporter tkts [OPTIONS]",
@@ -88,7 +91,7 @@ from pagure_exporter.main import main
             id="Using `select` and `ranges` options together",
         ),
         pytest.param(
-            "-s a -d a -p a -g a -f a -t a tkts --select string",
+            "-gp pagure -s a -d a -p a -g a -f a -t a tkts --select string",
             2,
             [
                 "Usage: pagure_exporter tkts [OPTIONS]",
@@ -98,7 +101,7 @@ from pagure_exporter.main import main
             id="Providing invalid string input to the `select` option",
         ),
         pytest.param(
-            "-s a -d a -p a -g a -f a -t a tkts --ranges strA strB",
+            "-gp pagure -s a -d a -p a -g a -f a -t a tkts --ranges strA strB",
             2,
             [
                 "Usage: pagure_exporter tkts [OPTIONS]",
@@ -108,25 +111,25 @@ from pagure_exporter.main import main
             id="Providing invalid string input to the `ranges` option",
         ),
         pytest.param(
-            "-s a -d a -p a -g a -f a -t a tkts --select",
+            "-gp pagure -s a -d a -p a -g a -f a -t a tkts --select",
             2,
             ["Error: Option '--select' requires an argument."],
             id="Providing empty input to the `select` option",
         ),
         pytest.param(
-            "-s a -d a -p a -g a -f a -t a tkts --ranges",
+            "-gp pagure -s a -d a -p a -g a -f a -t a tkts --ranges",
             2,
             ["Error: Option '--ranges' requires 2 arguments."],
             id="Providing empty input to the `ranges` option",
         ),
         pytest.param(
-            "-s a -d a -p a -g a -f a -t a repo --brcs",
+            "-gp pagure -s a -d a -p a -g a -f a -t a repo --brcs",
             2,
             ["Error: Option '--brcs' requires an argument."],
             id="Providing empty input to the `brcs` option",
         ),
         pytest.param(
-            "-s a -d a -p a -g a -f a -t a",
+            "-gp pagure -s a -d a -p a -g a -f a -t a",
             2,
             [
                 "Usage: pagure_exporter [OPTIONS] COMMAND [ARGS]...",
@@ -141,5 +144,6 @@ def test_main_help(cmdl, code, text):
     runner = CliRunner()
     result = runner.invoke(main, cmdl)
     assert result.exit_code == code  # noqa: S101
+    helptext = " ".join(re.split(r'\s+', result.output.strip()))
     for indx in text:
-        assert indx in result.output  # noqa: S101
+        assert indx in helptext  # noqa: S101

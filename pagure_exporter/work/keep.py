@@ -21,7 +21,10 @@ be used or replicated with the express permission of Red Hat, Inc.
 """
 
 
+import sys
+
 from ..conf import standard
+from ..view.dcrt import failure
 
 
 def storeinf(platform, srce, dest, pkey, gkey, fusr, tusr):
@@ -31,7 +34,7 @@ def storeinf(platform, srce, dest, pkey, gkey, fusr, tusr):
     standard.gtlbcode = gkey
     standard.srceuser = fusr
     standard.gtlbuser = tusr
-    standard.srcelink = keepplatform(platform)
+    standard.srcelink, standard.frgesrce = keepplatform(platform)
 
 
 def keepbrcs(brcs):
@@ -40,9 +43,12 @@ def keepbrcs(brcs):
 
 def keepplatform(platform):
     if platform == "pagure":
-        return standard.pagulink
+        return standard.pagulink, "pagure.io"
+    elif platform == "centos":
+        return standard.centoslink, "git.centos.org"
     else:
-        return standard.centoslink
+        failure("Invalid Source Git platform name")
+        sys.exit(1)
 
 
 def keeptkts(status, tktgroup, comments, labels, commit, secret, series):

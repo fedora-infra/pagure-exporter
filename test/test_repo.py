@@ -35,7 +35,7 @@ from pagure_exporter.view.dcrt import conceal
     "cmdl, code, text",
     [
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo",  # noqa: E501
+            f"--pfm {envr['TEST_PFM']} --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo",  # noqa: E501
             0,
             [
                 "[ BUSY ] Attempting source namespace assets clone...",
@@ -65,7 +65,7 @@ from pagure_exporter.view.dcrt import conceal
             id="Migrating repository contents with specifying zero valid branch names",
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo --brcs test-aaaa,test-bbbb,test-cccc,test-dddd",  # noqa: E501
+            f"--pfm {envr['TEST_PFM']} --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo --brcs test-aaaa,test-bbbb,test-cccc,test-dddd",  # noqa: E501
             0,
             [
                 "[ BUSY ] Attempting source namespace assets clone...",
@@ -91,7 +91,7 @@ from pagure_exporter.view.dcrt import conceal
             id="Migrating repository contents with specifying four valid branch names",
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo --brcs test-aaaa,test-bbbb,test-cxxc,test-dxxd",  # noqa: E501
+            f"--pfm {envr['TEST_PFM']} --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo --brcs test-aaaa,test-bbbb,test-cxxc,test-dxxd",  # noqa: E501
             2,
             [
                 "[ BUSY ] Attempting source namespace assets clone...",
@@ -117,7 +117,7 @@ from pagure_exporter.view.dcrt import conceal
             id="Migrating repository contents with specifying two valid branch names and two invalid branch names",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo --brcs test-axxa,test-bxxb,test-cxxc,test-dxxd",  # noqa: E501
+            f"--pfm {envr['TEST_PFM']} --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo --brcs test-axxa,test-bxxb,test-cxxc,test-dxxd",  # noqa: E501
             1,
             [
                 "[ BUSY ] Attempting source namespace assets clone...",
@@ -143,7 +143,7 @@ from pagure_exporter.view.dcrt import conceal
             id="Migrating repository contents with specifying four invalid branch names",
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo",  # noqa: E501
+            f"--pfm {envr['TEST_PFM']} --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo",  # noqa: E501
             0,
             [
                 f"Address: https://{envr['TEST_FUSR']}:{conceal(envr['TEST_PKEY'])}@pagure.io/{envr['TEST_SRCE']}.git",  # noqa: E501
@@ -151,7 +151,7 @@ from pagure_exporter.view.dcrt import conceal
             id="Checking the correctness of metadata censorship for source namespace",
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo",  # noqa: E501
+            f"--pfm {envr['TEST_PFM']} --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo",  # noqa: E501
             0,
             [
                 f"Address: https://{envr['TEST_TUSR']}:{conceal(envr['TEST_GKEY'])}@gitlab.com/{envr['TEST_TUSR']}",  # noqa: E501
@@ -177,7 +177,7 @@ def test_main_repo(caplog, cmdl, code, text):
     "cmdl, code, text",
     [
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo",  # noqa: E501
+            f"--pfm {envr['TEST_PFM']} --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo",  # noqa: E501
             1,
             [
                 "[ BUSY ] Requesting for source namespace metadata...",

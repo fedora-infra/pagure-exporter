@@ -62,10 +62,10 @@ from pagure_exporter.work.repo import PushRepo
     ],
 )
 def test_unit_downsrce(caplog, srcename, destname, gkey, pkey, fusr, tusr, rslt):
-    standard.paguuser, standard.pagucode = fusr, pkey
+    standard.srceuser, standard.srcecode = fusr, pkey
     standard.gtlbuser, standard.gtlbcode = tusr, gkey
     standard.srcehuto = (
-        f"https://{standard.paguuser}:{standard.pagucode}@{standard.frgesrce}/{srcename}.git"
+        f"https://{standard.srceuser}:{standard.srcecode}@{standard.frgesrce}/{srcename}.git"
     )
     standard.desthuto = (
         f"https://{standard.gtlbuser}:{standard.gtlbcode}@{standard.frgedest}/{destname}.git"
@@ -99,10 +99,10 @@ def test_unit_downsrce(caplog, srcename, destname, gkey, pkey, fusr, tusr, rslt)
     ],
 )
 def test_unit_downdest(caplog, srcename, destname, gkey, pkey, fusr, tusr, rslt):
-    standard.paguuser, standard.pagucode = fusr, pkey
+    standard.srceuser, standard.srcecode = fusr, pkey
     standard.gtlbuser, standard.gtlbcode = tusr, gkey
     standard.srcehuto = (
-        f"https://{standard.paguuser}:{standard.pagucode}@{standard.frgesrce}/{srcename}.git"
+        f"https://{standard.srceuser}:{standard.srcecode}@{standard.frgesrce}/{srcename}.git"
     )
     standard.desthuto = (
         f"https://{standard.gtlbuser}:{standard.gtlbcode}@{standard.frgedest}/{destname}.git"
@@ -140,10 +140,10 @@ def test_unit_downdest(caplog, srcename, destname, gkey, pkey, fusr, tusr, rslt)
     ],
 )
 def test_unit_cbrcsrce(caplog, srcename, destname, gkey, pkey, fusr, tusr, brcslist, pull, rslt):
-    standard.paguuser, standard.pagucode = fusr, pkey
+    standard.srcecode, standard.srcecode = fusr, pkey
     standard.gtlbuser, standard.gtlbcode = tusr, gkey
     standard.srcehuto = (
-        f"https://{standard.paguuser}:{standard.pagucode}@{standard.frgesrce}/{srcename}.git"
+        f"https://{standard.srceuser}:{standard.srcecode}@{standard.frgesrce}/{srcename}.git"
     )
     standard.desthuto = (
         f"https://{standard.gtlbuser}:{standard.gtlbcode}@{standard.frgedest}/{destname}.git"
@@ -185,10 +185,10 @@ def test_unit_cbrcsrce(caplog, srcename, destname, gkey, pkey, fusr, tusr, brcsl
     ],
 )
 def test_unit_cbrcdest(caplog, srcename, destname, gkey, pkey, fusr, tusr, pull, rslt):
-    standard.paguuser, standard.pagucode = fusr, pkey
+    standard.srceuser, standard.srcecode = fusr, pkey
     standard.gtlbuser, standard.gtlbcode = tusr, gkey
     standard.srcehuto = (
-        f"https://{standard.paguuser}:{standard.pagucode}@{standard.frgesrce}/{srcename}.git"
+        f"https://{standard.srceuser}:{standard.srcecode}@{standard.frgesrce}/{srcename}.git"
     )
     standard.desthuto = (
         f"https://{standard.gtlbuser}:{standard.gtlbcode}@{standard.frgedest}/{destname}.git"
@@ -280,10 +280,10 @@ def test_unit_cbrcdest(caplog, srcename, destname, gkey, pkey, fusr, tusr, pull,
     ],
 )
 def test_unit_tnfsrepo(caplog, srcename, destname, gkey, pkey, fusr, tusr, brcs, pull, rslt):
-    standard.paguuser, standard.pagucode = fusr, pkey
+    standard.srceuser, standard.srcecode = fusr, pkey
     standard.gtlbuser, standard.gtlbcode = tusr, gkey
     standard.srcehuto = (
-        f"https://{standard.paguuser}:{standard.pagucode}@{standard.frgesrce}/{srcename}.git"
+        f"https://{standard.srceuser}:{standard.srcecode}@{standard.frgesrce}/{srcename}.git"
     )
     standard.desthuto = (
         f"https://{standard.gtlbuser}:{standard.gtlbcode}@{standard.frgedest}/{destname}.git"

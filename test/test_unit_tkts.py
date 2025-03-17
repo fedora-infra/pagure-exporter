@@ -62,7 +62,7 @@ from pagure_exporter.work.tkts import MoveTkts
     ],
 )
 def test_unit_getcount(caplog, srce, dest, pkey, gkey, fusr, tusr, qant, stat, rslt):
-    standard.paguuser, standard.pagucode, standard.srcename = fusr, pkey, srce
+    standard.srceuser, standard.srcecode, standard.srcename = fusr, pkey, srce
     standard.gtlbuser, standard.gtlbcode, standard.destname = tusr, gkey, dest
     standard.tktstate = stat
     test_movetkts = MoveTkts()
@@ -110,7 +110,7 @@ def test_unit_getcount(caplog, srce, dest, pkey, gkey, fusr, tusr, qant, stat, r
     ],
 )
 def test_unit_getcount_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, root, rslt):
-    standard.paguuser, standard.pagucode, standard.srcename = fusr, pkey, srce
+    standard.srceuser, standard.srcecode, standard.srcename = fusr, pkey, srce
     standard.gtlbuser, standard.gtlbcode, standard.destname = tusr, gkey, dest
     standard.pagulink = root
     test_movetkts = MoveTkts()
@@ -167,7 +167,7 @@ def test_unit_getcount_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, root, rs
     ],
 )
 def test_unit_iterpage(caplog, srce, dest, pkey, gkey, fusr, tusr, size, indx, stat, rslt):
-    standard.paguuser, standard.pagucode, standard.srcename = fusr, pkey, srce
+    standard.srceuser, standard.srcecode, standard.srcename = fusr, pkey, srce
     standard.gtlbuser, standard.gtlbcode, standard.destname = tusr, gkey, dest
     standard.pagesize, standard.tktstate = size, stat
     test_movetkts = MoveTkts()
@@ -217,7 +217,7 @@ def test_unit_iterpage(caplog, srce, dest, pkey, gkey, fusr, tusr, size, indx, s
     ],
 )
 def test_unit_iterpage_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, root, rslt):
-    standard.paguuser, standard.pagucode, standard.srcename = fusr, pkey, srce
+    standard.srceuser, standard.srcecode, standard.srcename = fusr, pkey, srce
     standard.gtlbuser, standard.gtlbcode, standard.destname = tusr, gkey, dest
     standard.pagulink = root
     test_movetkts = MoveTkts()
@@ -274,7 +274,7 @@ def test_unit_iterpage_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, ro
     ],
 )
 def test_unit_iteriden(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, stat, skip, rslt):
-    standard.paguuser, standard.pagucode, standard.srcename = fusr, pkey, srce
+    standard.srceuser, standard.srcecode, standard.srcename = fusr, pkey, srce
     standard.gtlbuser, standard.gtlbcode, standard.destname = tusr, gkey, dest
     standard.tktstate = stat
     test_movetkts = MoveTkts()
@@ -327,7 +327,7 @@ def test_unit_iteriden(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, stat, s
     ],
 )
 def test_unit_iteriden_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, root, rslt):
-    standard.paguuser, standard.pagucode, standard.srcename = fusr, pkey, srce
+    standard.srceuser, standard.srcecode, standard.srcename = fusr, pkey, srce
     standard.gtlbuser, standard.gtlbcode, standard.destname = tusr, gkey, dest
     standard.pagulink = root
     test_movetkts = MoveTkts()
@@ -453,18 +453,18 @@ def test_unit_itertkts(
         tags,
         rslt
 ):
-    standard.paguuser, standard.pagucode, standard.srcename = fusr, pkey, srce
+    standard.srceuser, standard.srcecode, standard.srcename = fusr, pkey, srce
     standard.gtlbuser, standard.gtlbcode, standard.destname = tusr, gkey, dest
     standard.gtlblink, standard.movetags, standard.sequence = root, tags, True
 
     keepsake_gpro = standard.gpro
     standard.gpro = gtlb(
-            session=Session(),
-            url="https://gitlab.com",
-            private_token=standard.gtlbcode,
-            retry_transient_errors=True,
-            timeout=standard.rqsttime,
-        ).projects.get(id=standard.destname)
+        session=Session(),
+        url="https://gitlab.com",
+        private_token=standard.gtlbcode,
+        retry_transient_errors=True,
+        timeout=standard.rqsttime,
+    ).projects.get(id=standard.destname)
     test_movetkts = MoveTkts()
     assert rslt == test_movetkts.itertkts(data)[0]  # noqa: S101
 

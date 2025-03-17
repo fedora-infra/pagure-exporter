@@ -32,7 +32,7 @@ from ..conf import standard
 
 class MoveTkts:
     def __init__(self):
-        self.purl = f"{standard.pagulink}/{standard.srcename}"
+        self.purl = f"{standard.srcelink}/{standard.srcename}"
         self.gurl = f"{standard.gtlblink}/{standard.destname}"
         self.phed = {"Authorization": f"token {standard.srcecode}"}
         self.ghed = {"Authorization": f"Bearer {standard.gtlbcode}"}

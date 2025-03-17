@@ -45,7 +45,8 @@ def showtkts():
         qantrslt = moveobjc.getcount()
         if qantrslt[0] == 200:
             general(
-                f"Found {standard.tktcount} issue ticket(s) across {standard.pageqant} "
+                f"Found {standard.tktcount} issue ticket(s) across {
+                    standard.pageqant} "
                 f"page(s) in {qantrslt[2]} second(s)"
             )
             for indx in range(standard.pageqant):
@@ -55,18 +56,22 @@ def showtkts():
                 pagerslt = moveobjc.iterpage(indx + 1)
                 if pagerslt[0] == 200:
                     general(
-                        f"Found {len(standard.pagerslt)} issue ticket(s) on this "
+                        f"Found {len(standard.pagerslt)
+                                 } issue ticket(s) on this "
                         f"page in {pagerslt[2]} second(s)"
                     )
                     for jndx in standard.pagerslt:
                         issurslt = moveobjc.itertkts(jndx)
                         section(
                             f"Migrating issue ticket {'with' if standard.movetags else 'without'} "  # noqa: E501
-                            f"labels #{standard.issuiden} '{standard.issuname}' by "
-                            f"'{standard.authname} (ID {standard.authorid})'..."
+                            f"labels #{standard.issuiden} '{
+                                standard.issuname}' by "
+                            f"'{standard.authname} (ID {
+                                                    standard.authorid})'..."
                         )
                         if issurslt[0] == 201:
-                            general(f"Migrated to {issurslt[1]} in {issurslt[2]} second(s)")
+                            general(f"Migrated to {issurslt[1]} in {
+                                    issurslt[2]} second(s)")
                             if standard.movestat:
                                 section("Asserting issue ticket status...")
                                 statrslt = moveobjc.iterstat()
@@ -81,7 +86,8 @@ def showtkts():
                                 else:  # pragma: no cover
                                     # Tested already in `test_unit_itertkts`
                                     # From `test/test_unit_tkts`
-                                    failure("Issue ticket status assertion failed!")
+                                    failure(
+                                        "Issue ticket status assertion failed!")
                                     general(
                                         f"Failed due to code '{statrslt[0]}' and reason '{statrslt[1]}' "  # noqa: E501
                                         f"in {statrslt[2]} second(s)"
@@ -90,12 +96,14 @@ def showtkts():
                                 section("Reading comment information...")
                                 standard.issucmts = jndx["comments"]
                                 general(
-                                    f"Found {len(standard.issucmts)} entities in 0.00 second(s)"
+                                    f"Found {len(standard.issucmts)
+                                             } entities in 0.00 second(s)"
                                 )
                                 for kndx in standard.issucmts:
                                     cmtsrslt = moveobjc.itercmts(kndx)
                                     section(
-                                        f"Transferring comment (Entity {standard.cmtsqant} of "
+                                        f"Transferring comment (Entity {
+                                            standard.cmtsqant} of "
                                         f"{len(standard.issucmts)})..."
                                     )
                                     if cmtsrslt[0] == 201:
@@ -117,7 +125,8 @@ def showtkts():
                             # From `test/test_unit_tkts`
                             failure("Issue ticket migration failed!")
                             general(
-                                f"Failed due to code '{issurslt[0]}' and reason '{issurslt[1]}' "
+                                f"Failed due to code '{
+                                    issurslt[0]}' and reason '{issurslt[1]}' "
                                 f"in {issurslt[2]} second(s)"
                             )
                 else:  # pragma: no cover
@@ -144,15 +153,18 @@ def showtkts():
             section(f"Probing issue ticket #{indx}...")
             if tkidrslt[0] == 200:
                 if not tkidrslt[1]:
-                    general(f"Information retrieved in {tkidrslt[2]} second(s)")
+                    general(f"Information retrieved in {
+                            tkidrslt[2]} second(s)")
                     issurslt = moveobjc.itertkts(standard.issurslt)
                     section(
-                        f"Migrating issue ticket {'with' if standard.movetags else 'without'} "
+                        f"Migrating issue ticket {
+                            'with' if standard.movetags else 'without'} "
                         f"labels #{standard.issuiden} '{standard.issuname}' "
                         f"by '{standard.authname} (ID {standard.authorid})'..."
                     )
                     if issurslt[0] == 201:
-                        general(f"Migrated to {issurslt[1]} in {issurslt[2]} second(s)")
+                        general(f"Migrated to {issurslt[1]} in {
+                                issurslt[2]} second(s)")
                         if standard.movestat:
                             section("Asserting issue ticket status...")
                             statrslt = moveobjc.iterstat()
@@ -175,7 +187,8 @@ def showtkts():
                         if standard.movecmts:
                             section("Reading comment information...")
                             standard.issucmts = standard.issurslt["comments"]
-                            general(f"Found {len(standard.issucmts)} entities in 0.00 second(s)")
+                            general(
+                                f"Found {len(standard.issucmts)} entities in 0.00 second(s)")
                             for kndx in standard.issucmts:
                                 cmtsrslt = moveobjc.itercmts(kndx)
                                 section(
@@ -183,7 +196,8 @@ def showtkts():
                                 )
                                 if cmtsrslt[0] == 201:
                                     general(
-                                        f"Transferred to {cmtsrslt[1]} in {cmtsrslt[2]} second(s)"
+                                        f"Transferred to {cmtsrslt[1]} in {
+                                            cmtsrslt[2]} second(s)"
                                     )
                                 else:  # pragma: no cover
                                     # Tested already in `test_unit_itercmts`

@@ -32,12 +32,12 @@ from .work.keep import keepbrcs, keeptkts, storeinf
 
 @click.group(name="pagure_exporter")
 @click.option(
-    "-p",
-    "--platform",
+    "-gp",
+    "--pfm",
     "platform",
     type=click.Choice(["pagure", "centos"], case_sensitive=True),
     required=True,
-    help="Source provider name"
+    help="Source Git platform name"
 )
 @click.option(
     "-s",

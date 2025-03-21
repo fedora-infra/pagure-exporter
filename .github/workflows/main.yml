@@ -45,6 +45,7 @@ jobs:
         run: |
              su testrunner -c "tox -e ${{ matrix.tox-env }}"
         env:
+          TEST_PFM:  "${{secrets.TEST_PFM}}"
           TEST_SRCE: "${{ secrets.TEST_SRCE }}"
           TEST_DEST: "${{ secrets.TEST_DEST }}"
           TEST_PKEY: "${{ secrets.TEST_PKEY }}"

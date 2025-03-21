@@ -32,12 +32,12 @@ from .work.keep import keepbrcs, keeptkts, storeinf
 
 @click.group(name="pagure_exporter")
 @click.option(
-    "-gp",
+    "-n",
     "--pfm",
     "platform",
     type=click.Choice(["pagure", "centos"], case_sensitive=True),
     required=True,
-    help="Source Git platform name"
+    help="Source Git platform namespace"
 )
 @click.option(
     "-s",
@@ -167,8 +167,7 @@ def main(platform, srce, dest, pkey, gkey, fusr, tusr):
 )
 def main_transfer_tkts(status, select, ranges, comments, labels, commit, secret, series):
     if select is not None and ranges is not None:
-        raise click.UsageError(
-            "The `select` and `ranges` options cannot be used together")
+        raise click.UsageError("The `select` and `ranges` options cannot be used together")
 
     tktgroup = []
 

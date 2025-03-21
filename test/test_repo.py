@@ -154,7 +154,7 @@ from pagure_exporter.view.dcrt import conceal
             f"--pfm {envr['TEST_PFM']} --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo",  # noqa: E501
             0,
             [
-                f"Address: https://{envr['TEST_TUSR']}:{conceal(envr['TEST_GKEY'])}@gitlab.com/{envr['TEST_TUSR']}",  # noqa: E501
+                f"Address: https://{envr['TEST_TUSR']}:{conceal(envr['TEST_GKEY'])}@gitlab.com/{envr['TEST_DEST']}.git",  # noqa: E501
             ],
             id="Checking the correctness of metadata censorship for destination namespace",
         ),

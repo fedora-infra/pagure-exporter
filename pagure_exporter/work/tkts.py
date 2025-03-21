@@ -72,8 +72,7 @@ class MoveTkts:
                     if lastresp.status_code == 200:
                         lastdict = lastresp.json()
                         lastqant = int(lastdict["total_issues"])
-                        standard.tktcount = (
-                            standard.pageqant - 1) * standard.pagesize + lastqant
+                        standard.tktcount = (standard.pageqant - 1) * standard.pagesize + lastqant
             stoptime = time.time()
             timereqd = "%.2f" % (stoptime - strttime)
             return respcode, respresn, timereqd
@@ -114,8 +113,7 @@ class MoveTkts:
                 standard.issurslt = response.json()
                 # If the preferred ticket status is "FULL", all statuses must be addressed
                 if (
-                    standard.issurslt["status"].lower(
-                    ) == standard.tktstate == "closed"
+                    standard.issurslt["status"].lower() == standard.tktstate == "closed"
                     or standard.issurslt["status"].lower() == standard.tktstate == "open"
                     or standard.tktstate == "all"
                 ):
@@ -135,8 +133,7 @@ class MoveTkts:
             standard.issuiden = dictobjc["id"]
             standard.isclosed = True if dictobjc["status"] == "Closed" else False
             standard.authname = dictobjc["user"]["fullname"]
-            standard.authlink = f'{
-                standard.fedora_acc}/{dictobjc["user"]["url_path"]}'
+            standard.authlink = f'{standard.fedora_acc}/{dictobjc["user"]["url_path"]}'
             standard.authorid = dictobjc["user"]["name"]
             standard.issulink = dictobjc["full_url"]
             standard.issutags = dictobjc["tags"]
@@ -155,18 +152,12 @@ class MoveTkts:
                 repolink=standard.srcedict["repolink"],
                 authname=standard.authname,
                 authlink=standard.authlink,
-                dateinfo=datetime.fromtimestamp(
-                    standard.cmtstime, timezone.utc).strftime("%c"),
-                mo=datetime.fromtimestamp(
-                    standard.cmtstime, timezone.utc).strftime("%b").lower(),
-                dd=datetime.fromtimestamp(
-                    standard.cmtstime, timezone.utc).strftime("%d"),
-                yy=datetime.fromtimestamp(
-                    standard.cmtstime, timezone.utc).strftime("%Y"),
-                hh=datetime.fromtimestamp(
-                    standard.cmtstime, timezone.utc).strftime("%H"),
-                mm=datetime.fromtimestamp(
-                    standard.cmtstime, timezone.utc).strftime("%M"),
+                dateinfo=datetime.fromtimestamp(standard.cmtstime, timezone.utc).strftime("%c"),
+                mo=datetime.fromtimestamp(standard.cmtstime, timezone.utc).strftime("%b").lower(),
+                dd=datetime.fromtimestamp(standard.cmtstime, timezone.utc).strftime("%d"),
+                yy=datetime.fromtimestamp(standard.cmtstime, timezone.utc).strftime("%Y"),
+                hh=datetime.fromtimestamp(standard.cmtstime, timezone.utc).strftime("%H"),
+                mm=datetime.fromtimestamp(standard.cmtstime, timezone.utc).strftime("%M"),
             )
             """
             Replace "@" in the `bodydata` with "&" to ensure that wrong people are not referenced
@@ -174,8 +165,7 @@ class MoveTkts:
             Check https://github.com/gridhead/pagure-exporter/issues/7 for more information about
             the problem
             """
-            rqstdata = {"title": headdata,
-                        "description": bodydata.replace("@", "&")}
+            rqstdata = {"title": headdata,"description": bodydata.replace("@", "&")}
             if standard.movetags:
                 rqstdata["labels"] = standard.issutags
             if standard.movehush:
@@ -196,11 +186,9 @@ class MoveTkts:
         try:
             strttime = time.time()
             standard.cmtsiden = dictobjc["id"]
-            standard.cmtslink = f"{
-                standard.issulink}#comment-{standard.cmtsiden}"
+            standard.cmtslink = f"{standard.issulink}#comment-{standard.cmtsiden}"
             standard.cmtsauth = dictobjc["user"]["fullname"]
-            standard.cmtsaurl = f'{
-                standard.fedora_acc}/{dictobjc["user"]["url_path"]}'
+            standard.cmtsaurl = f'{standard.fedora_acc}/{dictobjc["user"]["url_path"]}'
             standard.cmtstime = int(dictobjc["date_created"])
             standard.cmtsbody = dictobjc["comment"]
             bodydata = standard.bodytemp_cmts.format(
@@ -211,18 +199,12 @@ class MoveTkts:
                 issulink=standard.issulink,
                 reponame=standard.srcename,
                 repolink=standard.srcedict["repolink"],
-                dateinfo=datetime.fromtimestamp(
-                    standard.cmtstime, timezone.utc).strftime("%c"),
-                mo=datetime.fromtimestamp(
-                    standard.cmtstime, timezone.utc).strftime("%b").lower(),
-                dd=datetime.fromtimestamp(
-                    standard.cmtstime, timezone.utc).strftime("%d"),
-                yy=datetime.fromtimestamp(
-                    standard.cmtstime, timezone.utc).strftime("%Y"),
-                hh=datetime.fromtimestamp(
-                    standard.cmtstime, timezone.utc).strftime("%H"),
-                mm=datetime.fromtimestamp(
-                    standard.cmtstime, timezone.utc).strftime("%M"),
+                dateinfo=datetime.fromtimestamp(standard.cmtstime, timezone.utc).strftime("%c"),
+                mo=datetime.fromtimestamp(standard.cmtstime, timezone.utc).strftime("%b").lower(),
+                dd=datetime.fromtimestamp(standard.cmtstime, timezone.utc).strftime("%d"),
+                yy=datetime.fromtimestamp(standard.cmtstime, timezone.utc).strftime("%Y"),
+                hh=datetime.fromtimestamp(standard.cmtstime, timezone.utc).strftime("%H"),
+                mm=datetime.fromtimestamp(standard.cmtstime, timezone.utc).strftime("%M"),
             )
             """
             Replace "@" in the `bodydata` with "&" to ensure that wrong people are not referenced
@@ -231,11 +213,9 @@ class MoveTkts:
             the problem
             """
             rqstdata = {"body": bodydata.replace("@", "&")}
-            rslt = standard.gpro.issues.get(
-                id=standard.gtlbtkid).discussions.create(data=rqstdata)
+            rslt = standard.gpro.issues.get(id=standard.gtlbtkid).discussions.create(data=rqstdata)
             respcode, respresn = (
-                201, f"{standard.destdict['repolink']
-                        }/-/issues/{standard.gtlbtkid}#note_{rslt.id}"
+                201, f"{standard.destdict['repolink']}/-/issues/{standard.gtlbtkid}#note_{rslt.id}"
             )
             standard.cmtsqant += 1
             stoptime = time.time()

@@ -147,8 +147,7 @@ def showtkts():
                     general(f"Information retrieved in {tkidrslt[2]} second(s)")
                     issurslt = moveobjc.itertkts(standard.issurslt)
                     section(
-                        f"Migrating issue ticket {
-                            'with' if standard.movetags else 'without'} "
+                        f"Migrating issue ticket {'with' if standard.movetags else 'without'} "
                         f"labels #{standard.issuiden} '{standard.issuname}' "
                         f"by '{standard.authname} (ID {standard.authorid})'..."
                     )
@@ -176,8 +175,7 @@ def showtkts():
                         if standard.movecmts:
                             section("Reading comment information...")
                             standard.issucmts = standard.issurslt["comments"]
-                            general(
-                                f"Found {len(standard.issucmts)} entities in 0.00 second(s)")
+                            general(f"Found {len(standard.issucmts)} entities in 0.00 second(s)")
                             for kndx in standard.issucmts:
                                 cmtsrslt = moveobjc.itercmts(kndx)
                                 section(

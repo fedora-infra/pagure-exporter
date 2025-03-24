@@ -34,7 +34,7 @@ from pagure_exporter.main import main
     "cmdl, code, text",
     [
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey STUPIDCODE --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status OPEN",  # noqa: E501
+            f"--pfm {envr['TEST_PFM']} --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey STUPIDCODE --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status OPEN",  # noqa: E501
             1,
             [
                 "Destination namespace metadata acquisition failed!",

@@ -32,6 +32,14 @@ from pagure_exporter.work.keep import keepbrcs, keeptkts, storeinf
 
 @click.group(name="pagure_exporter")
 @click.option(
+    "-n",
+    "--pfm",
+    "platform",
+    type=click.Choice(["pagure", "centos"], case_sensitive=True),
+    required=True,
+    help="Source Git platform namespace"
+)
+@click.option(
     "-s",
     "--srce",
     "srce",
@@ -81,11 +89,11 @@ from pagure_exporter.work.keep import keepbrcs, keeptkts, storeinf
         bold=True,
     ),
 )
-def main(srce, dest, pkey, gkey, fusr, tusr):
+def main(platform, srce, dest, pkey, gkey, fusr, tusr):
     """
     Pagure Exporter
     """
-    storeinf(srce, dest, pkey, gkey, fusr, tusr)
+    storeinf(platform, srce, dest, pkey, gkey, fusr, tusr)
 
 
 @main.command(

@@ -20,21 +20,33 @@ documentation are not subject to the GNU General Public License and may only
 be used or replicated with the express permission of Red Hat, Inc.
 """
 
-
+import sys
 from pagure_exporter.conf import standard
+from pagure_exporter.view.dcrt import failure
 
 
-def storeinf(srce, dest, pkey, gkey, fusr, tusr):
+def storeinf(platform, srce, dest, pkey, gkey, fusr, tusr):
     standard.srcename = srce
     standard.destname = dest
-    standard.pagucode = pkey
+    standard.srcecode = pkey
     standard.gtlbcode = gkey
-    standard.paguuser = fusr
+    standard.srceuser = fusr
     standard.gtlbuser = tusr
+    standard.srcelink, standard.frgesrce = keepplatform(platform)
 
 
 def keepbrcs(brcs):
     standard.brtocopy = list(brcs)
+
+
+def keepplatform(platform):
+    if platform == "pagure":
+        return standard.pagulink, "pagure.io"
+    elif platform == "centos":
+        return standard.centoslink, "git.centos.org"
+    else:
+        failure("Invalid Source Git platform name")
+        sys.exit(1)
 
 
 def keeptkts(status, tktgroup, comments, labels, commit, secret, series):

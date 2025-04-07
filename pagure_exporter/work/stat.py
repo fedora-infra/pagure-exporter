@@ -21,7 +21,6 @@ be used or replicated with the express permission of Red Hat, Inc.
 """
 
 
-
 import requests
 from gitlab import Gitlab as gtlb
 from gitlab import GitlabAuthenticationError, GitlabGetError
@@ -33,8 +32,8 @@ from pagure_exporter.view.dcrt import conceal
 class SrceData:
     def __init__(self):
         self.repo = standard.srcename
-        self.loca = standard.pagulink
-        self.code = standard.pagucode
+        self.loca = standard.srcelink
+        self.code = standard.srcecode
         self.head = {"Authorization": "token %s" % self.code}
 
     def obtninfo(self):
@@ -56,14 +55,14 @@ class SrceData:
                 },
             }
             standard.srcehuto = "https://{}:{}@{}/{}.git".format(
-                standard.paguuser,
-                standard.pagucode,
+                standard.srceuser,
+                standard.srcecode,
                 standard.frgesrce,
                 standard.srcedict["reponame"],
             )
             standard.srcedisp = "https://{}:{}@{}/{}.git".format(
-                standard.paguuser,
-                conceal(standard.pagucode),
+                standard.srceuser,
+                conceal(standard.srcecode),
                 standard.frgesrce,
                 standard.srcedict["reponame"],
             )

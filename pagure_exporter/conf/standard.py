@@ -62,7 +62,7 @@ rqsttime = 60
 dfremote = "origin"
 prfxsrce = "pexp-tempsrce-"
 prfxdest = "pexp-tempdest-"
-frgesrce = "pagure.io"
+frgesrce = "UNAVAILABLE"
 frgedest = "gitlab.com"
 nrmtname = "freshsrc"
 fedora_acc = "https://accounts.fedoraproject.org"
@@ -70,10 +70,13 @@ fedora_acc = "https://accounts.fedoraproject.org"
 INTERNAL CONFIGURATION VARIABLES
 """
 
-paguuser = "UNAVAILABLE"
-pagucode = "UNAVAILABLE"
-srcename = "UNAVAILABLE"
+centoslink = "https://git.centos.org/api/0"
 pagulink = "https://pagure.io/api/0"
+
+srcelink = "UNAVAILABLE"
+srceuser = "UNAVAILABLE"
+srcecode = "UNAVAILABLE"
+srcename = "UNAVAILABLE"
 srcedict = {
     "makedate": "0",
     "lastmode": "0",

@@ -32,9 +32,9 @@ from pagure_exporter.conf import standard
 
 class MoveTkts:
     def __init__(self):
-        self.purl = f"{standard.pagulink}/{standard.srcename}"
+        self.purl = f"{standard.srcelink}/{standard.srcename}"
         self.gurl = f"{standard.gtlblink}/{standard.destname}"
-        self.phed = {"Authorization": f"token {standard.pagucode}"}
+        self.phed = {"Authorization": f"token {standard.srcecode}"}
         self.ghed = {"Authorization": f"Bearer {standard.gtlbcode}"}
 
     def getcount(self):
@@ -165,7 +165,7 @@ class MoveTkts:
             Check https://github.com/gridhead/pagure-exporter/issues/7 for more information about
             the problem
             """
-            rqstdata = {"title": headdata, "description": bodydata.replace("@", "&")}
+            rqstdata = {"title": headdata,"description": bodydata.replace("@", "&")}
             if standard.movetags:
                 rqstdata["labels"] = standard.issutags
             if standard.movehush:

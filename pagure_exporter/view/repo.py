@@ -25,7 +25,7 @@ import sys
 
 from pagure_exporter.conf import standard
 from pagure_exporter.view.dcrt import failure, general, section, success, warning
-from pagure_exporter.work.repo import PushRepo
+from pagure_exporter.work.gitlab.repo import PushRepo
 
 
 def showrepo():

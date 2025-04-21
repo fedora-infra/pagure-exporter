@@ -35,7 +35,7 @@ from pagure_exporter.main import main
     "cmdl, code, text",
     [
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status OPEN --series",  # noqa: E501
+            f"gitlab --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --skey {envr['TEST_PKEY']} --dkey {envr['TEST_GKEY']} --susr {envr['TEST_FUSR']} --dusr {envr['TEST_TUSR']} tkts --status OPEN --series",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all open issue tickets without labels, without states, without privacy, without comments and with order off the given selection",  # noqa: E501
@@ -45,10 +45,10 @@ from pagure_exporter.main import main
                 "[ BUSY ] Migrating issue ticket without labels #3 'This is the title of the third test issue' by 'Akashdeep Dhar (ID t0xic0der)'...",  # noqa: E501
                 "Migrated to ",
             ],
-            id="Transferring issue tickets with OPEN status without labels, without states, without privacy, without comments and with order",  # noqa: E501
+            id="GitLab: Transferring issue tickets with OPEN status without labels, without states, without privacy, without comments and with order",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status SHUT --series",  # noqa: E501
+            f"gitlab --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --skey {envr['TEST_PKEY']} --dkey {envr['TEST_GKEY']} --susr {envr['TEST_FUSR']} --dusr {envr['TEST_TUSR']} tkts --status SHUT --series",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all closed issue tickets without labels, without states, without privacy, without comments and with order off the given selection",  # noqa: E501
@@ -58,10 +58,10 @@ from pagure_exporter.main import main
                 "[ BUSY ] Migrating issue ticket without labels #4 'This is the title of the fourth test issue' by 'Akashdeep Dhar (ID t0xic0der)'...",  # noqa: E501
                 "Migrated to ",
             ],
-            id="Transferring issue tickets with SHUT status without labels, without states, without privacy, without comments and with order",  # noqa: E501
+            id="GitLab: Transferring issue tickets with SHUT status without labels, without states, without privacy, without comments and with order",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status FULL --series",  # noqa: E501
+            f"gitlab --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --skey {envr['TEST_PKEY']} --dkey {envr['TEST_GKEY']} --susr {envr['TEST_FUSR']} --dusr {envr['TEST_TUSR']} tkts --status FULL --series",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all issue tickets without labels, without states, without privacy, without comments and with order off the given selection",  # noqa: E501
@@ -75,10 +75,10 @@ from pagure_exporter.main import main
                 "[ BUSY ] Migrating issue ticket without labels #4 'This is the title of the fourth test issue' by 'Akashdeep Dhar (ID t0xic0der)'...",  # noqa: E501
                 "Migrated to ",
             ],
-            id="Transferring issue tickets with FULL status without labels, without states, without privacy, without comments and with order",  # noqa: E501
+            id="GitLab: Transferring issue tickets with FULL status without labels, without states, without privacy, without comments and with order",  # noqa: E501
         ),
         pytest.param(
-            f"--srce ZEROEXISTENT --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts",  # noqa: E501
+            f"gitlab --srce ZEROEXISTENT --dest {envr['TEST_DEST']} --skey {envr['TEST_PKEY']} --dkey {envr['TEST_GKEY']} --susr {envr['TEST_FUSR']} --dusr {envr['TEST_TUSR']} tkts",  # noqa: E501
             1,
             [
                 "[ FAIL ] Source namespace metadata acquisition failed!",
@@ -86,10 +86,10 @@ from pagure_exporter.main import main
                 "Code: 404",
                 "Reason: NOT FOUND",
             ],
-            id="Transferring issue tickets from a source namespace that does not exist",
+            id="GitLab: Transferring issue tickets from a source namespace that does not exist",
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest ZEROEXISTENT --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status OPEN",  # noqa: E501
+            f"gitlab --srce {envr['TEST_SRCE']} --dest ZEROEXISTENT --skey {envr['TEST_PKEY']} --dkey {envr['TEST_GKEY']} --susr {envr['TEST_FUSR']} --dusr {envr['TEST_TUSR']} tkts --status OPEN",  # noqa: E501
             1,
             [
                 "[ FAIL ] Destination namespace metadata acquisition failed!",
@@ -97,10 +97,10 @@ from pagure_exporter.main import main
                 "Code: 0",
                 "Reason: 404: 404 Project Not Found",
             ],
-            id="Transferring issue tickets to a destination namespace that does not exist",
+            id="GitLab: Transferring issue tickets to a destination namespace that does not exist",
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status OPEN --commit --series",  # noqa: E501
+            f"gitlab --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --skey {envr['TEST_PKEY']} --dkey {envr['TEST_GKEY']} --susr {envr['TEST_FUSR']} --dusr {envr['TEST_TUSR']} tkts --status OPEN --commit --series",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all open issue tickets without labels, with states, without privacy, without comments and with order off the given selection",  # noqa: E501
@@ -114,10 +114,10 @@ from pagure_exporter.main import main
                 "[ BUSY ] Asserting issue ticket status...",
                 "Assertion unnecessary due to the OPEN status of the ticket",
             ],
-            id="Transferring issue tickets with OPEN status along with states but without comments, without privacy, without labels and with order",  # noqa: E501
+            id="GitLab: Transferring issue tickets with OPEN status along with states but without comments, without privacy, without labels and with order",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status SHUT --commit --series",  # noqa: E501
+            f"gitlab --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --skey {envr['TEST_PKEY']} --dkey {envr['TEST_GKEY']} --susr {envr['TEST_FUSR']} --dusr {envr['TEST_TUSR']} tkts --status SHUT --commit --series",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all closed issue tickets without labels, with states, without privacy, without comments and with order off the given selection",  # noqa: E501
@@ -131,11 +131,11 @@ from pagure_exporter.main import main
                 "[ BUSY ] Asserting issue ticket status...",
                 "Asserted CLOSE status of the ticket in ",
             ],
-            id="Transferring issue tickets with SHUT status along with states but without comments, without privacy, without labels and with order",  # noqa: E501
+            id="GitLab: Transferring issue tickets with SHUT status along with states but without comments, without privacy, without labels and with order",  # noqa: E501
         ),
 
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status OPEN --secret --series",  # noqa: E501
+            f"gitlab --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --skey {envr['TEST_PKEY']} --dkey {envr['TEST_GKEY']} --susr {envr['TEST_FUSR']} --dusr {envr['TEST_TUSR']} tkts --status OPEN --secret --series",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all open issue tickets without labels, without states, with privacy, without comments and with order off the given selection",  # noqa: E501
@@ -145,10 +145,10 @@ from pagure_exporter.main import main
                 "[ BUSY ] Migrating issue ticket without labels #3 'This is the title of the third test issue' by 'Akashdeep Dhar (ID t0xic0der)'...",  # noqa: E501
                 "Migrated to ",
             ],
-            id="Transferring issue tickets with OPEN status along with privacy but without states, without comments, without labels and with order",  # noqa: E501
+            id="GitLab: Transferring issue tickets with OPEN status along with privacy but without states, without comments, without labels and with order",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status SHUT --secret --series",  # noqa: E501
+            f"gitlab --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --skey {envr['TEST_PKEY']} --dkey {envr['TEST_GKEY']} --susr {envr['TEST_FUSR']} --dusr {envr['TEST_TUSR']} tkts --status SHUT --secret --series",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all closed issue tickets without labels, without states, with privacy, without comments and with order off the given selection",  # noqa: E501
@@ -158,10 +158,10 @@ from pagure_exporter.main import main
                 "[ BUSY ] Migrating issue ticket without labels #4 'This is the title of the fourth test issue' by 'Akashdeep Dhar (ID t0xic0der)'...",  # noqa: E501
                 "Migrated to ",
             ],
-            id="Transferring issue tickets with SHUT status along with privacy but without states, without comments, without labels and with order",  # noqa: E501
+            id="GitLab: Transferring issue tickets with SHUT status along with privacy but without states, without comments, without labels and with order",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status OPEN --select 1 --commit --comments --series",  # noqa: E501
+            f"gitlab --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --skey {envr['TEST_PKEY']} --dkey {envr['TEST_GKEY']} --susr {envr['TEST_FUSR']} --dusr {envr['TEST_TUSR']} tkts --status OPEN --select 1 --commit --comments --series",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all open issue tickets without labels, with states, without privacy, with comments and with order off the given selection",  # noqa: E501
@@ -180,10 +180,10 @@ from pagure_exporter.main import main
                 "[ BUSY ] Transferring comment (Entity 3 of 3)...",
                 "Transferred to ",
             ],
-            id="Transferring particular issue tickets with OPEN status along with states and comments but without labels, without privacy and with order",  # noqa: E501
+            id="GitLab: Transferring particular issue tickets with OPEN status along with states and comments but without labels, without privacy and with order",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status SHUT --select 2 --commit --comments --series",  # noqa: E501
+            f"gitlab --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --skey {envr['TEST_PKEY']} --dkey {envr['TEST_GKEY']} --susr {envr['TEST_FUSR']} --dusr {envr['TEST_TUSR']} tkts --status SHUT --select 2 --commit --comments --series",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all closed issue tickets without labels, with states, without privacy, with comments and with order off the given selection",  # noqa: E501
@@ -204,20 +204,20 @@ from pagure_exporter.main import main
                 "[ BUSY ] Transferring comment (Entity 4 of 4)...",
                 "Transferred to ",
             ],
-            id="Transferring particular issue tickets with SHUT status along with states and comments but without labels, without privacy and with order",  # noqa: E501
+            id="GitLab: Transferring particular issue tickets with SHUT status along with states and comments but without labels, without privacy and with order",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status SHUT --select 1 --series",  # noqa: E501
+            f"gitlab --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --skey {envr['TEST_PKEY']} --dkey {envr['TEST_GKEY']} --susr {envr['TEST_FUSR']} --dusr {envr['TEST_TUSR']} tkts --status SHUT --select 1 --series",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all closed issue tickets without labels, without states, without privacy, without comments and with order off the given selection",  # noqa: E501
                 "[ BUSY ] Probing issue ticket #1...",
                 "Skipping issue ticket as the issue ticket status does not match the provided status",  # noqa: E501
             ],
-            id="Transferring particular issue tickets with OPEN status without labels, without states, without privacy, without comments and with order when SHUT status is prescribed",  # noqa: E501
+            id="GitLab: Transferring particular issue tickets with OPEN status without labels, without states, without privacy, without comments and with order when SHUT status is prescribed",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status FULL --commit --series",  # noqa: E501
+            f"gitlab --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --skey {envr['TEST_PKEY']} --dkey {envr['TEST_GKEY']} --susr {envr['TEST_FUSR']} --dusr {envr['TEST_TUSR']} tkts --status FULL --commit --series",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all issue tickets without labels, with states, without privacy, without comments and with order off the given selection",  # noqa: E501
@@ -239,10 +239,10 @@ from pagure_exporter.main import main
                 "[ BUSY ] Asserting issue ticket status...",
                 "Asserted CLOSE status of the ticket in ",
             ],
-            id="Transferring issue tickets with FULL status along with states but without comments, without privacy, without labels and with order",  # noqa: E501
+            id="GitLab: Transferring issue tickets with FULL status along with states but without comments, without privacy, without labels and with order",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status OPEN --labels --series",  # noqa: E501
+            f"gitlab --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --skey {envr['TEST_PKEY']} --dkey {envr['TEST_GKEY']} --susr {envr['TEST_FUSR']} --dusr {envr['TEST_TUSR']} tkts --status OPEN --labels --series",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all open issue tickets with labels, without states, without privacy, without comments and with order off the given selection",  # noqa: E501
@@ -252,10 +252,10 @@ from pagure_exporter.main import main
                 "[ BUSY ] Migrating issue ticket with labels #3 'This is the title of the third test issue' by 'Akashdeep Dhar (ID t0xic0der)'...",  # noqa: E501
                 "Migrated to ",
             ],
-            id="Transferring issue tickets with OPEN status along with labels but without states, without privacy, without comments and with order",  # noqa: E501
+            id="GitLab: Transferring issue tickets with OPEN status along with labels but without states, without privacy, without comments and with order",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status SHUT --labels --series",  # noqa: E501
+            f"gitlab --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --skey {envr['TEST_PKEY']} --dkey {envr['TEST_GKEY']} --susr {envr['TEST_FUSR']} --dusr {envr['TEST_TUSR']} tkts --status SHUT --labels --series",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all closed issue tickets with labels, without states, without privacy, without comments and with order off the given selection",  # noqa: E501
@@ -265,10 +265,10 @@ from pagure_exporter.main import main
                 "[ BUSY ] Migrating issue ticket with labels #4 'This is the title of the fourth test issue' by 'Akashdeep Dhar (ID t0xic0der)'...",  # noqa: E501
                 "Migrated to ",
             ],
-            id="Transferring issue tickets with SHUT status along with labels but without states, without privacy, without comments and with order",  # noqa: E501
+            id="GitLab: Transferring issue tickets with SHUT status along with labels but without states, without privacy, without comments and with order",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status FULL --labels --series",  # noqa: E501
+            f"gitlab --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --skey {envr['TEST_PKEY']} --dkey {envr['TEST_GKEY']} --susr {envr['TEST_FUSR']} --dusr {envr['TEST_TUSR']} tkts --status FULL --labels --series",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all issue tickets with labels, without states, without privacy, without comments and with order off the given selection",  # noqa: E501
@@ -282,10 +282,10 @@ from pagure_exporter.main import main
                 "[ BUSY ] Migrating issue ticket with labels #4 'This is the title of the fourth test issue' by 'Akashdeep Dhar (ID t0xic0der)'...",  # noqa: E501
                 "Migrated to",
             ],
-            id="Transferring issue tickets with FULL status along with labels but without states, without privacy, without comments and with order",  # noqa: E501
+            id="GitLab: Transferring issue tickets with FULL status along with labels but without states, without privacy, without comments and with order",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status OPEN --comments --series",  # noqa: E501
+            f"gitlab --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --skey {envr['TEST_PKEY']} --dkey {envr['TEST_GKEY']} --susr {envr['TEST_FUSR']} --dusr {envr['TEST_TUSR']} tkts --status OPEN --comments --series",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all open issue tickets without labels, without states, without privacy, with comments and with order off the given selection",  # noqa: E501
@@ -309,10 +309,10 @@ from pagure_exporter.main import main
                 "[ BUSY ] Transferring comment (Entity 2 of 2)...",
                 "Transferred to ",
             ],
-            id="Transferring issue tickets with OPEN status along with comments but without labels, without privacy, without states and with order",  # noqa: E501
+            id="GitLab: Transferring issue tickets with OPEN status along with comments but without labels, without privacy, without states and with order",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status SHUT --comments --series",  # noqa: E501
+            f"gitlab --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --skey {envr['TEST_PKEY']} --dkey {envr['TEST_GKEY']} --susr {envr['TEST_FUSR']} --dusr {envr['TEST_TUSR']} tkts --status SHUT --comments --series",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all closed issue tickets without labels, without states, without privacy, with comments and with order off the given selection",  # noqa: E501
@@ -340,10 +340,10 @@ from pagure_exporter.main import main
                 "[ BUSY ] Transferring comment (Entity 3 of 3)...",
                 "Transferred to ",
             ],
-            id="Transferring issue tickets with SHUT status along with comments but without labels, without privacy, without states and with order",  # noqa: E501
+            id="GitLab: Transferring issue tickets with SHUT status along with comments but without labels, without privacy, without states and with order",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status FULL --comments --series",  # noqa: E501
+            f"gitlab --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --skey {envr['TEST_PKEY']} --dkey {envr['TEST_GKEY']} --susr {envr['TEST_FUSR']} --dusr {envr['TEST_TUSR']} tkts --status FULL --comments --series",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all issue tickets without labels, without states, without privacy, with comments and with order off the given selection",  # noqa: E501
@@ -389,10 +389,10 @@ from pagure_exporter.main import main
                 "[ BUSY ] Transferring comment (Entity 3 of 3)...",
                 "Transferred to ",
             ],
-            id="Transferring issue tickets with FULL status along with comments but without labels, without privacy, without states and with order",  # noqa: E501
+            id="GitLab: Transferring issue tickets with FULL status along with comments but without labels, without privacy, without states and with order",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status OPEN --ranges 1 2 --series",  # noqa: E501
+            f"gitlab --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --skey {envr['TEST_PKEY']} --dkey {envr['TEST_GKEY']} --susr {envr['TEST_FUSR']} --dusr {envr['TEST_TUSR']} tkts --status OPEN --ranges 1 2 --series",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all open issue tickets without labels, without states, without privacy, without comments and with order off the given selection",  # noqa: E501
@@ -403,10 +403,10 @@ from pagure_exporter.main import main
                 "[ BUSY ] Probing issue ticket #2...",
                 "Skipping issue ticket as the issue ticket status does not match the provided status",  # noqa: E501
             ],
-            id="Transferring issue tickets with OPEN status without labels, without states, without privacy, without comments and with order the identities of which fall in the given range",  # noqa: E501
+            id="GitLab: Transferring issue tickets with OPEN status without labels, without states, without privacy, without comments and with order the identities of which fall in the given range",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status SHUT --ranges 1 2 --series",  # noqa: E501
+            f"gitlab --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --skey {envr['TEST_PKEY']} --dkey {envr['TEST_GKEY']} --susr {envr['TEST_FUSR']} --dusr {envr['TEST_TUSR']} tkts --status SHUT --ranges 1 2 --series",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all closed issue tickets without labels, without states, without privacy, without comments and with order off the given selection",  # noqa: E501
@@ -417,10 +417,10 @@ from pagure_exporter.main import main
                 "[ BUSY ] Migrating issue ticket without labels #2 'This is the title of the second test issue' by 'Akashdeep Dhar (ID t0xic0der)'...",  # noqa: E501
                 "Migrated to",
             ],
-            id="Transferring issue tickets with SHUT status without labels, without states, without privacy, without comments and with order the identities of which fall in the given range",  # noqa: E501
+            id="GitLab: Transferring issue tickets with SHUT status without labels, without states, without privacy, without comments and with order the identities of which fall in the given range",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status FULL --ranges 1 2 --series",  # noqa: E501
+            f"gitlab --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --skey {envr['TEST_PKEY']} --dkey {envr['TEST_GKEY']} --susr {envr['TEST_FUSR']} --dusr {envr['TEST_TUSR']} tkts --status FULL --ranges 1 2 --series",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all issue tickets without labels, without states, without privacy, without comments and with order off the given selection",  # noqa: E501
@@ -433,10 +433,10 @@ from pagure_exporter.main import main
                 "[ BUSY ] Migrating issue ticket without labels #2 'This is the title of the second test issue' by 'Akashdeep Dhar (ID t0xic0der)'...",  # noqa: E501
                 "Migrated to",
             ],
-            id="Transferring issue tickets with FULL status without labels, without states, without privacy, without comments and with order the identities of which fall in the given range",  # noqa: E501
+            id="GitLab: Transferring issue tickets with FULL status without labels, without states, without privacy, without comments and with order the identities of which fall in the given range",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status OPEN --select 1,2 --series",  # noqa: E501
+            f"gitlab --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --skey {envr['TEST_PKEY']} --dkey {envr['TEST_GKEY']} --susr {envr['TEST_FUSR']} --dusr {envr['TEST_TUSR']} tkts --status OPEN --select 1,2 --series",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all open issue tickets without labels, without states, without privacy, without comments and with order off the given selection",  # noqa: E501
@@ -447,10 +447,10 @@ from pagure_exporter.main import main
                 "[ BUSY ] Probing issue ticket #2...",
                 "Skipping issue ticket as the issue ticket status does not match the provided status",  # noqa: E501
             ],
-            id="Transferring issue tickets with OPEN status without labels, without states, without privacy, without comments and with order the identities of which fall in the given selection",  # noqa: E501
+            id="GitLab: Transferring issue tickets with OPEN status without labels, without states, without privacy, without comments and with order the identities of which fall in the given selection",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status SHUT --select 1,2 --series",  # noqa: E501
+            f"gitlab --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --skey {envr['TEST_PKEY']} --dkey {envr['TEST_GKEY']} --susr {envr['TEST_FUSR']} --dusr {envr['TEST_TUSR']} tkts --status SHUT --select 1,2 --series",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all closed issue tickets without labels, without states, without privacy, without comments and with order off the given selection",  # noqa: E501
@@ -461,10 +461,10 @@ from pagure_exporter.main import main
                 "[ BUSY ] Migrating issue ticket without labels #2 'This is the title of the second test issue' by 'Akashdeep Dhar (ID t0xic0der)'...",  # noqa: E501
                 "Migrated to",
             ],
-            id="Transferring issue tickets with SHUT status without labels, without states, without privacy, without comments and with order the identities of which fall in the given selection",  # noqa: E501
+            id="GitLab: Transferring issue tickets with SHUT status without labels, without states, without privacy, without comments and with order the identities of which fall in the given selection",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status FULL --select 1,2 --series",  # noqa: E501
+            f"gitlab --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --skey {envr['TEST_PKEY']} --dkey {envr['TEST_GKEY']} --susr {envr['TEST_FUSR']} --dusr {envr['TEST_TUSR']} tkts --status FULL --select 1,2 --series",  # noqa: E501
             0,
             [
                 "[ WARN ] Extracting all issue tickets without labels, without states, without privacy, without comments and with order off the given selection",  # noqa: E501
@@ -477,7 +477,7 @@ from pagure_exporter.main import main
                 "[ BUSY ] Migrating issue ticket without labels #2 'This is the title of the second test issue' by 'Akashdeep Dhar (ID t0xic0der)'...",  # noqa: E501
                 "Migrated to",
             ],
-            id="Transferring issue tickets with FULL status without labels, without states, without privacy, without comments and with order the identities of which fall in the given selection",  # noqa: E501
+            id="GitLab: Transferring issue tickets with FULL status without labels, without states, without privacy, without comments and with order the identities of which fall in the given selection",  # noqa: E501
         ),
     ],
 )

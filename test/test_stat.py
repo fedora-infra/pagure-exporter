@@ -34,7 +34,7 @@ from pagure_exporter.main import main
     "cmdl, code, text",
     [
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey STUPIDCODE --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status OPEN",  # noqa: E501
+            f"gitlab --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --skey {envr['TEST_PKEY']} --dkey STUPIDCODE --susr {envr['TEST_FUSR']} --dusr {envr['TEST_TUSR']} tkts --status OPEN",  # noqa: E501
             1,
             [
                 "Destination namespace metadata acquisition failed!",
@@ -42,7 +42,7 @@ from pagure_exporter.main import main
                 "Code: 0",
                 "Reason: 401: 401 Unauthorized",
             ],
-            id="Checking for possible errors while attempting to authenticate in the destination namespace using wrong credentials",  # noqa: E501
+            id="GitLab: Checking for possible errors while attempting to authenticate in the destination namespace using wrong credentials",  # noqa: E501
         ),
     ]
 )

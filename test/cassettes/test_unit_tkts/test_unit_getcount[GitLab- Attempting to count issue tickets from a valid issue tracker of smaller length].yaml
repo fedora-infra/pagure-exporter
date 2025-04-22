@@ -1,0 +1,196 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, zstd
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://pagure.io/api/0/protop2g-test-srce/issues?per_page=35&page=1&status=all
+  response:
+    body:
+      string: "{\n  \"args\": {\n    \"assignee\": null, \n    \"author\": null, \n
+        \   \"milestones\": [], \n    \"no_stones\": null, \n    \"order\": null,
+        \n    \"priority\": null, \n    \"since\": null, \n    \"status\": \"all\",
+        \n    \"tags\": []\n  }, \n  \"issues\": [\n    {\n      \"assignee\": null,
+        \n      \"blocks\": [], \n      \"close_status\": null, \n      \"closed_at\":
+        \"1700554080\", \n      \"closed_by\": {\n        \"full_url\": \"https://pagure.io/user/t0xic0der\",
+        \n        \"fullname\": \"Akashdeep Dhar\", \n        \"name\": \"t0xic0der\",
+        \n        \"url_path\": \"user/t0xic0der\"\n      }, \n      \"comments\":
+        [\n        {\n          \"comment\": \"This is the first comment under the
+        fourth test issue\", \n          \"date_created\": \"1700554045\", \n          \"edited_on\":
+        null, \n          \"editor\": null, \n          \"id\": 885231, \n          \"notification\":
+        false, \n          \"parent\": null, \n          \"reactions\": {}, \n          \"user\":
+        {\n            \"full_url\": \"https://pagure.io/user/t0xic0der\", \n            \"fullname\":
+        \"Akashdeep Dhar\", \n            \"name\": \"t0xic0der\", \n            \"url_path\":
+        \"user/t0xic0der\"\n          }\n        }, \n        {\n          \"comment\":
+        \"This is the second comment under the fourth test issue\", \n          \"date_created\":
+        \"1700554054\", \n          \"edited_on\": null, \n          \"editor\": null,
+        \n          \"id\": 885232, \n          \"notification\": false, \n          \"parent\":
+        null, \n          \"reactions\": {}, \n          \"user\": {\n            \"full_url\":
+        \"https://pagure.io/user/t0xic0der\", \n            \"fullname\": \"Akashdeep
+        Dhar\", \n            \"name\": \"t0xic0der\", \n            \"url_path\":
+        \"user/t0xic0der\"\n          }\n        }, \n        {\n          \"comment\":
+        \"**Metadata Update from @t0xic0der**:\\n- Issue status updated to: Closed
+        (was: Open)\", \n          \"date_created\": \"1700554081\", \n          \"edited_on\":
+        null, \n          \"editor\": null, \n          \"id\": 885233, \n          \"notification\":
+        true, \n          \"parent\": null, \n          \"reactions\": {}, \n          \"user\":
+        {\n            \"full_url\": \"https://pagure.io/user/t0xic0der\", \n            \"fullname\":
+        \"Akashdeep Dhar\", \n            \"name\": \"t0xic0der\", \n            \"url_path\":
+        \"user/t0xic0der\"\n          }\n        }\n      ], \n      \"content\":
+        \"This is the body of the fourth test issue\", \n      \"custom_fields\":
+        [], \n      \"date_created\": \"1700554016\", \n      \"depends\": [], \n
+        \     \"full_url\": \"https://pagure.io/protop2g-test-srce/issue/4\", \n      \"id\":
+        4, \n      \"last_updated\": \"1700554081\", \n      \"milestone\": null,
+        \n      \"priority\": null, \n      \"private\": true, \n      \"related_prs\":
+        [], \n      \"status\": \"Closed\", \n      \"tags\": [\n        \"gggg\",
+        \n        \"hhhh\"\n      ], \n      \"title\": \"This is the title of the
+        fourth test issue\", \n      \"user\": {\n        \"full_url\": \"https://pagure.io/user/t0xic0der\",
+        \n        \"fullname\": \"Akashdeep Dhar\", \n        \"name\": \"t0xic0der\",
+        \n        \"url_path\": \"user/t0xic0der\"\n      }\n    }, \n    {\n      \"assignee\":
+        null, \n      \"blocks\": [], \n      \"close_status\": null, \n      \"closed_at\":
+        null, \n      \"closed_by\": null, \n      \"comments\": [\n        {\n          \"comment\":
+        \"This is the first comment under the third test issue\", \n          \"date_created\":
+        \"1700553880\", \n          \"edited_on\": null, \n          \"editor\": null,
+        \n          \"id\": 885229, \n          \"notification\": false, \n          \"parent\":
+        null, \n          \"reactions\": {}, \n          \"user\": {\n            \"full_url\":
+        \"https://pagure.io/user/t0xic0der\", \n            \"fullname\": \"Akashdeep
+        Dhar\", \n            \"name\": \"t0xic0der\", \n            \"url_path\":
+        \"user/t0xic0der\"\n          }\n        }, \n        {\n          \"comment\":
+        \"This is the second comment under the third test issue\", \n          \"date_created\":
+        \"1700553892\", \n          \"edited_on\": null, \n          \"editor\": null,
+        \n          \"id\": 885230, \n          \"notification\": false, \n          \"parent\":
+        null, \n          \"reactions\": {}, \n          \"user\": {\n            \"full_url\":
+        \"https://pagure.io/user/t0xic0der\", \n            \"fullname\": \"Akashdeep
+        Dhar\", \n            \"name\": \"t0xic0der\", \n            \"url_path\":
+        \"user/t0xic0der\"\n          }\n        }\n      ], \n      \"content\":
+        \"This is the body of the third test issue\", \n      \"custom_fields\": [],
+        \n      \"date_created\": \"1700553837\", \n      \"depends\": [], \n      \"full_url\":
+        \"https://pagure.io/protop2g-test-srce/issue/3\", \n      \"id\": 3, \n      \"last_updated\":
+        \"1700553892\", \n      \"milestone\": null, \n      \"priority\": null, \n
+        \     \"private\": true, \n      \"related_prs\": [], \n      \"status\":
+        \"Open\", \n      \"tags\": [\n        \"eeee\", \n        \"ffff\"\n      ],
+        \n      \"title\": \"This is the title of the third test issue\", \n      \"user\":
+        {\n        \"full_url\": \"https://pagure.io/user/t0xic0der\", \n        \"fullname\":
+        \"Akashdeep Dhar\", \n        \"name\": \"t0xic0der\", \n        \"url_path\":
+        \"user/t0xic0der\"\n      }\n    }, \n    {\n      \"assignee\": null, \n
+        \     \"blocks\": [], \n      \"close_status\": null, \n      \"closed_at\":
+        \"1697170032\", \n      \"closed_by\": {\n        \"full_url\": \"https://pagure.io/user/t0xic0der\",
+        \n        \"fullname\": \"Akashdeep Dhar\", \n        \"name\": \"t0xic0der\",
+        \n        \"url_path\": \"user/t0xic0der\"\n      }, \n      \"comments\":
+        [\n        {\n          \"comment\": \"**Metadata Update from @t0xic0der**:\\n-
+        Issue tagged with: cccc, dddd\", \n          \"date_created\": \"1697169810\",
+        \n          \"edited_on\": null, \n          \"editor\": null, \n          \"id\":
+        878472, \n          \"notification\": true, \n          \"parent\": null,
+        \n          \"reactions\": {}, \n          \"user\": {\n            \"full_url\":
+        \"https://pagure.io/user/t0xic0der\", \n            \"fullname\": \"Akashdeep
+        Dhar\", \n            \"name\": \"t0xic0der\", \n            \"url_path\":
+        \"user/t0xic0der\"\n          }\n        }, \n        {\n          \"comment\":
+        \"The is the first comment under the second test issue\", \n          \"date_created\":
+        \"1697169964\", \n          \"edited_on\": null, \n          \"editor\": null,
+        \n          \"id\": 878475, \n          \"notification\": false, \n          \"parent\":
+        null, \n          \"reactions\": {}, \n          \"user\": {\n            \"full_url\":
+        \"https://pagure.io/user/t0xic0der\", \n            \"fullname\": \"Akashdeep
+        Dhar\", \n            \"name\": \"t0xic0der\", \n            \"url_path\":
+        \"user/t0xic0der\"\n          }\n        }, \n        {\n          \"comment\":
+        \"The is the second comment under the second test issue\", \n          \"date_created\":
+        \"1697169976\", \n          \"edited_on\": null, \n          \"editor\": null,
+        \n          \"id\": 878476, \n          \"notification\": false, \n          \"parent\":
+        null, \n          \"reactions\": {}, \n          \"user\": {\n            \"full_url\":
+        \"https://pagure.io/user/t0xic0der\", \n            \"fullname\": \"Akashdeep
+        Dhar\", \n            \"name\": \"t0xic0der\", \n            \"url_path\":
+        \"user/t0xic0der\"\n          }\n        }, \n        {\n          \"comment\":
+        \"**Metadata Update from @t0xic0der**:\\n- Issue status updated to: Closed
+        (was: Open)\", \n          \"date_created\": \"1697170032\", \n          \"edited_on\":
+        null, \n          \"editor\": null, \n          \"id\": 878477, \n          \"notification\":
+        true, \n          \"parent\": null, \n          \"reactions\": {}, \n          \"user\":
+        {\n            \"full_url\": \"https://pagure.io/user/t0xic0der\", \n            \"fullname\":
+        \"Akashdeep Dhar\", \n            \"name\": \"t0xic0der\", \n            \"url_path\":
+        \"user/t0xic0der\"\n          }\n        }\n      ], \n      \"content\":
+        \"This is the body of the second test issue\", \n      \"custom_fields\":
+        [], \n      \"date_created\": \"1697169676\", \n      \"depends\": [], \n
+        \     \"full_url\": \"https://pagure.io/protop2g-test-srce/issue/2\", \n      \"id\":
+        2, \n      \"last_updated\": \"1697170032\", \n      \"milestone\": null,
+        \n      \"priority\": null, \n      \"private\": false, \n      \"related_prs\":
+        [], \n      \"status\": \"Closed\", \n      \"tags\": [\n        \"cccc\",
+        \n        \"dddd\"\n      ], \n      \"title\": \"This is the title of the
+        second test issue\", \n      \"user\": {\n        \"full_url\": \"https://pagure.io/user/t0xic0der\",
+        \n        \"fullname\": \"Akashdeep Dhar\", \n        \"name\": \"t0xic0der\",
+        \n        \"url_path\": \"user/t0xic0der\"\n      }\n    }, \n    {\n      \"assignee\":
+        null, \n      \"blocks\": [], \n      \"close_status\": null, \n      \"closed_at\":
+        null, \n      \"closed_by\": null, \n      \"comments\": [\n        {\n          \"comment\":
+        \"**Metadata Update from @t0xic0der**:\\n- Issue tagged with: aaaa, bbbb\",
+        \n          \"date_created\": \"1697169699\", \n          \"edited_on\": null,
+        \n          \"editor\": null, \n          \"id\": 878471, \n          \"notification\":
+        true, \n          \"parent\": null, \n          \"reactions\": {}, \n          \"user\":
+        {\n            \"full_url\": \"https://pagure.io/user/t0xic0der\", \n            \"fullname\":
+        \"Akashdeep Dhar\", \n            \"name\": \"t0xic0der\", \n            \"url_path\":
+        \"user/t0xic0der\"\n          }\n        }, \n        {\n          \"comment\":
+        \"This is the first comment under the first test issue\", \n          \"date_created\":
+        \"1697169880\", \n          \"edited_on\": null, \n          \"editor\": null,
+        \n          \"id\": 878473, \n          \"notification\": false, \n          \"parent\":
+        null, \n          \"reactions\": {}, \n          \"user\": {\n            \"full_url\":
+        \"https://pagure.io/user/t0xic0der\", \n            \"fullname\": \"Akashdeep
+        Dhar\", \n            \"name\": \"t0xic0der\", \n            \"url_path\":
+        \"user/t0xic0der\"\n          }\n        }, \n        {\n          \"comment\":
+        \"This is the second comment under the first test issue\", \n          \"date_created\":
+        \"1697169924\", \n          \"edited_on\": null, \n          \"editor\": null,
+        \n          \"id\": 878474, \n          \"notification\": false, \n          \"parent\":
+        null, \n          \"reactions\": {}, \n          \"user\": {\n            \"full_url\":
+        \"https://pagure.io/user/t0xic0der\", \n            \"fullname\": \"Akashdeep
+        Dhar\", \n            \"name\": \"t0xic0der\", \n            \"url_path\":
+        \"user/t0xic0der\"\n          }\n        }\n      ], \n      \"content\":
+        \"This is the body of the first test issue\", \n      \"custom_fields\": [],
+        \n      \"date_created\": \"1697169462\", \n      \"depends\": [], \n      \"full_url\":
+        \"https://pagure.io/protop2g-test-srce/issue/1\", \n      \"id\": 1, \n      \"last_updated\":
+        \"1697169924\", \n      \"milestone\": null, \n      \"priority\": null, \n
+        \     \"private\": false, \n      \"related_prs\": [], \n      \"status\":
+        \"Open\", \n      \"tags\": [\n        \"aaaa\", \n        \"bbbb\"\n      ],
+        \n      \"title\": \"This is the title of the first test issue\", \n      \"user\":
+        {\n        \"full_url\": \"https://pagure.io/user/t0xic0der\", \n        \"fullname\":
+        \"Akashdeep Dhar\", \n        \"name\": \"t0xic0der\", \n        \"url_path\":
+        \"user/t0xic0der\"\n      }\n    }\n  ], \n  \"pagination\": {\n    \"first\":
+        \"https://pagure.io/api/0/protop2g-test-srce/issues?per_page=35&status=all&page=1\",
+        \n    \"last\": \"https://pagure.io/api/0/protop2g-test-srce/issues?per_page=35&status=all&page=1\",
+        \n    \"next\": null, \n    \"page\": 1, \n    \"pages\": 1, \n    \"per_page\":
+        35, \n    \"prev\": null\n  }, \n  \"total_issues\": 4\n}\n"
+    headers:
+      Connection:
+      - Upgrade, Keep-Alive
+      Content-Length:
+      - '10774'
+      Content-Security-Policy:
+      - default-src 'self';script-src 'self' 'nonce-utZ7yyLU6TtCnDZe8iLGkLE2r'; style-src
+        'self' 'nonce-utZ7yyLU6TtCnDZe8iLGkLE2r'; object-src 'none';base-uri 'self';img-src
+        'self' https:;connect-src 'self' https://pagure.io:8088;frame-src https://docs.pagure.org;frame-ancestors
+        https://pagure.io;
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 22 Apr 2025 03:54:06 GMT
+      Keep-Alive:
+      - timeout=5, max=100
+      Referrer-Policy:
+      - same-origin
+      Server:
+      - Apache/2.4.37 (Red Hat Enterprise Linux) OpenSSL/1.1.1k mod_wsgi/4.6.4 Python/3.6
+      Set-Cookie: ''
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Upgrade:
+      - h2,h2c
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - ALLOW-FROM https://pagure.io/
+      X-Xss-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

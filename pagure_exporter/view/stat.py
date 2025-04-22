@@ -26,7 +26,7 @@ from time import localtime, strftime
 
 from pagure_exporter.conf import standard
 from pagure_exporter.view.dcrt import failure, general, section, success
-from pagure_exporter.work.stat import DestData, SrceData
+from pagure_exporter.work.gitlab.stat import DestData, SrceData
 
 
 def showstat():

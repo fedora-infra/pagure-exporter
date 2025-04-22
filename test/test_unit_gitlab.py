@@ -30,7 +30,7 @@ import pytest
 from gitlab.exceptions import GitlabCreateError, GitlabUpdateError
 
 from pagure_exporter.conf import standard
-from pagure_exporter.work.tkts import MoveTkts
+from pagure_exporter.work.gitlab.tkts import MoveTkts
 
 
 @pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"])
@@ -67,7 +67,7 @@ from pagure_exporter.work.tkts import MoveTkts
                 },
             },
             False,
-            id="Checking for possible errors while creating an issue ticket",  # noqa: E501
+            id="GitLab: Checking for possible errors while creating an issue ticket",  # noqa: E501
         )
     ]
 )
@@ -110,7 +110,7 @@ def test_unit_gitlab_itertkts(caplog, data, rslt):
                 },
             },
             False,
-            id="Checking for possible errors while creating a comment under an existing issue ticket",  # noqa: E501
+            id="GitLab: Checking for possible errors while creating a comment under an existing issue ticket",  # noqa: E501
         ),
     ]
 )
@@ -146,7 +146,7 @@ def test_unit_gitlab_itercmts(caplog, data, rslt):
             1,
             True,
             False,
-            id="Checking for possible errors while updating the issue ticket status",  # noqa: E501
+            id="GitLab: Checking for possible errors while updating the issue ticket status",  # noqa: E501
         ),
     ]
 )

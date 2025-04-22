@@ -28,7 +28,7 @@ from shutil import rmtree
 import pytest
 
 from pagure_exporter.conf import standard
-from pagure_exporter.work.repo import PushRepo
+from pagure_exporter.work.gitlab.repo import PushRepo
 
 # TODO:
 # Change the `gridhead/protop2g-test` static reference to a dynamic reference where the
@@ -47,7 +47,7 @@ from pagure_exporter.work.repo import PushRepo
             envr["TEST_FUSR"],
             envr["TEST_TUSR"],
             True,
-            id="Attempting to clone an available source namespace",
+            id="Pagure: Attempting to clone an available source namespace",
         ),
         pytest.param(
             envr["TEST_SRCE"] + "ZEROEXISTENT",
@@ -57,7 +57,7 @@ from pagure_exporter.work.repo import PushRepo
             envr["TEST_FUSR"],
             envr["TEST_TUSR"],
             False,
-            id="Attempting to clone an invalid source namespace",
+            id="Pagure: Attempting to clone an invalid source namespace",
         ),
     ],
 )
@@ -84,7 +84,7 @@ def test_unit_downsrce(caplog, srcename, destname, gkey, pkey, fusr, tusr, rslt)
             envr["TEST_FUSR"],
             envr["TEST_TUSR"],
             True,
-            id="Attempting to clone an available destination namespace",
+            id="GitLab: Attempting to clone an available destination namespace",
         ),
         pytest.param(
             envr["TEST_SRCE"],
@@ -94,7 +94,7 @@ def test_unit_downsrce(caplog, srcename, destname, gkey, pkey, fusr, tusr, rslt)
             envr["TEST_FUSR"],
             envr["TEST_TUSR"],
             False,
-            id="Attempting to clone an invalid destination namespace",
+            id="GitLab: Attempting to clone an invalid destination namespace",
         ),
     ],
 )
@@ -123,7 +123,7 @@ def test_unit_downdest(caplog, srcename, destname, gkey, pkey, fusr, tusr, rslt)
             ["test-aaaa", "test-bbbb", "test-cccc", "test-dddd"],
             False,
             True,
-            id="Attempting to check the available branches for an source repository existing cloned copy",  # noqa: E501
+            id="Pagure: Attempting to check the available branches for an source repository existing cloned copy",  # noqa: E501
         ),
         pytest.param(
             envr["TEST_SRCE"],
@@ -135,7 +135,7 @@ def test_unit_downdest(caplog, srcename, destname, gkey, pkey, fusr, tusr, rslt)
             [],
             True,
             False,
-            id="Attempting to check the available branches for an source repository invalid cloned copy",  # noqa: E501
+            id="Pagure: Attempting to check the available branches for an source repository invalid cloned copy",  # noqa: E501
         ),
     ],
 )
@@ -169,7 +169,7 @@ def test_unit_cbrcsrce(caplog, srcename, destname, gkey, pkey, fusr, tusr, brcsl
             envr["TEST_TUSR"],
             False,
             True,
-            id="Attempting to check the available branches for an destination repository existing cloned copy",  # noqa: E501
+            id="GitLab: Attempting to check the available branches for an destination repository existing cloned copy",  # noqa: E501
         ),
         pytest.param(
             envr["TEST_SRCE"],
@@ -180,7 +180,7 @@ def test_unit_cbrcsrce(caplog, srcename, destname, gkey, pkey, fusr, tusr, brcsl
             envr["TEST_TUSR"],
             True,
             False,
-            id="Attempting to check the available branches for an destination repository invalid cloned copy",  # noqa: E501
+            id="GitLab: Attempting to check the available branches for an destination repository invalid cloned copy",  # noqa: E501
         ),
     ],
 )
@@ -215,7 +215,7 @@ def test_unit_cbrcdest(caplog, srcename, destname, gkey, pkey, fusr, tusr, pull,
             [],
             False,
             True,
-            id="Attempting to migrate available branches from a source repository existing cloned copy with undefined branches",  # noqa: E501
+            id="GitLab: Attempting to migrate available branches from a source repository existing cloned copy with undefined branches",  # noqa: E501
         ),
         pytest.param(
             envr["TEST_SRCE"],
@@ -227,7 +227,7 @@ def test_unit_cbrcdest(caplog, srcename, destname, gkey, pkey, fusr, tusr, pull,
             ["test-aaaa", "test-bbbb"],
             False,
             True,
-            id="Attempting to migrate available branches from a source repository existing cloned copy while defining valid branches",  # noqa: E501
+            id="GitLab: Attempting to migrate available branches from a source repository existing cloned copy while defining valid branches",  # noqa: E501
         ),
         pytest.param(
             envr["TEST_SRCE"],
@@ -239,7 +239,7 @@ def test_unit_cbrcdest(caplog, srcename, destname, gkey, pkey, fusr, tusr, pull,
             ["test-axxa", "test-bxxb"],
             False,
             True,
-            id="Attempting to migrate available branches from a source repository existing cloned copy while defining invalid branches",  # noqa: E501
+            id="GitLab: Attempting to migrate available branches from a source repository existing cloned copy while defining invalid branches",  # noqa: E501
         ),
         pytest.param(
             envr["TEST_SRCE"],
@@ -251,7 +251,7 @@ def test_unit_cbrcdest(caplog, srcename, destname, gkey, pkey, fusr, tusr, pull,
             [],
             True,
             False,
-            id="Attempting to migrate available branches from a source repository invalid cloned copy with undefined branches",  # noqa: E501
+            id="GitLab: Attempting to migrate available branches from a source repository invalid cloned copy with undefined branches",  # noqa: E501
         ),
         pytest.param(
             envr["TEST_SRCE"],
@@ -263,7 +263,7 @@ def test_unit_cbrcdest(caplog, srcename, destname, gkey, pkey, fusr, tusr, pull,
             ["test-aaaa", "test-bbbb"],
             True,
             False,
-            id="Attempting to migrate available branches from a source repository invalid cloned copy while defining valid branches",  # noqa: E501
+            id="GitLab: Attempting to migrate available branches from a source repository invalid cloned copy while defining valid branches",  # noqa: E501
         ),
         pytest.param(
             envr["TEST_SRCE"],
@@ -275,7 +275,7 @@ def test_unit_cbrcdest(caplog, srcename, destname, gkey, pkey, fusr, tusr, pull,
             ["test-axxa", "test-bxxb"],
             True,
             False,
-            id="Attempting to migrate available branches from a source repository invalid cloned copy while defining invalid branches",  # noqa: E501
+            id="GitLab: Attempting to migrate available branches from a source repository invalid cloned copy while defining invalid branches",  # noqa: E501
         ),
     ],
 )

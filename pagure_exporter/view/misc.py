@@ -21,7 +21,7 @@ be used or replicated with the express permission of Red Hat, Inc.
 """
 
 
-from pagure_exporter.view.dcrt import general, warning
+from .dcrt import general, warning
 
 
 def tnfsprog(brchname, indx, qant, avbl):

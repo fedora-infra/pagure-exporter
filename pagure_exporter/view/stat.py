@@ -24,9 +24,9 @@ be used or replicated with the express permission of Red Hat, Inc.
 import sys
 from time import localtime, strftime
 
-from pagure_exporter.conf import standard
-from pagure_exporter.view.dcrt import failure, general, section, success
-from pagure_exporter.work.stat import DestData, SrceData
+from ..conf import standard
+from ..work.stat import DestData, SrceData
+from .dcrt import failure, general, section, success
 
 
 def showstat():

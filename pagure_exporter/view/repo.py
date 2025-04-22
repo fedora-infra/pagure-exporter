@@ -23,9 +23,9 @@ be used or replicated with the express permission of Red Hat, Inc.
 
 import sys
 
-from pagure_exporter.conf import standard
-from pagure_exporter.view.dcrt import failure, general, section, success, warning
-from pagure_exporter.work.repo import PushRepo
+from ..conf import standard
+from ..work.repo import PushRepo
+from .dcrt import failure, general, section, success, warning
 
 
 def showrepo():

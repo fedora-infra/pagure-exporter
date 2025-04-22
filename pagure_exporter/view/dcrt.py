@@ -23,7 +23,7 @@ be used or replicated with the express permission of Red Hat, Inc.
 
 from click import style
 
-from pagure_exporter.conf.standard import logger
+from ..conf.standard import logger
 
 PASS = style("[ PASS ]", fg="green", bold=True)
 FAIL = style("[ FAIL ]", fg="red", bold=True)

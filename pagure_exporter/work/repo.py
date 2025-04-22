@@ -27,8 +27,8 @@ from tempfile import TemporaryDirectory
 
 from git import Repo
 
-from pagure_exporter.conf import standard
-from pagure_exporter.view.misc import tnfsprog, tnfswarn
+from ..conf import standard
+from ..view.misc import tnfsprog, tnfswarn
 
 
 class PushRepo:

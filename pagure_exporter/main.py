@@ -23,11 +23,11 @@ be used or replicated with the express permission of Red Hat, Inc.
 
 import click
 
-from pagure_exporter import __version__ as versobjc
-from pagure_exporter.view.repo import showrepo
-from pagure_exporter.view.stat import showstat
-from pagure_exporter.view.tkts import showtkts
-from pagure_exporter.work.keep import keepbrcs, keeptkts, storeinf
+from . import __version__ as versobjc
+from .view.repo import showrepo
+from .view.stat import showstat
+from .view.tkts import showtkts
+from .work.keep import keepbrcs, keeptkts, storeinf
 
 
 @click.group(name="pagure_exporter")

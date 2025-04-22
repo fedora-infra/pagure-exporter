@@ -19,30 +19,3 @@ Any Red Hat trademarks that are incorporated in the source code or
 documentation are not subject to the GNU General Public License and may only
 be used or replicated with the express permission of Red Hat, Inc.
 """
-
-
-import click
-
-from pagure_exporter import __version__ as versobjc
-from pagure_exporter.view.forgejo.main import main as fogo
-from pagure_exporter.view.gitlab.main import main as gtlb
-
-
-@click.group(name="pagure-exporter")
-@click.version_option(
-    version=versobjc,
-    prog_name=click.style(
-        "Pagure Exporter by Akashdeep Dhar <t0xic0der@fedoraproject.org>",
-        fg="green",
-        bold=True,
-    ),
-)
-def main():
-    """
-    Pagure Exporter
-    """
-    pass
-
-
-main.add_command(gtlb)
-main.add_command(fogo)

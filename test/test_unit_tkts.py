@@ -28,7 +28,7 @@ from gitlab import Gitlab as gtlb
 from requests import Session
 
 from pagure_exporter.conf import standard
-from pagure_exporter.work.tkts import MoveTkts
+from pagure_exporter.work.gitlab.tkts import MoveTkts
 
 
 @pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"])
@@ -45,7 +45,7 @@ from pagure_exporter.work.tkts import MoveTkts
             2,
             "all",
             200,
-            id="Attempting to count issue tickets from a valid issue tracker of smaller length",
+            id="GitLab: Attempting to count issue tickets from a valid issue tracker of smaller length",
         ),
         pytest.param(
             "fedora-infrastructure",
@@ -57,7 +57,7 @@ from pagure_exporter.work.tkts import MoveTkts
             10000,
             "all",
             200,
-            id="Attempting to count issue tickets from a valid issue tracker of longer length",
+            id="GitLab: Attempting to count issue tickets from a valid issue tracker of longer length",
         ),
     ],
 )
@@ -83,7 +83,7 @@ def test_unit_getcount(caplog, srce, dest, pkey, gkey, fusr, tusr, qant, stat, r
             envr["TEST_TUSR"],
             "https://pagure.io/api/0",
             200,
-            id="Attempting to count issue tickets from an existing issue tracker on an existing forge",  # noqa: E501
+            id="GitLab: Attempting to count issue tickets from an existing issue tracker on an existing forge",  # noqa: E501
         ),
         pytest.param(
             "stoopeed-repo",
@@ -94,7 +94,7 @@ def test_unit_getcount(caplog, srce, dest, pkey, gkey, fusr, tusr, qant, stat, r
             envr["TEST_TUSR"],
             "https://pagure.io/api/0",
             404,
-            id="Attempting to count issue tickets from an invalid issue tracker on an existing forge",  # noqa: E501
+            id="GitLab: Attempting to count issue tickets from an invalid issue tracker on an existing forge",  # noqa: E501
         ),
         pytest.param(
             envr["TEST_SRCE"],
@@ -105,7 +105,7 @@ def test_unit_getcount(caplog, srce, dest, pkey, gkey, fusr, tusr, qant, stat, r
             envr["TEST_TUSR"],
             "https://pajure.io/api/0",
             False,
-            id="Attempting to count issue tickets from an existing issue tracker on an invalid forge",  # noqa: E501
+            id="GitLab: Attempting to count issue tickets from an existing issue tracker on an invalid forge",  # noqa: E501
         ),
     ],
 )
@@ -136,7 +136,7 @@ def test_unit_getcount_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, root, rs
             1,
             "",
             400,
-            id="Setting an invalid `pagesize` value",
+            id="GitLab: Setting an invalid `pagesize` value",
         ),
         pytest.param(
             envr["TEST_SRCE"],
@@ -149,7 +149,7 @@ def test_unit_getcount_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, root, rs
             1,
             "",
             200,
-            id="Attempting to iterate through the first page from an existing issue tracker for OPEN tickets",  # noqa: E501
+            id="GitLab: Attempting to iterate through the first page from an existing issue tracker for OPEN tickets",  # noqa: E501
         ),
         pytest.param(
             envr["TEST_SRCE"],
@@ -162,7 +162,7 @@ def test_unit_getcount_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, root, rs
             1,
             "closed",
             200,
-            id="Attempting to iterate through the first page from an existing issue tracker for SHUT tickets",  # noqa: E501
+            id="GitLab: Attempting to iterate through the first page from an existing issue tracker for SHUT tickets",  # noqa: E501
         ),
     ],
 )
@@ -188,7 +188,7 @@ def test_unit_iterpage(caplog, srce, dest, pkey, gkey, fusr, tusr, size, indx, s
             1,
             "https://pagure.io/api/0",
             200,
-            id="Attempting to iterate through the first page from an existing issue tracker on an existing forge",  # noqa: E501
+            id="GitLab: Attempting to iterate through the first page from an existing issue tracker on an existing forge",  # noqa: E501
         ),
         pytest.param(
             "stoopeed-repo",
@@ -200,7 +200,7 @@ def test_unit_iterpage(caplog, srce, dest, pkey, gkey, fusr, tusr, size, indx, s
             1,
             "https://pagure.io/api/0",
             404,
-            id="Attempting to iterate through the first page from an invalid issue tracker on an existing forge",  # noqa: E501
+            id="GitLab: Attempting to iterate through the first page from an invalid issue tracker on an existing forge",  # noqa: E501
         ),
         pytest.param(
             envr["TEST_SRCE"],
@@ -212,7 +212,7 @@ def test_unit_iterpage(caplog, srce, dest, pkey, gkey, fusr, tusr, size, indx, s
             1,
             "https://pajure.io/api/0",
             False,
-            id="Attempting to iterate through the first page from an existing issue tracker on an invalid forge",  # noqa: E501
+            id="GitLab: Attempting to iterate through the first page from an existing issue tracker on an invalid forge",  # noqa: E501
         ),
     ],
 )
@@ -243,7 +243,7 @@ def test_unit_iterpage_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, ro
             "open",
             False,
             200,
-            id="Attempting to probe the issue ticket with the existing identity with matching status",  # noqa: E501
+            id="GitLab: Attempting to probe the issue ticket with the existing identity with matching status",  # noqa: E501
         ),
         pytest.param(
             envr["TEST_SRCE"],
@@ -256,7 +256,7 @@ def test_unit_iterpage_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, ro
             "open",
             True,
             200,
-            id="Attempting to probe the issue ticket with the existing identity with mismatch status",  # noqa: E501
+            id="GitLab: Attempting to probe the issue ticket with the existing identity with mismatch status",  # noqa: E501
         ),
         pytest.param(
             envr["TEST_SRCE"],
@@ -269,7 +269,7 @@ def test_unit_iterpage_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, ro
             "shut",
             False,
             404,
-            id="Attempting to probe the issue ticket with the invalid identity",
+            id="GitLab: Attempting to probe the issue ticket with the invalid identity",
         ),
     ],
 )
@@ -298,7 +298,7 @@ def test_unit_iteriden(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, stat, s
             1,
             "https://pagure.io/api/0",
             200,
-            id="Attempting to probe the issue ticket with the existing identity on an existing issue tracker on an existing forge",  # noqa: E501
+            id="GitLab: Attempting to probe the issue ticket with the existing identity on an existing issue tracker on an existing forge",  # noqa: E501
         ),
         pytest.param(
             "stoopeed-repo",
@@ -310,7 +310,7 @@ def test_unit_iteriden(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, stat, s
             1,
             "https://pagure.io/api/0",
             404,
-            id="Attempting to iterate through the first page from an invalid issue tracker on an existing forge",  # noqa: E501
+            id="GitLab: Attempting to iterate through the first page from an invalid issue tracker on an existing forge",  # noqa: E501
         ),
         pytest.param(
             envr["TEST_SRCE"],
@@ -322,7 +322,7 @@ def test_unit_iteriden(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, stat, s
             1,
             "https://pajure.io/api/0",
             False,
-            id="Attempting to iterate through the first page from an existing issue tracker on an invalid forge",  # noqa: E501
+            id="GitLab: Attempting to iterate through the first page from an existing issue tracker on an invalid forge",  # noqa: E501
         ),
     ],
 )
@@ -380,7 +380,7 @@ def test_unit_iteriden_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, ro
             "https://gitlab.com/api/v4/projects",
             False,
             201,
-            id="Attempting to migrate an existing issue ticket without tags to an existing namespace",  # noqa: E501
+            id="GitLab: Attempting to migrate an existing issue ticket without tags to an existing namespace",  # noqa: E501
         ),
         pytest.param(
             envr["TEST_SRCE"],
@@ -420,7 +420,7 @@ def test_unit_iteriden_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, ro
             "https://gitlab.com/api/v4/projects",
             True,
             201,
-            id="Attempting to migrate an existing issue ticket with tags to an existing namespace",  # noqa: E501
+            id="GitLab: Attempting to migrate an existing issue ticket with tags to an existing namespace",  # noqa: E501
         ),
         pytest.param(
             envr["TEST_SRCE"],
@@ -435,7 +435,7 @@ def test_unit_iteriden_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, ro
             "https://gitlab.com/api/v4/projects",
             False,
             False,
-            id="Attempting to migrate an invalid issue ticket without tags to an existing namespace",  # noqa: E501
+            id="GitLab: Attempting to migrate an invalid issue ticket without tags to an existing namespace",  # noqa: E501
         ),
     ],
 )

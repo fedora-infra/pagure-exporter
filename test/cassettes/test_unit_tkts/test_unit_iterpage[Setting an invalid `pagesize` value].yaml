@@ -5,7 +5,7 @@ interactions:
       Accept:
       - '*/*'
       Accept-Encoding:
-      - gzip, deflate
+      - gzip, deflate, zstd
       Connection:
       - keep-alive
       User-Agent:
@@ -14,22 +14,22 @@ interactions:
     uri: https://pagure.io/api/0/protop2g-test-srce/issues?per_page=0&page=1
   response:
     body:
-      string: "{\n  \"error\": \"The per_page value must be between 1 and 100\", \n\
-        \  \"error_code\": \"EINVALIDPERPAGEVALUE\"\n}\n"
+      string: "{\n  \"error\": \"The per_page value must be between 1 and 100\", \n
+        \ \"error_code\": \"EINVALIDPERPAGEVALUE\"\n}\n"
     headers:
       Connection:
       - Upgrade, close
       Content-Length:
       - '103'
       Content-Security-Policy:
-      - default-src 'self';script-src 'self' 'nonce-Zp86DgC8WeNCIscU80B4Yp01Q'; style-src
-        'self' 'nonce-Zp86DgC8WeNCIscU80B4Yp01Q'; object-src 'none';base-uri 'self';img-src
+      - default-src 'self';script-src 'self' 'nonce-34F3gqWx0qQ0JJ4T0EV39zxOh'; style-src
+        'self' 'nonce-34F3gqWx0qQ0JJ4T0EV39zxOh'; object-src 'none';base-uri 'self';img-src
         'self' https:;connect-src 'self' https://pagure.io:8088;frame-src https://docs.pagure.org;frame-ancestors
         https://pagure.io;
       Content-Type:
       - application/json
       Date:
-      - Thu, 23 Jan 2025 09:41:02 GMT
+      - Fri, 25 Apr 2025 05:25:05 GMT
       Referrer-Policy:
       - same-origin
       Server:

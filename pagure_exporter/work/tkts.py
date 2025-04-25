@@ -27,7 +27,7 @@ from datetime import datetime, timezone
 import requests
 from gitlab import GitlabCreateError, GitlabGetError, GitlabUpdateError
 
-from pagure_exporter.conf import standard
+from ..conf import standard
 
 
 class MoveTkts:

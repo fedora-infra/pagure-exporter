@@ -26,8 +26,8 @@ import requests
 from gitlab import Gitlab as gtlb
 from gitlab import GitlabAuthenticationError, GitlabGetError
 
-from pagure_exporter.conf import standard
-from pagure_exporter.view.dcrt import conceal
+from ..conf import standard
+from ..view.dcrt import conceal
 
 
 class SrceData:

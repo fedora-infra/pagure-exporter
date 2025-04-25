@@ -21,7 +21,7 @@ be used or replicated with the express permission of Red Hat, Inc.
 """
 
 
-from pagure_exporter.conf import standard
+from ..conf import standard
 
 
 def storeinf(srce, dest, pkey, gkey, fusr, tusr):

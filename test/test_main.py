@@ -49,7 +49,7 @@ from pagure_exporter.main import main
             id="Basic help",
         ),
         pytest.param(
-            "-s a -d a -p a -g a -f a -t a tkts --help",
+            "-a a -b a -s a -d a -p a -g a -f a -t a tkts --help",
             0,
             [
                 "Usage: pagure_exporter tkts [OPTIONS]",
@@ -66,7 +66,7 @@ from pagure_exporter.main import main
             id="Tickets help",
         ),
         pytest.param(
-            "-s a -d a -p a -g a -f a -t a repo --help",
+            "-a a -b a -s a -d a -p a -g a -f a -t a repo --help",
             0,
             [
                 "Usage: pagure_exporter repo [OPTIONS]",
@@ -78,7 +78,7 @@ from pagure_exporter.main import main
             id="Repositories help",
         ),
         pytest.param(
-            "-s a -d a -p a -g a -f a -t a tkts --select 4,2,0 --ranges 6 9",
+            "-a a -b a -s a -d a -p a -g a -f a -t a tkts --select 4,2,0 --ranges 6 9",
             2,
             [
                 "Usage: pagure_exporter tkts [OPTIONS]",
@@ -88,7 +88,7 @@ from pagure_exporter.main import main
             id="Using `select` and `ranges` options together",
         ),
         pytest.param(
-            "-s a -d a -p a -g a -f a -t a tkts --select string",
+            "-a a -b a -s a -d a -p a -g a -f a -t a tkts --select string",
             2,
             [
                 "Usage: pagure_exporter tkts [OPTIONS]",
@@ -98,7 +98,7 @@ from pagure_exporter.main import main
             id="Providing invalid string input to the `select` option",
         ),
         pytest.param(
-            "-s a -d a -p a -g a -f a -t a tkts --ranges strA strB",
+            "-a a -b a -s a -d a -p a -g a -f a -t a tkts --ranges strA strB",
             2,
             [
                 "Usage: pagure_exporter tkts [OPTIONS]",
@@ -108,25 +108,25 @@ from pagure_exporter.main import main
             id="Providing invalid string input to the `ranges` option",
         ),
         pytest.param(
-            "-s a -d a -p a -g a -f a -t a tkts --select",
+            "-a a -b a -s a -d a -p a -g a -f a -t a tkts --select",
             2,
             ["Error: Option '--select' requires an argument."],
             id="Providing empty input to the `select` option",
         ),
         pytest.param(
-            "-s a -d a -p a -g a -f a -t a tkts --ranges",
+            "-a a -b a -s a -d a -p a -g a -f a -t a tkts --ranges",
             2,
             ["Error: Option '--ranges' requires 2 arguments."],
             id="Providing empty input to the `ranges` option",
         ),
         pytest.param(
-            "-s a -d a -p a -g a -f a -t a repo --brcs",
+            "-a a -b a -s a -d a -p a -g a -f a -t a repo --brcs",
             2,
             ["Error: Option '--brcs' requires an argument."],
             id="Providing empty input to the `brcs` option",
         ),
         pytest.param(
-            "-s a -d a -p a -g a -f a -t a",
+            "-a a -b a -s a -d a -p a -g a -f a -t a",
             2,
             [
                 "Usage: pagure_exporter [OPTIONS] COMMAND [ARGS]...",

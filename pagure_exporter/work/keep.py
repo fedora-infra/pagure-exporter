@@ -24,13 +24,25 @@ be used or replicated with the express permission of Red Hat, Inc.
 from ..conf import standard
 
 
-def storeinf(srce, dest, pkey, gkey, fusr, tusr):
+def storeinf(splt, dplt, srce, dest, pkey, gkey, fusr, tusr):
     standard.srcename = srce
     standard.destname = dest
     standard.pagucode = pkey
     standard.gtlbcode = gkey
     standard.paguuser = fusr
     standard.gtlbuser = tusr
+    standard.pagulink = splt
+    standard.gtlblink = dplt
+    if not standard.pagulink.startswith("https://"):
+        standard.pagulink = f"https://{standard.pagulink}"
+    if not standard.pagulink.endswith("/api/0"):
+        standard.pagulink = f"{standard.pagulink}/api/0"
+    if not standard.gtlblink.startswith("https://"):
+        standard.gtlblink = f"https://{standard.gtlblink}"
+    if not standard.gtlblink.endswith("/api/v4/projects"):
+        standard.gtlblink = f"{standard.gtlblink}/api/v4/projects"
+    standard.frgesrce = standard.pagulink.replace("https://", "").replace("/api/0", "")
+    standard.frgedest = standard.gtlblink.replace("https://", "").replace("/api/v4/projects", "")
 
 
 def keepbrcs(brcs):

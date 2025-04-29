@@ -35,7 +35,7 @@ from pagure_exporter.view.dcrt import conceal
     "cmdl, code, text",
     [
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo",  # noqa: E501
+            f"--splt {envr['TEST_SPLT_FEDO']} --dplt {envr['TEST_DPLT']} --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo",  # noqa: E501
             0,
             [
                 "[ BUSY ] Attempting source namespace assets clone...",
@@ -62,10 +62,10 @@ from pagure_exporter.view.dcrt import conceal
                 "Assets transferred: 6 branch(es) completed, 6 branch(es) requested",
                 "[ PASS ] Namespace assets transfer succeeded!",
             ],
-            id="Migrating repository contents with specifying zero valid branch names",
+            id="pagure.io - Migrating repository contents with specifying zero valid branch names",
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo --brcs test-aaaa,test-bbbb,test-cccc,test-dddd",  # noqa: E501
+            f"--splt {envr['TEST_SPLT_FEDO']} --dplt {envr['TEST_DPLT']} --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo --brcs test-aaaa,test-bbbb,test-cccc,test-dddd",  # noqa: E501
             0,
             [
                 "[ BUSY ] Attempting source namespace assets clone...",
@@ -88,10 +88,10 @@ from pagure_exporter.view.dcrt import conceal
                 "Assets transferred: 4 branch(es) completed, 4 branch(es) requested",
                 "[ PASS ] Namespace assets transfer succeeded!",
             ],
-            id="Migrating repository contents with specifying four valid branch names",
+            id="pagure.io - Migrating repository contents with specifying four valid branch names",
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo --brcs test-aaaa,test-bbbb,test-cxxc,test-dxxd",  # noqa: E501
+            f"--splt {envr['TEST_SPLT_FEDO']} --dplt {envr['TEST_DPLT']} --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo --brcs test-aaaa,test-bbbb,test-cxxc,test-dxxd",  # noqa: E501
             2,
             [
                 "[ BUSY ] Attempting source namespace assets clone...",
@@ -114,10 +114,10 @@ from pagure_exporter.view.dcrt import conceal
                 "Assets transferred: 2 branch(es) completed, 4 branch(es) requested",
                 "[ WARN ] Namespace assets transfer partially completed!",
             ],
-            id="Migrating repository contents with specifying two valid branch names and two invalid branch names",  # noqa: E501
+            id="pagure.io - Migrating repository contents with specifying two valid branch names and two invalid branch names",  # noqa: E501
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo --brcs test-axxa,test-bxxb,test-cxxc,test-dxxd",  # noqa: E501
+            f"--splt {envr['TEST_SPLT_FEDO']} --dplt {envr['TEST_DPLT']} --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo --brcs test-axxa,test-bxxb,test-cxxc,test-dxxd",  # noqa: E501
             1,
             [
                 "[ BUSY ] Attempting source namespace assets clone...",
@@ -140,23 +140,23 @@ from pagure_exporter.view.dcrt import conceal
                 "Assets transferred: 0 branch(es) completed, 4 branch(es) requested",
                 "[ FAIL ] Namespace assets transfer failed!",
             ],
-            id="Migrating repository contents with specifying four invalid branch names",
+            id="pagure.io - Migrating repository contents with specifying four invalid branch names",
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo",  # noqa: E501
+            f"--splt {envr['TEST_SPLT_FEDO']} --dplt {envr['TEST_DPLT']} --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo",  # noqa: E501
             0,
             [
-                f"Address: https://{envr['TEST_FUSR']}:{conceal(envr['TEST_PKEY'])}@pagure.io/{envr['TEST_SRCE']}.git",  # noqa: E501
+                f"Address: https://{envr['TEST_FUSR']}:{conceal(envr['TEST_PKEY'])}@{envr['TEST_SPLT_FEDO']}/{envr['TEST_SRCE']}.git",  # noqa: E501
             ],
-            id="Checking the correctness of metadata censorship for source namespace",
+            id="pagure.io - Checking the correctness of metadata censorship for source namespace",
         ),
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo",  # noqa: E501
+            f"--splt {envr['TEST_SPLT_FEDO']} --dplt {envr['TEST_DPLT']} --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo",  # noqa: E501
             0,
             [
-                f"Address: https://{envr['TEST_TUSR']}:{conceal(envr['TEST_GKEY'])}@gitlab.com/{envr['TEST_TUSR']}",  # noqa: E501
+                f"Address: https://{envr['TEST_TUSR']}:{conceal(envr['TEST_GKEY'])}@{envr['TEST_DPLT']}/{envr['TEST_TUSR']}",  # noqa: E501
             ],
-            id="Checking the correctness of metadata censorship for destination namespace",
+            id="pagure.io - Checking the correctness of metadata censorship for destination namespace",
         ),
     ],
 )
@@ -177,7 +177,7 @@ def test_main_repo(caplog, cmdl, code, text):
     "cmdl, code, text",
     [
         pytest.param(
-            f"--srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo",  # noqa: E501
+            f"--splt {envr['TEST_SPLT_FEDO']} --dplt {envr['TEST_DPLT']} --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo",  # noqa: E501
             1,
             [
                 "[ BUSY ] Requesting for source namespace metadata...",
@@ -188,7 +188,7 @@ def test_main_repo(caplog, cmdl, code, text):
                 "[ FAIL ] Migration failed!",
                 "Exception occurred: [Errno 13] Permission denied: ",
             ],
-            id="Cloning repository contents of the source namespace into an inoperable location",
+            id="pagure.io - Cloning repository contents of the source namespace into an inoperable location",
         ),
     ],
 )

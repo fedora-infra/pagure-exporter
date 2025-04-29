@@ -24,13 +24,31 @@ be used or replicated with the express permission of Red Hat, Inc.
 import click
 
 from . import __version__ as versobjc
+from .conf import standard
 from .view.repo import showrepo
 from .view.stat import showstat
 from .view.tkts import showtkts
 from .work.keep import keepbrcs, keeptkts, storeinf
 
 
-@click.group(name="pagure_exporter")
+@click.group(
+    name="pagure_exporter",
+    context_settings={"show_default": True},
+)
+@click.option(
+    "-a",
+    "--splt",
+    "splt",
+    default=standard.frgesrce,
+    help="Source hostname for accessing Pagure information",
+)
+@click.option(
+    "-b",
+    "--dplt",
+    "dplt",
+    default=standard.frgedest,
+    help="Destination hostname for accessing GitLab information",
+)
 @click.option(
     "-s",
     "--srce",
@@ -81,11 +99,11 @@ from .work.keep import keepbrcs, keeptkts, storeinf
         bold=True,
     ),
 )
-def main(srce, dest, pkey, gkey, fusr, tusr):
+def main(splt, dplt, srce, dest, pkey, gkey, fusr, tusr):
     """
     Pagure Exporter
     """
-    storeinf(srce, dest, pkey, gkey, fusr, tusr)
+    storeinf(splt, dplt, srce, dest, pkey, gkey, fusr, tusr)
 
 
 @main.command(

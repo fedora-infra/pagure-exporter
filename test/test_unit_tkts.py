@@ -28,7 +28,7 @@ from gitlab import Gitlab as gtlb
 from requests import Session
 
 from pagure_exporter.conf import standard
-from pagure_exporter.work.tkts import MoveTkts
+from pagure_exporter.work.tkts import MoveTickets
 
 
 @pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"])
@@ -62,12 +62,12 @@ from pagure_exporter.work.tkts import MoveTkts
     ],
 )
 def test_unit_getcount(caplog, srce, dest, pkey, gkey, fusr, tusr, qant, stat, rslt):
-    standard.paguuser, standard.pagucode, standard.srcename = fusr, pkey, srce
-    standard.gtlbuser, standard.gtlbcode, standard.destname = tusr, gkey, dest
-    standard.tktstate = stat
-    test_movetkts = MoveTkts()
-    assert rslt == test_movetkts.getcount()[0]  # noqa: S101
-    assert qant <= standard.tktcount  # noqa: S101
+    standard.pagure_user, standard.pagure_token, standard.repo_srce = fusr, pkey, srce
+    standard.gitlab_user, standard.gitlab_token, standard.repo_dest = tusr, gkey, dest
+    standard.ticket_state = stat
+    test_movetkts = MoveTickets()
+    assert rslt == test_movetkts.get_ticket_count()[0]  # noqa: S101
+    assert qant <= standard.ticket_count  # noqa: S101
 
 
 @pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"])
@@ -110,15 +110,15 @@ def test_unit_getcount(caplog, srce, dest, pkey, gkey, fusr, tusr, qant, stat, r
     ],
 )
 def test_unit_getcount_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, root, rslt):
-    standard.paguuser, standard.pagucode, standard.srcename = fusr, pkey, srce
-    standard.gtlbuser, standard.gtlbcode, standard.destname = tusr, gkey, dest
-    standard.pagulink = root
-    test_movetkts = MoveTkts()
-    assert rslt == test_movetkts.getcount()[0]  # noqa: S101
+    standard.pagure_user, standard.pagure_token, standard.repo_srce = fusr, pkey, srce
+    standard.gitlab_user, standard.gitlab_token, standard.repo_dest = tusr, gkey, dest
+    standard.pagure_api = root
+    test_movetkts = MoveTickets()
+    assert rslt == test_movetkts.get_ticket_count()[0]  # noqa: S101
 
     # Changing the shared variable back to its default
     # Please check https://github.com/gridhead/protop2g/issues/35 for additional details
-    standard.pagulink = "https://pagure.io/api/0"
+    standard.pagure_api = "https://pagure.io/api/0"
 
 
 @pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"])
@@ -136,7 +136,7 @@ def test_unit_getcount_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, root, rs
             1,
             "",
             400,
-            id="Setting an invalid `pagesize` value",
+            id="Setting an invalid `page_size` value",
         ),
         pytest.param(
             envr["TEST_SRCE"],
@@ -167,11 +167,11 @@ def test_unit_getcount_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, root, rs
     ],
 )
 def test_unit_iterpage(caplog, srce, dest, pkey, gkey, fusr, tusr, size, indx, stat, rslt):
-    standard.paguuser, standard.pagucode, standard.srcename = fusr, pkey, srce
-    standard.gtlbuser, standard.gtlbcode, standard.destname = tusr, gkey, dest
-    standard.pagesize, standard.tktstate = size, stat
-    test_movetkts = MoveTkts()
-    assert rslt == test_movetkts.iterpage(indx)[0]  # noqa: S101
+    standard.pagure_user, standard.pagure_token, standard.repo_srce = fusr, pkey, srce
+    standard.gitlab_user, standard.gitlab_token, standard.repo_dest = tusr, gkey, dest
+    standard.page_size, standard.ticket_state = size, stat
+    test_movetkts = MoveTickets()
+    assert rslt == test_movetkts.iterate_page(indx)[0]  # noqa: S101
 
 
 @pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"])
@@ -217,15 +217,15 @@ def test_unit_iterpage(caplog, srce, dest, pkey, gkey, fusr, tusr, size, indx, s
     ],
 )
 def test_unit_iterpage_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, root, rslt):
-    standard.paguuser, standard.pagucode, standard.srcename = fusr, pkey, srce
-    standard.gtlbuser, standard.gtlbcode, standard.destname = tusr, gkey, dest
-    standard.pagulink = root
-    test_movetkts = MoveTkts()
-    assert rslt == test_movetkts.iterpage(indx)[0]  # noqa: S101
+    standard.pagure_user, standard.pagure_token, standard.repo_srce = fusr, pkey, srce
+    standard.gitlab_user, standard.gitlab_token, standard.repo_dest = tusr, gkey, dest
+    standard.pagure_api = root
+    test_movetkts = MoveTickets()
+    assert rslt == test_movetkts.iterate_page(indx)[0]  # noqa: S101
 
     # Changing the shared variable back to its default
     # Please check https://github.com/gridhead/protop2g/issues/35 for additional details
-    standard.pagulink = "https://pagure.io/api/0"
+    standard.pagure_api = "https://pagure.io/api/0"
 
 
 @pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"])
@@ -274,11 +274,11 @@ def test_unit_iterpage_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, ro
     ],
 )
 def test_unit_iteriden(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, stat, skip, rslt):
-    standard.paguuser, standard.pagucode, standard.srcename = fusr, pkey, srce
-    standard.gtlbuser, standard.gtlbcode, standard.destname = tusr, gkey, dest
-    standard.tktstate = stat
-    test_movetkts = MoveTkts()
-    test_iteriden = test_movetkts.iteriden(indx)
+    standard.pagure_user, standard.pagure_token, standard.repo_srce = fusr, pkey, srce
+    standard.gitlab_user, standard.gitlab_token, standard.repo_dest = tusr, gkey, dest
+    standard.ticket_state = stat
+    test_movetkts = MoveTickets()
+    test_iteriden = test_movetkts.iterate_ticket_by_id(indx)
     assert rslt == test_iteriden[0]  # noqa: S101
     if rslt == 200:
         assert skip == test_iteriden[1]  # noqa: S101
@@ -327,15 +327,15 @@ def test_unit_iteriden(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, stat, s
     ],
 )
 def test_unit_iteriden_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, root, rslt):
-    standard.paguuser, standard.pagucode, standard.srcename = fusr, pkey, srce
-    standard.gtlbuser, standard.gtlbcode, standard.destname = tusr, gkey, dest
-    standard.pagulink = root
-    test_movetkts = MoveTkts()
-    assert rslt == test_movetkts.iteriden(indx)[0]  # noqa: S101
+    standard.pagure_user, standard.pagure_token, standard.repo_srce = fusr, pkey, srce
+    standard.gitlab_user, standard.gitlab_token, standard.repo_dest = tusr, gkey, dest
+    standard.pagure_api = root
+    test_movetkts = MoveTickets()
+    assert rslt == test_movetkts.iterate_ticket_by_id(indx)[0]  # noqa: S101
 
     # Changing the shared variable back to its default
     # Please check https://github.com/gridhead/protop2g/issues/35 for additional details
-    standard.pagulink = "https://pagure.io/api/0"
+    standard.pagure_api = "https://pagure.io/api/0"
 
 
 @pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"])
@@ -440,35 +440,24 @@ def test_unit_iteriden_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, ro
     ],
 )
 def test_unit_itertkts(
-        wipe_issues,
-        caplog,
-        srce,
-        dest,
-        pkey,
-        gkey,
-        fusr,
-        tusr,
-        data,
-        root,
-        tags,
-        rslt
+    wipe_issues, caplog, srce, dest, pkey, gkey, fusr, tusr, data, root, tags, rslt
 ):
-    standard.paguuser, standard.pagucode, standard.srcename = fusr, pkey, srce
-    standard.gtlbuser, standard.gtlbcode, standard.destname = tusr, gkey, dest
-    standard.gtlblink, standard.movetags, standard.sequence = root, tags, True
+    standard.pagure_user, standard.pagure_token, standard.repo_srce = fusr, pkey, srce
+    standard.gitlab_user, standard.gitlab_token, standard.repo_dest = tusr, gkey, dest
+    standard.gitlab_api, standard.move_labels, standard.move_sequence = root, tags, True
 
-    keepsake_gpro = standard.gpro
-    standard.gpro = gtlb(
-            session=Session(),
-            url="https://gitlab.com",
-            private_token=standard.gtlbcode,
-            retry_transient_errors=True,
-            timeout=standard.rqsttime,
-        ).projects.get(id=standard.destname)
-    test_movetkts = MoveTkts()
-    assert rslt == test_movetkts.itertkts(data)[0]  # noqa: S101
+    keepsake_gpro = standard.gitlab_project_obj
+    standard.gitlab_project_obj = gtlb(
+        session=Session(),
+        url="https://gitlab.com",
+        private_token=standard.gitlab_token,
+        retry_transient_errors=True,
+        timeout=standard.req_timeout,
+    ).projects.get(id=standard.repo_dest)
+    test_movetkts = MoveTickets()
+    assert rslt == test_movetkts.iterate_tickets(data)[0]  # noqa: S101
 
     # Changing the shared variable back to its default
     # Please check https://github.com/gridhead/protop2g/issues/35 for additional details
-    standard.gtlblink = "https://gitlab.com/api/v4/projects"
-    standard.gpro = keepsake_gpro
+    standard.gitlab_api = "https://gitlab.com/api/v4/projects"
+    standard.gitlab_project_obj = keepsake_gpro

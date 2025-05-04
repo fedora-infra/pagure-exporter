@@ -62,15 +62,11 @@ from pagure_exporter.work.repo import PushRepo
     ],
 )
 def test_unit_downsrce(caplog, srcename, destname, gkey, pkey, fusr, tusr, rslt):
-    standard.paguuser, standard.pagucode = fusr, pkey
-    standard.gtlbuser, standard.gtlbcode = tusr, gkey
-    standard.srcehuto = (
-        f"https://{standard.paguuser}:{standard.pagucode}@{standard.frgesrce}/{srcename}.git"
-    )
-    standard.desthuto = (
-        f"https://{standard.gtlbuser}:{standard.gtlbcode}@{standard.frgedest}/{destname}.git"
-    )
-    assert rslt == PushRepo().downsrce()[0]  # noqa: S101
+    standard.pagure_user, standard.pagure_token = fusr, pkey
+    standard.gitlab_user, standard.gitlab_token = tusr, gkey
+    standard.clone_url_srce = f"https://{standard.pagure_user}:{standard.pagure_token}@{standard.forge_srce}/{srcename}.git"
+    standard.clone_url_dest = f"https://{standard.gitlab_user}:{standard.gitlab_token}@{standard.forge_dest}/{destname}.git"
+    assert rslt == PushRepo().clone_source_repo()[0]  # noqa: S101
 
 
 @pytest.mark.parametrize(
@@ -99,15 +95,11 @@ def test_unit_downsrce(caplog, srcename, destname, gkey, pkey, fusr, tusr, rslt)
     ],
 )
 def test_unit_downdest(caplog, srcename, destname, gkey, pkey, fusr, tusr, rslt):
-    standard.paguuser, standard.pagucode = fusr, pkey
-    standard.gtlbuser, standard.gtlbcode = tusr, gkey
-    standard.srcehuto = (
-        f"https://{standard.paguuser}:{standard.pagucode}@{standard.frgesrce}/{srcename}.git"
-    )
-    standard.desthuto = (
-        f"https://{standard.gtlbuser}:{standard.gtlbcode}@{standard.frgedest}/{destname}.git"
-    )
-    assert rslt == PushRepo().downdest()[0]  # noqa: S101
+    standard.pagure_user, standard.pagure_token = fusr, pkey
+    standard.gitlab_user, standard.gitlab_token = tusr, gkey
+    standard.clone_url_srce = f"https://{standard.pagure_user}:{standard.pagure_token}@{standard.forge_srce}/{srcename}.git"
+    standard.clone_url_dest = f"https://{standard.gitlab_user}:{standard.gitlab_token}@{standard.forge_dest}/{destname}.git"
+    assert rslt == PushRepo().clone_destination_repo()[0]  # noqa: S101
 
 
 @pytest.mark.parametrize(
@@ -140,21 +132,17 @@ def test_unit_downdest(caplog, srcename, destname, gkey, pkey, fusr, tusr, rslt)
     ],
 )
 def test_unit_cbrcsrce(caplog, srcename, destname, gkey, pkey, fusr, tusr, brcslist, pull, rslt):
-    standard.paguuser, standard.pagucode = fusr, pkey
-    standard.gtlbuser, standard.gtlbcode = tusr, gkey
-    standard.srcehuto = (
-        f"https://{standard.paguuser}:{standard.pagucode}@{standard.frgesrce}/{srcename}.git"
-    )
-    standard.desthuto = (
-        f"https://{standard.gtlbuser}:{standard.gtlbcode}@{standard.frgedest}/{destname}.git"
-    )
+    standard.pagure_user, standard.pagure_token = fusr, pkey
+    standard.gitlab_user, standard.gitlab_token = tusr, gkey
+    standard.clone_url_srce = f"https://{standard.pagure_user}:{standard.pagure_token}@{standard.forge_srce}/{srcename}.git"
+    standard.clone_url_dest = f"https://{standard.gitlab_user}:{standard.gitlab_token}@{standard.forge_dest}/{destname}.git"
     test_pushrepo = PushRepo()
-    test_pushrepo.downsrce()
+    test_pushrepo.clone_source_repo()
     if pull:
         # This helps to simulate the condition where the temporary directories where the repository
         # assets were cloned locally was removed by an external factor
-        rmtree(os.path.join(test_pushrepo.sloc.name, ".git"))
-    assert rslt == test_pushrepo.cbrcsrce()[0]  # noqa: S101
+        rmtree(os.path.join(test_pushrepo.source_location.name, ".git"))
+    assert rslt == test_pushrepo.get_source_branches()[0]  # noqa: S101
 
 
 @pytest.mark.parametrize(
@@ -185,21 +173,17 @@ def test_unit_cbrcsrce(caplog, srcename, destname, gkey, pkey, fusr, tusr, brcsl
     ],
 )
 def test_unit_cbrcdest(caplog, srcename, destname, gkey, pkey, fusr, tusr, pull, rslt):
-    standard.paguuser, standard.pagucode = fusr, pkey
-    standard.gtlbuser, standard.gtlbcode = tusr, gkey
-    standard.srcehuto = (
-        f"https://{standard.paguuser}:{standard.pagucode}@{standard.frgesrce}/{srcename}.git"
-    )
-    standard.desthuto = (
-        f"https://{standard.gtlbuser}:{standard.gtlbcode}@{standard.frgedest}/{destname}.git"
-    )
+    standard.pagure_user, standard.pagure_token = fusr, pkey
+    standard.gitlab_user, standard.gitlab_token = tusr, gkey
+    standard.clone_url_srce = f"https://{standard.pagure_user}:{standard.pagure_token}@{standard.forge_srce}/{srcename}.git"
+    standard.clone_url_dest = f"https://{standard.gitlab_user}:{standard.gitlab_token}@{standard.forge_dest}/{destname}.git"
     test_pushrepo = PushRepo()
-    test_pushrepo.downdest()
+    test_pushrepo.clone_destination_repo()
     if pull:
         # This helps to simulate the condition where the temporary directories where the repository
         # assets were cloned locally was removed by an external factor
-        rmtree(os.path.join(test_pushrepo.dloc.name, ".git"))
-    assert rslt == test_pushrepo.cbrcdest()[0]  # noqa: S101
+        rmtree(os.path.join(test_pushrepo.destination_location.name, ".git"))
+    assert rslt == test_pushrepo.get_destination_branches()[0]  # noqa: S101
 
 
 @pytest.mark.parametrize(
@@ -280,20 +264,16 @@ def test_unit_cbrcdest(caplog, srcename, destname, gkey, pkey, fusr, tusr, pull,
     ],
 )
 def test_unit_tnfsrepo(caplog, srcename, destname, gkey, pkey, fusr, tusr, brcs, pull, rslt):
-    standard.paguuser, standard.pagucode = fusr, pkey
-    standard.gtlbuser, standard.gtlbcode = tusr, gkey
-    standard.srcehuto = (
-        f"https://{standard.paguuser}:{standard.pagucode}@{standard.frgesrce}/{srcename}.git"
-    )
-    standard.desthuto = (
-        f"https://{standard.gtlbuser}:{standard.gtlbcode}@{standard.frgedest}/{destname}.git"
-    )
-    standard.brtocopy = brcs
+    standard.pagure_user, standard.pagure_token = fusr, pkey
+    standard.gitlab_user, standard.gitlab_token = tusr, gkey
+    standard.clone_url_srce = f"https://{standard.pagure_user}:{standard.pagure_token}@{standard.forge_srce}/{srcename}.git"
+    standard.clone_url_dest = f"https://{standard.gitlab_user}:{standard.gitlab_token}@{standard.forge_dest}/{destname}.git"
+    standard.branches_to_copy = brcs
     test_pushrepo = PushRepo()
-    test_pushrepo.downsrce()
-    test_pushrepo.cbrcsrce()
+    test_pushrepo.clone_source_repo()
+    test_pushrepo.get_source_branches()
     if pull:
         # This helps to simulate the condition where the temporary directories where the repository
         # assets were cloned locally was removed by an external factor
-        rmtree(os.path.join(test_pushrepo.sloc.name, ".git"))
-    assert rslt == test_pushrepo.tnfsrepo()[0]  # noqa: S101
+        rmtree(os.path.join(test_pushrepo.source_location.name, ".git"))
+    assert rslt == test_pushrepo.transfer_repo()[0]  # noqa: S101

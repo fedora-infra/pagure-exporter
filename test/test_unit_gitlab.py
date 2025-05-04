@@ -30,7 +30,7 @@ import pytest
 from gitlab.exceptions import GitlabCreateError, GitlabUpdateError
 
 from pagure_exporter.conf import standard
-from pagure_exporter.work.tkts import MoveTkts
+from pagure_exporter.work.tkts import MoveTickets
 
 
 @pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"])
@@ -69,23 +69,23 @@ from pagure_exporter.work.tkts import MoveTkts
             False,
             id="Checking for possible errors while creating an issue ticket",  # noqa: E501
         )
-    ]
+    ],
 )
 def test_unit_gitlab_itertkts(caplog, data, rslt):
-    test_movetkts = MoveTkts()
+    test_movetkts = MoveTickets()
 
     # Store the previous state of the object so that it can be restored after mocking
-    keepsake_gpro = standard.gpro
+    keepsake_gpro = standard.gitlab_project_obj
 
     # Mocking project object from the GitLab class and simulating a failure scenario
-    standard.gpro = Mock()
-    standard.gpro.issues.create.side_effect = GitlabCreateError()
+    standard.gitlab_project_obj = Mock()
+    standard.gitlab_project_obj.issues.create.side_effect = GitlabCreateError()
 
-    assert rslt == test_movetkts.itertkts(data)[0]  # noqa: S101
+    assert rslt == test_movetkts.iterate_tickets(data)[0]  # noqa: S101
 
     # Changing the shared variable back to its default
     # Please check https://github.com/gridhead/protop2g/issues/35 for additional details
-    standard.gpro = keepsake_gpro
+    standard.gitlab_project_obj = keepsake_gpro
 
 
 @pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"])
@@ -112,23 +112,23 @@ def test_unit_gitlab_itertkts(caplog, data, rslt):
             False,
             id="Checking for possible errors while creating a comment under an existing issue ticket",  # noqa: E501
         ),
-    ]
+    ],
 )
 def test_unit_gitlab_itercmts(caplog, data, rslt):
-    test_movetkts = MoveTkts()
+    test_movetkts = MoveTickets()
 
     # Store the previous state of the object so that it can be restored after mocking
-    keepsake_gpro = standard.gpro
+    keepsake_gpro = standard.gitlab_project_obj
 
     # Mocking project object from the GitLab class and simulating a failure scenario
-    standard.gpro = Mock()
-    standard.gpro.issues.get().discussions.create.side_effect = GitlabCreateError()
+    standard.gitlab_project_obj = Mock()
+    standard.gitlab_project_obj.issues.get().discussions.create.side_effect = GitlabCreateError()
 
-    assert rslt == test_movetkts.itercmts(data)[0]  # noqa: S101
+    assert rslt == test_movetkts.iterate_comments(data)[0]  # noqa: S101
 
     # Changing the shared variable back to its default
     # Please check https://github.com/gridhead/protop2g/issues/35 for additional details
-    standard.gpro = keepsake_gpro
+    standard.gitlab_project_obj = keepsake_gpro
 
 
 @pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"])
@@ -148,23 +148,23 @@ def test_unit_gitlab_itercmts(caplog, data, rslt):
             False,
             id="Checking for possible errors while updating the issue ticket status",  # noqa: E501
         ),
-    ]
+    ],
 )
 def test_unit_gitlab_iterstat(caplog, srce, dest, pkey, gkey, fusr, tusr, root, tkid, shut, rslt):
-    standard.paguuser, standard.pagucode, standard.srcename = fusr, pkey, srce
-    standard.gtlbuser, standard.gtlbcode, standard.destname = tusr, gkey, dest
-    standard.gtlbtkid, standard.gtlblink, standard.isclosed = tkid, root, shut
-    test_movetkts = MoveTkts()
+    standard.pagure_user, standard.pagure_token, standard.repo_srce = fusr, pkey, srce
+    standard.gitlab_user, standard.gitlab_token, standard.repo_dest = tusr, gkey, dest
+    standard.gitlab_ticket_id, standard.gitlab_api, standard.ticket_closed = tkid, root, shut
+    test_movetkts = MoveTickets()
 
     # Store the previous state of the object so that it can be restored after mocking
-    keepsake_gpro = standard.gpro
+    keepsake_gpro = standard.gitlab_project_obj
 
     # Mocking project object from the GitLab class and simulating a failure scenario
-    standard.gpro = Mock()
-    standard.gpro.issues.get().save.side_effect = GitlabUpdateError()
+    standard.gitlab_project_obj = Mock()
+    standard.gitlab_project_obj.issues.get().save.side_effect = GitlabUpdateError()
 
-    assert rslt == test_movetkts.iterstat()[0]  # noqa: S101
+    assert rslt == test_movetkts.iterate_ticket_status()[0]  # noqa: S101
 
     # Changing the shared variable back to its default
     # Please check https://github.com/gridhead/protop2g/issues/35 for additional details
-    standard.gpro = keepsake_gpro
+    standard.gitlab_project_obj = keepsake_gpro

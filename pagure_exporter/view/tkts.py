@@ -24,57 +24,59 @@ be used or replicated with the express permission of Red Hat, Inc.
 import sys
 
 from ..conf import standard
-from ..work.tkts import MoveTkts
+from ..work.tkts import MoveTickets
 from .dcrt import failure, general, section, success, warning
 
 
-def showtkts():
-    moveobjc = MoveTkts()
+def show_tickets():
+    movetickets_obj = MoveTickets()
     section("Attempting source namespace issue ticket count...")
     warning(
-        f"Extracting {'all ' if standard.tktstate == 'open' or standard.tktstate == 'closed' else ''}"  # noqa: E501
-        f"{standard.tktstate} issue tickets "
-        f"{'with' if standard.movetags else 'without'} labels, "
-        f"{'with' if standard.movestat else 'without'} states, "
-        f"{'with' if standard.movehush else 'without'} privacy, "
-        f"{'with' if standard.movecmts else 'without'} comments and "
-        f"{'with' if standard.sequence else 'without'} order "
+        f"Extracting {'all ' if standard.ticket_state == 'open' or standard.ticket_state == 'closed' else ''}"  # noqa: E501
+        f"{standard.ticket_state} issue tickets "
+        f"{'with' if standard.move_labels else 'without'} labels, "
+        f"{'with' if standard.move_state else 'without'} states, "
+        f"{'with' if standard.move_secret else 'without'} privacy, "
+        f"{'with' if standard.move_comments else 'without'} comments and "
+        f"{'with' if standard.move_sequence else 'without'} order "
         f"off the given selection"
     )
-    if not standard.tktgroup:
-        qantrslt = moveobjc.getcount()
-        if qantrslt[0] == 200:
+    if not standard.ticket_group:
+        ticket_count_result = movetickets_obj.get_ticket_count()
+        if ticket_count_result[0] == 200:
             general(
-                f"Found {standard.tktcount} issue ticket(s) across {standard.pageqant} "
-                f"page(s) in {qantrslt[2]} second(s)"
+                f"Found {standard.ticket_count} issue ticket(s) across {standard.page_index} "
+                f"page(s) in {ticket_count_result[2]} second(s)"
             )
-            for indx in range(standard.pageqant):
+            for page_quantity_index in range(standard.page_index):
                 section(
-                    f"Reading issue tickets information (Page {indx + 1} of {standard.pageqant})..."  # noqa: E501
+                    f"Reading issue tickets information (Page {page_quantity_index + 1} of {standard.page_index})..."  # noqa: E501
                 )
-                pagerslt = moveobjc.iterpage(indx + 1)
-                if pagerslt[0] == 200:
+                page_result = movetickets_obj.iterate_page(page_quantity_index + 1)
+                if page_result[0] == 200:
                     general(
-                        f"Found {len(standard.pagerslt)} issue ticket(s) on this "
-                        f"page in {pagerslt[2]} second(s)"
+                        f"Found {len(standard.page_result)} issue ticket(s) on this "
+                        f"page in {page_result[2]} second(s)"
                     )
-                    for jndx in standard.pagerslt:
-                        issurslt = moveobjc.itertkts(jndx)
+                    for page in standard.page_result:
+                        ticket_result = movetickets_obj.iterate_tickets(page)
                         section(
-                            f"Migrating issue ticket {'with' if standard.movetags else 'without'} "  # noqa: E501
-                            f"labels #{standard.issuiden} '{standard.issuname}' by "
-                            f"'{standard.authname} (ID {standard.authorid})'..."
+                            f"Migrating issue ticket {'with' if standard.move_labels else 'without'} "  # noqa: E501
+                            f"labels #{standard.ticket_identity} '{standard.ticket_name}' by "
+                            f"'{standard.author_name} (ID {standard.author_id})'..."
                         )
-                        if issurslt[0] == 201:
-                            general(f"Migrated to {issurslt[1]} in {issurslt[2]} second(s)")
-                            if standard.movestat:
+                        if ticket_result[0] == 201:
+                            general(
+                                f"Migrated to {ticket_result[1]} in {ticket_result[2]} second(s)"
+                            )
+                            if standard.move_state:
                                 section("Asserting issue ticket status...")
-                                statrslt = moveobjc.iterstat()
-                                if statrslt[0] == 200:
+                                ticket_status_result = movetickets_obj.iterate_ticket_status()
+                                if ticket_status_result[0] == 200:
                                     general(
-                                        f"Asserted CLOSE status of the ticket in {statrslt[2]} second(s)"  # noqa: E501
+                                        f"Asserted CLOSE status of the ticket in {ticket_status_result[2]} second(s)"  # noqa: E501
                                     )
-                                elif statrslt[0] == 0:
+                                elif ticket_status_result[0] == 0:
                                     general(
                                         "Assertion unnecessary due to the OPEN status of the ticket"  # noqa: E501
                                     )
@@ -83,84 +85,84 @@ def showtkts():
                                     # From `test/test_unit_tkts`
                                     failure("Issue ticket status assertion failed!")
                                     general(
-                                        f"Failed due to code '{statrslt[0]}' and reason '{statrslt[1]}' "  # noqa: E501
-                                        f"in {statrslt[2]} second(s)"
+                                        f"Failed due to code '{ticket_status_result[0]}' and reason '{ticket_status_result[1]}' "  # noqa: E501
+                                        f"in {ticket_status_result[2]} second(s)"
                                     )
-                            if standard.movecmts:
+                            if standard.move_comments:
                                 section("Reading comment information...")
-                                standard.issucmts = jndx["comments"]
+                                standard.ticket_comments = page["comments"]
                                 general(
-                                    f"Found {len(standard.issucmts)} entities in 0.00 second(s)"
+                                    f"Found {len(standard.ticket_comments)} entities in 0.00 second(s)"  # noqa: E501
                                 )
-                                for kndx in standard.issucmts:
-                                    cmtsrslt = moveobjc.itercmts(kndx)
+                                for issue_comment in standard.ticket_comments:
+                                    comment_result = movetickets_obj.iterate_comments(issue_comment)
                                     section(
-                                        f"Transferring comment (Entity {standard.cmtsqant} of "
-                                        f"{len(standard.issucmts)})..."
+                                        f"Transferring comment (Entity {standard.comment_quantity} of "  # noqa: E501
+                                        f"{len(standard.ticket_comments)})..."
                                     )
-                                    if cmtsrslt[0] == 201:
+                                    if comment_result[0] == 201:
                                         general(
-                                            f"Transferred to {cmtsrslt[1]} in {cmtsrslt[2]} second(s)"  # noqa: E501
+                                            f"Transferred to {comment_result[1]} in {comment_result[2]} second(s)"  # noqa: E501
                                         )
                                     else:  # pragma: no cover
                                         # Tested already in `test_unit_itercmts`
                                         # From `test/test_unit_tkts`
                                         failure("Comment transfer failed!")
                                         general(
-                                            f"Failed due to code '{cmtsrslt[0]}' and reason '{cmtsrslt[1]}' "  # noqa: E501
-                                            f"in {cmtsrslt[2]} second(s)"
+                                            f"Failed due to code '{comment_result[0]}' and reason '{comment_result[1]}' "  # noqa: E501
+                                            f"in {comment_result[2]} second(s)"
                                         )
                                         sys.exit(1)
-                                standard.cmtsqant = 0
+                                standard.comment_quantity = 0
                         else:  # pragma: no cover
                             # Tested already in `test_unit_itertkts`
                             # From `test/test_unit_tkts`
                             failure("Issue ticket migration failed!")
                             general(
-                                f"Failed due to code '{issurslt[0]}' and reason '{issurslt[1]}' "
-                                f"in {issurslt[2]} second(s)"
+                                f"Failed due to code '{ticket_result[0]}' and reason '{ticket_result[1]}' "  # noqa: E501
+                                f"in {ticket_result[2]} second(s)"
                             )
                 else:  # pragma: no cover
                     # Tested already in `test_unit_iterpage`
                     # From `test/test_unit_tkts`
                     failure("Issue ticket information reading failed!")
                     general(
-                        f"Failed due to code '{pagerslt[0]}' and reason '{pagerslt[1]}' in {pagerslt[2]} second(s)"  # noqa: E501
+                        f"Failed due to code '{page_result[0]}' and reason '{page_result[1]}' in {page_result[2]} second(s)"  # noqa: E501
                     )
             success("Namespace assets transferring queue processed!")
-            general(f"{standard.issutnfs} issue ticket(s) transferred")
+            general(f"{standard.issues_transferred} issue ticket(s) transferred")
             sys.exit(0)
         else:  # pragma: no cover
             # Tested already in `test_unit_getcount`
             # From `test/test_unit_tkts`
             failure("Source namespace issue ticket count failed!")
             general(
-                f"Failed due to code '{qantrslt[0]}' and reason '{qantrslt[1]}' in {qantrslt[2]} second(s)"  # noqa: E501
+                f"Failed due to code '{ticket_count_result[0]}' and reason '{ticket_count_result[1]}' in {ticket_count_result[2]} second(s)"  # noqa: E501
             )
             sys.exit(1)
     else:
-        for indx in standard.tktgroup:
-            tkidrslt = moveobjc.iteriden(indx)
-            section(f"Probing issue ticket #{indx}...")
-            if tkidrslt[0] == 200:
-                if not tkidrslt[1]:
-                    general(f"Information retrieved in {tkidrslt[2]} second(s)")
-                    issurslt = moveobjc.itertkts(standard.issurslt)
+        for ticket_group in standard.ticket_group:
+            ticket_by_id_result = movetickets_obj.iterate_ticket_by_id(ticket_group)
+            section(f"Probing issue ticket #{ticket_group}...")
+            if ticket_by_id_result[0] == 200:
+                if not ticket_by_id_result[1]:
+                    general(f"Information retrieved in {ticket_by_id_result[2]} second(s)")
+                    ticket_result = movetickets_obj.iterate_tickets(standard.ticket_result)
                     section(
-                        f"Migrating issue ticket {'with' if standard.movetags else 'without'} "
-                        f"labels #{standard.issuiden} '{standard.issuname}' "
-                        f"by '{standard.authname} (ID {standard.authorid})'..."
+                        f"Migrating issue ticket {'with' if standard.move_labels else 'without'} "
+                        f"labels #{standard.ticket_identity} '{standard.ticket_name}' "
+                        f"by '{standard.author_name} (ID {standard.author_id})'..."
                     )
-                    if issurslt[0] == 201:
-                        general(f"Migrated to {issurslt[1]} in {issurslt[2]} second(s)")
-                        if standard.movestat:
+                    if ticket_result[0] == 201:
+                        general(f"Migrated to {ticket_result[1]} in {ticket_result[2]} second(s)")
+                        if standard.move_state:
                             section("Asserting issue ticket status...")
-                            statrslt = moveobjc.iterstat()
-                            if statrslt[0] == 200:
+                            ticket_status_result = movetickets_obj.iterate_ticket_status()
+                            if ticket_status_result[0] == 200:
                                 general(
-                                    f"Asserted CLOSE status of the ticket in {statrslt[2]} second(s)"  # noqa: E501
+                                    f"Asserted CLOSE status of the ticket in {ticket_status_result[2]} second(s)"  # noqa: E501
                                 )
-                            elif statrslt[0] == 0:
+                            elif ticket_status_result[0] == 0:
                                 general(
                                     "Assertion unnecessary due to the OPEN status of the ticket"
                                 )
@@ -169,38 +171,40 @@ def showtkts():
                                 # From `test/test_unit_tkts`
                                 failure("Issue ticket status assertion failed!")
                                 general(
-                                    f"Failed due to code '{statrslt[0]}' and reason '{statrslt[1]}' "  # noqa: E501
-                                    f"      in {statrslt[2]} second(s)"
+                                    f"Failed due to code '{ticket_status_result[0]}' and reason '{ticket_status_result[1]}' "  # noqa: E501
+                                    f"      in {ticket_status_result[2]} second(s)"
                                 )
-                        if standard.movecmts:
+                        if standard.move_comments:
                             section("Reading comment information...")
-                            standard.issucmts = standard.issurslt["comments"]
-                            general(f"Found {len(standard.issucmts)} entities in 0.00 second(s)")
-                            for kndx in standard.issucmts:
-                                cmtsrslt = moveobjc.itercmts(kndx)
+                            standard.ticket_comments = standard.ticket_result["comments"]
+                            general(
+                                f"Found {len(standard.ticket_comments)} entities in 0.00 second(s)"
+                            )
+                            for issue_comment in standard.ticket_comments:
+                                comment_result = movetickets_obj.iterate_comments(issue_comment)
                                 section(
-                                    f"Transferring comment (Entity {standard.cmtsqant} of {len(standard.issucmts)})..."  # noqa: E501
+                                    f"Transferring comment (Entity {standard.comment_quantity} of {len(standard.ticket_comments)})..."  # noqa: E501
                                 )
-                                if cmtsrslt[0] == 201:
+                                if comment_result[0] == 201:
                                     general(
-                                        f"Transferred to {cmtsrslt[1]} in {cmtsrslt[2]} second(s)"
+                                        f"Transferred to {comment_result[1]} in {comment_result[2]} second(s)"  # noqa: E501
                                     )
                                 else:  # pragma: no cover
-                                    # Tested already in `test_unit_itercmts`
+                                    # Tested already in `test_unit_iterate_comments`
                                     # From `test/test_unit_tkts`
                                     failure("Comment transfer failed!")
                                     general(
-                                        f"Failed due to code '{cmtsrslt[0]}' and reason '{cmtsrslt[1]}'"  # noqa: E501
-                                        f" in {cmtsrslt[2]} second(s)"
+                                        f"Failed due to code '{comment_result[0]}' and reason '{comment_result[1]}'"  # noqa: E501
+                                        f" in {comment_result[2]} second(s)"
                                     )
                                     sys.exit(1)
-                            standard.cmtsqant = 0
+                            standard.comment_quantity = 0
                     else:  # pragma: no cover
                         # Tested already in `test_unit_iteriden`
                         # From `test/test_unit_tkts`
                         failure("Issue ticket migration failed!")
                         general(
-                            f"Failed due to code '{issurslt[0]}' and reason '{issurslt[1]}' in {issurslt[2]} second(s)"  # noqa: E501
+                            f"Failed due to code '{ticket_result[0]}' and reason '{ticket_result[1]}' in {ticket_result[2]} second(s)"  # noqa: E501
                         )
                 else:
                     general(
@@ -211,8 +215,8 @@ def showtkts():
                 # From `test/test_unit_tkts`
                 failure("Issue ticket probing failed!")
                 general(
-                    f"Failed due to code '{tkidrslt[0]}' and reason '{tkidrslt[1]}' in {tkidrslt[2]} second(s)"  # noqa: E501
+                    f"Failed due to code '{ticket_by_id_result[0]}' and reason '{ticket_by_id_result[1]}' in {ticket_by_id_result[2]} second(s)"  # noqa: E501
                 )
         success("Namespace assets transferring queue processed!")
-        general(f"{standard.issutnfs} issue ticket(s) transferred")
+        general(f"{standard.issues_transferred} issue ticket(s) transferred")
         sys.exit(0)

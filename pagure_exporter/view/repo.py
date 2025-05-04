@@ -28,49 +28,58 @@ from ..work.repo import PushRepo
 from .dcrt import failure, general, section, success, warning
 
 
-def showrepo():
+def show_repo():
     try:
         section("Starting migration...")
-        pushobjc = PushRepo()
+        pushrepo_obj = PushRepo()
         section("Attempting source namespace assets clone...")
-        sclorslt = pushobjc.downsrce()
-        if sclorslt[0]:
+        source_clone_result = pushrepo_obj.clone_source_repo()
+        if source_clone_result[0]:
             success("Source namespace assets clone succeeded!")
-            general("Directory: %s" % str(standard.srcecloc))
-            general("Time taken: %s second(s)" % str(sclorslt[1]))
+            general("Directory: %s" % str(standard.clone_path_srce))
+            general("Time taken: %s second(s)" % str(source_clone_result[1]))
             section("Attempting destination namespace assets clone...")
-            dclorslt = pushobjc.downdest()
-            if dclorslt[0]:
+            destination_clone_result = pushrepo_obj.clone_destination_repo()
+            if destination_clone_result[0]:
                 success("Destination namespace assets clone succeeded!")
-                general("Directory: %s" % str(standard.destcloc))
-                general("Time taken: %s second(s)" % str(dclorslt[1]))
+                general("Directory: %s" % str(standard.clone_path_dest))
+                general("Time taken: %s second(s)" % str(destination_clone_result[1]))
                 section("Reading branches data from the locally cloned assets...")
-                sbrcrslt, dbrcrslt = pushobjc.cbrcsrce(), pushobjc.cbrcdest()
-                if sbrcrslt[0] and dbrcrslt[0]:
+                source_branch_result, destination_branch_result = (
+                    pushrepo_obj.get_source_branches(),
+                    pushrepo_obj.get_destination_branches(),
+                )
+                if source_branch_result[0] and destination_branch_result[0]:
                     success("Branches data reading succeeded!")
-                    general("Available in source namespace: %d branch(es)" % len(standard.sbrcavbl))
-                    for indx in standard.sbrcavbl:
-                        general("  - (SRCE branch) %s" % str(indx))
                     general(
-                        "Available in destination namespace: %d branch(es)" % len(standard.dbrcavbl)
+                        "Available in source namespace: %d branch(es)"
+                        % len(standard.available_branches_srce)
                     )
-                    for indx in standard.dbrcavbl:
-                        general("  - (DEST branch) %s" % str(indx))
-                    general("Requested for transferring: %d branch(es)" % len(standard.brtocopy))
-                    for indx in standard.brtocopy:
-                        general("  - (RQST branch) %s" % str(indx))
+                    for branch in standard.available_branches_srce:
+                        general("  - (SRCE branch) %s" % str(branch))
+                    general(
+                        "Available in destination namespace: %d branch(es)"
+                        % len(standard.available_branches_dest)
+                    )
+                    for branch in standard.available_branches_dest:
+                        general("  - (DEST branch) %s" % str(branch))
+                    general(
+                        "Requested for transferring: %d branch(es)" % len(standard.branches_to_copy)
+                    )
+                    for branch in standard.branches_to_copy:
+                        general("  - (RQST branch) %s" % str(branch))
                     section("Initializing namespace assets transfer...")
-                    tnfsrslt = pushobjc.tnfsrepo()
+                    transfer_result = pushrepo_obj.transfer_repo()
                     general(
                         "Assets transferred: %d branch(es) completed, %d branch(es) requested"
-                        % (int(standard.tnfsindx), int(standard.tnfsqant))
+                        % (int(standard.transfer_index), int(standard.transfer_quantity))
                     )
-                    general("Time taken: %s second(s)" % str(tnfsrslt[1]))
-                    if tnfsrslt[0]:
-                        if standard.tnfsindx == standard.tnfsqant:
+                    general("Time taken: %s second(s)" % str(transfer_result[1]))
+                    if transfer_result[0]:
+                        if standard.transfer_index == standard.transfer_quantity:
                             success("Namespace assets transfer succeeded!")
                             sys.exit(0)
-                        elif 0 < standard.tnfsindx < standard.tnfsqant:
+                        elif 0 < standard.transfer_index < standard.transfer_quantity:
                             warning("Namespace assets transfer partially completed!")
                             sys.exit(2)
                         else:  # pragma: no cover
@@ -82,26 +91,30 @@ def showrepo():
                         # Tested already in `test_unit_tnfsrepo`
                         # From `test/test_unit_repo`
                         failure("Namespace assets transfer failed!")
-                        general("Exception occurred: %s" % str(tnfsrslt[1]))
+                        general("Exception occurred: %s" % str(transfer_result[1]))
                         sys.exit(1)
                 else:  # pragma: no cover
                     # Tested already in `test_unit_cbrcsrce` and `test_unit_cbrcdest`
                     # From `test/test_unit_repo`
                     failure("Branches data reading failed!")
-                    erormesg = str(sbrcrslt[1]) if not sbrcrslt[0] else str(dbrcrslt[1])
-                    general("Exception occurred: %s" % erormesg)
+                    error_message = (
+                        str(source_branch_result[1])
+                        if not source_branch_result[0]
+                        else str(destination_branch_result[1])
+                    )
+                    general("Exception occurred: %s" % error_message)
                     sys.exit(1)
             else:  # pragma: no cover
                 # Tested already in `test_unit_downdest`
                 # From `test/test_unit_repo`
                 failure("Destination namespace assets clone failed!")
-                general("Exception occurred: %s" % str(dclorslt[1]))
+                general("Exception occurred: %s" % str(destination_clone_result[1]))
                 sys.exit(1)
         else:  # pragma: no cover
             # Tested already in `test_unit_downsrce`
             # From `test/test_unit_repo`
             failure("Source namespace assets clone failed!")
-            general("Exception occurred: %s" % str(sclorslt[1]))
+            general("Exception occurred: %s" % str(source_clone_result[1]))
             sys.exit(1)
     except Exception as expt:
         failure("Migration failed!")

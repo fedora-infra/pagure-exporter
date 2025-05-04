@@ -490,4 +490,4 @@ def test_main_tkts(wipe_issues, caplog, cmdl, code, text):
 
     # Changing the shared variable back to its default
     # Please check https://github.com/gridhead/protop2g/issues/35 for additional details
-    standard.issutnfs = 0
+    standard.issues_transferred = 0

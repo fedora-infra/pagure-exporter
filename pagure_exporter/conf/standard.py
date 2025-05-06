@@ -28,17 +28,17 @@ from logging.config import dictConfig
 STANDARD CONFIGURATION VARIABLES
 """
 
-movecmts = False
+move_comments = False
 
-movetags = False
+move_labels = False
 
-tktgroup = []
+move_state = False
 
-movestat = False
+move_secret = False
 
-movehush = False
+move_sequence = False
 
-sequence = False
+ticket_group = []
 
 # While the location for creating temporary directories is definitive, the temporary directories
 # are created with a random name constituting of a definitive prefix in runtime with only the user
@@ -48,7 +48,7 @@ sequence = False
 # For more information, please read
 # https://bandit.readthedocs.io/en/latest/plugins/b108_hardcoded_tmp_directory.html
 # https://security.openstack.org/guidelines/dg_using-temporary-files-securely.html
-tempdrct = "/var/tmp"  # noqa: S108
+temp_dir = "/var/tmp"  # noqa: S108
 
 # If a definitive timeout is not specified for every usage of `requests`, there is likeliness that
 # a failure in probing a URL might lead to the program trying so indefinitely - thus causing the
@@ -57,24 +57,24 @@ tempdrct = "/var/tmp"  # noqa: S108
 # For more information, please read
 # https://bandit.readthedocs.io/en/latest/plugins/b113_request_without_timeout.html
 # https://datagy.io/python-requests-timeouts/
-rqsttime = 60
+req_timeout = 60
 
-dfremote = "origin"
-prfxsrce = "pexp-tempsrce-"
-prfxdest = "pexp-tempdest-"
-frgesrce = "pagure.io"
-frgedest = "gitlab.com"
-nrmtname = "freshsrc"
+default_remote = "origin"
+temp_src_prefix = "pexp-tempsrce-"
+temp_dest_prefix = "pexp-tempdest-"
+forge_source = "pagure.io"
+forge_dest = "gitlab.com"
+new_remote = "freshsrc"
 fedora_acc = "https://accounts.fedoraproject.org"
 """
 INTERNAL CONFIGURATION VARIABLES
 """
 
-paguuser = "UNAVAILABLE"
-pagucode = "UNAVAILABLE"
-srcename = "UNAVAILABLE"
-pagulink = "https://pagure.io/api/0"
-srcedict = {
+pagure_user = "UNAVAILABLE"
+pagure_token = "UNAVAILABLE"  # noqa: S105
+source_repo = "UNAVAILABLE"
+pagure_api = "https://pagure.io/api/0"
+source_metadata = {
     "makedate": "0",
     "lastmode": "0",
     "descript": "UNAVAILABLE",
@@ -87,14 +87,14 @@ srcedict = {
         "fullname": "UNAVAILABLE",
     },
 }
-srcehuto = "UNAVAILABLE"
-srcedisp = "UNAVAILABLE"
+source_clone_url = "UNAVAILABLE"
+source_display_url = "UNAVAILABLE"
 
-gtlbuser = "UNAVAILABLE"
-gtlbcode = "UNAVAILABLE"
-destname = "UNAVAILABLE"
-gtlblink = "https://gitlab.com/api/v4/projects"
-destdict = {
+gitlab_user = "UNAVAILABLE"
+gitlab_token = "UNAVAILABLE"  # noqa: S105
+destination_repo = "UNAVAILABLE"
+gitlab_api = "https://gitlab.com/api/v4/projects"
+destination_metadata = {
     "makedate": "0",
     "lastmode": "0",
     "descript": "UNAVAILABLE",
@@ -107,14 +107,14 @@ destdict = {
         "fullname": "UNAVAILABLE",
     },
 }
-desthuto = "UNAVAILABLE"
-destdisp = "UNAVAILABLE"
+destination_clone_url = "UNAVAILABLE"
+destination_display_url = "UNAVAILABLE"
 
-brtocopy = []
-sbrcavbl = []
-dbrcavbl = []
-srcecloc = "UNAVAILABLE"
-destcloc = "UNAVAILABLE"
+branches_to_copy = []
+available_source_branches = []
+available_destination_branches = []
+path_source_clone = "UNAVAILABLE"
+path_destination_clone = "UNAVAILABLE"
 
 # Regular expression to help detection of the GitLab Runners token in response body
 detect = r"\b(?:glrt-|GR1348941)[\w\-]{20,23}"
@@ -123,88 +123,88 @@ detect = r"\b(?:glrt-|GR1348941)[\w\-]{20,23}"
 cutout = "EXPUNGED"
 
 # GitLab client object to be used while interacting with the destination namespace
-gobj = None
+gitlab_client_obj = None
 
 # Project object of the destination namespace type of the GitLab client class
-gpro = None
+gitlab_project_obj = None
 
-rateindx = 0
+rate_index = 0
 
 # Time in seconds to wait for when the rate limit for API requests is reached
-waittime = 60
+wait_time = 60
 
 # Current count of branches on the namespaces to be transferred
-tnfsindx = 0
+tansfer_index = 0
 
 # Total quantity of branches on the namespaces to be transferred
-tnfsqant = 0
+tansfer_quantity = 0
 
 # Number of issue ticket entities to be present on a response page of issues
-pagesize = 35
+page_size = 35
 
 # State of the issue ticket entities to be considered for transferring
-tktstate = "open"
+ticket_state = "open"
 
 # Quantity of issue tickets available on the source namespace
-tktcount = 0
+ticket_count = 0
 
 # Current page number for probing into the available issue tickets in the source namespace
-pageqant = 1
+page_quantity = 1
 
 # List of issue ticket entities present on a response page of issues
-pagerslt = []
+page_result = []
 
 # Dictionary of information pertaining to a single issue ticket made in the source namespace
-issurslt = {}
+issue_detail = {}
 
 # Title information of the issue ticket made in the source namespace
-issuname = "UNAVAILABLE"
+issue_name = "UNAVAILABLE"
 
 # Identity of the issue ticket made in the source namespace
-issuiden = "0"
+issue_identity = "0"
 
 # Current status of the issue ticket made in the source namespace
-isclosed = None
+issue_closed = None
 
 # Hyperlink of the issue ticket made in the source namespace
-issulink = "UNAVAILABLE"
+issue_url = "UNAVAILABLE"
 
 # Labels associated with the issue ticket made in the source namespace
-issutags = []
+issue_tags = []
 
 # Textual information of the issue ticket made in the source namespace
-issubody = "UNAVAILABLE"
+issue_body = "UNAVAILABLE"
 
 # Privacy information of the issue ticket made in the source namespace
-issecret = "UNAVAILABLE"
+issue_secret = "UNAVAILABLE"  # noqa: S105
 
 # Username of the issue ticket made in the source namespace
-authorid = "UNAVAILABLE"
+author_id = "UNAVAILABLE"
 
 # Full name of the issue ticket made in the source namespace
-authname = "UNAVAILABLE"
+author_name = "UNAVAILABLE"
 
 # Fedora Account System URL for the author of the issue ticket made in the source namespace
-authlink = "UNAVAILABLE"
+author_fsa_url = "UNAVAILABLE"
 
 # Creation datetime information of the issue ticket made in the source namespace
-timedata = 0
+issue_creation_time = 0
 
 # Identity of the issue ticket transferred to the destination namespace
-gtlbtkid = "UNAVAILABLE"
+gitlab_issue_id = "UNAVAILABLE"
 
 # Quantity of issue tickets transferred to the destination namespace
-issutnfs = 0
+issues_transfered = 0
 
 # Template for the title information of the issue tickets to be transferred
-headtemp_ticket = "[SN#{issuiden}] {issuname}"
+issue_title_template = "[SN#{issue_identity}] {issue_name}"
 
 # Template for the textual information of the issue tickets to be transferred
-bodytemp_ticket = """
-{issubody}
+issue_body_template = """
+{issue_body}
 
-_This issue ticket was originally created [here]({issulink}) on a Pagure repository,
-[**{reponame}**]({repolink}) by [**{authname}**]({authlink}) on
+_This issue ticket was originally created [here]({issue_url}) on a Pagure repository,
+[**{reponame}**]({repolink}) by [**{author_name}**]({author_fsa_url}) on
 [**{dateinfo}** UTC](https://savvytime.com/converter/utc/{mo}-{dd}-{yy}/{hh}-{mm})._
 
 _This issue ticket was automatically created by the
@@ -212,47 +212,47 @@ _This issue ticket was automatically created by the
 """
 
 # List of comment entities made under a ticket in the source namespace
-issucmts = []
+issue_comments = []
 
 # Identity for the comments made under a ticket in the source namespace
-cmtsiden = "UNAVAILABLE"
+comment_identity = "UNAVAILABLE"
 
 # Hyperlink for the comments made under a ticket in the source namespace
-cmtslink = "UNAVAILABLE"
+comment_url = "UNAVAILABLE"
 
 # Fullname of the author of the comments made under a ticket in the source namespace
-cmtsauth = "UNAVAILABLE"
+comment_author = "UNAVAILABLE"
 
 # Fedora Account System URL for the author of the comments made under a ticket in the source
 # namespace
-cmtsaurl = "UNAVAILABLE"
+comment_author_url = "UNAVAILABLE"
 
 # Creation datetime information of the comments made under a ticket in the source namespace
-cmtstime = 0
+comment_time = 0
 
 # Textual information of the comments made under a ticket in the source namespace
-cmtsbody = "UNAVAILABLE"
+comment_body = "UNAVAILABLE"
 
 # Hyperlink for the comments made under a transferred ticket in the destination namespace
-gtlbcurl = "UNAVAILABLE"
+gitlab_comment_url = "UNAVAILABLE"
 
 # Quantity of comments made under a ticket in the source namespace
-cmtsqant = 0
+comment_quantity = 0
 
 # Template for the textual information of the comments to be transferred
-bodytemp_cmts = """
-{cmtsbody}
+comment_body_template = """
+{comment_body}
 
-_This comment was originally created [here]({cmtslink}) by [**{cmtsauth}**]({cmtsaurl}) under
-[this]({issulink}) issue ticket on a Pagure repository, [**{reponame}**]({repolink}) on
+_This comment was originally created [here]({comment_url}) by [**{comment_author}**]({comment_author_url}) under
+[this]({issue_url}) issue ticket on a Pagure repository, [**{reponame}**]({repolink}) on
 [**{dateinfo}** UTC](https://savvytime.com/converter/utc/{mo}-{dd}-{yy}/{hh}-{mm})._
 
 _This comment was automatically created by the
 [**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._
-"""
+"""  # noqa: E501
 
 # The default configuration for service logging
-logrconf = {
+log_config = {
     "version": 1,
     "disable_existing_loggers": False,
     "formatters": {
@@ -275,6 +275,6 @@ logrconf = {
     },
 }
 
-dictConfig(logrconf)
+dictConfig(log_config)
 
 logger = getLogger(__name__)

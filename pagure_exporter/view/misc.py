@@ -24,21 +24,21 @@ be used or replicated with the express permission of Red Hat, Inc.
 from .dcrt import general, warning
 
 
-def tnfsprog(brchname, indx, qant, avbl):
-    if avbl:
+def transfer_progress(branch_name, index, total_branches, is_available):
+    if is_available:
         general(
             "[%d/%d] Branch '%s' was transferred to the destination namespace"
-            % (int(indx), int(qant), str(brchname))
+            % (int(index), int(total_branches), str(branch_name))
         )
     else:
         general(
             "[%d/%d] Branch '%s' was not found in the source namespace"
-            % (int(indx), int(qant), str(brchname))
+            % (int(index), int(total_branches), str(branch_name))
         )
 
 
-def tnfswarn(avbl, qant):
-    if avbl:
-        warning("Transferring %d requested branches" % int(qant))
+def transfer_warning(is_available, total_branches):
+    if is_available:
+        warning("Transferring %d requested branches" % int(total_branches))
     else:
-        warning("Transferring %d available branches" % int(qant))
+        warning("Transferring %d available branches" % int(total_branches))

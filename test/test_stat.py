@@ -44,7 +44,7 @@ from pagure_exporter.main import main
             ],
             id="Checking for possible errors while attempting to authenticate in the destination namespace using wrong credentials",  # noqa: E501
         ),
-    ]
+    ],
 )
 def test_stat_destdata_obtninfo(caplog, cmdl, code, text):
     runner = CliRunner()

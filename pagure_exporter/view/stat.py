@@ -25,56 +25,59 @@ import sys
 from time import localtime, strftime
 
 from ..conf import standard
-from ..work.stat import DestData, SrceData
+from ..work.stat import DestinationData, SourceData
 from .dcrt import failure, general, section, success
 
 
-def showstat():
+def show_status():
     section("Requesting for source namespace metadata...")
-    srcerslt = SrceData().obtninfo()
-    if srcerslt == (200, "OK"):
+    source_result = SourceData().obtain_info()
+    if source_result == (200, "OK"):
         success("Source namespace metadata acquisition succeeded!")
-        general("Name: %s" % str(standard.srcedict["reponame"]))
-        general("Identifier: %s" % str(standard.srcedict["identity"]))
+        general("Name: %s" % str(standard.source_metadata["reponame"]))
+        general("Identifier: %s" % str(standard.source_metadata["identity"]))
         general(
             "Maintainer: {} (ID {})".format(
-                str(standard.srcedict["maintain"]["fullname"]),
-                str(standard.srcedict["maintain"]["username"]),
+                str(standard.source_metadata["maintain"]["fullname"]),
+                str(standard.source_metadata["maintain"]["username"]),
             )
         )
-        general("Location: %s" % str(standard.srcedict["repolink"]))
-        general("Address: %s" % str(standard.srcedisp))
-        general("Created on: %s" % strftime("%c", localtime(int(standard.srcedict["makedate"]))))
+        general("Location: %s" % str(standard.source_metadata["repolink"]))
+        general("Address: %s" % str(standard.source_display_url))
         general(
-            "Last modified on: %s" % strftime("%c", localtime(int(standard.srcedict["lastmode"])))
+            "Created on: %s" % strftime("%c", localtime(int(standard.source_metadata["makedate"])))
         )
-        general("Tags: %s" % str(standard.srcedict["tagslist"]))
-        destrslt = DestData().obtninfo()
+        general(
+            "Last modified on: %s"
+            % strftime("%c", localtime(int(standard.source_metadata["lastmode"])))
+        )
+        general("Tags: %s" % str(standard.source_metadata["tagslist"]))
+        destination_result = DestinationData().obtain_info()
         section("Requesting for destination namespace metadata...")
-        if destrslt == (200, "OK"):
+        if destination_result == (200, "OK"):
             success("Destination namespace metadata acquisition succeeded!")
-            general("Name: %s" % str(standard.destdict["reponame"]))
-            general("Identifier: %s" % str(standard.destdict["identity"]))
+            general("Name: %s" % str(standard.destination_metadata["reponame"]))
+            general("Identifier: %s" % str(standard.destination_metadata["identity"]))
             general(
                 "Maintainer: {} (ID {})".format(
-                    str(standard.destdict["maintain"]["fullname"]),
-                    str(standard.destdict["maintain"]["username"]),
+                    str(standard.destination_metadata["maintain"]["fullname"]),
+                    str(standard.destination_metadata["maintain"]["username"]),
                 )
             )
-            general("Location: %s" % str(standard.destdict["repolink"]))
-            general("Address: %s" % str(standard.destdisp))
-            general("Created on: %s" % str(standard.destdict["makedate"]))
-            general("Last modified on: %s" % str(standard.destdict["lastmode"]))
-            general("Tags: %s" % str(standard.destdict["tagslist"]))
+            general("Location: %s" % str(standard.destination_metadata["repolink"]))
+            general("Address: %s" % str(standard.destination_display_url))
+            general("Created on: %s" % str(standard.destination_metadata["makedate"]))
+            general("Last modified on: %s" % str(standard.destination_metadata["lastmode"]))
+            general("Tags: %s" % str(standard.destination_metadata["tagslist"]))
         else:
             failure("Destination namespace metadata acquisition failed!")
             general("The namespace metadata could not be acquired.")
-            general("Code: %s" % str(destrslt[0]))
-            general("Reason: %s" % str(destrslt[1]))
+            general("Code: %s" % str(destination_result[0]))
+            general("Reason: %s" % str(destination_result[1]))
             sys.exit(1)
     else:
         failure("Source namespace metadata acquisition failed!")
         general("The namespace metadata could not be acquired.")
-        general("Code: %s" % str(srcerslt[0]))
-        general("Reason: %s" % str(srcerslt[1]))
+        general("Code: %s" % str(source_result[0]))
+        general("Reason: %s" % str(source_result[1]))
         sys.exit(1)

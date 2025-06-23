@@ -9,7 +9,7 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.32.3
+      - python-requests/2.32.4
     method: GET
     uri: https://pagure.io/api/0/protop2g-test-srce/issues?per_page=0&page=1
   response:
@@ -22,14 +22,14 @@ interactions:
       Content-Length:
       - '103'
       Content-Security-Policy:
-      - default-src 'self';script-src 'self' 'nonce-34F3gqWx0qQ0JJ4T0EV39zxOh'; style-src
-        'self' 'nonce-34F3gqWx0qQ0JJ4T0EV39zxOh'; object-src 'none';base-uri 'self';img-src
+      - default-src 'self';script-src 'self' 'nonce-xCJlhL9ncU4UC9olYiyZcyGnD'; style-src
+        'self' 'nonce-xCJlhL9ncU4UC9olYiyZcyGnD'; object-src 'none';base-uri 'self';img-src
         'self' https:;connect-src 'self' https://pagure.io:8088;frame-src https://docs.pagure.org;frame-ancestors
         https://pagure.io;
       Content-Type:
       - application/json
       Date:
-      - Fri, 25 Apr 2025 05:25:05 GMT
+      - Tue, 24 Jun 2025 03:46:31 GMT
       Referrer-Policy:
       - same-origin
       Server:

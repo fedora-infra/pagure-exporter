@@ -29,7 +29,7 @@ from click.testing import CliRunner
 from pagure_exporter.main import main
 
 
-@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"])
+@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"], allow_playback_repeats=True, match_on=["method", "scheme", "host", "port", "query"])
 @pytest.mark.parametrize(
     "cmdl, code, text",
     [

@@ -11,20 +11,20 @@ interactions:
       Content-type:
       - application/json
       User-Agent:
-      - python-gitlab/5.6.0
+      - python-gitlab/6.0.0
     method: GET
     uri: https://gitlab.com/api/v4/projects/42823949
   response:
     body:
       string: '{"id":42823949,"description":null,"name":"protop2g-test","name_with_namespace":"Akashdeep
-        Dhar / protop2g-test","path":"protop2g-test","path_with_namespace":"gridhead/protop2g-test","created_at":"2023-01-23T16:18:30.217Z","default_branch":"main","tag_list":[],"topics":[],"ssh_url_to_repo":"git@gitlab.com:gridhead/protop2g-test.git","http_url_to_repo":"https://gitlab.com/gridhead/protop2g-test.git","web_url":"https://gitlab.com/gridhead/protop2g-test","readme_url":"https://gitlab.com/gridhead/protop2g-test/-/blob/main/README.md","forks_count":0,"avatar_url":null,"star_count":0,"last_activity_at":"2025-04-25T05:19:23.595Z","namespace":{"id":13984834,"name":"Akashdeep
-        Dhar","path":"gridhead","kind":"user","full_path":"gridhead","parent_id":null,"avatar_url":"https://secure.gravatar.com/avatar/e412343841597e2fb1e952dd2b1077fc95537604ce04a27c5bfb94bdb0dc3da8?s=80\u0026d=identicon","web_url":"https://gitlab.com/gridhead"},"container_registry_image_prefix":"registry.gitlab.com/gridhead/protop2g-test","_links":{"self":"https://gitlab.com/api/v4/projects/42823949","issues":"https://gitlab.com/api/v4/projects/42823949/issues","merge_requests":"https://gitlab.com/api/v4/projects/42823949/merge_requests","repo_branches":"https://gitlab.com/api/v4/projects/42823949/repository/branches","labels":"https://gitlab.com/api/v4/projects/42823949/labels","events":"https://gitlab.com/api/v4/projects/42823949/events","members":"https://gitlab.com/api/v4/projects/42823949/members","cluster_agents":"https://gitlab.com/api/v4/projects/42823949/cluster_agents"},"packages_enabled":true,"empty_repo":false,"archived":false,"visibility":"public","owner":{"id":10115999,"username":"gridhead","name":"Akashdeep
-        Dhar","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/e412343841597e2fb1e952dd2b1077fc95537604ce04a27c5bfb94bdb0dc3da8?s=80\u0026d=identicon","web_url":"https://gitlab.com/gridhead"},"resolve_outdated_diff_discussions":false,"container_expiration_policy":{"cadence":"1d","enabled":false,"keep_n":10,"older_than":"90d","name_regex":".*","name_regex_keep":null,"next_run_at":"2023-01-24T16:18:30.271Z"},"repository_object_format":"sha1","issues_enabled":true,"merge_requests_enabled":true,"wiki_enabled":true,"jobs_enabled":true,"snippets_enabled":true,"container_registry_enabled":true,"service_desk_enabled":true,"service_desk_address":"contact-project+gridhead-protop2g-test-42823949-issue-@incoming.gitlab.com","can_create_merge_request_in":true,"issues_access_level":"enabled","repository_access_level":"enabled","merge_requests_access_level":"enabled","forking_access_level":"enabled","wiki_access_level":"enabled","builds_access_level":"enabled","snippets_access_level":"enabled","pages_access_level":"enabled","analytics_access_level":"enabled","container_registry_access_level":"enabled","security_and_compliance_access_level":"private","releases_access_level":"private","environments_access_level":"enabled","feature_flags_access_level":"private","infrastructure_access_level":"private","monitor_access_level":"enabled","model_experiments_access_level":"enabled","model_registry_access_level":"enabled","emails_disabled":false,"emails_enabled":true,"shared_runners_enabled":true,"lfs_enabled":true,"creator_id":10115999,"import_url":null,"import_type":null,"import_status":"none","import_error":null,"open_issues_count":129,"description_html":"","updated_at":"2025-04-25T05:19:23.595Z","ci_default_git_depth":20,"ci_delete_pipelines_in_seconds":null,"ci_forward_deployment_enabled":true,"ci_forward_deployment_rollback_allowed":true,"ci_job_token_scope_enabled":false,"ci_separated_caches":true,"ci_allow_fork_pipelines_to_run_in_parent_project":true,"ci_id_token_sub_claim_components":["project_path","ref_type","ref"],"build_git_strategy":"fetch","keep_latest_artifact":true,"restrict_user_defined_variables":false,"ci_pipeline_variables_minimum_override_role":"developer","runner_token_expiration_interval":null,"group_runners_enabled":true,"auto_cancel_pending_pipelines":"enabled","build_timeout":3600,"auto_devops_enabled":false,"auto_devops_deploy_strategy":"continuous","ci_push_repository_for_job_token_allowed":false,"runners_token":"EXPUNGED","ci_config_path":"","public_jobs":true,"shared_with_groups":[],"only_allow_merge_if_pipeline_succeeds":false,"allow_merge_on_skipped_pipeline":null,"request_access_enabled":true,"only_allow_merge_if_all_discussions_are_resolved":false,"remove_source_branch_after_merge":true,"printing_merge_request_link_enabled":true,"merge_method":"merge","merge_request_title_regex":null,"squash_option":"default_off","enforce_auth_checks_on_uploads":true,"suggestion_commit_message":null,"merge_commit_template":null,"squash_commit_template":null,"issue_branch_template":null,"warn_about_potentially_unwanted_characters":true,"autoclose_referenced_issues":true,"max_artifacts_size":null,"external_authorization_classification_label":"","requirements_enabled":false,"requirements_access_level":"enabled","security_and_compliance_enabled":true,"compliance_frameworks":[],"permissions":{"project_access":{"access_level":50,"notification_level":3},"group_access":null}}'
+        Dhar / protop2g-test","path":"protop2g-test","path_with_namespace":"gridhead/protop2g-test","created_at":"2023-01-23T16:18:30.217Z","default_branch":"main","tag_list":[],"topics":[],"ssh_url_to_repo":"git@gitlab.com:gridhead/protop2g-test.git","http_url_to_repo":"https://gitlab.com/gridhead/protop2g-test.git","web_url":"https://gitlab.com/gridhead/protop2g-test","readme_url":"https://gitlab.com/gridhead/protop2g-test/-/blob/main/README.md","forks_count":0,"avatar_url":null,"star_count":0,"last_activity_at":"2025-06-24T03:06:31.767Z","namespace":{"id":13984834,"name":"Akashdeep
+        Dhar","path":"gridhead","kind":"user","full_path":"gridhead","parent_id":null,"avatar_url":"https://secure.gravatar.com/avatar/e412343841597e2fb1e952dd2b1077fc95537604ce04a27c5bfb94bdb0dc3da8?s=80\u0026d=identicon","web_url":"https://gitlab.com/gridhead"},"container_registry_image_prefix":"registry.gitlab.com/gridhead/protop2g-test","_links":{"self":"https://gitlab.com/api/v4/projects/42823949","issues":"https://gitlab.com/api/v4/projects/42823949/issues","merge_requests":"https://gitlab.com/api/v4/projects/42823949/merge_requests","repo_branches":"https://gitlab.com/api/v4/projects/42823949/repository/branches","labels":"https://gitlab.com/api/v4/projects/42823949/labels","events":"https://gitlab.com/api/v4/projects/42823949/events","members":"https://gitlab.com/api/v4/projects/42823949/members","cluster_agents":"https://gitlab.com/api/v4/projects/42823949/cluster_agents"},"marked_for_deletion_at":null,"marked_for_deletion_on":null,"packages_enabled":true,"empty_repo":false,"archived":false,"visibility":"public","owner":{"id":10115999,"username":"gridhead","public_email":"","name":"Akashdeep
+        Dhar","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/e412343841597e2fb1e952dd2b1077fc95537604ce04a27c5bfb94bdb0dc3da8?s=80\u0026d=identicon","web_url":"https://gitlab.com/gridhead"},"resolve_outdated_diff_discussions":false,"container_expiration_policy":{"cadence":"1d","enabled":false,"keep_n":10,"older_than":"90d","name_regex":".*","name_regex_keep":null,"next_run_at":"2023-01-24T16:18:30.271Z"},"repository_object_format":"sha1","issues_enabled":true,"merge_requests_enabled":true,"wiki_enabled":true,"jobs_enabled":true,"snippets_enabled":true,"container_registry_enabled":true,"service_desk_enabled":true,"service_desk_address":"contact-project+gridhead-protop2g-test-42823949-issue-@incoming.gitlab.com","can_create_merge_request_in":true,"issues_access_level":"enabled","repository_access_level":"enabled","merge_requests_access_level":"enabled","forking_access_level":"enabled","wiki_access_level":"enabled","builds_access_level":"enabled","snippets_access_level":"enabled","pages_access_level":"enabled","analytics_access_level":"enabled","container_registry_access_level":"enabled","security_and_compliance_access_level":"private","releases_access_level":"private","environments_access_level":"enabled","feature_flags_access_level":"private","infrastructure_access_level":"private","monitor_access_level":"enabled","model_experiments_access_level":"enabled","model_registry_access_level":"enabled","emails_disabled":false,"emails_enabled":true,"shared_runners_enabled":true,"lfs_enabled":true,"creator_id":10115999,"import_url":null,"import_type":null,"import_status":"none","import_error":null,"open_issues_count":489,"description_html":"","updated_at":"2025-06-24T03:35:35.916Z","ci_default_git_depth":20,"ci_delete_pipelines_in_seconds":null,"ci_forward_deployment_enabled":true,"ci_forward_deployment_rollback_allowed":true,"ci_job_token_scope_enabled":false,"ci_separated_caches":true,"ci_allow_fork_pipelines_to_run_in_parent_project":true,"ci_id_token_sub_claim_components":["project_path","ref_type","ref"],"build_git_strategy":"fetch","keep_latest_artifact":true,"restrict_user_defined_variables":false,"ci_pipeline_variables_minimum_override_role":"developer","runner_token_expiration_interval":null,"group_runners_enabled":true,"auto_cancel_pending_pipelines":"enabled","build_timeout":3600,"auto_devops_enabled":false,"auto_devops_deploy_strategy":"continuous","ci_push_repository_for_job_token_allowed":false,"runners_token":"EXPUNGED","ci_config_path":"","public_jobs":true,"shared_with_groups":[],"only_allow_merge_if_pipeline_succeeds":false,"allow_merge_on_skipped_pipeline":null,"request_access_enabled":true,"only_allow_merge_if_all_discussions_are_resolved":false,"remove_source_branch_after_merge":true,"printing_merge_request_link_enabled":true,"merge_method":"merge","merge_request_title_regex":null,"squash_option":"default_off","enforce_auth_checks_on_uploads":true,"suggestion_commit_message":null,"merge_commit_template":null,"squash_commit_template":null,"issue_branch_template":null,"warn_about_potentially_unwanted_characters":true,"autoclose_referenced_issues":true,"max_artifacts_size":null,"external_authorization_classification_label":"","requirements_enabled":false,"requirements_access_level":"enabled","security_and_compliance_enabled":true,"compliance_frameworks":[],"web_based_commit_signing_enabled":false,"permissions":{"project_access":{"access_level":40,"notification_level":3},"group_access":null}}'
     headers:
       CF-Cache-Status:
       - MISS
       CF-Ray:
-      - 935b6615388c4226-BOM
+      - 95493883584e47ef-BOM
       Cache-Control:
       - max-age=0, private, must-revalidate
       Connection:
@@ -34,9 +34,9 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 25 Apr 2025 05:21:46 GMT
+      - Tue, 24 Jun 2025 03:43:25 GMT
       ETag:
-      - W/"f3fa331aaf641ec874f4056766ede03c"
+      - W/"a266ccc9b3559b740b35e249386021dc"
       Server:
       - cloudflare
       Set-Cookie: ''
@@ -49,9 +49,9 @@ interactions:
       content-security-policy:
       - default-src 'none'
       gitlab-lb:
-      - haproxy-main-38-lb-gprd
+      - haproxy-main-14-lb-gprd
       gitlab-sv:
-      - api-gke-us-east1-c
+      - gke-cny-api
       nel:
       - '{"max_age": 0}'
       referrer-policy:
@@ -61,11 +61,11 @@ interactions:
       x-frame-options:
       - SAMEORIGIN
       x-gitlab-meta:
-      - '{"correlation_id":"beabfb8e48581ec348cbfaf239043445","version":"1"}'
+      - '{"correlation_id":"fbc909c4a1d110622281fa1c2ede9414","version":"1"}'
       x-request-id:
-      - beabfb8e48581ec348cbfaf239043445
+      - fbc909c4a1d110622281fa1c2ede9414
       x-runtime:
-      - '0.133070'
+      - '0.276886'
     status:
       code: 200
       message: OK
@@ -83,25 +83,29 @@ interactions:
       Content-type:
       - application/json
       Cookie:
-      - _cfuvid=DCUwMKMEq41gQU1x9cPm_KS2UU_v89eh1OqURbicYZY-1745558506234-0.0.1.1-604800000
+      - _cfuvid=RttT4eJWorApmKiOH3qqnSpG7gKzVNED7ljakbnrzqs-1750736605310-0.0.1.1-604800000
       User-Agent:
-      - python-gitlab/5.6.0
+      - python-gitlab/6.0.0
     method: DELETE
     uri: https://gitlab.com/api/v4/projects/42823949/issues/1
   response:
     body:
-      string: ''
+      string: '{"message":"404 Issue Not Found"}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 935b6618fc11318e-BOM
+      - 954938876acc8583-BOM
       Cache-Control:
       - no-cache
       Connection:
       - keep-alive
+      Content-Length:
+      - '33'
+      Content-Type:
+      - application/json
       Date:
-      - Fri, 25 Apr 2025 05:21:46 GMT
+      - Tue, 24 Jun 2025 03:43:25 GMT
       Server:
       - cloudflare
       Set-Cookie: ''
@@ -112,7 +116,74 @@ interactions:
       content-security-policy:
       - default-src 'none'
       gitlab-lb:
-      - haproxy-main-46-lb-gprd
+      - haproxy-main-33-lb-gprd
+      gitlab-sv:
+      - api-gke-us-east1-d
+      nel:
+      - '{"max_age": 0}'
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - SAMEORIGIN
+      x-gitlab-meta:
+      - '{"correlation_id":"c52abe88f30fea5789106b35d278f6b7","version":"1"}'
+      x-request-id:
+      - c52abe88f30fea5789106b35d278f6b7
+      x-runtime:
+      - '0.045037'
+    status:
+      code: 404
+      message: Not Found
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, zstd
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      Content-type:
+      - application/json
+      Cookie:
+      - _cfuvid=RttT4eJWorApmKiOH3qqnSpG7gKzVNED7ljakbnrzqs-1750736605310-0.0.1.1-604800000
+      User-Agent:
+      - python-gitlab/6.0.0
+    method: DELETE
+    uri: https://gitlab.com/api/v4/projects/42823949/issues/2
+  response:
+    body:
+      string: '{"message":"404 Issue Not Found"}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 95493889b98247b5-BOM
+      Cache-Control:
+      - no-cache
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '33'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 24 Jun 2025 03:43:26 GMT
+      Server:
+      - cloudflare
+      Set-Cookie: ''
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Origin, Accept-Encoding
+      content-security-policy:
+      - default-src 'none'
+      gitlab-lb:
+      - haproxy-main-13-lb-gprd
       gitlab-sv:
       - api-gke-us-east1-b
       nel:
@@ -124,14 +195,14 @@ interactions:
       x-frame-options:
       - SAMEORIGIN
       x-gitlab-meta:
-      - '{"correlation_id":"9e302d8a7885c1d24044c53ed3b4e3cb","version":"1"}'
+      - '{"correlation_id":"da30d9c31128557bbf5fff92baddca9f","version":"1"}'
       x-request-id:
-      - 9e302d8a7885c1d24044c53ed3b4e3cb
+      - da30d9c31128557bbf5fff92baddca9f
       x-runtime:
-      - '0.194248'
+      - '0.044832'
     status:
-      code: 204
-      message: No Content
+      code: 404
+      message: Not Found
 - request:
     body: null
     headers:
@@ -146,88 +217,29 @@ interactions:
       Content-type:
       - application/json
       Cookie:
-      - _cfuvid=DCUwMKMEq41gQU1x9cPm_KS2UU_v89eh1OqURbicYZY-1745558506234-0.0.1.1-604800000
+      - _cfuvid=RttT4eJWorApmKiOH3qqnSpG7gKzVNED7ljakbnrzqs-1750736605310-0.0.1.1-604800000
       User-Agent:
-      - python-gitlab/5.6.0
-    method: DELETE
-    uri: https://gitlab.com/api/v4/projects/42823949/issues/2
-  response:
-    body:
-      string: ''
-    headers:
-      CF-Cache-Status:
-      - DYNAMIC
-      CF-Ray:
-      - 935b661c1c5aff6a-BOM
-      Cache-Control:
-      - no-cache
-      Connection:
-      - keep-alive
-      Date:
-      - Fri, 25 Apr 2025 05:21:47 GMT
-      Server:
-      - cloudflare
-      Set-Cookie: ''
-      Strict-Transport-Security:
-      - max-age=31536000
-      Vary:
-      - Origin, Accept-Encoding
-      content-security-policy:
-      - default-src 'none'
-      gitlab-lb:
-      - haproxy-main-11-lb-gprd
-      gitlab-sv:
-      - api-gke-us-east1-c
-      nel:
-      - '{"max_age": 0}'
-      referrer-policy:
-      - strict-origin-when-cross-origin
-      x-content-type-options:
-      - nosniff
-      x-frame-options:
-      - SAMEORIGIN
-      x-gitlab-meta:
-      - '{"correlation_id":"0f591131c3d67e97728376d16bd5729f","version":"1"}'
-      x-request-id:
-      - 0f591131c3d67e97728376d16bd5729f
-      x-runtime:
-      - '0.196133'
-    status:
-      code: 204
-      message: No Content
-- request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate, zstd
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '0'
-      Content-type:
-      - application/json
-      Cookie:
-      - _cfuvid=DCUwMKMEq41gQU1x9cPm_KS2UU_v89eh1OqURbicYZY-1745558506234-0.0.1.1-604800000
-      User-Agent:
-      - python-gitlab/5.6.0
+      - python-gitlab/6.0.0
     method: DELETE
     uri: https://gitlab.com/api/v4/projects/42823949/issues/3
   response:
     body:
-      string: ''
+      string: '{"message":"404 Issue Not Found"}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 935b661fafe6852b-BOM
+      - 9549388bef883acb-BOM
       Cache-Control:
       - no-cache
       Connection:
       - keep-alive
+      Content-Length:
+      - '33'
+      Content-Type:
+      - application/json
       Date:
-      - Fri, 25 Apr 2025 05:21:47 GMT
+      - Tue, 24 Jun 2025 03:43:26 GMT
       Server:
       - cloudflare
       Set-Cookie: ''
@@ -238,9 +250,9 @@ interactions:
       content-security-policy:
       - default-src 'none'
       gitlab-lb:
-      - haproxy-main-08-lb-gprd
+      - haproxy-main-58-lb-gprd
       gitlab-sv:
-      - api-gke-us-east1-c
+      - api-gke-us-east1-b
       nel:
       - '{"max_age": 0}'
       referrer-policy:
@@ -250,14 +262,14 @@ interactions:
       x-frame-options:
       - SAMEORIGIN
       x-gitlab-meta:
-      - '{"correlation_id":"e2af603a167c8772647f796a74ac285c","version":"1"}'
+      - '{"correlation_id":"f8debf7d735d7f795be8e09f6761c9a6","version":"1"}'
       x-request-id:
-      - e2af603a167c8772647f796a74ac285c
+      - f8debf7d735d7f795be8e09f6761c9a6
       x-runtime:
-      - '0.206144'
+      - '0.049458'
     status:
-      code: 204
-      message: No Content
+      code: 404
+      message: Not Found
 - request:
     body: null
     headers:
@@ -272,25 +284,29 @@ interactions:
       Content-type:
       - application/json
       Cookie:
-      - _cfuvid=DCUwMKMEq41gQU1x9cPm_KS2UU_v89eh1OqURbicYZY-1745558506234-0.0.1.1-604800000
+      - _cfuvid=RttT4eJWorApmKiOH3qqnSpG7gKzVNED7ljakbnrzqs-1750736605310-0.0.1.1-604800000
       User-Agent:
-      - python-gitlab/5.6.0
+      - python-gitlab/6.0.0
     method: DELETE
     uri: https://gitlab.com/api/v4/projects/42823949/issues/4
   response:
     body:
-      string: ''
+      string: '{"message":"404 Issue Not Found"}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 935b6622cb8f3b3f-BOM
+      - 9549388e28d847c0-BOM
       Cache-Control:
       - no-cache
       Connection:
       - keep-alive
+      Content-Length:
+      - '33'
+      Content-Type:
+      - application/json
       Date:
-      - Fri, 25 Apr 2025 05:21:49 GMT
+      - Tue, 24 Jun 2025 03:43:26 GMT
       Server:
       - cloudflare
       Set-Cookie: ''
@@ -313,14 +329,14 @@ interactions:
       x-frame-options:
       - SAMEORIGIN
       x-gitlab-meta:
-      - '{"correlation_id":"ea71541fe356184f58ea759063738e3f","version":"1"}'
+      - '{"correlation_id":"7b301ff4e61bcf8353c30f2c8abd8ce8","version":"1"}'
       x-request-id:
-      - ea71541fe356184f58ea759063738e3f
+      - 7b301ff4e61bcf8353c30f2c8abd8ce8
       x-runtime:
-      - '0.863741'
+      - '0.061601'
     status:
-      code: 204
-      message: No Content
+      code: 404
+      message: Not Found
 - request:
     body: null
     headers:
@@ -331,7 +347,7 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.32.3
+      - python-requests/2.32.4
     method: GET
     uri: https://pagure.io/api/0/protop2g-test-srce
   response:
@@ -344,26 +360,31 @@ interactions:
         \"1697168063\", \n  \"date_modified\": \"1744795940\", \n  \"description\":
         \"The source namespace for the Pagure Exporter project to run tests against\",
         \n  \"full_url\": \"https://pagure.io/protop2g-test-srce\", \n  \"fullname\":
-        \"protop2g-test-srce\", \n  \"id\": 17042, \n  \"milestones\": {}, \n  \"name\":
-        \"protop2g-test-srce\", \n  \"namespace\": null, \n  \"parent\": null, \n
-        \ \"priorities\": {}, \n  \"tags\": [], \n  \"url_path\": \"protop2g-test-srce\",
-        \n  \"user\": {\n    \"full_url\": \"https://pagure.io/user/t0xic0der\", \n
-        \   \"fullname\": \"Akashdeep Dhar\", \n    \"name\": \"t0xic0der\", \n    \"url_path\":
-        \"user/t0xic0der\"\n  }\n}\n"
+        \"protop2g-test-srce\", \n  \"id\": 17042, \n  \"milestones\": {\n    \"Milestone
+        AAAA\": {\n      \"active\": true, \n      \"date\": \"1765497600\"\n    },
+        \n    \"Milestone BBBB\": {\n      \"active\": false, \n      \"date\": \"1765497600\"\n
+        \   }, \n    \"Milestone CCCC\": {\n      \"active\": true, \n      \"date\":
+        \"1765497600\"\n    }, \n    \"Milestone DDDD\": {\n      \"active\": false,
+        \n      \"date\": \"1765497600\"\n    }\n  }, \n  \"name\": \"protop2g-test-srce\",
+        \n  \"namespace\": null, \n  \"parent\": null, \n  \"priorities\": {}, \n
+        \ \"tags\": [\n    \"srce\", \n    \"test\", \n    \"gridhead\", \n    \"protop2g\"\n
+        \ ], \n  \"url_path\": \"protop2g-test-srce\", \n  \"user\": {\n    \"full_url\":
+        \"https://pagure.io/user/t0xic0der\", \n    \"fullname\": \"Akashdeep Dhar\",
+        \n    \"name\": \"t0xic0der\", \n    \"url_path\": \"user/t0xic0der\"\n  }\n}\n"
     headers:
       Connection:
       - Upgrade, Keep-Alive
       Content-Length:
-      - '925'
+      - '1317'
       Content-Security-Policy:
-      - default-src 'self';script-src 'self' 'nonce-ajFXH0MsR7I75EtwYKFDlLdDB'; style-src
-        'self' 'nonce-ajFXH0MsR7I75EtwYKFDlLdDB'; object-src 'none';base-uri 'self';img-src
+      - default-src 'self';script-src 'self' 'nonce-eo5QKB5jyMkzTSEWYTj2c2tRD'; style-src
+        'self' 'nonce-eo5QKB5jyMkzTSEWYTj2c2tRD'; object-src 'none';base-uri 'self';img-src
         'self' https:;connect-src 'self' https://pagure.io:8088;frame-src https://docs.pagure.org;frame-ancestors
         https://pagure.io;
       Content-Type:
       - application/json
       Date:
-      - Fri, 25 Apr 2025 05:21:50 GMT
+      - Tue, 24 Jun 2025 03:43:27 GMT
       Keep-Alive:
       - timeout=5, max=100
       Referrer-Policy:
@@ -396,20 +417,20 @@ interactions:
       Content-type:
       - application/json
       User-Agent:
-      - python-gitlab/5.6.0
+      - python-gitlab/6.0.0
     method: GET
     uri: https://gitlab.com/api/v4/projects/42823949
   response:
     body:
       string: '{"id":42823949,"description":null,"name":"protop2g-test","name_with_namespace":"Akashdeep
-        Dhar / protop2g-test","path":"protop2g-test","path_with_namespace":"gridhead/protop2g-test","created_at":"2023-01-23T16:18:30.217Z","default_branch":"main","tag_list":[],"topics":[],"ssh_url_to_repo":"git@gitlab.com:gridhead/protop2g-test.git","http_url_to_repo":"https://gitlab.com/gridhead/protop2g-test.git","web_url":"https://gitlab.com/gridhead/protop2g-test","readme_url":"https://gitlab.com/gridhead/protop2g-test/-/blob/main/README.md","forks_count":0,"avatar_url":null,"star_count":0,"last_activity_at":"2025-04-25T05:19:23.595Z","namespace":{"id":13984834,"name":"Akashdeep
-        Dhar","path":"gridhead","kind":"user","full_path":"gridhead","parent_id":null,"avatar_url":"https://secure.gravatar.com/avatar/e412343841597e2fb1e952dd2b1077fc95537604ce04a27c5bfb94bdb0dc3da8?s=80\u0026d=identicon","web_url":"https://gitlab.com/gridhead"},"container_registry_image_prefix":"registry.gitlab.com/gridhead/protop2g-test","_links":{"self":"https://gitlab.com/api/v4/projects/42823949","issues":"https://gitlab.com/api/v4/projects/42823949/issues","merge_requests":"https://gitlab.com/api/v4/projects/42823949/merge_requests","repo_branches":"https://gitlab.com/api/v4/projects/42823949/repository/branches","labels":"https://gitlab.com/api/v4/projects/42823949/labels","events":"https://gitlab.com/api/v4/projects/42823949/events","members":"https://gitlab.com/api/v4/projects/42823949/members","cluster_agents":"https://gitlab.com/api/v4/projects/42823949/cluster_agents"},"packages_enabled":true,"empty_repo":false,"archived":false,"visibility":"public","owner":{"id":10115999,"username":"gridhead","name":"Akashdeep
-        Dhar","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/e412343841597e2fb1e952dd2b1077fc95537604ce04a27c5bfb94bdb0dc3da8?s=80\u0026d=identicon","web_url":"https://gitlab.com/gridhead"},"resolve_outdated_diff_discussions":false,"container_expiration_policy":{"cadence":"1d","enabled":false,"keep_n":10,"older_than":"90d","name_regex":".*","name_regex_keep":null,"next_run_at":"2023-01-24T16:18:30.271Z"},"repository_object_format":"sha1","issues_enabled":true,"merge_requests_enabled":true,"wiki_enabled":true,"jobs_enabled":true,"snippets_enabled":true,"container_registry_enabled":true,"service_desk_enabled":true,"service_desk_address":"contact-project+gridhead-protop2g-test-42823949-issue-@incoming.gitlab.com","can_create_merge_request_in":true,"issues_access_level":"enabled","repository_access_level":"enabled","merge_requests_access_level":"enabled","forking_access_level":"enabled","wiki_access_level":"enabled","builds_access_level":"enabled","snippets_access_level":"enabled","pages_access_level":"enabled","analytics_access_level":"enabled","container_registry_access_level":"enabled","security_and_compliance_access_level":"private","releases_access_level":"private","environments_access_level":"enabled","feature_flags_access_level":"private","infrastructure_access_level":"private","monitor_access_level":"enabled","model_experiments_access_level":"enabled","model_registry_access_level":"enabled","emails_disabled":false,"emails_enabled":true,"shared_runners_enabled":true,"lfs_enabled":true,"creator_id":10115999,"import_url":null,"import_type":null,"import_status":"none","import_error":null,"open_issues_count":125,"description_html":"","updated_at":"2025-04-25T05:19:23.595Z","ci_default_git_depth":20,"ci_delete_pipelines_in_seconds":null,"ci_forward_deployment_enabled":true,"ci_forward_deployment_rollback_allowed":true,"ci_job_token_scope_enabled":false,"ci_separated_caches":true,"ci_allow_fork_pipelines_to_run_in_parent_project":true,"ci_id_token_sub_claim_components":["project_path","ref_type","ref"],"build_git_strategy":"fetch","keep_latest_artifact":true,"restrict_user_defined_variables":false,"ci_pipeline_variables_minimum_override_role":"developer","runner_token_expiration_interval":null,"group_runners_enabled":true,"auto_cancel_pending_pipelines":"enabled","build_timeout":3600,"auto_devops_enabled":false,"auto_devops_deploy_strategy":"continuous","ci_push_repository_for_job_token_allowed":false,"runners_token":"EXPUNGED","ci_config_path":"","public_jobs":true,"shared_with_groups":[],"only_allow_merge_if_pipeline_succeeds":false,"allow_merge_on_skipped_pipeline":null,"request_access_enabled":true,"only_allow_merge_if_all_discussions_are_resolved":false,"remove_source_branch_after_merge":true,"printing_merge_request_link_enabled":true,"merge_method":"merge","merge_request_title_regex":null,"squash_option":"default_off","enforce_auth_checks_on_uploads":true,"suggestion_commit_message":null,"merge_commit_template":null,"squash_commit_template":null,"issue_branch_template":null,"warn_about_potentially_unwanted_characters":true,"autoclose_referenced_issues":true,"max_artifacts_size":null,"external_authorization_classification_label":"","requirements_enabled":false,"requirements_access_level":"enabled","security_and_compliance_enabled":true,"compliance_frameworks":[],"permissions":{"project_access":{"access_level":50,"notification_level":3},"group_access":null}}'
+        Dhar / protop2g-test","path":"protop2g-test","path_with_namespace":"gridhead/protop2g-test","created_at":"2023-01-23T16:18:30.217Z","default_branch":"main","tag_list":[],"topics":[],"ssh_url_to_repo":"git@gitlab.com:gridhead/protop2g-test.git","http_url_to_repo":"https://gitlab.com/gridhead/protop2g-test.git","web_url":"https://gitlab.com/gridhead/protop2g-test","readme_url":"https://gitlab.com/gridhead/protop2g-test/-/blob/main/README.md","forks_count":0,"avatar_url":null,"star_count":0,"last_activity_at":"2025-06-24T03:06:31.767Z","namespace":{"id":13984834,"name":"Akashdeep
+        Dhar","path":"gridhead","kind":"user","full_path":"gridhead","parent_id":null,"avatar_url":"https://secure.gravatar.com/avatar/e412343841597e2fb1e952dd2b1077fc95537604ce04a27c5bfb94bdb0dc3da8?s=80\u0026d=identicon","web_url":"https://gitlab.com/gridhead"},"container_registry_image_prefix":"registry.gitlab.com/gridhead/protop2g-test","_links":{"self":"https://gitlab.com/api/v4/projects/42823949","issues":"https://gitlab.com/api/v4/projects/42823949/issues","merge_requests":"https://gitlab.com/api/v4/projects/42823949/merge_requests","repo_branches":"https://gitlab.com/api/v4/projects/42823949/repository/branches","labels":"https://gitlab.com/api/v4/projects/42823949/labels","events":"https://gitlab.com/api/v4/projects/42823949/events","members":"https://gitlab.com/api/v4/projects/42823949/members","cluster_agents":"https://gitlab.com/api/v4/projects/42823949/cluster_agents"},"marked_for_deletion_at":null,"marked_for_deletion_on":null,"packages_enabled":true,"empty_repo":false,"archived":false,"visibility":"public","owner":{"id":10115999,"username":"gridhead","public_email":"","name":"Akashdeep
+        Dhar","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/e412343841597e2fb1e952dd2b1077fc95537604ce04a27c5bfb94bdb0dc3da8?s=80\u0026d=identicon","web_url":"https://gitlab.com/gridhead"},"resolve_outdated_diff_discussions":false,"container_expiration_policy":{"cadence":"1d","enabled":false,"keep_n":10,"older_than":"90d","name_regex":".*","name_regex_keep":null,"next_run_at":"2023-01-24T16:18:30.271Z"},"repository_object_format":"sha1","issues_enabled":true,"merge_requests_enabled":true,"wiki_enabled":true,"jobs_enabled":true,"snippets_enabled":true,"container_registry_enabled":true,"service_desk_enabled":true,"service_desk_address":"contact-project+gridhead-protop2g-test-42823949-issue-@incoming.gitlab.com","can_create_merge_request_in":true,"issues_access_level":"enabled","repository_access_level":"enabled","merge_requests_access_level":"enabled","forking_access_level":"enabled","wiki_access_level":"enabled","builds_access_level":"enabled","snippets_access_level":"enabled","pages_access_level":"enabled","analytics_access_level":"enabled","container_registry_access_level":"enabled","security_and_compliance_access_level":"private","releases_access_level":"private","environments_access_level":"enabled","feature_flags_access_level":"private","infrastructure_access_level":"private","monitor_access_level":"enabled","model_experiments_access_level":"enabled","model_registry_access_level":"enabled","emails_disabled":false,"emails_enabled":true,"shared_runners_enabled":true,"lfs_enabled":true,"creator_id":10115999,"import_url":null,"import_type":null,"import_status":"none","import_error":null,"open_issues_count":489,"description_html":"","updated_at":"2025-06-24T03:35:35.916Z","ci_default_git_depth":20,"ci_delete_pipelines_in_seconds":null,"ci_forward_deployment_enabled":true,"ci_forward_deployment_rollback_allowed":true,"ci_job_token_scope_enabled":false,"ci_separated_caches":true,"ci_allow_fork_pipelines_to_run_in_parent_project":true,"ci_id_token_sub_claim_components":["project_path","ref_type","ref"],"build_git_strategy":"fetch","keep_latest_artifact":true,"restrict_user_defined_variables":false,"ci_pipeline_variables_minimum_override_role":"developer","runner_token_expiration_interval":null,"group_runners_enabled":true,"auto_cancel_pending_pipelines":"enabled","build_timeout":3600,"auto_devops_enabled":false,"auto_devops_deploy_strategy":"continuous","ci_push_repository_for_job_token_allowed":false,"runners_token":"EXPUNGED","ci_config_path":"","public_jobs":true,"shared_with_groups":[],"only_allow_merge_if_pipeline_succeeds":false,"allow_merge_on_skipped_pipeline":null,"request_access_enabled":true,"only_allow_merge_if_all_discussions_are_resolved":false,"remove_source_branch_after_merge":true,"printing_merge_request_link_enabled":true,"merge_method":"merge","merge_request_title_regex":null,"squash_option":"default_off","enforce_auth_checks_on_uploads":true,"suggestion_commit_message":null,"merge_commit_template":null,"squash_commit_template":null,"issue_branch_template":null,"warn_about_potentially_unwanted_characters":true,"autoclose_referenced_issues":true,"max_artifacts_size":null,"external_authorization_classification_label":"","requirements_enabled":false,"requirements_access_level":"enabled","security_and_compliance_enabled":true,"compliance_frameworks":[],"web_based_commit_signing_enabled":false,"permissions":{"project_access":{"access_level":40,"notification_level":3},"group_access":null}}'
     headers:
       CF-Cache-Status:
       - MISS
       CF-Ray:
-      - 935b6631faca85a8-BOM
+      - 95493895daca3d2a-BOM
       Cache-Control:
       - max-age=0, private, must-revalidate
       Connection:
@@ -419,9 +440,9 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 25 Apr 2025 05:21:50 GMT
+      - Tue, 24 Jun 2025 03:43:29 GMT
       ETag:
-      - W/"54da87c922d80147cd377526be93d68e"
+      - W/"a266ccc9b3559b740b35e249386021dc"
       Server:
       - cloudflare
       Set-Cookie: ''
@@ -434,9 +455,9 @@ interactions:
       content-security-policy:
       - default-src 'none'
       gitlab-lb:
-      - haproxy-main-13-lb-gprd
+      - haproxy-main-45-lb-gprd
       gitlab-sv:
-      - api-gke-us-east1-b
+      - api-gke-us-east1-d
       nel:
       - '{"max_age": 0}'
       referrer-policy:
@@ -446,11 +467,11 @@ interactions:
       x-frame-options:
       - SAMEORIGIN
       x-gitlab-meta:
-      - '{"correlation_id":"2e548ad0227cdb999b680880f7d932e0","version":"1"}'
+      - '{"correlation_id":"c0df0032c267f1a9ee2fac73b13cab38","version":"1"}'
       x-request-id:
-      - 2e548ad0227cdb999b680880f7d932e0
+      - c0df0032c267f1a9ee2fac73b13cab38
       x-runtime:
-      - '0.139483'
+      - '0.494346'
     status:
       code: 200
       message: OK
@@ -464,7 +485,7 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.32.3
+      - python-requests/2.32.4
     method: GET
     uri: https://pagure.io/api/0/protop2g-test-srce/issues?per_page=35&page=1
   response:
@@ -488,12 +509,19 @@ interactions:
         null, \n          \"reactions\": {}, \n          \"user\": {\n            \"full_url\":
         \"https://pagure.io/user/t0xic0der\", \n            \"fullname\": \"Akashdeep
         Dhar\", \n            \"name\": \"t0xic0der\", \n            \"url_path\":
+        \"user/t0xic0der\"\n          }\n        }, \n        {\n          \"comment\":
+        \"**Metadata Update from @t0xic0der**:\\n- Issue set to the milestone: Milestone
+        CCCC\", \n          \"date_created\": \"1746679833\", \n          \"edited_on\":
+        null, \n          \"editor\": null, \n          \"id\": 971679, \n          \"notification\":
+        true, \n          \"parent\": null, \n          \"reactions\": {}, \n          \"user\":
+        {\n            \"full_url\": \"https://pagure.io/user/t0xic0der\", \n            \"fullname\":
+        \"Akashdeep Dhar\", \n            \"name\": \"t0xic0der\", \n            \"url_path\":
         \"user/t0xic0der\"\n          }\n        }\n      ], \n      \"content\":
         \"This is the body of the third test issue\", \n      \"custom_fields\": [],
         \n      \"date_created\": \"1700553837\", \n      \"depends\": [], \n      \"full_url\":
         \"https://pagure.io/protop2g-test-srce/issue/3\", \n      \"id\": 3, \n      \"last_updated\":
-        \"1700553892\", \n      \"milestone\": null, \n      \"priority\": null, \n
-        \     \"private\": true, \n      \"related_prs\": [], \n      \"status\":
+        \"1746679833\", \n      \"milestone\": \"Milestone CCCC\", \n      \"priority\":
+        null, \n      \"private\": true, \n      \"related_prs\": [], \n      \"status\":
         \"Open\", \n      \"tags\": [\n        \"eeee\", \n        \"ffff\"\n      ],
         \n      \"title\": \"This is the title of the third test issue\", \n      \"user\":
         {\n        \"full_url\": \"https://pagure.io/user/t0xic0der\", \n        \"fullname\":
@@ -521,12 +549,19 @@ interactions:
         null, \n          \"reactions\": {}, \n          \"user\": {\n            \"full_url\":
         \"https://pagure.io/user/t0xic0der\", \n            \"fullname\": \"Akashdeep
         Dhar\", \n            \"name\": \"t0xic0der\", \n            \"url_path\":
+        \"user/t0xic0der\"\n          }\n        }, \n        {\n          \"comment\":
+        \"**Metadata Update from @t0xic0der**:\\n- Issue set to the milestone: Milestone
+        AAAA\", \n          \"date_created\": \"1746679806\", \n          \"edited_on\":
+        null, \n          \"editor\": null, \n          \"id\": 971677, \n          \"notification\":
+        true, \n          \"parent\": null, \n          \"reactions\": {}, \n          \"user\":
+        {\n            \"full_url\": \"https://pagure.io/user/t0xic0der\", \n            \"fullname\":
+        \"Akashdeep Dhar\", \n            \"name\": \"t0xic0der\", \n            \"url_path\":
         \"user/t0xic0der\"\n          }\n        }\n      ], \n      \"content\":
         \"This is the body of the first test issue\", \n      \"custom_fields\": [],
         \n      \"date_created\": \"1697169462\", \n      \"depends\": [], \n      \"full_url\":
         \"https://pagure.io/protop2g-test-srce/issue/1\", \n      \"id\": 1, \n      \"last_updated\":
-        \"1697169924\", \n      \"milestone\": null, \n      \"priority\": null, \n
-        \     \"private\": false, \n      \"related_prs\": [], \n      \"status\":
+        \"1746679806\", \n      \"milestone\": \"Milestone AAAA\", \n      \"priority\":
+        null, \n      \"private\": false, \n      \"related_prs\": [], \n      \"status\":
         \"Open\", \n      \"tags\": [\n        \"aaaa\", \n        \"bbbb\"\n      ],
         \n      \"title\": \"This is the title of the first test issue\", \n      \"user\":
         {\n        \"full_url\": \"https://pagure.io/user/t0xic0der\", \n        \"fullname\":
@@ -540,16 +575,16 @@ interactions:
       Connection:
       - Upgrade, Keep-Alive
       Content-Length:
-      - '4909'
+      - '6037'
       Content-Security-Policy:
-      - default-src 'self';script-src 'self' 'nonce-q5nLxLgUSGOZjb4RfMAgvKIru'; style-src
-        'self' 'nonce-q5nLxLgUSGOZjb4RfMAgvKIru'; object-src 'none';base-uri 'self';img-src
+      - default-src 'self';script-src 'self' 'nonce-8nMJQj5x2pPf6MRdpPepvjORJ'; style-src
+        'self' 'nonce-8nMJQj5x2pPf6MRdpPepvjORJ'; object-src 'none';base-uri 'self';img-src
         'self' https:;connect-src 'self' https://pagure.io:8088;frame-src https://docs.pagure.org;frame-ancestors
         https://pagure.io;
       Content-Type:
       - application/json
       Date:
-      - Fri, 25 Apr 2025 05:21:51 GMT
+      - Tue, 24 Jun 2025 03:43:29 GMT
       Keep-Alive:
       - timeout=5, max=100
       Referrer-Policy:
@@ -580,7 +615,7 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.32.3
+      - python-requests/2.32.4
     method: GET
     uri: https://pagure.io/api/0/protop2g-test-srce/issues?per_page=35&page=1
   response:
@@ -604,12 +639,19 @@ interactions:
         null, \n          \"reactions\": {}, \n          \"user\": {\n            \"full_url\":
         \"https://pagure.io/user/t0xic0der\", \n            \"fullname\": \"Akashdeep
         Dhar\", \n            \"name\": \"t0xic0der\", \n            \"url_path\":
+        \"user/t0xic0der\"\n          }\n        }, \n        {\n          \"comment\":
+        \"**Metadata Update from @t0xic0der**:\\n- Issue set to the milestone: Milestone
+        CCCC\", \n          \"date_created\": \"1746679833\", \n          \"edited_on\":
+        null, \n          \"editor\": null, \n          \"id\": 971679, \n          \"notification\":
+        true, \n          \"parent\": null, \n          \"reactions\": {}, \n          \"user\":
+        {\n            \"full_url\": \"https://pagure.io/user/t0xic0der\", \n            \"fullname\":
+        \"Akashdeep Dhar\", \n            \"name\": \"t0xic0der\", \n            \"url_path\":
         \"user/t0xic0der\"\n          }\n        }\n      ], \n      \"content\":
         \"This is the body of the third test issue\", \n      \"custom_fields\": [],
         \n      \"date_created\": \"1700553837\", \n      \"depends\": [], \n      \"full_url\":
         \"https://pagure.io/protop2g-test-srce/issue/3\", \n      \"id\": 3, \n      \"last_updated\":
-        \"1700553892\", \n      \"milestone\": null, \n      \"priority\": null, \n
-        \     \"private\": true, \n      \"related_prs\": [], \n      \"status\":
+        \"1746679833\", \n      \"milestone\": \"Milestone CCCC\", \n      \"priority\":
+        null, \n      \"private\": true, \n      \"related_prs\": [], \n      \"status\":
         \"Open\", \n      \"tags\": [\n        \"eeee\", \n        \"ffff\"\n      ],
         \n      \"title\": \"This is the title of the third test issue\", \n      \"user\":
         {\n        \"full_url\": \"https://pagure.io/user/t0xic0der\", \n        \"fullname\":
@@ -637,12 +679,19 @@ interactions:
         null, \n          \"reactions\": {}, \n          \"user\": {\n            \"full_url\":
         \"https://pagure.io/user/t0xic0der\", \n            \"fullname\": \"Akashdeep
         Dhar\", \n            \"name\": \"t0xic0der\", \n            \"url_path\":
+        \"user/t0xic0der\"\n          }\n        }, \n        {\n          \"comment\":
+        \"**Metadata Update from @t0xic0der**:\\n- Issue set to the milestone: Milestone
+        AAAA\", \n          \"date_created\": \"1746679806\", \n          \"edited_on\":
+        null, \n          \"editor\": null, \n          \"id\": 971677, \n          \"notification\":
+        true, \n          \"parent\": null, \n          \"reactions\": {}, \n          \"user\":
+        {\n            \"full_url\": \"https://pagure.io/user/t0xic0der\", \n            \"fullname\":
+        \"Akashdeep Dhar\", \n            \"name\": \"t0xic0der\", \n            \"url_path\":
         \"user/t0xic0der\"\n          }\n        }\n      ], \n      \"content\":
         \"This is the body of the first test issue\", \n      \"custom_fields\": [],
         \n      \"date_created\": \"1697169462\", \n      \"depends\": [], \n      \"full_url\":
         \"https://pagure.io/protop2g-test-srce/issue/1\", \n      \"id\": 1, \n      \"last_updated\":
-        \"1697169924\", \n      \"milestone\": null, \n      \"priority\": null, \n
-        \     \"private\": false, \n      \"related_prs\": [], \n      \"status\":
+        \"1746679806\", \n      \"milestone\": \"Milestone AAAA\", \n      \"priority\":
+        null, \n      \"private\": false, \n      \"related_prs\": [], \n      \"status\":
         \"Open\", \n      \"tags\": [\n        \"aaaa\", \n        \"bbbb\"\n      ],
         \n      \"title\": \"This is the title of the first test issue\", \n      \"user\":
         {\n        \"full_url\": \"https://pagure.io/user/t0xic0der\", \n        \"fullname\":
@@ -656,16 +705,16 @@ interactions:
       Connection:
       - Upgrade, Keep-Alive
       Content-Length:
-      - '4909'
+      - '6037'
       Content-Security-Policy:
-      - default-src 'self';script-src 'self' 'nonce-6omyronTA3OGuNkcfwoxxkylV'; style-src
-        'self' 'nonce-6omyronTA3OGuNkcfwoxxkylV'; object-src 'none';base-uri 'self';img-src
+      - default-src 'self';script-src 'self' 'nonce-jHfy70eC7OFMpGKGxjvpMSk5Z'; style-src
+        'self' 'nonce-jHfy70eC7OFMpGKGxjvpMSk5Z'; object-src 'none';base-uri 'self';img-src
         'self' https:;connect-src 'self' https://pagure.io:8088;frame-src https://docs.pagure.org;frame-ancestors
         https://pagure.io;
       Content-Type:
       - application/json
       Date:
-      - Fri, 25 Apr 2025 05:21:52 GMT
+      - Tue, 24 Jun 2025 03:43:30 GMT
       Keep-Alive:
       - timeout=5, max=100
       Referrer-Policy:
@@ -690,8 +739,8 @@ interactions:
     body: '{"title": "[SN#3] This is the title of the third test issue", "description":
       "\nThis is the body of the third test issue\n\n_This issue ticket was originally
       created [here](https://pagure.io/protop2g-test-srce/issue/3) on a Pagure repository,\n[**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
-      by [**Akashdeep Dhar**](https://accounts.fedoraproject.org/user/t0xic0der) on\n[**Fri
-      Oct 13 04:07:12 2023** UTC](https://savvytime.com/converter/utc/oct-13-2023/04-07)._\n\n_This
+      by [**Akashdeep Dhar**](https://accounts.fedoraproject.org/user/t0xic0der) on\n[**Thu
+      May  8 04:50:21 2025** UTC](https://savvytime.com/converter/utc/may-08-2025/04-50)._\n\n_This
       issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._\n",
       "iid": 3}'
     headers:
@@ -706,39 +755,39 @@ interactions:
       Content-type:
       - application/json
       Cookie:
-      - _cfuvid=EcmIitnUIpL.TmGaFKizbvl9cbEY79yMy9OyYQPQOFs-1745558510846-0.0.1.1-604800000
+      - _cfuvid=.q85pkE4.v02QKteqAz8S.9cFb2cSfZHvVZL9MTQw3M-1750736609015-0.0.1.1-604800000
       User-Agent:
-      - python-gitlab/5.6.0
+      - python-gitlab/6.0.0
     method: POST
     uri: https://gitlab.com/api/v4/projects/42823949/issues
   response:
     body:
-      string: '{"id":166497749,"iid":3,"project_id":42823949,"title":"[SN#3] This
+      string: '{"id":169338594,"iid":14364,"project_id":42823949,"title":"[SN#3] This
         is the title of the third test issue","description":"\nThis is the body of
         the third test issue\n\n_This issue ticket was originally created [here](https://pagure.io/protop2g-test-srce/issue/3)
         on a Pagure repository,\n[**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
         by [**Akashdeep Dhar**](https://accounts.fedoraproject.org/user/t0xic0der)
-        on\n[**Fri Oct 13 04:07:12 2023** UTC](https://savvytime.com/converter/utc/oct-13-2023/04-07)._\n\n_This
-        issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","state":"opened","created_at":"2025-04-25T05:21:53.516Z","updated_at":"2025-04-25T05:21:53.516Z","closed_at":null,"closed_by":null,"labels":[],"milestone":null,"assignees":[],"author":{"id":10115999,"username":"gridhead","name":"Akashdeep
-        Dhar","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/e412343841597e2fb1e952dd2b1077fc95537604ce04a27c5bfb94bdb0dc3da8?s=80\u0026d=identicon","web_url":"https://gitlab.com/gridhead"},"type":"ISSUE","assignee":null,"user_notes_count":0,"merge_requests_count":0,"upvotes":0,"downvotes":0,"due_date":null,"confidential":false,"discussion_locked":null,"issue_type":"issue","web_url":"https://gitlab.com/gridhead/protop2g-test/-/issues/3","time_stats":{"time_estimate":0,"total_time_spent":0,"human_time_estimate":null,"human_total_time_spent":null},"task_completion_status":{"count":0,"completed_count":0},"blocking_issues_count":0,"has_tasks":true,"task_status":"0
-        of 0 checklist items completed","_links":{"self":"https://gitlab.com/api/v4/projects/42823949/issues/3","notes":"https://gitlab.com/api/v4/projects/42823949/issues/3/notes","award_emoji":"https://gitlab.com/api/v4/projects/42823949/issues/3/award_emoji","project":"https://gitlab.com/api/v4/projects/42823949","closed_as_duplicate_of":null},"references":{"short":"#3","relative":"#3","full":"gridhead/protop2g-test#3"},"severity":"UNKNOWN","subscribed":true,"moved_to_id":null,"imported":false,"imported_from":"none","service_desk_reply_to":null}'
+        on\n[**Thu May  8 04:50:21 2025** UTC](https://savvytime.com/converter/utc/may-08-2025/04-50)._\n\n_This
+        issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","state":"opened","created_at":"2025-06-24T03:43:31.225Z","updated_at":"2025-06-24T03:43:31.225Z","closed_at":null,"closed_by":null,"labels":[],"milestone":null,"assignees":[],"author":{"id":27337623,"username":"project_42823949_bot_7bde2863e36b77382400af583ca03c8d","public_email":null,"name":"Pagure
+        Exporter GitHub","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/a404b185659f42709b9f19c7a8b000ddf52a654dc17ac518a19f129c742b5cf5?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_7bde2863e36b77382400af583ca03c8d"},"type":"ISSUE","assignee":null,"user_notes_count":0,"merge_requests_count":0,"upvotes":0,"downvotes":0,"due_date":null,"confidential":false,"discussion_locked":null,"issue_type":"issue","web_url":"https://gitlab.com/gridhead/protop2g-test/-/issues/14364","time_stats":{"time_estimate":0,"total_time_spent":0,"human_time_estimate":null,"human_total_time_spent":null},"task_completion_status":{"count":0,"completed_count":0},"blocking_issues_count":0,"has_tasks":true,"task_status":"0
+        of 0 checklist items completed","_links":{"self":"https://gitlab.com/api/v4/projects/42823949/issues/14364","notes":"https://gitlab.com/api/v4/projects/42823949/issues/14364/notes","award_emoji":"https://gitlab.com/api/v4/projects/42823949/issues/14364/award_emoji","project":"https://gitlab.com/api/v4/projects/42823949","closed_as_duplicate_of":null},"references":{"short":"#14364","relative":"#14364","full":"gridhead/protop2g-test#14364"},"severity":"UNKNOWN","subscribed":true,"moved_to_id":null,"imported":false,"imported_from":"none","service_desk_reply_to":null}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 935b66436b203a3c-BOM
+      - 954938a9f8572dff-BOM
       Cache-Control:
       - max-age=0, private, must-revalidate
       Connection:
       - keep-alive
       Content-Length:
-      - '2126'
+      - '2276'
       Content-Type:
       - application/json
       Date:
-      - Fri, 25 Apr 2025 05:21:53 GMT
+      - Tue, 24 Jun 2025 03:43:31 GMT
       ETag:
-      - W/"4e685aebb87b7a0a5fae2eb279e8dc07"
+      - W/"1c80b185bafa8ee0404a73e41a988c63"
       Server:
       - cloudflare
       Set-Cookie: ''
@@ -749,9 +798,9 @@ interactions:
       content-security-policy:
       - default-src 'none'
       gitlab-lb:
-      - haproxy-main-27-lb-gprd
+      - haproxy-main-25-lb-gprd
       gitlab-sv:
-      - api-gke-us-east1-d
+      - api-gke-us-east1-b
       nel:
       - '{"max_age": 0}'
       referrer-policy:
@@ -761,11 +810,11 @@ interactions:
       x-frame-options:
       - SAMEORIGIN
       x-gitlab-meta:
-      - '{"correlation_id":"8fad71071bd7d3f88205d57d8d864d5b","version":"1"}'
+      - '{"correlation_id":"f584ded5f816cb26601d890491b29e3b","version":"1"}'
       x-request-id:
-      - 8fad71071bd7d3f88205d57d8d864d5b
+      - f584ded5f816cb26601d890491b29e3b
       x-runtime:
-      - '0.419375'
+      - '0.432642'
     status:
       code: 201
       message: Created
@@ -781,27 +830,27 @@ interactions:
       Content-type:
       - application/json
       Cookie:
-      - _cfuvid=EcmIitnUIpL.TmGaFKizbvl9cbEY79yMy9OyYQPQOFs-1745558510846-0.0.1.1-604800000
+      - _cfuvid=.q85pkE4.v02QKteqAz8S.9cFb2cSfZHvVZL9MTQw3M-1750736609015-0.0.1.1-604800000
       User-Agent:
-      - python-gitlab/5.6.0
+      - python-gitlab/6.0.0
     method: GET
-    uri: https://gitlab.com/api/v4/projects/42823949/issues/3
+    uri: https://gitlab.com/api/v4/projects/42823949/issues/14364
   response:
     body:
-      string: '{"id":166497749,"iid":3,"project_id":42823949,"title":"[SN#3] This
+      string: '{"id":169338594,"iid":14364,"project_id":42823949,"title":"[SN#3] This
         is the title of the third test issue","description":"\nThis is the body of
         the third test issue\n\n_This issue ticket was originally created [here](https://pagure.io/protop2g-test-srce/issue/3)
         on a Pagure repository,\n[**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
         by [**Akashdeep Dhar**](https://accounts.fedoraproject.org/user/t0xic0der)
-        on\n[**Fri Oct 13 04:07:12 2023** UTC](https://savvytime.com/converter/utc/oct-13-2023/04-07)._\n\n_This
-        issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","state":"opened","created_at":"2025-04-25T05:21:53.516Z","updated_at":"2025-04-25T05:21:53.516Z","closed_at":null,"closed_by":null,"labels":[],"milestone":null,"assignees":[],"author":{"id":10115999,"username":"gridhead","name":"Akashdeep
-        Dhar","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/e412343841597e2fb1e952dd2b1077fc95537604ce04a27c5bfb94bdb0dc3da8?s=80\u0026d=identicon","web_url":"https://gitlab.com/gridhead"},"type":"ISSUE","assignee":null,"user_notes_count":0,"merge_requests_count":0,"upvotes":0,"downvotes":0,"due_date":null,"confidential":false,"discussion_locked":null,"issue_type":"issue","web_url":"https://gitlab.com/gridhead/protop2g-test/-/issues/3","time_stats":{"time_estimate":0,"total_time_spent":0,"human_time_estimate":null,"human_total_time_spent":null},"task_completion_status":{"count":0,"completed_count":0},"blocking_issues_count":0,"has_tasks":true,"task_status":"0
-        of 0 checklist items completed","_links":{"self":"https://gitlab.com/api/v4/projects/42823949/issues/3","notes":"https://gitlab.com/api/v4/projects/42823949/issues/3/notes","award_emoji":"https://gitlab.com/api/v4/projects/42823949/issues/3/award_emoji","project":"https://gitlab.com/api/v4/projects/42823949","closed_as_duplicate_of":null},"references":{"short":"#3","relative":"#3","full":"gridhead/protop2g-test#3"},"severity":"UNKNOWN","subscribed":true,"moved_to_id":null,"imported":false,"imported_from":"none","service_desk_reply_to":null}'
+        on\n[**Thu May  8 04:50:21 2025** UTC](https://savvytime.com/converter/utc/may-08-2025/04-50)._\n\n_This
+        issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","state":"opened","created_at":"2025-06-24T03:43:31.225Z","updated_at":"2025-06-24T03:43:31.225Z","closed_at":null,"closed_by":null,"labels":[],"milestone":null,"assignees":[],"author":{"id":27337623,"username":"project_42823949_bot_7bde2863e36b77382400af583ca03c8d","public_email":null,"name":"Pagure
+        Exporter GitHub","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/a404b185659f42709b9f19c7a8b000ddf52a654dc17ac518a19f129c742b5cf5?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_7bde2863e36b77382400af583ca03c8d"},"type":"ISSUE","assignee":null,"user_notes_count":0,"merge_requests_count":0,"upvotes":0,"downvotes":0,"due_date":null,"confidential":false,"discussion_locked":null,"issue_type":"issue","web_url":"https://gitlab.com/gridhead/protop2g-test/-/issues/14364","time_stats":{"time_estimate":0,"total_time_spent":0,"human_time_estimate":null,"human_total_time_spent":null},"task_completion_status":{"count":0,"completed_count":0},"blocking_issues_count":0,"has_tasks":true,"task_status":"0
+        of 0 checklist items completed","_links":{"self":"https://gitlab.com/api/v4/projects/42823949/issues/14364","notes":"https://gitlab.com/api/v4/projects/42823949/issues/14364/notes","award_emoji":"https://gitlab.com/api/v4/projects/42823949/issues/14364/award_emoji","project":"https://gitlab.com/api/v4/projects/42823949","closed_as_duplicate_of":null},"references":{"short":"#14364","relative":"#14364","full":"gridhead/protop2g-test#14364"},"severity":"UNKNOWN","subscribed":true,"moved_to_id":null,"imported":false,"imported_from":"none","service_desk_reply_to":null}'
     headers:
       CF-Cache-Status:
       - MISS
       CF-Ray:
-      - 935b66485a928507-BOM
+      - 954938ae8b553b2b-BOM
       Cache-Control:
       - max-age=0, private, must-revalidate
       Connection:
@@ -811,9 +860,9 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 25 Apr 2025 05:21:54 GMT
+      - Tue, 24 Jun 2025 03:43:32 GMT
       ETag:
-      - W/"4e685aebb87b7a0a5fae2eb279e8dc07"
+      - W/"1c80b185bafa8ee0404a73e41a988c63"
       Server:
       - cloudflare
       Set-Cookie: ''
@@ -826,9 +875,9 @@ interactions:
       content-security-policy:
       - default-src 'none'
       gitlab-lb:
-      - haproxy-main-10-lb-gprd
+      - haproxy-main-51-lb-gprd
       gitlab-sv:
-      - api-gke-us-east1-b
+      - api-gke-us-east1-d
       nel:
       - '{"max_age": 0}'
       referrer-policy:
@@ -838,11 +887,11 @@ interactions:
       x-frame-options:
       - SAMEORIGIN
       x-gitlab-meta:
-      - '{"correlation_id":"f9d1a471d37d5c805538ce5a48df26e0","version":"1"}'
+      - '{"correlation_id":"71804be0b5451bb100dab3ab1dc2a841","version":"1"}'
       x-request-id:
-      - f9d1a471d37d5c805538ce5a48df26e0
+      - 71804be0b5451bb100dab3ab1dc2a841
       x-runtime:
-      - '0.228250'
+      - '0.151087'
     status:
       code: 200
       message: OK
@@ -865,281 +914,38 @@ interactions:
       Content-type:
       - application/json
       Cookie:
-      - _cfuvid=EcmIitnUIpL.TmGaFKizbvl9cbEY79yMy9OyYQPQOFs-1745558510846-0.0.1.1-604800000
+      - _cfuvid=.q85pkE4.v02QKteqAz8S.9cFb2cSfZHvVZL9MTQw3M-1750736609015-0.0.1.1-604800000
       User-Agent:
-      - python-gitlab/5.6.0
+      - python-gitlab/6.0.0
     method: POST
-    uri: https://gitlab.com/api/v4/projects/42823949/issues/3/discussions
+    uri: https://gitlab.com/api/v4/projects/42823949/issues/14364/discussions
   response:
     body:
-      string: '{"id":"36d287417cea73b81ed4abb481244b80e9a62cc5","individual_note":false,"notes":[{"id":2468759560,"type":"DiscussionNote","body":"\nThis
+      string: '{"id":"d1ec60035179fb11645262f46f7379aee8f08dae","individual_note":false,"notes":[{"id":2580329780,"type":"DiscussionNote","body":"\nThis
         is the first comment under the third test issue\n\n_This comment was originally
         created [here](https://pagure.io/protop2g-test-srce/issue/3#comment-885229)
         by [**Akashdeep Dhar**](https://accounts.fedoraproject.org/user/t0xic0der)
         under\n[this](https://pagure.io/protop2g-test-srce/issue/3) issue ticket on
         a Pagure repository, [**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
         on\n[**Tue Nov 21 08:04:40 2023** UTC](https://savvytime.com/converter/utc/nov-21-2023/08-04)._\n\n_This
-        comment was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","author":{"id":10115999,"username":"gridhead","name":"Akashdeep
-        Dhar","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/e412343841597e2fb1e952dd2b1077fc95537604ce04a27c5bfb94bdb0dc3da8?s=80\u0026d=identicon","web_url":"https://gitlab.com/gridhead"},"created_at":"2025-04-25T05:21:55.159Z","updated_at":"2025-04-25T05:21:55.159Z","system":false,"noteable_id":166497749,"noteable_type":"Issue","project_id":42823949,"resolvable":true,"resolved":false,"resolved_by":null,"resolved_at":null,"confidential":false,"internal":false,"imported":false,"imported_from":"none","noteable_iid":3,"commands_changes":{}}]}'
+        comment was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","author":{"id":27337623,"username":"project_42823949_bot_7bde2863e36b77382400af583ca03c8d","public_email":null,"name":"****","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/a404b185659f42709b9f19c7a8b000ddf52a654dc17ac518a19f129c742b5cf5?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_7bde2863e36b77382400af583ca03c8d"},"created_at":"2025-06-24T03:43:32.493Z","updated_at":"2025-06-24T03:43:32.493Z","system":false,"noteable_id":169338594,"noteable_type":"Issue","project_id":42823949,"resolvable":true,"resolved":false,"resolved_by":null,"resolved_at":null,"confidential":false,"internal":false,"imported":false,"imported_from":"none","noteable_iid":14364,"commands_changes":{}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 935b664d7cd64461-BOM
+      - 954938b1aa51ff7a-BOM
       Cache-Control:
       - max-age=0, private, must-revalidate
       Connection:
       - keep-alive
       Content-Length:
-      - '1383'
+      - '1487'
       Content-Type:
       - application/json
       Date:
-      - Fri, 25 Apr 2025 05:21:55 GMT
+      - Tue, 24 Jun 2025 03:43:32 GMT
       ETag:
-      - W/"088a026b093c969449187280a93695ef"
-      Server:
-      - cloudflare
-      Set-Cookie: ''
-      Strict-Transport-Security:
-      - max-age=31536000
-      Vary:
-      - Origin, Accept-Encoding
-      content-security-policy:
-      - default-src 'none'
-      gitlab-lb:
-      - haproxy-main-13-lb-gprd
-      gitlab-sv:
-      - api-gke-us-east1-b
-      nel:
-      - '{"max_age": 0}'
-      referrer-policy:
-      - strict-origin-when-cross-origin
-      x-content-type-options:
-      - nosniff
-      x-frame-options:
-      - SAMEORIGIN
-      x-gitlab-meta:
-      - '{"correlation_id":"eaad4756cc27443392b060ead5ae66f0","version":"1"}'
-      x-request-id:
-      - eaad4756cc27443392b060ead5ae66f0
-      x-runtime:
-      - '0.304686'
-    status:
-      code: 201
-      message: Created
-- request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate, zstd
-      Connection:
-      - keep-alive
-      Content-type:
-      - application/json
-      Cookie:
-      - _cfuvid=EcmIitnUIpL.TmGaFKizbvl9cbEY79yMy9OyYQPQOFs-1745558510846-0.0.1.1-604800000
-      User-Agent:
-      - python-gitlab/5.6.0
-    method: GET
-    uri: https://gitlab.com/api/v4/projects/42823949/issues/3
-  response:
-    body:
-      string: '{"id":166497749,"iid":3,"project_id":42823949,"title":"[SN#3] This
-        is the title of the third test issue","description":"\nThis is the body of
-        the third test issue\n\n_This issue ticket was originally created [here](https://pagure.io/protop2g-test-srce/issue/3)
-        on a Pagure repository,\n[**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
-        by [**Akashdeep Dhar**](https://accounts.fedoraproject.org/user/t0xic0der)
-        on\n[**Fri Oct 13 04:07:12 2023** UTC](https://savvytime.com/converter/utc/oct-13-2023/04-07)._\n\n_This
-        issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","state":"opened","created_at":"2025-04-25T05:21:53.516Z","updated_at":"2025-04-25T05:21:53.516Z","closed_at":null,"closed_by":null,"labels":[],"milestone":null,"assignees":[],"author":{"id":10115999,"username":"gridhead","name":"Akashdeep
-        Dhar","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/e412343841597e2fb1e952dd2b1077fc95537604ce04a27c5bfb94bdb0dc3da8?s=80\u0026d=identicon","web_url":"https://gitlab.com/gridhead"},"type":"ISSUE","assignee":null,"user_notes_count":1,"merge_requests_count":0,"upvotes":0,"downvotes":0,"due_date":null,"confidential":false,"discussion_locked":null,"issue_type":"issue","web_url":"https://gitlab.com/gridhead/protop2g-test/-/issues/3","time_stats":{"time_estimate":0,"total_time_spent":0,"human_time_estimate":null,"human_total_time_spent":null},"task_completion_status":{"count":0,"completed_count":0},"blocking_issues_count":0,"has_tasks":true,"task_status":"0
-        of 0 checklist items completed","_links":{"self":"https://gitlab.com/api/v4/projects/42823949/issues/3","notes":"https://gitlab.com/api/v4/projects/42823949/issues/3/notes","award_emoji":"https://gitlab.com/api/v4/projects/42823949/issues/3/award_emoji","project":"https://gitlab.com/api/v4/projects/42823949","closed_as_duplicate_of":null},"references":{"short":"#3","relative":"#3","full":"gridhead/protop2g-test#3"},"severity":"UNKNOWN","subscribed":true,"moved_to_id":null,"imported":false,"imported_from":"none","service_desk_reply_to":null}'
-    headers:
-      CF-Cache-Status:
-      - MISS
-      CF-Ray:
-      - 935b66516d82480b-BOM
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      Connection:
-      - keep-alive
-      Content-Encoding:
-      - gzip
-      Content-Type:
-      - application/json
-      Date:
-      - Fri, 25 Apr 2025 05:21:55 GMT
-      ETag:
-      - W/"1477bc65f8292957ad0818f438e83b8f"
-      Server:
-      - cloudflare
-      Set-Cookie: ''
-      Strict-Transport-Security:
-      - max-age=31536000
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Origin, Accept-Encoding
-      content-security-policy:
-      - default-src 'none'
-      gitlab-lb:
-      - haproxy-main-10-lb-gprd
-      gitlab-sv:
-      - api-gke-us-east1-b
-      nel:
-      - '{"max_age": 0}'
-      referrer-policy:
-      - strict-origin-when-cross-origin
-      x-content-type-options:
-      - nosniff
-      x-frame-options:
-      - SAMEORIGIN
-      x-gitlab-meta:
-      - '{"correlation_id":"9f767a751f769ad8fea900b48abb2d5b","version":"1"}'
-      x-request-id:
-      - 9f767a751f769ad8fea900b48abb2d5b
-      x-runtime:
-      - '0.252844'
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"body": "\nThis is the second comment under the third test issue\n\n_This
-      comment was originally created [here](https://pagure.io/protop2g-test-srce/issue/3#comment-885230)
-      by [**Akashdeep Dhar**](https://accounts.fedoraproject.org/user/t0xic0der) under\n[this](https://pagure.io/protop2g-test-srce/issue/3)
-      issue ticket on a Pagure repository, [**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
-      on\n[**Tue Nov 21 08:04:52 2023** UTC](https://savvytime.com/converter/utc/nov-21-2023/08-04)._\n\n_This
-      comment was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._\n"}'
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate, zstd
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '628'
-      Content-type:
-      - application/json
-      Cookie:
-      - _cfuvid=EcmIitnUIpL.TmGaFKizbvl9cbEY79yMy9OyYQPQOFs-1745558510846-0.0.1.1-604800000
-      User-Agent:
-      - python-gitlab/5.6.0
-    method: POST
-    uri: https://gitlab.com/api/v4/projects/42823949/issues/3/discussions
-  response:
-    body:
-      string: '{"id":"8f3030074551a0bfe9276073c3113c4a4435063f","individual_note":false,"notes":[{"id":2468759572,"type":"DiscussionNote","body":"\nThis
-        is the second comment under the third test issue\n\n_This comment was originally
-        created [here](https://pagure.io/protop2g-test-srce/issue/3#comment-885230)
-        by [**Akashdeep Dhar**](https://accounts.fedoraproject.org/user/t0xic0der)
-        under\n[this](https://pagure.io/protop2g-test-srce/issue/3) issue ticket on
-        a Pagure repository, [**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
-        on\n[**Tue Nov 21 08:04:52 2023** UTC](https://savvytime.com/converter/utc/nov-21-2023/08-04)._\n\n_This
-        comment was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","author":{"id":10115999,"username":"gridhead","name":"Akashdeep
-        Dhar","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/e412343841597e2fb1e952dd2b1077fc95537604ce04a27c5bfb94bdb0dc3da8?s=80\u0026d=identicon","web_url":"https://gitlab.com/gridhead"},"created_at":"2025-04-25T05:21:56.428Z","updated_at":"2025-04-25T05:21:56.428Z","system":false,"noteable_id":166497749,"noteable_type":"Issue","project_id":42823949,"resolvable":true,"resolved":false,"resolved_by":null,"resolved_at":null,"confidential":false,"internal":false,"imported":false,"imported_from":"none","noteable_iid":3,"commands_changes":{}}]}'
-    headers:
-      CF-Cache-Status:
-      - DYNAMIC
-      CF-Ray:
-      - 935b66559ae13e2e-BOM
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '1384'
-      Content-Type:
-      - application/json
-      Date:
-      - Fri, 25 Apr 2025 05:21:56 GMT
-      ETag:
-      - W/"6b93c7a710248b571013c048c5165f92"
-      Server:
-      - cloudflare
-      Set-Cookie: ''
-      Strict-Transport-Security:
-      - max-age=31536000
-      Vary:
-      - Origin, Accept-Encoding
-      content-security-policy:
-      - default-src 'none'
-      gitlab-lb:
-      - haproxy-main-32-lb-gprd
-      gitlab-sv:
-      - api-gke-us-east1-c
-      nel:
-      - '{"max_age": 0}'
-      referrer-policy:
-      - strict-origin-when-cross-origin
-      x-content-type-options:
-      - nosniff
-      x-frame-options:
-      - SAMEORIGIN
-      x-gitlab-meta:
-      - '{"correlation_id":"dbd5910d1e9daf0c14db9927bf454315","version":"1"}'
-      x-request-id:
-      - dbd5910d1e9daf0c14db9927bf454315
-      x-runtime:
-      - '0.283696'
-    status:
-      code: 201
-      message: Created
-- request:
-    body: '{"title": "[SN#1] This is the title of the first test issue", "description":
-      "\nThis is the body of the first test issue\n\n_This issue ticket was originally
-      created [here](https://pagure.io/protop2g-test-srce/issue/1) on a Pagure repository,\n[**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
-      by [**Akashdeep Dhar**](https://accounts.fedoraproject.org/user/t0xic0der) on\n[**Tue
-      Nov 21 08:04:52 2023** UTC](https://savvytime.com/converter/utc/nov-21-2023/08-04)._\n\n_This
-      issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._\n",
-      "iid": 1}'
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate, zstd
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '616'
-      Content-type:
-      - application/json
-      Cookie:
-      - _cfuvid=EcmIitnUIpL.TmGaFKizbvl9cbEY79yMy9OyYQPQOFs-1745558510846-0.0.1.1-604800000
-      User-Agent:
-      - python-gitlab/5.6.0
-    method: POST
-    uri: https://gitlab.com/api/v4/projects/42823949/issues
-  response:
-    body:
-      string: '{"id":166497751,"iid":1,"project_id":42823949,"title":"[SN#1] This
-        is the title of the first test issue","description":"\nThis is the body of
-        the first test issue\n\n_This issue ticket was originally created [here](https://pagure.io/protop2g-test-srce/issue/1)
-        on a Pagure repository,\n[**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
-        by [**Akashdeep Dhar**](https://accounts.fedoraproject.org/user/t0xic0der)
-        on\n[**Tue Nov 21 08:04:52 2023** UTC](https://savvytime.com/converter/utc/nov-21-2023/08-04)._\n\n_This
-        issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","state":"opened","created_at":"2025-04-25T05:21:57.087Z","updated_at":"2025-04-25T05:21:57.087Z","closed_at":null,"closed_by":null,"labels":[],"milestone":null,"assignees":[],"author":{"id":10115999,"username":"gridhead","name":"Akashdeep
-        Dhar","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/e412343841597e2fb1e952dd2b1077fc95537604ce04a27c5bfb94bdb0dc3da8?s=80\u0026d=identicon","web_url":"https://gitlab.com/gridhead"},"type":"ISSUE","assignee":null,"user_notes_count":0,"merge_requests_count":0,"upvotes":0,"downvotes":0,"due_date":null,"confidential":false,"discussion_locked":null,"issue_type":"issue","web_url":"https://gitlab.com/gridhead/protop2g-test/-/issues/1","time_stats":{"time_estimate":0,"total_time_spent":0,"human_time_estimate":null,"human_total_time_spent":null},"task_completion_status":{"count":0,"completed_count":0},"blocking_issues_count":0,"has_tasks":true,"task_status":"0
-        of 0 checklist items completed","_links":{"self":"https://gitlab.com/api/v4/projects/42823949/issues/1","notes":"https://gitlab.com/api/v4/projects/42823949/issues/1/notes","award_emoji":"https://gitlab.com/api/v4/projects/42823949/issues/1/award_emoji","project":"https://gitlab.com/api/v4/projects/42823949","closed_as_duplicate_of":null},"references":{"short":"#1","relative":"#1","full":"gridhead/protop2g-test#1"},"severity":"UNKNOWN","subscribed":true,"moved_to_id":null,"imported":false,"imported_from":"none","service_desk_reply_to":null}'
-    headers:
-      CF-Cache-Status:
-      - DYNAMIC
-      CF-Ray:
-      - 935b66599d7246f2-BOM
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '2126'
-      Content-Type:
-      - application/json
-      Date:
-      - Fri, 25 Apr 2025 05:21:57 GMT
-      ETag:
-      - W/"62d50fd28784e18b4f4fa33375c082d9"
+      - W/"ce67c3c95423d242050890b023ec0289"
       Server:
       - cloudflare
       Set-Cookie: ''
@@ -1162,11 +968,11 @@ interactions:
       x-frame-options:
       - SAMEORIGIN
       x-gitlab-meta:
-      - '{"correlation_id":"382dda9aa682b434f1a00cb16c3cf711","version":"1"}'
+      - '{"correlation_id":"6100e935da3c334b512aedde9f48cec5","version":"1"}'
       x-request-id:
-      - 382dda9aa682b434f1a00cb16c3cf711
+      - 6100e935da3c334b512aedde9f48cec5
       x-runtime:
-      - '0.413053'
+      - '0.350207'
     status:
       code: 201
       message: Created
@@ -1182,27 +988,27 @@ interactions:
       Content-type:
       - application/json
       Cookie:
-      - _cfuvid=EcmIitnUIpL.TmGaFKizbvl9cbEY79yMy9OyYQPQOFs-1745558510846-0.0.1.1-604800000
+      - _cfuvid=.q85pkE4.v02QKteqAz8S.9cFb2cSfZHvVZL9MTQw3M-1750736609015-0.0.1.1-604800000
       User-Agent:
-      - python-gitlab/5.6.0
+      - python-gitlab/6.0.0
     method: GET
-    uri: https://gitlab.com/api/v4/projects/42823949/issues/1
+    uri: https://gitlab.com/api/v4/projects/42823949/issues/14364
   response:
     body:
-      string: '{"id":166497751,"iid":1,"project_id":42823949,"title":"[SN#1] This
-        is the title of the first test issue","description":"\nThis is the body of
-        the first test issue\n\n_This issue ticket was originally created [here](https://pagure.io/protop2g-test-srce/issue/1)
+      string: '{"id":169338594,"iid":14364,"project_id":42823949,"title":"[SN#3] This
+        is the title of the third test issue","description":"\nThis is the body of
+        the third test issue\n\n_This issue ticket was originally created [here](https://pagure.io/protop2g-test-srce/issue/3)
         on a Pagure repository,\n[**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
         by [**Akashdeep Dhar**](https://accounts.fedoraproject.org/user/t0xic0der)
-        on\n[**Tue Nov 21 08:04:52 2023** UTC](https://savvytime.com/converter/utc/nov-21-2023/08-04)._\n\n_This
-        issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","state":"opened","created_at":"2025-04-25T05:21:57.087Z","updated_at":"2025-04-25T05:21:57.087Z","closed_at":null,"closed_by":null,"labels":[],"milestone":null,"assignees":[],"author":{"id":10115999,"username":"gridhead","name":"Akashdeep
-        Dhar","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/e412343841597e2fb1e952dd2b1077fc95537604ce04a27c5bfb94bdb0dc3da8?s=80\u0026d=identicon","web_url":"https://gitlab.com/gridhead"},"type":"ISSUE","assignee":null,"user_notes_count":0,"merge_requests_count":0,"upvotes":0,"downvotes":0,"due_date":null,"confidential":false,"discussion_locked":null,"issue_type":"issue","web_url":"https://gitlab.com/gridhead/protop2g-test/-/issues/1","time_stats":{"time_estimate":0,"total_time_spent":0,"human_time_estimate":null,"human_total_time_spent":null},"task_completion_status":{"count":0,"completed_count":0},"blocking_issues_count":0,"has_tasks":true,"task_status":"0
-        of 0 checklist items completed","_links":{"self":"https://gitlab.com/api/v4/projects/42823949/issues/1","notes":"https://gitlab.com/api/v4/projects/42823949/issues/1/notes","award_emoji":"https://gitlab.com/api/v4/projects/42823949/issues/1/award_emoji","project":"https://gitlab.com/api/v4/projects/42823949","closed_as_duplicate_of":null},"references":{"short":"#1","relative":"#1","full":"gridhead/protop2g-test#1"},"severity":"UNKNOWN","subscribed":true,"moved_to_id":null,"imported":false,"imported_from":"none","service_desk_reply_to":null}'
+        on\n[**Thu May  8 04:50:21 2025** UTC](https://savvytime.com/converter/utc/may-08-2025/04-50)._\n\n_This
+        issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","state":"opened","created_at":"2025-06-24T03:43:31.225Z","updated_at":"2025-06-24T03:43:31.225Z","closed_at":null,"closed_by":null,"labels":[],"milestone":null,"assignees":[],"author":{"id":27337623,"username":"project_42823949_bot_7bde2863e36b77382400af583ca03c8d","public_email":null,"name":"Pagure
+        Exporter GitHub","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/a404b185659f42709b9f19c7a8b000ddf52a654dc17ac518a19f129c742b5cf5?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_7bde2863e36b77382400af583ca03c8d"},"type":"ISSUE","assignee":null,"user_notes_count":1,"merge_requests_count":0,"upvotes":0,"downvotes":0,"due_date":null,"confidential":false,"discussion_locked":null,"issue_type":"issue","web_url":"https://gitlab.com/gridhead/protop2g-test/-/issues/14364","time_stats":{"time_estimate":0,"total_time_spent":0,"human_time_estimate":null,"human_total_time_spent":null},"task_completion_status":{"count":0,"completed_count":0},"blocking_issues_count":0,"has_tasks":true,"task_status":"0
+        of 0 checklist items completed","_links":{"self":"https://gitlab.com/api/v4/projects/42823949/issues/14364","notes":"https://gitlab.com/api/v4/projects/42823949/issues/14364/notes","award_emoji":"https://gitlab.com/api/v4/projects/42823949/issues/14364/award_emoji","project":"https://gitlab.com/api/v4/projects/42823949","closed_as_duplicate_of":null},"references":{"short":"#14364","relative":"#14364","full":"gridhead/protop2g-test#14364"},"severity":"UNKNOWN","subscribed":true,"moved_to_id":null,"imported":false,"imported_from":"none","service_desk_reply_to":null}'
     headers:
       CF-Cache-Status:
       - MISS
       CF-Ray:
-      - 935b665f69232965-BOM
+      - 954938b5ae5dffa3-BOM
       Cache-Control:
       - max-age=0, private, must-revalidate
       Connection:
@@ -1212,9 +1018,9 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 25 Apr 2025 05:21:58 GMT
+      - Tue, 24 Jun 2025 03:43:33 GMT
       ETag:
-      - W/"62d50fd28784e18b4f4fa33375c082d9"
+      - W/"57d906d543f9a7189e9e4eb3a53fafa8"
       Server:
       - cloudflare
       Set-Cookie: ''
@@ -1227,7 +1033,329 @@ interactions:
       content-security-policy:
       - default-src 'none'
       gitlab-lb:
-      - haproxy-main-47-lb-gprd
+      - haproxy-main-13-lb-gprd
+      gitlab-sv:
+      - api-gke-us-east1-b
+      nel:
+      - '{"max_age": 0}'
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - SAMEORIGIN
+      x-gitlab-meta:
+      - '{"correlation_id":"419580792bf72401f2c0936bcefff9ac","version":"1"}'
+      x-request-id:
+      - 419580792bf72401f2c0936bcefff9ac
+      x-runtime:
+      - '0.146089'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"body": "\nThis is the second comment under the third test issue\n\n_This
+      comment was originally created [here](https://pagure.io/protop2g-test-srce/issue/3#comment-885230)
+      by [**Akashdeep Dhar**](https://accounts.fedoraproject.org/user/t0xic0der) under\n[this](https://pagure.io/protop2g-test-srce/issue/3)
+      issue ticket on a Pagure repository, [**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
+      on\n[**Tue Nov 21 08:04:52 2023** UTC](https://savvytime.com/converter/utc/nov-21-2023/08-04)._\n\n_This
+      comment was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._\n"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, zstd
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '628'
+      Content-type:
+      - application/json
+      Cookie:
+      - _cfuvid=.q85pkE4.v02QKteqAz8S.9cFb2cSfZHvVZL9MTQw3M-1750736609015-0.0.1.1-604800000
+      User-Agent:
+      - python-gitlab/6.0.0
+    method: POST
+    uri: https://gitlab.com/api/v4/projects/42823949/issues/14364/discussions
+  response:
+    body:
+      string: '{"id":"9866c1dae549175a988c7fc93a3de77eff9431ae","individual_note":false,"notes":[{"id":2580329809,"type":"DiscussionNote","body":"\nThis
+        is the second comment under the third test issue\n\n_This comment was originally
+        created [here](https://pagure.io/protop2g-test-srce/issue/3#comment-885230)
+        by [**Akashdeep Dhar**](https://accounts.fedoraproject.org/user/t0xic0der)
+        under\n[this](https://pagure.io/protop2g-test-srce/issue/3) issue ticket on
+        a Pagure repository, [**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
+        on\n[**Tue Nov 21 08:04:52 2023** UTC](https://savvytime.com/converter/utc/nov-21-2023/08-04)._\n\n_This
+        comment was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","author":{"id":27337623,"username":"project_42823949_bot_7bde2863e36b77382400af583ca03c8d","public_email":null,"name":"****","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/a404b185659f42709b9f19c7a8b000ddf52a654dc17ac518a19f129c742b5cf5?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_7bde2863e36b77382400af583ca03c8d"},"created_at":"2025-06-24T03:43:34.129Z","updated_at":"2025-06-24T03:43:34.129Z","system":false,"noteable_id":169338594,"noteable_type":"Issue","project_id":42823949,"resolvable":true,"resolved":false,"resolved_by":null,"resolved_at":null,"confidential":false,"internal":false,"imported":false,"imported_from":"none","noteable_iid":14364,"commands_changes":{}}]}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 954938bc1a213c22-BOM
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1488'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 24 Jun 2025 03:43:34 GMT
+      ETag:
+      - W/"1486d3457d22903eb89ac57a801e8771"
+      Server:
+      - cloudflare
+      Set-Cookie: ''
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Origin, Accept-Encoding
+      content-security-policy:
+      - default-src 'none'
+      gitlab-lb:
+      - haproxy-main-60-lb-gprd
+      gitlab-sv:
+      - api-gke-us-east1-d
+      nel:
+      - '{"max_age": 0}'
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - SAMEORIGIN
+      x-gitlab-meta:
+      - '{"correlation_id":"81278e707251f6fd5e1352b8e9e4a472","version":"1"}'
+      x-request-id:
+      - 81278e707251f6fd5e1352b8e9e4a472
+      x-runtime:
+      - '0.304078'
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, zstd
+      Connection:
+      - keep-alive
+      Content-type:
+      - application/json
+      Cookie:
+      - _cfuvid=.q85pkE4.v02QKteqAz8S.9cFb2cSfZHvVZL9MTQw3M-1750736609015-0.0.1.1-604800000
+      User-Agent:
+      - python-gitlab/6.0.0
+    method: GET
+    uri: https://gitlab.com/api/v4/projects/42823949/issues/14364
+  response:
+    body:
+      string: '{"id":169338594,"iid":14364,"project_id":42823949,"title":"[SN#3] This
+        is the title of the third test issue","description":"\nThis is the body of
+        the third test issue\n\n_This issue ticket was originally created [here](https://pagure.io/protop2g-test-srce/issue/3)
+        on a Pagure repository,\n[**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
+        by [**Akashdeep Dhar**](https://accounts.fedoraproject.org/user/t0xic0der)
+        on\n[**Thu May  8 04:50:21 2025** UTC](https://savvytime.com/converter/utc/may-08-2025/04-50)._\n\n_This
+        issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","state":"opened","created_at":"2025-06-24T03:43:31.225Z","updated_at":"2025-06-24T03:43:31.225Z","closed_at":null,"closed_by":null,"labels":[],"milestone":null,"assignees":[],"author":{"id":27337623,"username":"project_42823949_bot_7bde2863e36b77382400af583ca03c8d","public_email":null,"name":"Pagure
+        Exporter GitHub","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/a404b185659f42709b9f19c7a8b000ddf52a654dc17ac518a19f129c742b5cf5?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_7bde2863e36b77382400af583ca03c8d"},"type":"ISSUE","assignee":null,"user_notes_count":2,"merge_requests_count":0,"upvotes":0,"downvotes":0,"due_date":null,"confidential":false,"discussion_locked":null,"issue_type":"issue","web_url":"https://gitlab.com/gridhead/protop2g-test/-/issues/14364","time_stats":{"time_estimate":0,"total_time_spent":0,"human_time_estimate":null,"human_total_time_spent":null},"task_completion_status":{"count":0,"completed_count":0},"blocking_issues_count":0,"has_tasks":true,"task_status":"0
+        of 0 checklist items completed","_links":{"self":"https://gitlab.com/api/v4/projects/42823949/issues/14364","notes":"https://gitlab.com/api/v4/projects/42823949/issues/14364/notes","award_emoji":"https://gitlab.com/api/v4/projects/42823949/issues/14364/award_emoji","project":"https://gitlab.com/api/v4/projects/42823949","closed_as_duplicate_of":null},"references":{"short":"#14364","relative":"#14364","full":"gridhead/protop2g-test#14364"},"severity":"UNKNOWN","subscribed":true,"moved_to_id":null,"imported":false,"imported_from":"none","service_desk_reply_to":null}'
+    headers:
+      CF-Cache-Status:
+      - MISS
+      CF-Ray:
+      - 954938bfed6ac02d-BOM
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 24 Jun 2025 03:43:34 GMT
+      ETag:
+      - W/"74caa44cf8dcb04b6556ea29933589a5"
+      Server:
+      - cloudflare
+      Set-Cookie: ''
+      Strict-Transport-Security:
+      - max-age=31536000
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Origin, Accept-Encoding
+      content-security-policy:
+      - default-src 'none'
+      gitlab-lb:
+      - haproxy-main-51-lb-gprd
+      gitlab-sv:
+      - api-gke-us-east1-d
+      nel:
+      - '{"max_age": 0}'
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - SAMEORIGIN
+      x-gitlab-meta:
+      - '{"correlation_id":"af342d908706b0b77be640bdaf1861ba","version":"1"}'
+      x-request-id:
+      - af342d908706b0b77be640bdaf1861ba
+      x-runtime:
+      - '0.246553'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"body": "\n**Metadata Update from &t0xic0der**:\n- Issue set to the milestone:
+      Milestone CCCC\n\n_This comment was originally created [here](https://pagure.io/protop2g-test-srce/issue/3#comment-971679)
+      by [**Akashdeep Dhar**](https://accounts.fedoraproject.org/user/t0xic0der) under\n[this](https://pagure.io/protop2g-test-srce/issue/3)
+      issue ticket on a Pagure repository, [**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
+      on\n[**Thu May  8 04:50:33 2025** UTC](https://savvytime.com/converter/utc/may-08-2025/04-50)._\n\n_This
+      comment was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._\n"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, zstd
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '657'
+      Content-type:
+      - application/json
+      Cookie:
+      - _cfuvid=.q85pkE4.v02QKteqAz8S.9cFb2cSfZHvVZL9MTQw3M-1750736609015-0.0.1.1-604800000
+      User-Agent:
+      - python-gitlab/6.0.0
+    method: POST
+    uri: https://gitlab.com/api/v4/projects/42823949/issues/14364/discussions
+  response:
+    body:
+      string: '{"id":"4bcf5cf72c56e06bf25d6bd12eb178a442f83d44","individual_note":false,"notes":[{"id":2580329840,"type":"DiscussionNote","body":"\n**Metadata
+        Update from \u0026t0xic0der**:\n- Issue set to the milestone: Milestone CCCC\n\n_This
+        comment was originally created [here](https://pagure.io/protop2g-test-srce/issue/3#comment-971679)
+        by [**Akashdeep Dhar**](https://accounts.fedoraproject.org/user/t0xic0der)
+        under\n[this](https://pagure.io/protop2g-test-srce/issue/3) issue ticket on
+        a Pagure repository, [**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
+        on\n[**Thu May  8 04:50:33 2025** UTC](https://savvytime.com/converter/utc/may-08-2025/04-50)._\n\n_This
+        comment was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","author":{"id":27337623,"username":"project_42823949_bot_7bde2863e36b77382400af583ca03c8d","public_email":null,"name":"****","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/a404b185659f42709b9f19c7a8b000ddf52a654dc17ac518a19f129c742b5cf5?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_7bde2863e36b77382400af583ca03c8d"},"created_at":"2025-06-24T03:43:35.719Z","updated_at":"2025-06-24T03:43:35.719Z","system":false,"noteable_id":169338594,"noteable_type":"Issue","project_id":42823949,"resolvable":true,"resolved":false,"resolved_by":null,"resolved_at":null,"confidential":false,"internal":false,"imported":false,"imported_from":"none","noteable_iid":14364,"commands_changes":{}}]}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 954938c3ae230fce-BOM
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1522'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 24 Jun 2025 03:43:35 GMT
+      ETag:
+      - W/"db652cd99a24e126e056ebd62d1b5ef4"
+      Server:
+      - cloudflare
+      Set-Cookie: ''
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Origin, Accept-Encoding
+      content-security-policy:
+      - default-src 'none'
+      gitlab-lb:
+      - haproxy-main-57-lb-gprd
+      gitlab-sv:
+      - api-gke-us-east1-d
+      nel:
+      - '{"max_age": 0}'
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - SAMEORIGIN
+      x-gitlab-meta:
+      - '{"correlation_id":"5556f597d8c82ac3707e1793e0c15c81","version":"1"}'
+      x-request-id:
+      - 5556f597d8c82ac3707e1793e0c15c81
+      x-runtime:
+      - '0.677051'
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"title": "[SN#1] This is the title of the first test issue", "description":
+      "\nThis is the body of the first test issue\n\n_This issue ticket was originally
+      created [here](https://pagure.io/protop2g-test-srce/issue/1) on a Pagure repository,\n[**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
+      by [**Akashdeep Dhar**](https://accounts.fedoraproject.org/user/t0xic0der) on\n[**Thu
+      May  8 04:50:33 2025** UTC](https://savvytime.com/converter/utc/may-08-2025/04-50)._\n\n_This
+      issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._\n",
+      "iid": 1}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, zstd
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '616'
+      Content-type:
+      - application/json
+      Cookie:
+      - _cfuvid=.q85pkE4.v02QKteqAz8S.9cFb2cSfZHvVZL9MTQw3M-1750736609015-0.0.1.1-604800000
+      User-Agent:
+      - python-gitlab/6.0.0
+    method: POST
+    uri: https://gitlab.com/api/v4/projects/42823949/issues
+  response:
+    body:
+      string: '{"id":169338603,"iid":14365,"project_id":42823949,"title":"[SN#1] This
+        is the title of the first test issue","description":"\nThis is the body of
+        the first test issue\n\n_This issue ticket was originally created [here](https://pagure.io/protop2g-test-srce/issue/1)
+        on a Pagure repository,\n[**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
+        by [**Akashdeep Dhar**](https://accounts.fedoraproject.org/user/t0xic0der)
+        on\n[**Thu May  8 04:50:33 2025** UTC](https://savvytime.com/converter/utc/may-08-2025/04-50)._\n\n_This
+        issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","state":"opened","created_at":"2025-06-24T03:43:36.328Z","updated_at":"2025-06-24T03:43:36.328Z","closed_at":null,"closed_by":null,"labels":[],"milestone":null,"assignees":[],"author":{"id":27337623,"username":"project_42823949_bot_7bde2863e36b77382400af583ca03c8d","public_email":null,"name":"Pagure
+        Exporter GitHub","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/a404b185659f42709b9f19c7a8b000ddf52a654dc17ac518a19f129c742b5cf5?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_7bde2863e36b77382400af583ca03c8d"},"type":"ISSUE","assignee":null,"user_notes_count":0,"merge_requests_count":0,"upvotes":0,"downvotes":0,"due_date":null,"confidential":false,"discussion_locked":null,"issue_type":"issue","web_url":"https://gitlab.com/gridhead/protop2g-test/-/issues/14365","time_stats":{"time_estimate":0,"total_time_spent":0,"human_time_estimate":null,"human_total_time_spent":null},"task_completion_status":{"count":0,"completed_count":0},"blocking_issues_count":0,"has_tasks":true,"task_status":"0
+        of 0 checklist items completed","_links":{"self":"https://gitlab.com/api/v4/projects/42823949/issues/14365","notes":"https://gitlab.com/api/v4/projects/42823949/issues/14365/notes","award_emoji":"https://gitlab.com/api/v4/projects/42823949/issues/14365/award_emoji","project":"https://gitlab.com/api/v4/projects/42823949","closed_as_duplicate_of":null},"references":{"short":"#14365","relative":"#14365","full":"gridhead/protop2g-test#14365"},"severity":"UNKNOWN","subscribed":true,"moved_to_id":null,"imported":false,"imported_from":"none","service_desk_reply_to":null}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 954938c9d9d94430-BOM
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '2276'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 24 Jun 2025 03:43:36 GMT
+      ETag:
+      - W/"ca8cdf5a5bbc39402ceda5dbb3509b6e"
+      Server:
+      - cloudflare
+      Set-Cookie: ''
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Origin, Accept-Encoding
+      content-security-policy:
+      - default-src 'none'
+      gitlab-lb:
+      - haproxy-main-05-lb-gprd
       gitlab-sv:
       - api-gke-us-east1-c
       nel:
@@ -1239,11 +1367,88 @@ interactions:
       x-frame-options:
       - SAMEORIGIN
       x-gitlab-meta:
-      - '{"correlation_id":"3f2ecf62535048f1d1a85b65c98b1f25","version":"1"}'
+      - '{"correlation_id":"dd719d553378483b30b0b69f361968a4","version":"1"}'
       x-request-id:
-      - 3f2ecf62535048f1d1a85b65c98b1f25
+      - dd719d553378483b30b0b69f361968a4
       x-runtime:
-      - '0.130612'
+      - '0.423612'
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, zstd
+      Connection:
+      - keep-alive
+      Content-type:
+      - application/json
+      Cookie:
+      - _cfuvid=.q85pkE4.v02QKteqAz8S.9cFb2cSfZHvVZL9MTQw3M-1750736609015-0.0.1.1-604800000
+      User-Agent:
+      - python-gitlab/6.0.0
+    method: GET
+    uri: https://gitlab.com/api/v4/projects/42823949/issues/14365
+  response:
+    body:
+      string: '{"id":169338603,"iid":14365,"project_id":42823949,"title":"[SN#1] This
+        is the title of the first test issue","description":"\nThis is the body of
+        the first test issue\n\n_This issue ticket was originally created [here](https://pagure.io/protop2g-test-srce/issue/1)
+        on a Pagure repository,\n[**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
+        by [**Akashdeep Dhar**](https://accounts.fedoraproject.org/user/t0xic0der)
+        on\n[**Thu May  8 04:50:33 2025** UTC](https://savvytime.com/converter/utc/may-08-2025/04-50)._\n\n_This
+        issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","state":"opened","created_at":"2025-06-24T03:43:36.328Z","updated_at":"2025-06-24T03:43:36.328Z","closed_at":null,"closed_by":null,"labels":[],"milestone":null,"assignees":[],"author":{"id":27337623,"username":"project_42823949_bot_7bde2863e36b77382400af583ca03c8d","public_email":null,"name":"Pagure
+        Exporter GitHub","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/a404b185659f42709b9f19c7a8b000ddf52a654dc17ac518a19f129c742b5cf5?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_7bde2863e36b77382400af583ca03c8d"},"type":"ISSUE","assignee":null,"user_notes_count":0,"merge_requests_count":0,"upvotes":0,"downvotes":0,"due_date":null,"confidential":false,"discussion_locked":null,"issue_type":"issue","web_url":"https://gitlab.com/gridhead/protop2g-test/-/issues/14365","time_stats":{"time_estimate":0,"total_time_spent":0,"human_time_estimate":null,"human_total_time_spent":null},"task_completion_status":{"count":0,"completed_count":0},"blocking_issues_count":0,"has_tasks":true,"task_status":"0
+        of 0 checklist items completed","_links":{"self":"https://gitlab.com/api/v4/projects/42823949/issues/14365","notes":"https://gitlab.com/api/v4/projects/42823949/issues/14365/notes","award_emoji":"https://gitlab.com/api/v4/projects/42823949/issues/14365/award_emoji","project":"https://gitlab.com/api/v4/projects/42823949","closed_as_duplicate_of":null},"references":{"short":"#14365","relative":"#14365","full":"gridhead/protop2g-test#14365"},"severity":"UNKNOWN","subscribed":true,"moved_to_id":null,"imported":false,"imported_from":"none","service_desk_reply_to":null}'
+    headers:
+      CF-Cache-Status:
+      - MISS
+      CF-Ray:
+      - 954938ce5b0747e0-BOM
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 24 Jun 2025 03:43:37 GMT
+      ETag:
+      - W/"ca8cdf5a5bbc39402ceda5dbb3509b6e"
+      Server:
+      - cloudflare
+      Set-Cookie: ''
+      Strict-Transport-Security:
+      - max-age=31536000
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Origin, Accept-Encoding
+      content-security-policy:
+      - default-src 'none'
+      gitlab-lb:
+      - haproxy-main-46-lb-gprd
+      gitlab-sv:
+      - gke-cny-api
+      nel:
+      - '{"max_age": 0}'
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - SAMEORIGIN
+      x-gitlab-meta:
+      - '{"correlation_id":"762e7f3c85bf482a82ac36d064bb5e49","version":"1"}'
+      x-request-id:
+      - 762e7f3c85bf482a82ac36d064bb5e49
+      x-runtime:
+      - '0.139422'
     status:
       code: 200
       message: OK
@@ -1266,39 +1471,38 @@ interactions:
       Content-type:
       - application/json
       Cookie:
-      - _cfuvid=EcmIitnUIpL.TmGaFKizbvl9cbEY79yMy9OyYQPQOFs-1745558510846-0.0.1.1-604800000
+      - _cfuvid=.q85pkE4.v02QKteqAz8S.9cFb2cSfZHvVZL9MTQw3M-1750736609015-0.0.1.1-604800000
       User-Agent:
-      - python-gitlab/5.6.0
+      - python-gitlab/6.0.0
     method: POST
-    uri: https://gitlab.com/api/v4/projects/42823949/issues/1/discussions
+    uri: https://gitlab.com/api/v4/projects/42823949/issues/14365/discussions
   response:
     body:
-      string: '{"id":"8d4b07bc81467466b9678368fa2a2457202ba3ca","individual_note":false,"notes":[{"id":2468759587,"type":"DiscussionNote","body":"\n**Metadata
+      string: '{"id":"7138a0a861a14d6ae752d5dec6cbefb7368b1d8b","individual_note":false,"notes":[{"id":2580329863,"type":"DiscussionNote","body":"\n**Metadata
         Update from \u0026t0xic0der**:\n- Issue tagged with: aaaa, bbbb\n\n_This comment
         was originally created [here](https://pagure.io/protop2g-test-srce/issue/1#comment-878471)
         by [**Akashdeep Dhar**](https://accounts.fedoraproject.org/user/t0xic0der)
         under\n[this](https://pagure.io/protop2g-test-srce/issue/1) issue ticket on
         a Pagure repository, [**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
         on\n[**Fri Oct 13 04:01:39 2023** UTC](https://savvytime.com/converter/utc/oct-13-2023/04-01)._\n\n_This
-        comment was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","author":{"id":10115999,"username":"gridhead","name":"Akashdeep
-        Dhar","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/e412343841597e2fb1e952dd2b1077fc95537604ce04a27c5bfb94bdb0dc3da8?s=80\u0026d=identicon","web_url":"https://gitlab.com/gridhead"},"created_at":"2025-04-25T05:21:58.524Z","updated_at":"2025-04-25T05:21:58.524Z","system":false,"noteable_id":166497751,"noteable_type":"Issue","project_id":42823949,"resolvable":true,"resolved":false,"resolved_by":null,"resolved_at":null,"confidential":false,"internal":false,"imported":false,"imported_from":"none","noteable_iid":1,"commands_changes":{}}]}'
+        comment was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","author":{"id":27337623,"username":"project_42823949_bot_7bde2863e36b77382400af583ca03c8d","public_email":null,"name":"****","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/a404b185659f42709b9f19c7a8b000ddf52a654dc17ac518a19f129c742b5cf5?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_7bde2863e36b77382400af583ca03c8d"},"created_at":"2025-06-24T03:43:38.183Z","updated_at":"2025-06-24T03:43:38.183Z","system":false,"noteable_id":169338603,"noteable_type":"Issue","project_id":42823949,"resolvable":true,"resolved":false,"resolved_by":null,"resolved_at":null,"confidential":false,"internal":false,"imported":false,"imported_from":"none","noteable_iid":14365,"commands_changes":{}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 935b6662698b4162-BOM
+      - 954938d4dd4117d4-BOM
       Cache-Control:
       - max-age=0, private, must-revalidate
       Connection:
       - keep-alive
       Content-Length:
-      - '1405'
+      - '1509'
       Content-Type:
       - application/json
       Date:
-      - Fri, 25 Apr 2025 05:21:58 GMT
+      - Tue, 24 Jun 2025 03:43:38 GMT
       ETag:
-      - W/"41dd398403fa0346d0835f2aa59113b3"
+      - W/"1cd894902eac3ac9ee79b293f149981e"
       Server:
       - cloudflare
       Set-Cookie: ''
@@ -1309,9 +1513,9 @@ interactions:
       content-security-policy:
       - default-src 'none'
       gitlab-lb:
-      - haproxy-main-53-lb-gprd
+      - haproxy-main-30-lb-gprd
       gitlab-sv:
-      - api-gke-us-east1-c
+      - api-gke-us-east1-d
       nel:
       - '{"max_age": 0}'
       referrer-policy:
@@ -1321,11 +1525,11 @@ interactions:
       x-frame-options:
       - SAMEORIGIN
       x-gitlab-meta:
-      - '{"correlation_id":"ee26a36eb48bd88db71c2d19a1117178","version":"1"}'
+      - '{"correlation_id":"4a1e3372f7773b1b59794893063bf62b","version":"1"}'
       x-request-id:
-      - ee26a36eb48bd88db71c2d19a1117178
+      - 4a1e3372f7773b1b59794893063bf62b
       x-runtime:
-      - '0.316234'
+      - '0.479687'
     status:
       code: 201
       message: Created
@@ -1341,27 +1545,27 @@ interactions:
       Content-type:
       - application/json
       Cookie:
-      - _cfuvid=EcmIitnUIpL.TmGaFKizbvl9cbEY79yMy9OyYQPQOFs-1745558510846-0.0.1.1-604800000
+      - _cfuvid=.q85pkE4.v02QKteqAz8S.9cFb2cSfZHvVZL9MTQw3M-1750736609015-0.0.1.1-604800000
       User-Agent:
-      - python-gitlab/5.6.0
+      - python-gitlab/6.0.0
     method: GET
-    uri: https://gitlab.com/api/v4/projects/42823949/issues/1
+    uri: https://gitlab.com/api/v4/projects/42823949/issues/14365
   response:
     body:
-      string: '{"id":166497751,"iid":1,"project_id":42823949,"title":"[SN#1] This
+      string: '{"id":169338603,"iid":14365,"project_id":42823949,"title":"[SN#1] This
         is the title of the first test issue","description":"\nThis is the body of
         the first test issue\n\n_This issue ticket was originally created [here](https://pagure.io/protop2g-test-srce/issue/1)
         on a Pagure repository,\n[**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
         by [**Akashdeep Dhar**](https://accounts.fedoraproject.org/user/t0xic0der)
-        on\n[**Tue Nov 21 08:04:52 2023** UTC](https://savvytime.com/converter/utc/nov-21-2023/08-04)._\n\n_This
-        issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","state":"opened","created_at":"2025-04-25T05:21:57.087Z","updated_at":"2025-04-25T05:21:57.087Z","closed_at":null,"closed_by":null,"labels":[],"milestone":null,"assignees":[],"author":{"id":10115999,"username":"gridhead","name":"Akashdeep
-        Dhar","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/e412343841597e2fb1e952dd2b1077fc95537604ce04a27c5bfb94bdb0dc3da8?s=80\u0026d=identicon","web_url":"https://gitlab.com/gridhead"},"type":"ISSUE","assignee":null,"user_notes_count":1,"merge_requests_count":0,"upvotes":0,"downvotes":0,"due_date":null,"confidential":false,"discussion_locked":null,"issue_type":"issue","web_url":"https://gitlab.com/gridhead/protop2g-test/-/issues/1","time_stats":{"time_estimate":0,"total_time_spent":0,"human_time_estimate":null,"human_total_time_spent":null},"task_completion_status":{"count":0,"completed_count":0},"blocking_issues_count":0,"has_tasks":true,"task_status":"0
-        of 0 checklist items completed","_links":{"self":"https://gitlab.com/api/v4/projects/42823949/issues/1","notes":"https://gitlab.com/api/v4/projects/42823949/issues/1/notes","award_emoji":"https://gitlab.com/api/v4/projects/42823949/issues/1/award_emoji","project":"https://gitlab.com/api/v4/projects/42823949","closed_as_duplicate_of":null},"references":{"short":"#1","relative":"#1","full":"gridhead/protop2g-test#1"},"severity":"UNKNOWN","subscribed":true,"moved_to_id":null,"imported":false,"imported_from":"none","service_desk_reply_to":null}'
+        on\n[**Thu May  8 04:50:33 2025** UTC](https://savvytime.com/converter/utc/may-08-2025/04-50)._\n\n_This
+        issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","state":"opened","created_at":"2025-06-24T03:43:36.328Z","updated_at":"2025-06-24T03:43:36.328Z","closed_at":null,"closed_by":null,"labels":[],"milestone":null,"assignees":[],"author":{"id":27337623,"username":"project_42823949_bot_7bde2863e36b77382400af583ca03c8d","public_email":null,"name":"Pagure
+        Exporter GitHub","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/a404b185659f42709b9f19c7a8b000ddf52a654dc17ac518a19f129c742b5cf5?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_7bde2863e36b77382400af583ca03c8d"},"type":"ISSUE","assignee":null,"user_notes_count":1,"merge_requests_count":0,"upvotes":0,"downvotes":0,"due_date":null,"confidential":false,"discussion_locked":null,"issue_type":"issue","web_url":"https://gitlab.com/gridhead/protop2g-test/-/issues/14365","time_stats":{"time_estimate":0,"total_time_spent":0,"human_time_estimate":null,"human_total_time_spent":null},"task_completion_status":{"count":0,"completed_count":0},"blocking_issues_count":0,"has_tasks":true,"task_status":"0
+        of 0 checklist items completed","_links":{"self":"https://gitlab.com/api/v4/projects/42823949/issues/14365","notes":"https://gitlab.com/api/v4/projects/42823949/issues/14365/notes","award_emoji":"https://gitlab.com/api/v4/projects/42823949/issues/14365/award_emoji","project":"https://gitlab.com/api/v4/projects/42823949","closed_as_duplicate_of":null},"references":{"short":"#14365","relative":"#14365","full":"gridhead/protop2g-test#14365"},"severity":"UNKNOWN","subscribed":true,"moved_to_id":null,"imported":false,"imported_from":"none","service_desk_reply_to":null}'
     headers:
       CF-Cache-Status:
       - MISS
       CF-Ray:
-      - 935b6667194b47d3-BOM
+      - 954938d9cc194460-BOM
       Cache-Control:
       - max-age=0, private, must-revalidate
       Connection:
@@ -1371,9 +1575,9 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 25 Apr 2025 05:21:59 GMT
+      - Tue, 24 Jun 2025 03:43:39 GMT
       ETag:
-      - W/"73cf1e98bcc4d1c62aa2d06f7eaf3eda"
+      - W/"13475a92108cfe77cada813dff73cba7"
       Server:
       - cloudflare
       Set-Cookie: ''
@@ -1386,7 +1590,7 @@ interactions:
       content-security-policy:
       - default-src 'none'
       gitlab-lb:
-      - haproxy-main-55-lb-gprd
+      - haproxy-main-34-lb-gprd
       gitlab-sv:
       - api-gke-us-east1-b
       nel:
@@ -1398,11 +1602,11 @@ interactions:
       x-frame-options:
       - SAMEORIGIN
       x-gitlab-meta:
-      - '{"correlation_id":"947c0bd8d2a7991bf4f899096060e2dc","version":"1"}'
+      - '{"correlation_id":"bfd28e5ee300f44d2c69dcb9caaddb9b","version":"1"}'
       x-request-id:
-      - 947c0bd8d2a7991bf4f899096060e2dc
+      - bfd28e5ee300f44d2c69dcb9caaddb9b
       x-runtime:
-      - '0.241430'
+      - '0.210147'
     status:
       code: 200
       message: OK
@@ -1425,39 +1629,38 @@ interactions:
       Content-type:
       - application/json
       Cookie:
-      - _cfuvid=EcmIitnUIpL.TmGaFKizbvl9cbEY79yMy9OyYQPQOFs-1745558510846-0.0.1.1-604800000
+      - _cfuvid=.q85pkE4.v02QKteqAz8S.9cFb2cSfZHvVZL9MTQw3M-1750736609015-0.0.1.1-604800000
       User-Agent:
-      - python-gitlab/5.6.0
+      - python-gitlab/6.0.0
     method: POST
-    uri: https://gitlab.com/api/v4/projects/42823949/issues/1/discussions
+    uri: https://gitlab.com/api/v4/projects/42823949/issues/14365/discussions
   response:
     body:
-      string: '{"id":"b1d203826cb5f9f9de7cdbecfe6afaba0d0798bd","individual_note":false,"notes":[{"id":2468759604,"type":"DiscussionNote","body":"\nThis
+      string: '{"id":"d67a51fd4195414beab2c12f7d52e5dbfb9c1667","individual_note":false,"notes":[{"id":2580329880,"type":"DiscussionNote","body":"\nThis
         is the first comment under the first test issue\n\n_This comment was originally
         created [here](https://pagure.io/protop2g-test-srce/issue/1#comment-878473)
         by [**Akashdeep Dhar**](https://accounts.fedoraproject.org/user/t0xic0der)
         under\n[this](https://pagure.io/protop2g-test-srce/issue/1) issue ticket on
         a Pagure repository, [**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
         on\n[**Fri Oct 13 04:04:40 2023** UTC](https://savvytime.com/converter/utc/oct-13-2023/04-04)._\n\n_This
-        comment was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","author":{"id":10115999,"username":"gridhead","name":"Akashdeep
-        Dhar","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/e412343841597e2fb1e952dd2b1077fc95537604ce04a27c5bfb94bdb0dc3da8?s=80\u0026d=identicon","web_url":"https://gitlab.com/gridhead"},"created_at":"2025-04-25T05:21:59.891Z","updated_at":"2025-04-25T05:21:59.891Z","system":false,"noteable_id":166497751,"noteable_type":"Issue","project_id":42823949,"resolvable":true,"resolved":false,"resolved_by":null,"resolved_at":null,"confidential":false,"internal":false,"imported":false,"imported_from":"none","noteable_iid":1,"commands_changes":{}}]}'
+        comment was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","author":{"id":27337623,"username":"project_42823949_bot_7bde2863e36b77382400af583ca03c8d","public_email":null,"name":"****","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/a404b185659f42709b9f19c7a8b000ddf52a654dc17ac518a19f129c742b5cf5?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_7bde2863e36b77382400af583ca03c8d"},"created_at":"2025-06-24T03:43:39.472Z","updated_at":"2025-06-24T03:43:39.472Z","system":false,"noteable_id":169338603,"noteable_type":"Issue","project_id":42823949,"resolvable":true,"resolved":false,"resolved_by":null,"resolved_at":null,"confidential":false,"internal":false,"imported":false,"imported_from":"none","noteable_iid":14365,"commands_changes":{}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 935b666adb062e1c-BOM
+      - 954938dd4ff53fe6-BOM
       Cache-Control:
       - max-age=0, private, must-revalidate
       Connection:
       - keep-alive
       Content-Length:
-      - '1383'
+      - '1487'
       Content-Type:
       - application/json
       Date:
-      - Fri, 25 Apr 2025 05:22:00 GMT
+      - Tue, 24 Jun 2025 03:43:39 GMT
       ETag:
-      - W/"150b8e32702b2796bd221ed73bc543d2"
+      - W/"f4b94d4d587b80da8ad9df8ef657f863"
       Server:
       - cloudflare
       Set-Cookie: ''
@@ -1468,7 +1671,7 @@ interactions:
       content-security-policy:
       - default-src 'none'
       gitlab-lb:
-      - haproxy-main-53-lb-gprd
+      - haproxy-main-05-lb-gprd
       gitlab-sv:
       - api-gke-us-east1-c
       nel:
@@ -1480,11 +1683,11 @@ interactions:
       x-frame-options:
       - SAMEORIGIN
       x-gitlab-meta:
-      - '{"correlation_id":"6fdd340438e0cec998f26db5e84e199f","version":"1"}'
+      - '{"correlation_id":"39d5431553f78be8cbf135cbed79c3ab","version":"1"}'
       x-request-id:
-      - 6fdd340438e0cec998f26db5e84e199f
+      - 39d5431553f78be8cbf135cbed79c3ab
       x-runtime:
-      - '0.351565'
+      - '0.367194'
     status:
       code: 201
       message: Created
@@ -1500,27 +1703,27 @@ interactions:
       Content-type:
       - application/json
       Cookie:
-      - _cfuvid=EcmIitnUIpL.TmGaFKizbvl9cbEY79yMy9OyYQPQOFs-1745558510846-0.0.1.1-604800000
+      - _cfuvid=.q85pkE4.v02QKteqAz8S.9cFb2cSfZHvVZL9MTQw3M-1750736609015-0.0.1.1-604800000
       User-Agent:
-      - python-gitlab/5.6.0
+      - python-gitlab/6.0.0
     method: GET
-    uri: https://gitlab.com/api/v4/projects/42823949/issues/1
+    uri: https://gitlab.com/api/v4/projects/42823949/issues/14365
   response:
     body:
-      string: '{"id":166497751,"iid":1,"project_id":42823949,"title":"[SN#1] This
+      string: '{"id":169338603,"iid":14365,"project_id":42823949,"title":"[SN#1] This
         is the title of the first test issue","description":"\nThis is the body of
         the first test issue\n\n_This issue ticket was originally created [here](https://pagure.io/protop2g-test-srce/issue/1)
         on a Pagure repository,\n[**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
         by [**Akashdeep Dhar**](https://accounts.fedoraproject.org/user/t0xic0der)
-        on\n[**Tue Nov 21 08:04:52 2023** UTC](https://savvytime.com/converter/utc/nov-21-2023/08-04)._\n\n_This
-        issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","state":"opened","created_at":"2025-04-25T05:21:57.087Z","updated_at":"2025-04-25T05:21:57.087Z","closed_at":null,"closed_by":null,"labels":[],"milestone":null,"assignees":[],"author":{"id":10115999,"username":"gridhead","name":"Akashdeep
-        Dhar","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/e412343841597e2fb1e952dd2b1077fc95537604ce04a27c5bfb94bdb0dc3da8?s=80\u0026d=identicon","web_url":"https://gitlab.com/gridhead"},"type":"ISSUE","assignee":null,"user_notes_count":2,"merge_requests_count":0,"upvotes":0,"downvotes":0,"due_date":null,"confidential":false,"discussion_locked":null,"issue_type":"issue","web_url":"https://gitlab.com/gridhead/protop2g-test/-/issues/1","time_stats":{"time_estimate":0,"total_time_spent":0,"human_time_estimate":null,"human_total_time_spent":null},"task_completion_status":{"count":0,"completed_count":0},"blocking_issues_count":0,"has_tasks":true,"task_status":"0
-        of 0 checklist items completed","_links":{"self":"https://gitlab.com/api/v4/projects/42823949/issues/1","notes":"https://gitlab.com/api/v4/projects/42823949/issues/1/notes","award_emoji":"https://gitlab.com/api/v4/projects/42823949/issues/1/award_emoji","project":"https://gitlab.com/api/v4/projects/42823949","closed_as_duplicate_of":null},"references":{"short":"#1","relative":"#1","full":"gridhead/protop2g-test#1"},"severity":"UNKNOWN","subscribed":true,"moved_to_id":null,"imported":false,"imported_from":"none","service_desk_reply_to":null}'
+        on\n[**Thu May  8 04:50:33 2025** UTC](https://savvytime.com/converter/utc/may-08-2025/04-50)._\n\n_This
+        issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","state":"opened","created_at":"2025-06-24T03:43:36.328Z","updated_at":"2025-06-24T03:43:36.328Z","closed_at":null,"closed_by":null,"labels":[],"milestone":null,"assignees":[],"author":{"id":27337623,"username":"project_42823949_bot_7bde2863e36b77382400af583ca03c8d","public_email":null,"name":"Pagure
+        Exporter GitHub","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/a404b185659f42709b9f19c7a8b000ddf52a654dc17ac518a19f129c742b5cf5?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_7bde2863e36b77382400af583ca03c8d"},"type":"ISSUE","assignee":null,"user_notes_count":2,"merge_requests_count":0,"upvotes":0,"downvotes":0,"due_date":null,"confidential":false,"discussion_locked":null,"issue_type":"issue","web_url":"https://gitlab.com/gridhead/protop2g-test/-/issues/14365","time_stats":{"time_estimate":0,"total_time_spent":0,"human_time_estimate":null,"human_total_time_spent":null},"task_completion_status":{"count":0,"completed_count":0},"blocking_issues_count":0,"has_tasks":true,"task_status":"0
+        of 0 checklist items completed","_links":{"self":"https://gitlab.com/api/v4/projects/42823949/issues/14365","notes":"https://gitlab.com/api/v4/projects/42823949/issues/14365/notes","award_emoji":"https://gitlab.com/api/v4/projects/42823949/issues/14365/award_emoji","project":"https://gitlab.com/api/v4/projects/42823949","closed_as_duplicate_of":null},"references":{"short":"#14365","relative":"#14365","full":"gridhead/protop2g-test#14365"},"severity":"UNKNOWN","subscribed":true,"moved_to_id":null,"imported":false,"imported_from":"none","service_desk_reply_to":null}'
     headers:
       CF-Cache-Status:
       - MISS
       CF-Ray:
-      - 935b666f19223b73-BOM
+      - 954938e17cee425a-BOM
       Cache-Control:
       - max-age=0, private, must-revalidate
       Connection:
@@ -1530,9 +1733,9 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 25 Apr 2025 05:22:01 GMT
+      - Tue, 24 Jun 2025 03:43:40 GMT
       ETag:
-      - W/"135da616fd22eb5e334f58c497ab91a2"
+      - W/"9c00a17049c08bfa978bd507230c6c65"
       Server:
       - cloudflare
       Set-Cookie: ''
@@ -1545,7 +1748,7 @@ interactions:
       content-security-policy:
       - default-src 'none'
       gitlab-lb:
-      - haproxy-main-20-lb-gprd
+      - haproxy-main-11-lb-gprd
       gitlab-sv:
       - api-gke-us-east1-c
       nel:
@@ -1557,11 +1760,11 @@ interactions:
       x-frame-options:
       - SAMEORIGIN
       x-gitlab-meta:
-      - '{"correlation_id":"91c900155a664a014dc3a70ee25e9e9d","version":"1"}'
+      - '{"correlation_id":"6b08f2b96da6ec99cbb89d5472445552","version":"1"}'
       x-request-id:
-      - 91c900155a664a014dc3a70ee25e9e9d
+      - 6b08f2b96da6ec99cbb89d5472445552
       x-runtime:
-      - '0.177492'
+      - '0.177836'
     status:
       code: 200
       message: OK
@@ -1584,39 +1787,38 @@ interactions:
       Content-type:
       - application/json
       Cookie:
-      - _cfuvid=EcmIitnUIpL.TmGaFKizbvl9cbEY79yMy9OyYQPQOFs-1745558510846-0.0.1.1-604800000
+      - _cfuvid=.q85pkE4.v02QKteqAz8S.9cFb2cSfZHvVZL9MTQw3M-1750736609015-0.0.1.1-604800000
       User-Agent:
-      - python-gitlab/5.6.0
+      - python-gitlab/6.0.0
     method: POST
-    uri: https://gitlab.com/api/v4/projects/42823949/issues/1/discussions
+    uri: https://gitlab.com/api/v4/projects/42823949/issues/14365/discussions
   response:
     body:
-      string: '{"id":"81df6b2eef5dc403949950647dd4745910687374","individual_note":false,"notes":[{"id":2468759628,"type":"DiscussionNote","body":"\nThis
+      string: '{"id":"b53087310354d3ddbcd6e68eb51f4113b89d834b","individual_note":false,"notes":[{"id":2580329900,"type":"DiscussionNote","body":"\nThis
         is the second comment under the first test issue\n\n_This comment was originally
         created [here](https://pagure.io/protop2g-test-srce/issue/1#comment-878474)
         by [**Akashdeep Dhar**](https://accounts.fedoraproject.org/user/t0xic0der)
         under\n[this](https://pagure.io/protop2g-test-srce/issue/1) issue ticket on
         a Pagure repository, [**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
         on\n[**Fri Oct 13 04:05:24 2023** UTC](https://savvytime.com/converter/utc/oct-13-2023/04-05)._\n\n_This
-        comment was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","author":{"id":10115999,"username":"gridhead","name":"Akashdeep
-        Dhar","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/e412343841597e2fb1e952dd2b1077fc95537604ce04a27c5bfb94bdb0dc3da8?s=80\u0026d=identicon","web_url":"https://gitlab.com/gridhead"},"created_at":"2025-04-25T05:22:01.629Z","updated_at":"2025-04-25T05:22:01.629Z","system":false,"noteable_id":166497751,"noteable_type":"Issue","project_id":42823949,"resolvable":true,"resolved":false,"resolved_by":null,"resolved_at":null,"confidential":false,"internal":false,"imported":false,"imported_from":"none","noteable_iid":1,"commands_changes":{}}]}'
+        comment was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","author":{"id":27337623,"username":"project_42823949_bot_7bde2863e36b77382400af583ca03c8d","public_email":null,"name":"****","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/a404b185659f42709b9f19c7a8b000ddf52a654dc17ac518a19f129c742b5cf5?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_7bde2863e36b77382400af583ca03c8d"},"created_at":"2025-06-24T03:43:41.176Z","updated_at":"2025-06-24T03:43:41.176Z","system":false,"noteable_id":169338603,"noteable_type":"Issue","project_id":42823949,"resolvable":true,"resolved":false,"resolved_by":null,"resolved_at":null,"confidential":false,"internal":false,"imported":false,"imported_from":"none","noteable_iid":14365,"commands_changes":{}}]}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 935b66757ed741c9-BOM
+      - 954938e82c4d002c-BOM
       Cache-Control:
       - max-age=0, private, must-revalidate
       Connection:
       - keep-alive
       Content-Length:
-      - '1384'
+      - '1488'
       Content-Type:
       - application/json
       Date:
-      - Fri, 25 Apr 2025 05:22:01 GMT
+      - Tue, 24 Jun 2025 03:43:41 GMT
       ETag:
-      - W/"136c7dd2a7f19fc95d1b0afb0eb8a777"
+      - W/"c9d033b9e31ec817d040f5d26d991db4"
       Server:
       - cloudflare
       Set-Cookie: ''
@@ -1627,7 +1829,84 @@ interactions:
       content-security-policy:
       - default-src 'none'
       gitlab-lb:
-      - haproxy-main-18-lb-gprd
+      - haproxy-main-52-lb-gprd
+      gitlab-sv:
+      - api-gke-us-east1-b
+      nel:
+      - '{"max_age": 0}'
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - SAMEORIGIN
+      x-gitlab-meta:
+      - '{"correlation_id":"22dc535801ab751e250dfc5fad9e61f0","version":"1"}'
+      x-request-id:
+      - 22dc535801ab751e250dfc5fad9e61f0
+      x-runtime:
+      - '0.318220'
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, zstd
+      Connection:
+      - keep-alive
+      Content-type:
+      - application/json
+      Cookie:
+      - _cfuvid=.q85pkE4.v02QKteqAz8S.9cFb2cSfZHvVZL9MTQw3M-1750736609015-0.0.1.1-604800000
+      User-Agent:
+      - python-gitlab/6.0.0
+    method: GET
+    uri: https://gitlab.com/api/v4/projects/42823949/issues/14365
+  response:
+    body:
+      string: '{"id":169338603,"iid":14365,"project_id":42823949,"title":"[SN#1] This
+        is the title of the first test issue","description":"\nThis is the body of
+        the first test issue\n\n_This issue ticket was originally created [here](https://pagure.io/protop2g-test-srce/issue/1)
+        on a Pagure repository,\n[**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
+        by [**Akashdeep Dhar**](https://accounts.fedoraproject.org/user/t0xic0der)
+        on\n[**Thu May  8 04:50:33 2025** UTC](https://savvytime.com/converter/utc/may-08-2025/04-50)._\n\n_This
+        issue ticket was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","state":"opened","created_at":"2025-06-24T03:43:36.328Z","updated_at":"2025-06-24T03:43:36.328Z","closed_at":null,"closed_by":null,"labels":[],"milestone":null,"assignees":[],"author":{"id":27337623,"username":"project_42823949_bot_7bde2863e36b77382400af583ca03c8d","public_email":null,"name":"Pagure
+        Exporter GitHub","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/a404b185659f42709b9f19c7a8b000ddf52a654dc17ac518a19f129c742b5cf5?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_7bde2863e36b77382400af583ca03c8d"},"type":"ISSUE","assignee":null,"user_notes_count":3,"merge_requests_count":0,"upvotes":0,"downvotes":0,"due_date":null,"confidential":false,"discussion_locked":null,"issue_type":"issue","web_url":"https://gitlab.com/gridhead/protop2g-test/-/issues/14365","time_stats":{"time_estimate":0,"total_time_spent":0,"human_time_estimate":null,"human_total_time_spent":null},"task_completion_status":{"count":0,"completed_count":0},"blocking_issues_count":0,"has_tasks":true,"task_status":"0
+        of 0 checklist items completed","_links":{"self":"https://gitlab.com/api/v4/projects/42823949/issues/14365","notes":"https://gitlab.com/api/v4/projects/42823949/issues/14365/notes","award_emoji":"https://gitlab.com/api/v4/projects/42823949/issues/14365/award_emoji","project":"https://gitlab.com/api/v4/projects/42823949","closed_as_duplicate_of":null},"references":{"short":"#14365","relative":"#14365","full":"gridhead/protop2g-test#14365"},"severity":"UNKNOWN","subscribed":true,"moved_to_id":null,"imported":false,"imported_from":"none","service_desk_reply_to":null}'
+    headers:
+      CF-Cache-Status:
+      - MISS
+      CF-Ray:
+      - 954938ebf8298e16-BOM
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 24 Jun 2025 03:43:41 GMT
+      ETag:
+      - W/"aaa4e0adbddaa28abb2de5b542df52a3"
+      Server:
+      - cloudflare
+      Set-Cookie: ''
+      Strict-Transport-Security:
+      - max-age=31536000
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Origin, Accept-Encoding
+      content-security-policy:
+      - default-src 'none'
+      gitlab-lb:
+      - haproxy-main-30-lb-gprd
       gitlab-sv:
       - api-gke-us-east1-d
       nel:
@@ -1639,11 +1918,92 @@ interactions:
       x-frame-options:
       - SAMEORIGIN
       x-gitlab-meta:
-      - '{"correlation_id":"11fbad251338eb8fd3968e52ec2f7ead","version":"1"}'
+      - '{"correlation_id":"f1aba1adf1813244a07c295219d2f986","version":"1"}'
       x-request-id:
-      - 11fbad251338eb8fd3968e52ec2f7ead
+      - f1aba1adf1813244a07c295219d2f986
       x-runtime:
-      - '0.379548'
+      - '0.141553'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"body": "\n**Metadata Update from &t0xic0der**:\n- Issue set to the milestone:
+      Milestone AAAA\n\n_This comment was originally created [here](https://pagure.io/protop2g-test-srce/issue/1#comment-971677)
+      by [**Akashdeep Dhar**](https://accounts.fedoraproject.org/user/t0xic0der) under\n[this](https://pagure.io/protop2g-test-srce/issue/1)
+      issue ticket on a Pagure repository, [**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
+      on\n[**Thu May  8 04:50:06 2025** UTC](https://savvytime.com/converter/utc/may-08-2025/04-50)._\n\n_This
+      comment was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._\n"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, zstd
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '657'
+      Content-type:
+      - application/json
+      Cookie:
+      - _cfuvid=.q85pkE4.v02QKteqAz8S.9cFb2cSfZHvVZL9MTQw3M-1750736609015-0.0.1.1-604800000
+      User-Agent:
+      - python-gitlab/6.0.0
+    method: POST
+    uri: https://gitlab.com/api/v4/projects/42823949/issues/14365/discussions
+  response:
+    body:
+      string: '{"id":"b0f12c78072abe18b94d923871a9ac8af9873fd9","individual_note":false,"notes":[{"id":2580329928,"type":"DiscussionNote","body":"\n**Metadata
+        Update from \u0026t0xic0der**:\n- Issue set to the milestone: Milestone AAAA\n\n_This
+        comment was originally created [here](https://pagure.io/protop2g-test-srce/issue/1#comment-971677)
+        by [**Akashdeep Dhar**](https://accounts.fedoraproject.org/user/t0xic0der)
+        under\n[this](https://pagure.io/protop2g-test-srce/issue/1) issue ticket on
+        a Pagure repository, [**protop2g-test-srce**](https://pagure.io/protop2g-test-srce)
+        on\n[**Thu May  8 04:50:06 2025** UTC](https://savvytime.com/converter/utc/may-08-2025/04-50)._\n\n_This
+        comment was automatically created by the\n[**Pagure Exporter**](https://github.com/gridhead/pagure-exporter)._","author":{"id":27337623,"username":"project_42823949_bot_7bde2863e36b77382400af583ca03c8d","public_email":null,"name":"****","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/a404b185659f42709b9f19c7a8b000ddf52a654dc17ac518a19f129c742b5cf5?s=80\u0026d=identicon","web_url":"https://gitlab.com/project_42823949_bot_7bde2863e36b77382400af583ca03c8d"},"created_at":"2025-06-24T03:43:42.488Z","updated_at":"2025-06-24T03:43:42.488Z","system":false,"noteable_id":169338603,"noteable_type":"Issue","project_id":42823949,"resolvable":true,"resolved":false,"resolved_by":null,"resolved_at":null,"confidential":false,"internal":false,"imported":false,"imported_from":"none","noteable_iid":14365,"commands_changes":{}}]}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 954938ef19bdff63-BOM
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1522'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 24 Jun 2025 03:43:42 GMT
+      ETag:
+      - W/"b905deaf8c3272958b74c8b58a5044ac"
+      Server:
+      - cloudflare
+      Set-Cookie: ''
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Origin, Accept-Encoding
+      content-security-policy:
+      - default-src 'none'
+      gitlab-lb:
+      - haproxy-main-05-lb-gprd
+      gitlab-sv:
+      - api-gke-us-east1-c
+      nel:
+      - '{"max_age": 0}'
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - SAMEORIGIN
+      x-gitlab-meta:
+      - '{"correlation_id":"4de8d2de7f018f397ed070b993239606","version":"1"}'
+      x-request-id:
+      - 4de8d2de7f018f397ed070b993239606
+      x-runtime:
+      - '0.546662'
     status:
       code: 201
       message: Created

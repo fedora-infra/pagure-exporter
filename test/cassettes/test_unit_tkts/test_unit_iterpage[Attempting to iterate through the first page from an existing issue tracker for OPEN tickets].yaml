@@ -9,7 +9,7 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.32.3
+      - python-requests/2.32.4
     method: GET
     uri: https://pagure.io/api/0/protop2g-test-srce/issues?per_page=1&page=1
   response:
@@ -33,12 +33,19 @@ interactions:
         null, \n          \"reactions\": {}, \n          \"user\": {\n            \"full_url\":
         \"https://pagure.io/user/t0xic0der\", \n            \"fullname\": \"Akashdeep
         Dhar\", \n            \"name\": \"t0xic0der\", \n            \"url_path\":
+        \"user/t0xic0der\"\n          }\n        }, \n        {\n          \"comment\":
+        \"**Metadata Update from @t0xic0der**:\\n- Issue set to the milestone: Milestone
+        CCCC\", \n          \"date_created\": \"1746679833\", \n          \"edited_on\":
+        null, \n          \"editor\": null, \n          \"id\": 971679, \n          \"notification\":
+        true, \n          \"parent\": null, \n          \"reactions\": {}, \n          \"user\":
+        {\n            \"full_url\": \"https://pagure.io/user/t0xic0der\", \n            \"fullname\":
+        \"Akashdeep Dhar\", \n            \"name\": \"t0xic0der\", \n            \"url_path\":
         \"user/t0xic0der\"\n          }\n        }\n      ], \n      \"content\":
         \"This is the body of the third test issue\", \n      \"custom_fields\": [],
         \n      \"date_created\": \"1700553837\", \n      \"depends\": [], \n      \"full_url\":
         \"https://pagure.io/protop2g-test-srce/issue/3\", \n      \"id\": 3, \n      \"last_updated\":
-        \"1700553892\", \n      \"milestone\": null, \n      \"priority\": null, \n
-        \     \"private\": true, \n      \"related_prs\": [], \n      \"status\":
+        \"1746679833\", \n      \"milestone\": \"Milestone CCCC\", \n      \"priority\":
+        null, \n      \"private\": true, \n      \"related_prs\": [], \n      \"status\":
         \"Open\", \n      \"tags\": [\n        \"eeee\", \n        \"ffff\"\n      ],
         \n      \"title\": \"This is the title of the third test issue\", \n      \"user\":
         {\n        \"full_url\": \"https://pagure.io/user/t0xic0der\", \n        \"fullname\":
@@ -53,16 +60,16 @@ interactions:
       Connection:
       - Upgrade, Keep-Alive
       Content-Length:
-      - '2514'
+      - '3078'
       Content-Security-Policy:
-      - default-src 'self';script-src 'self' 'nonce-JCJldbnsx9m0fCDxUKG3yce21'; style-src
-        'self' 'nonce-JCJldbnsx9m0fCDxUKG3yce21'; object-src 'none';base-uri 'self';img-src
+      - default-src 'self';script-src 'self' 'nonce-Ck0mwiQ5CYmCrfZCJcT71LjMM'; style-src
+        'self' 'nonce-Ck0mwiQ5CYmCrfZCJcT71LjMM'; object-src 'none';base-uri 'self';img-src
         'self' https:;connect-src 'self' https://pagure.io:8088;frame-src https://docs.pagure.org;frame-ancestors
         https://pagure.io;
       Content-Type:
       - application/json
       Date:
-      - Fri, 25 Apr 2025 05:25:06 GMT
+      - Tue, 24 Jun 2025 03:46:32 GMT
       Keep-Alive:
       - timeout=5, max=100
       Referrer-Policy:

@@ -36,9 +36,8 @@ def wipe_cookies():
         response["headers"]["Set-Cookie"] = ""
         response["body"]["string"] = sub(
             standard.detect, standard.cutout, response["body"]["string"].decode()
-        ).encode()
+        ).encode(encoding="utf-8")
         return response
-
     return before_record_response
 
 

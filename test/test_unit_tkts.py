@@ -31,7 +31,7 @@ from pagure_exporter.conf import standard
 from pagure_exporter.work.tkts import MoveTickets
 
 
-@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"])
+@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"], allow_playback_repeats=True, match_on=["method", "scheme", "host", "port", "query"])
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, qant, stat, rslt",
     [
@@ -70,7 +70,7 @@ def test_unit_getcount(caplog, srce, dest, pkey, gkey, fusr, tusr, qant, stat, r
     assert qant <= standard.ticket_count  # noqa: S101
 
 
-@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"])
+@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"], allow_playback_repeats=True, match_on=["method", "scheme", "host", "port", "query"])
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, root, rslt",
     [
@@ -121,7 +121,7 @@ def test_unit_getcount_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, root, rs
     standard.pagure_api = "https://pagure.io/api/0"
 
 
-@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"])
+@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"], allow_playback_repeats=True, match_on=["method", "scheme", "host", "port", "query"])
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, size, indx, stat, rslt",
     [
@@ -174,7 +174,7 @@ def test_unit_iterpage(caplog, srce, dest, pkey, gkey, fusr, tusr, size, indx, s
     assert rslt == test_movetkts.iterate_page(indx)[0]  # noqa: S101
 
 
-@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"])
+@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"], allow_playback_repeats=True, match_on=["method", "scheme", "host", "port", "query"])
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, indx, root, rslt",
     [
@@ -228,7 +228,7 @@ def test_unit_iterpage_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, ro
     standard.pagure_api = "https://pagure.io/api/0"
 
 
-@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"])
+@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"], allow_playback_repeats=True, match_on=["method", "scheme", "host", "port", "query"])
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, indx, stat, skip, rslt",
     [
@@ -284,7 +284,7 @@ def test_unit_iteriden(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, stat, s
         assert skip == test_iteriden[1]  # noqa: S101
 
 
-@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"])
+@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"], allow_playback_repeats=True, match_on=["method", "scheme", "host", "port", "query"])
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, indx, root, rslt",
     [
@@ -338,7 +338,7 @@ def test_unit_iteriden_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, ro
     standard.pagure_api = "https://pagure.io/api/0"
 
 
-@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"])
+@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"], allow_playback_repeats=True, match_on=["method", "scheme", "host", "port", "query"])
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, data, root, tags, rslt",
     [

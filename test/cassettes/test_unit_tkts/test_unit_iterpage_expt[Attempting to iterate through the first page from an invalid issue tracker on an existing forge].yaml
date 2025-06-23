@@ -9,7 +9,7 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.32.3
+      - python-requests/2.32.4
     method: GET
     uri: https://pagure.io/api/0/stoopeed-repo/issues?per_page=1&page=1&status=closed
   response:
@@ -21,14 +21,14 @@ interactions:
       Content-Length:
       - '66'
       Content-Security-Policy:
-      - default-src 'self';script-src 'self' 'nonce-VcNRl6GSdW0nlPI9vhiJitWsm'; style-src
-        'self' 'nonce-VcNRl6GSdW0nlPI9vhiJitWsm'; object-src 'none';base-uri 'self';img-src
+      - default-src 'self';script-src 'self' 'nonce-hovwO6GcPB4pe8Tb7k0c5pdjB'; style-src
+        'self' 'nonce-hovwO6GcPB4pe8Tb7k0c5pdjB'; object-src 'none';base-uri 'self';img-src
         'self' https:;connect-src 'self' https://pagure.io:8088;frame-src https://docs.pagure.org;frame-ancestors
         https://pagure.io;
       Content-Type:
       - application/json
       Date:
-      - Fri, 25 Apr 2025 05:25:09 GMT
+      - Tue, 24 Jun 2025 03:46:35 GMT
       Keep-Alive:
       - timeout=5, max=100
       Referrer-Policy:

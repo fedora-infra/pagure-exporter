@@ -11,20 +11,20 @@ interactions:
       Content-type:
       - application/json
       User-Agent:
-      - python-gitlab/5.6.0
+      - python-gitlab/6.0.0
     method: GET
     uri: https://gitlab.com/api/v4/projects/42823949
   response:
     body:
       string: '{"id":42823949,"description":null,"name":"protop2g-test","name_with_namespace":"Akashdeep
-        Dhar / protop2g-test","path":"protop2g-test","path_with_namespace":"gridhead/protop2g-test","created_at":"2023-01-23T16:18:30.217Z","default_branch":"main","tag_list":[],"topics":[],"ssh_url_to_repo":"git@gitlab.com:gridhead/protop2g-test.git","http_url_to_repo":"https://gitlab.com/gridhead/protop2g-test.git","web_url":"https://gitlab.com/gridhead/protop2g-test","readme_url":"https://gitlab.com/gridhead/protop2g-test/-/blob/main/README.md","forks_count":0,"avatar_url":null,"star_count":0,"last_activity_at":"2025-04-25T05:19:23.595Z","namespace":{"id":13984834,"name":"Akashdeep
-        Dhar","path":"gridhead","kind":"user","full_path":"gridhead","parent_id":null,"avatar_url":"https://secure.gravatar.com/avatar/e412343841597e2fb1e952dd2b1077fc95537604ce04a27c5bfb94bdb0dc3da8?s=80\u0026d=identicon","web_url":"https://gitlab.com/gridhead"},"container_registry_image_prefix":"registry.gitlab.com/gridhead/protop2g-test","_links":{"self":"https://gitlab.com/api/v4/projects/42823949","issues":"https://gitlab.com/api/v4/projects/42823949/issues","merge_requests":"https://gitlab.com/api/v4/projects/42823949/merge_requests","repo_branches":"https://gitlab.com/api/v4/projects/42823949/repository/branches","labels":"https://gitlab.com/api/v4/projects/42823949/labels","events":"https://gitlab.com/api/v4/projects/42823949/events","members":"https://gitlab.com/api/v4/projects/42823949/members","cluster_agents":"https://gitlab.com/api/v4/projects/42823949/cluster_agents"},"packages_enabled":true,"empty_repo":false,"archived":false,"visibility":"public","owner":{"id":10115999,"username":"gridhead","name":"Akashdeep
-        Dhar","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/e412343841597e2fb1e952dd2b1077fc95537604ce04a27c5bfb94bdb0dc3da8?s=80\u0026d=identicon","web_url":"https://gitlab.com/gridhead"},"resolve_outdated_diff_discussions":false,"container_expiration_policy":{"cadence":"1d","enabled":false,"keep_n":10,"older_than":"90d","name_regex":".*","name_regex_keep":null,"next_run_at":"2023-01-24T16:18:30.271Z"},"repository_object_format":"sha1","issues_enabled":true,"merge_requests_enabled":true,"wiki_enabled":true,"jobs_enabled":true,"snippets_enabled":true,"container_registry_enabled":true,"service_desk_enabled":true,"service_desk_address":"contact-project+gridhead-protop2g-test-42823949-issue-@incoming.gitlab.com","can_create_merge_request_in":true,"issues_access_level":"enabled","repository_access_level":"enabled","merge_requests_access_level":"enabled","forking_access_level":"enabled","wiki_access_level":"enabled","builds_access_level":"enabled","snippets_access_level":"enabled","pages_access_level":"enabled","analytics_access_level":"enabled","container_registry_access_level":"enabled","security_and_compliance_access_level":"private","releases_access_level":"private","environments_access_level":"enabled","feature_flags_access_level":"private","infrastructure_access_level":"private","monitor_access_level":"enabled","model_experiments_access_level":"enabled","model_registry_access_level":"enabled","emails_disabled":false,"emails_enabled":true,"shared_runners_enabled":true,"lfs_enabled":true,"creator_id":10115999,"import_url":null,"import_type":null,"import_status":"none","import_error":null,"open_issues_count":129,"description_html":"","updated_at":"2025-04-25T05:19:23.595Z","ci_default_git_depth":20,"ci_delete_pipelines_in_seconds":null,"ci_forward_deployment_enabled":true,"ci_forward_deployment_rollback_allowed":true,"ci_job_token_scope_enabled":false,"ci_separated_caches":true,"ci_allow_fork_pipelines_to_run_in_parent_project":true,"ci_id_token_sub_claim_components":["project_path","ref_type","ref"],"build_git_strategy":"fetch","keep_latest_artifact":true,"restrict_user_defined_variables":false,"ci_pipeline_variables_minimum_override_role":"developer","runner_token_expiration_interval":null,"group_runners_enabled":true,"auto_cancel_pending_pipelines":"enabled","build_timeout":3600,"auto_devops_enabled":false,"auto_devops_deploy_strategy":"continuous","ci_push_repository_for_job_token_allowed":false,"runners_token":"EXPUNGED","ci_config_path":"","public_jobs":true,"shared_with_groups":[],"only_allow_merge_if_pipeline_succeeds":false,"allow_merge_on_skipped_pipeline":null,"request_access_enabled":true,"only_allow_merge_if_all_discussions_are_resolved":false,"remove_source_branch_after_merge":true,"printing_merge_request_link_enabled":true,"merge_method":"merge","merge_request_title_regex":null,"squash_option":"default_off","enforce_auth_checks_on_uploads":true,"suggestion_commit_message":null,"merge_commit_template":null,"squash_commit_template":null,"issue_branch_template":null,"warn_about_potentially_unwanted_characters":true,"autoclose_referenced_issues":true,"max_artifacts_size":null,"external_authorization_classification_label":"","requirements_enabled":false,"requirements_access_level":"enabled","security_and_compliance_enabled":true,"compliance_frameworks":[],"permissions":{"project_access":{"access_level":50,"notification_level":3},"group_access":null}}'
+        Dhar / protop2g-test","path":"protop2g-test","path_with_namespace":"gridhead/protop2g-test","created_at":"2023-01-23T16:18:30.217Z","default_branch":"main","tag_list":[],"topics":[],"ssh_url_to_repo":"git@gitlab.com:gridhead/protop2g-test.git","http_url_to_repo":"https://gitlab.com/gridhead/protop2g-test.git","web_url":"https://gitlab.com/gridhead/protop2g-test","readme_url":"https://gitlab.com/gridhead/protop2g-test/-/blob/main/README.md","forks_count":0,"avatar_url":null,"star_count":0,"last_activity_at":"2025-06-24T03:06:31.767Z","namespace":{"id":13984834,"name":"Akashdeep
+        Dhar","path":"gridhead","kind":"user","full_path":"gridhead","parent_id":null,"avatar_url":"https://secure.gravatar.com/avatar/e412343841597e2fb1e952dd2b1077fc95537604ce04a27c5bfb94bdb0dc3da8?s=80\u0026d=identicon","web_url":"https://gitlab.com/gridhead"},"container_registry_image_prefix":"registry.gitlab.com/gridhead/protop2g-test","_links":{"self":"https://gitlab.com/api/v4/projects/42823949","issues":"https://gitlab.com/api/v4/projects/42823949/issues","merge_requests":"https://gitlab.com/api/v4/projects/42823949/merge_requests","repo_branches":"https://gitlab.com/api/v4/projects/42823949/repository/branches","labels":"https://gitlab.com/api/v4/projects/42823949/labels","events":"https://gitlab.com/api/v4/projects/42823949/events","members":"https://gitlab.com/api/v4/projects/42823949/members","cluster_agents":"https://gitlab.com/api/v4/projects/42823949/cluster_agents"},"marked_for_deletion_at":null,"marked_for_deletion_on":null,"packages_enabled":true,"empty_repo":false,"archived":false,"visibility":"public","owner":{"id":10115999,"username":"gridhead","public_email":"","name":"Akashdeep
+        Dhar","state":"active","locked":false,"avatar_url":"https://secure.gravatar.com/avatar/e412343841597e2fb1e952dd2b1077fc95537604ce04a27c5bfb94bdb0dc3da8?s=80\u0026d=identicon","web_url":"https://gitlab.com/gridhead"},"resolve_outdated_diff_discussions":false,"container_expiration_policy":{"cadence":"1d","enabled":false,"keep_n":10,"older_than":"90d","name_regex":".*","name_regex_keep":null,"next_run_at":"2023-01-24T16:18:30.271Z"},"repository_object_format":"sha1","issues_enabled":true,"merge_requests_enabled":true,"wiki_enabled":true,"jobs_enabled":true,"snippets_enabled":true,"container_registry_enabled":true,"service_desk_enabled":true,"service_desk_address":"contact-project+gridhead-protop2g-test-42823949-issue-@incoming.gitlab.com","can_create_merge_request_in":true,"issues_access_level":"enabled","repository_access_level":"enabled","merge_requests_access_level":"enabled","forking_access_level":"enabled","wiki_access_level":"enabled","builds_access_level":"enabled","snippets_access_level":"enabled","pages_access_level":"enabled","analytics_access_level":"enabled","container_registry_access_level":"enabled","security_and_compliance_access_level":"private","releases_access_level":"private","environments_access_level":"enabled","feature_flags_access_level":"private","infrastructure_access_level":"private","monitor_access_level":"enabled","model_experiments_access_level":"enabled","model_registry_access_level":"enabled","emails_disabled":false,"emails_enabled":true,"shared_runners_enabled":true,"lfs_enabled":true,"creator_id":10115999,"import_url":null,"import_type":null,"import_status":"none","import_error":null,"open_issues_count":474,"description_html":"","updated_at":"2025-06-24T03:35:35.916Z","ci_default_git_depth":20,"ci_delete_pipelines_in_seconds":null,"ci_forward_deployment_enabled":true,"ci_forward_deployment_rollback_allowed":true,"ci_job_token_scope_enabled":false,"ci_separated_caches":true,"ci_allow_fork_pipelines_to_run_in_parent_project":true,"ci_id_token_sub_claim_components":["project_path","ref_type","ref"],"build_git_strategy":"fetch","keep_latest_artifact":true,"restrict_user_defined_variables":false,"ci_pipeline_variables_minimum_override_role":"developer","runner_token_expiration_interval":null,"group_runners_enabled":true,"auto_cancel_pending_pipelines":"enabled","build_timeout":3600,"auto_devops_enabled":false,"auto_devops_deploy_strategy":"continuous","ci_push_repository_for_job_token_allowed":false,"runners_token":"EXPUNGED","ci_config_path":"","public_jobs":true,"shared_with_groups":[],"only_allow_merge_if_pipeline_succeeds":false,"allow_merge_on_skipped_pipeline":null,"request_access_enabled":true,"only_allow_merge_if_all_discussions_are_resolved":false,"remove_source_branch_after_merge":true,"printing_merge_request_link_enabled":true,"merge_method":"merge","merge_request_title_regex":null,"squash_option":"default_off","enforce_auth_checks_on_uploads":true,"suggestion_commit_message":null,"merge_commit_template":null,"squash_commit_template":null,"issue_branch_template":null,"warn_about_potentially_unwanted_characters":true,"autoclose_referenced_issues":true,"max_artifacts_size":null,"external_authorization_classification_label":"","requirements_enabled":false,"requirements_access_level":"enabled","security_and_compliance_enabled":true,"compliance_frameworks":[],"web_based_commit_signing_enabled":false,"permissions":{"project_access":{"access_level":40,"notification_level":3},"group_access":null}}'
     headers:
       CF-Cache-Status:
       - MISS
       CF-Ray:
-      - 935b631cee9946b0-BOM
+      - 954935a19f703a6f-BOM
       Cache-Control:
       - max-age=0, private, must-revalidate
       Connection:
@@ -34,9 +34,9 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 25 Apr 2025 05:19:44 GMT
+      - Tue, 24 Jun 2025 03:41:27 GMT
       ETag:
-      - W/"f3fa331aaf641ec874f4056766ede03c"
+      - W/"ca75b36e608c686a3cae9979359a546e"
       Server:
       - cloudflare
       Set-Cookie: ''
@@ -49,9 +49,9 @@ interactions:
       content-security-policy:
       - default-src 'none'
       gitlab-lb:
-      - haproxy-main-59-lb-gprd
+      - haproxy-main-48-lb-gprd
       gitlab-sv:
-      - gke-cny-api
+      - api-gke-us-east1-d
       nel:
       - '{"max_age": 0}'
       referrer-policy:
@@ -61,11 +61,11 @@ interactions:
       x-frame-options:
       - SAMEORIGIN
       x-gitlab-meta:
-      - '{"correlation_id":"cccf8e1074904822f098b1cb34e9228e","version":"1"}'
+      - '{"correlation_id":"737d1f9c2b538222e6866f300cb7526e","version":"1"}'
       x-request-id:
-      - cccf8e1074904822f098b1cb34e9228e
+      - 737d1f9c2b538222e6866f300cb7526e
       x-runtime:
-      - '0.156846'
+      - '0.178264'
     status:
       code: 200
       message: OK
@@ -83,88 +83,29 @@ interactions:
       Content-type:
       - application/json
       Cookie:
-      - _cfuvid=XkcOGSHanpyNFSgJH70ReOtvuo6BtKMVPZDTQXyiJ5U-1745558384612-0.0.1.1-604800000
+      - _cfuvid=l8ZUi9AEWdufMxKXNAH2HlQ08UGSwv1ZEkhCzIISwso-1750736487158-0.0.1.1-604800000
       User-Agent:
-      - python-gitlab/5.6.0
+      - python-gitlab/6.0.0
     method: DELETE
     uri: https://gitlab.com/api/v4/projects/42823949/issues/1
   response:
     body:
-      string: ''
+      string: '{"message":"404 Issue Not Found"}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 935b63203fc08606-BOM
+      - 954935a4faa53a51-BOM
       Cache-Control:
       - no-cache
-      Connection:
-      - keep-alive
-      Date:
-      - Fri, 25 Apr 2025 05:19:45 GMT
-      Server:
-      - cloudflare
-      Set-Cookie: ''
-      Strict-Transport-Security:
-      - max-age=31536000
-      Vary:
-      - Origin, Accept-Encoding
-      content-security-policy:
-      - default-src 'none'
-      gitlab-lb:
-      - haproxy-main-38-lb-gprd
-      gitlab-sv:
-      - api-gke-us-east1-c
-      nel:
-      - '{"max_age": 0}'
-      referrer-policy:
-      - strict-origin-when-cross-origin
-      x-content-type-options:
-      - nosniff
-      x-frame-options:
-      - SAMEORIGIN
-      x-gitlab-meta:
-      - '{"correlation_id":"bd94a1d3505727394a41de06ca9fb55a","version":"1"}'
-      x-request-id:
-      - bd94a1d3505727394a41de06ca9fb55a
-      x-runtime:
-      - '0.169330'
-    status:
-      code: 204
-      message: No Content
-- request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate, zstd
       Connection:
       - keep-alive
       Content-Length:
-      - '0'
-      Content-type:
+      - '33'
+      Content-Type:
       - application/json
-      Cookie:
-      - _cfuvid=XkcOGSHanpyNFSgJH70ReOtvuo6BtKMVPZDTQXyiJ5U-1745558384612-0.0.1.1-604800000
-      User-Agent:
-      - python-gitlab/5.6.0
-    method: DELETE
-    uri: https://gitlab.com/api/v4/projects/42823949/issues/2
-  response:
-    body:
-      string: ''
-    headers:
-      CF-Cache-Status:
-      - DYNAMIC
-      CF-Ray:
-      - 935b632438f3858a-BOM
-      Cache-Control:
-      - no-cache
-      Connection:
-      - keep-alive
       Date:
-      - Fri, 25 Apr 2025 05:19:46 GMT
+      - Tue, 24 Jun 2025 03:41:27 GMT
       Server:
       - cloudflare
       Set-Cookie: ''
@@ -187,14 +128,14 @@ interactions:
       x-frame-options:
       - SAMEORIGIN
       x-gitlab-meta:
-      - '{"correlation_id":"5ad28f710521e9487e0d55fb50c24cb9","version":"1"}'
+      - '{"correlation_id":"da7eedbf1e7cd32e96a8c3518e5879c6","version":"1"}'
       x-request-id:
-      - 5ad28f710521e9487e0d55fb50c24cb9
+      - da7eedbf1e7cd32e96a8c3518e5879c6
       x-runtime:
-      - '0.467328'
+      - '0.122315'
     status:
-      code: 204
-      message: No Content
+      code: 404
+      message: Not Found
 - request:
     body: null
     headers:
@@ -209,25 +150,96 @@ interactions:
       Content-type:
       - application/json
       Cookie:
-      - _cfuvid=XkcOGSHanpyNFSgJH70ReOtvuo6BtKMVPZDTQXyiJ5U-1745558384612-0.0.1.1-604800000
+      - _cfuvid=l8ZUi9AEWdufMxKXNAH2HlQ08UGSwv1ZEkhCzIISwso-1750736487158-0.0.1.1-604800000
       User-Agent:
-      - python-gitlab/5.6.0
+      - python-gitlab/6.0.0
+    method: DELETE
+    uri: https://gitlab.com/api/v4/projects/42823949/issues/2
+  response:
+    body:
+      string: '{"message":"404 Issue Not Found"}'
+    headers:
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-Ray:
+      - 954935a7ad578525-BOM
+      Cache-Control:
+      - no-cache
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '33'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 24 Jun 2025 03:41:27 GMT
+      Server:
+      - cloudflare
+      Set-Cookie: ''
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Origin, Accept-Encoding
+      content-security-policy:
+      - default-src 'none'
+      gitlab-lb:
+      - haproxy-main-47-lb-gprd
+      gitlab-sv:
+      - api-gke-us-east1-c
+      nel:
+      - '{"max_age": 0}'
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - SAMEORIGIN
+      x-gitlab-meta:
+      - '{"correlation_id":"84675142d6d4caed312c6a7ff7f2f585","version":"1"}'
+      x-request-id:
+      - 84675142d6d4caed312c6a7ff7f2f585
+      x-runtime:
+      - '0.048461'
+    status:
+      code: 404
+      message: Not Found
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, zstd
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      Content-type:
+      - application/json
+      Cookie:
+      - _cfuvid=l8ZUi9AEWdufMxKXNAH2HlQ08UGSwv1ZEkhCzIISwso-1750736487158-0.0.1.1-604800000
+      User-Agent:
+      - python-gitlab/6.0.0
     method: DELETE
     uri: https://gitlab.com/api/v4/projects/42823949/issues/3
   response:
     body:
-      string: ''
+      string: '{"message":"404 Issue Not Found"}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 935b632a2c1985ab-BOM
+      - 954935aa0a6535d2-BOM
       Cache-Control:
       - no-cache
       Connection:
       - keep-alive
+      Content-Length:
+      - '33'
+      Content-Type:
+      - application/json
       Date:
-      - Fri, 25 Apr 2025 05:19:46 GMT
+      - Tue, 24 Jun 2025 03:41:28 GMT
       Server:
       - cloudflare
       Set-Cookie: ''
@@ -238,9 +250,9 @@ interactions:
       content-security-policy:
       - default-src 'none'
       gitlab-lb:
-      - haproxy-main-24-lb-gprd
+      - haproxy-main-01-lb-gprd
       gitlab-sv:
-      - api-gke-us-east1-d
+      - gke-cny-api
       nel:
       - '{"max_age": 0}'
       referrer-policy:
@@ -250,14 +262,14 @@ interactions:
       x-frame-options:
       - SAMEORIGIN
       x-gitlab-meta:
-      - '{"correlation_id":"5d881c8c908da944a9de9bd3bdd5cdf9","version":"1"}'
+      - '{"correlation_id":"cb105bf48f11c1ae78213e21975a1c27","version":"1"}'
       x-request-id:
-      - 5d881c8c908da944a9de9bd3bdd5cdf9
+      - cb105bf48f11c1ae78213e21975a1c27
       x-runtime:
-      - '0.193546'
+      - '0.051878'
     status:
-      code: 204
-      message: No Content
+      code: 404
+      message: Not Found
 - request:
     body: null
     headers:
@@ -272,25 +284,29 @@ interactions:
       Content-type:
       - application/json
       Cookie:
-      - _cfuvid=XkcOGSHanpyNFSgJH70ReOtvuo6BtKMVPZDTQXyiJ5U-1745558384612-0.0.1.1-604800000
+      - _cfuvid=l8ZUi9AEWdufMxKXNAH2HlQ08UGSwv1ZEkhCzIISwso-1750736487158-0.0.1.1-604800000
       User-Agent:
-      - python-gitlab/5.6.0
+      - python-gitlab/6.0.0
     method: DELETE
     uri: https://gitlab.com/api/v4/projects/42823949/issues/4
   response:
     body:
-      string: ''
+      string: '{"message":"404 Issue Not Found"}'
     headers:
       CF-Cache-Status:
       - DYNAMIC
       CF-Ray:
-      - 935b632d4be38577-BOM
+      - 954935ac4a5a3c2e-BOM
       Cache-Control:
       - no-cache
       Connection:
       - keep-alive
+      Content-Length:
+      - '33'
+      Content-Type:
+      - application/json
       Date:
-      - Fri, 25 Apr 2025 05:19:47 GMT
+      - Tue, 24 Jun 2025 03:41:28 GMT
       Server:
       - cloudflare
       Set-Cookie: ''
@@ -301,7 +317,7 @@ interactions:
       content-security-policy:
       - default-src 'none'
       gitlab-lb:
-      - haproxy-main-48-lb-gprd
+      - haproxy-main-45-lb-gprd
       gitlab-sv:
       - api-gke-us-east1-d
       nel:
@@ -313,14 +329,14 @@ interactions:
       x-frame-options:
       - SAMEORIGIN
       x-gitlab-meta:
-      - '{"correlation_id":"18054a0cd16b4176c4256e5691782608","version":"1"}'
+      - '{"correlation_id":"5461e9db09d9fda183f6e7c149026074","version":"1"}'
       x-request-id:
-      - 18054a0cd16b4176c4256e5691782608
+      - 5461e9db09d9fda183f6e7c149026074
       x-runtime:
-      - '0.209947'
+      - '0.044042'
     status:
-      code: 204
-      message: No Content
+      code: 404
+      message: Not Found
 - request:
     body: null
     headers:
@@ -331,7 +347,7 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.32.3
+      - python-requests/2.32.4
     method: GET
     uri: https://pagure.io/api/0/ZEROEXISTENT
   response:
@@ -343,14 +359,14 @@ interactions:
       Content-Length:
       - '66'
       Content-Security-Policy:
-      - default-src 'self';script-src 'self' 'nonce-9BBnyuuT13uAsbhEIhmtxfqWs'; style-src
-        'self' 'nonce-9BBnyuuT13uAsbhEIhmtxfqWs'; object-src 'none';base-uri 'self';img-src
+      - default-src 'self';script-src 'self' 'nonce-bDUQLrhFSzKMK48jX3J5uNtLr'; style-src
+        'self' 'nonce-bDUQLrhFSzKMK48jX3J5uNtLr'; object-src 'none';base-uri 'self';img-src
         'self' https:;connect-src 'self' https://pagure.io:8088;frame-src https://docs.pagure.org;frame-ancestors
         https://pagure.io;
       Content-Type:
       - application/json
       Date:
-      - Fri, 25 Apr 2025 05:19:48 GMT
+      - Tue, 24 Jun 2025 03:41:29 GMT
       Keep-Alive:
       - timeout=5, max=100
       Referrer-Policy:

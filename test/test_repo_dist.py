@@ -223,7 +223,7 @@ def test_main_repo(caplog, cmdl, code, text):
 
     # Changing the shared variable back to its default
     # Please check https://github.com/gridhead/protop2g/issues/35 for additional details
-    standard.tnfsindx = 0
+    standard.transfer_index = 0
 
     assert result.exit_code == code  # noqa: S101
     for indx in text:
@@ -252,14 +252,14 @@ def test_main_repo(caplog, cmdl, code, text):
 def test_push_repo(caplog, cmdl, code, text):
     # Setting the temporary directory creation location to where the current user does not have
     # appropriate permissions to operate on to intentionally invoke an error
-    standard.tempdrct = "/etc"
+    standard.temp_dir = "/etc"
 
     runner = CliRunner()
     result = runner.invoke(main, cmdl)
 
     # Changing the shared variable back to its default
     # Please check https://github.com/gridhead/protop2g/issues/35 for additional details
-    standard.tempdrct = "/var/tmp"  # noqa: S108
+    standard.temp_dir = "/var/tmp"  # noqa: S108
 
     assert result.exit_code == code  # noqa: S101
     for indx in text:

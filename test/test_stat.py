@@ -29,7 +29,7 @@ from click.testing import CliRunner
 from pagure_exporter.main import main
 
 
-@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"])
+@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"], allow_playback_repeats=True, match_on=["method", "scheme", "host", "port", "query"])
 @pytest.mark.parametrize(
     "cmdl, code, text",
     [
@@ -44,7 +44,7 @@ from pagure_exporter.main import main
             ],
             id="Checking for possible errors while attempting to authenticate in the destination namespace using wrong credentials",  # noqa: E501
         ),
-    ]
+    ],
 )
 def test_stat_destdata_obtninfo(caplog, cmdl, code, text):
     runner = CliRunner()

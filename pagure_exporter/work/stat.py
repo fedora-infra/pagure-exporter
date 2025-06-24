@@ -21,7 +21,6 @@ be used or replicated with the express permission of Red Hat, Inc.
 """
 
 
-
 import requests
 from gitlab import Gitlab as gtlb
 from gitlab import GitlabAuthenticationError, GitlabGetError
@@ -30,19 +29,19 @@ from ..conf import standard
 from ..view.dcrt import conceal
 
 
-class SrceData:
+class DataSrce:
     def __init__(self):
-        self.repo = standard.srcename
-        self.loca = standard.pagulink
-        self.code = standard.pagucode
-        self.head = {"Authorization": "token %s" % self.code}
+        self.repo = standard.repo_srce
+        self.api = standard.pagure_api
+        self.token = standard.pagure_token
+        self.head = {"Authorization": "token %s" % self.token}
 
-    def obtninfo(self):
-        rqstloca = f"{self.loca}/{self.repo}"
-        response = requests.get(rqstloca, headers=self.head, timeout=standard.rqsttime)
+    def obtain_info(self):
+        request_url = f"{self.api}/{self.repo}"
+        response = requests.get(request_url, headers=self.head, timeout=standard.req_timeout)
         if response.status_code == 200:
             jsondict = response.json()
-            standard.srcedict = {
+            standard.metadata_srce = {
                 "makedate": jsondict["date_created"],
                 "lastmode": jsondict["date_modified"],
                 "descript": jsondict["description"],
@@ -55,40 +54,42 @@ class SrceData:
                     "fullname": jsondict["user"]["fullname"],
                 },
             }
-            standard.srcehuto = "https://{}:{}@{}/{}.git".format(
-                standard.paguuser,
-                standard.pagucode,
-                standard.frgesrce,
-                standard.srcedict["reponame"],
+            standard.clone_url_srce = "https://{}:{}@{}/{}.git".format(
+                standard.pagure_user,
+                standard.pagure_token,
+                standard.forge_srce,
+                standard.metadata_srce["reponame"],
             )
-            standard.srcedisp = "https://{}:{}@{}/{}.git".format(
-                standard.paguuser,
-                conceal(standard.pagucode),
-                standard.frgesrce,
-                standard.srcedict["reponame"],
+            standard.display_url_srce = "https://{}:{}@{}/{}.git".format(
+                standard.pagure_user,
+                conceal(standard.pagure_token),
+                standard.forge_srce,
+                standard.metadata_srce["reponame"],
             )
         return response.status_code, response.reason
 
 
-class DestData:
+class DataDest:
     def __init__(self):
-        self.repo = standard.destname
-        self.loca = standard.gtlblink
-        self.code = standard.gtlbcode
-        self.head = {"Authorization": "Bearer %s" % self.code}
-        standard.gobj = gtlb(
+        self.repo = standard.repo_dest
+        self.api = standard.gitlab_api
+        self.token = standard.gitlab_token
+        self.head = {"Authorization": "Bearer %s" % self.token}
+        standard.gitlab_client_obj = gtlb(
             session=requests.Session(),
             url="https://gitlab.com",
-            private_token=self.code,
+            private_token=self.token,
             retry_transient_errors=True,
-            timeout=standard.rqsttime,
+            timeout=standard.req_timeout,
         )
 
-    def obtninfo(self):
+    def obtain_info(self):
         try:
-            standard.gpro = standard.gobj.projects.get(id=standard.destname)
-            jsondict = standard.gpro.asdict()
-            standard.destdict = {
+            standard.gitlab_project_obj = standard.gitlab_client_obj.projects.get(
+                id=standard.repo_dest
+            )
+            jsondict = standard.gitlab_project_obj.asdict()
+            standard.metadata_dest = {
                 "makedate": jsondict["created_at"],
                 "lastmode": jsondict["last_activity_at"],
                 "descript": jsondict["name_with_namespace"],
@@ -101,18 +102,18 @@ class DestData:
                     "fullname": jsondict["namespace"]["name"],
                 },
             }
-            standard.desthuto = jsondict["http_url_to_repo"]
-            standard.desthuto = "https://{}:{}@{}/{}.git".format(
-                standard.gtlbuser,
-                standard.gtlbcode,
-                standard.frgedest,
-                standard.destdict["reponame"],
+            standard.clone_url_dest = jsondict["http_url_to_repo"]
+            standard.clone_url_dest = "https://{}:{}@{}/{}.git".format(
+                standard.gitlab_user,
+                standard.gitlab_token,
+                standard.forge_dest,
+                standard.metadata_dest["reponame"],
             )
-            standard.destdisp = "https://{}:{}@{}/{}.git".format(
-                standard.gtlbuser,
-                conceal(standard.gtlbcode),
-                standard.frgedest,
-                standard.destdict["reponame"],
+            standard.display_url_dest = "https://{}:{}@{}/{}.git".format(
+                standard.gitlab_user,
+                conceal(standard.gitlab_token),
+                standard.forge_dest,
+                standard.metadata_dest["reponame"],
             )
             return 200, "OK"
         except (GitlabAuthenticationError, GitlabGetError, Exception) as expt:

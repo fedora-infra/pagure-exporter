@@ -25,10 +25,10 @@ import click
 
 from . import __version__ as versobjc
 from .conf import standard
-from .view.repo import showrepo
-from .view.stat import showstat
-from .view.tkts import showtkts
-from .work.keep import keepbrcs, keeptkts, storeinf
+from .view.repo import show_repo
+from .view.stat import show_status
+from .view.tkts import show_tickets
+from .work.keep import keep_branches, keep_tickets, store_info
 
 
 @click.group(
@@ -39,14 +39,14 @@ from .work.keep import keepbrcs, keeptkts, storeinf
     "-a",
     "--splt",
     "splt",
-    default=standard.frgesrce,
+    default=standard.forge_srce,
     help="Source hostname for accessing Pagure information",
 )
 @click.option(
     "-b",
     "--dplt",
     "dplt",
-    default=standard.frgedest,
+    default=standard.forge_dest,
     help="Destination hostname for accessing GitLab information",
 )
 @click.option(
@@ -103,7 +103,7 @@ def main(splt, dplt, srce, dest, pkey, gkey, fusr, tusr):
     """
     Pagure Exporter
     """
-    storeinf(splt, dplt, srce, dest, pkey, gkey, fusr, tusr)
+    store_info(splt, dplt, srce, dest, pkey, gkey, fusr, tusr)
 
 
 @main.command(
@@ -173,17 +173,17 @@ def main(splt, dplt, srce, dest, pkey, gkey, fusr, tusr):
     "series",
     help="Ensure issue ticket sequence as they were",
     default=False,
-    is_flag=True
+    is_flag=True,
 )
 def main_transfer_tkts(status, select, ranges, comments, labels, commit, secret, series):
     if select is not None and ranges is not None:
         raise click.UsageError("The `select` and `ranges` options cannot be used together")
 
-    tktgroup = []
+    ticket_group = []
 
     if select is not None:
         try:
-            tktgroup = [int(indx.strip()) for indx in select.split(",")]
+            ticket_group = [int(indx.strip()) for indx in select.split(",")]
         except Exception as expt:
             raise click.BadParameter(
                 message="The provided parameters for the `select` option could not be parsed"
@@ -192,15 +192,15 @@ def main_transfer_tkts(status, select, ranges, comments, labels, commit, secret,
     if ranges is not None:
         try:
             ranges = [int(indx) for indx in ranges]
-            tktgroup = [indx for indx in range(min(ranges), max(ranges) + 1)]
+            ticket_group = [indx for indx in range(min(ranges), max(ranges) + 1)]
         except Exception as expt:
             raise click.BadParameter(
                 message="The provided parameters for the `ranges` option could not be parsed"
             ) from expt
 
-    keeptkts(status, tktgroup, comments, labels, commit, secret, series)
-    showstat()
-    showtkts()
+    keep_tickets(status, ticket_group, comments, labels, commit, secret, series)
+    show_status()
+    show_tickets()
 
 
 @main.command(
@@ -210,11 +210,11 @@ def main_transfer_tkts(status, select, ranges, comments, labels, commit, secret,
 )
 @click.option("-b", "--brcs", "brcs", type=str, default=None, help="List of branches to extract")
 def main_transfer_repo(brcs):
-    brcslist = []
+    branch_list = []
 
     if brcs is not None:
-        brcslist = [indx.strip() for indx in brcs.split(",")]
+        branch_list = [indx.strip() for indx in brcs.split(",")]
 
-    keepbrcs(brcslist)
-    showstat()
-    showrepo()
+    keep_branches(branch_list)
+    show_status()
+    show_repo()

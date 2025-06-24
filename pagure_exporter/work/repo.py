@@ -28,105 +28,105 @@ from tempfile import TemporaryDirectory
 from git import Repo
 
 from ..conf import standard
-from ..view.misc import tnfsprog, tnfswarn
+from ..view.misc import transfer_progress, transfer_warning
 
 
 class PushRepo:
     def __init__(self):
-        self.srce = standard.srcehuto
-        self.dest = standard.desthuto
-        self.pkey = standard.pagucode
-        self.gkey = standard.gtlbcode
-        self.brcs = standard.brtocopy
-        self.sarg = dict(prefix=standard.prfxsrce, dir=standard.tempdrct)
-        self.darg = dict(prefix=standard.prfxdest, dir=standard.tempdrct)
-        self.sloc = TemporaryDirectory(**self.sarg)
-        self.dloc = TemporaryDirectory(**self.darg)
-        standard.srcecloc = self.sloc.name
-        standard.destcloc = self.dloc.name
+        self.clone_url_srce = standard.clone_url_srce
+        self.clone_url_dest = standard.clone_url_dest
+        self.pagure_token = standard.pagure_token
+        self.gitlab_token = standard.gitlab_token
+        self.branches_to_copy = standard.branches_to_copy
+        self.source_args = dict(prefix=standard.temp_prefix_srce, dir=standard.temp_dir)
+        self.destination_args = dict(prefix=standard.temp_prefix_dest, dir=standard.temp_dir)
+        self.source_location = TemporaryDirectory(**self.source_args)
+        self.destination_location = TemporaryDirectory(**self.destination_args)
+        standard.clone_path_srce = self.source_location.name
+        standard.clone_path_dest = self.destination_location.name
 
-    def downsrce(self):
+    def clone_source_repo(self):
         try:
-            strttime = time.time()
-            Repo.clone_from(url=self.srce, to_path=self.sloc.name)
-            stoptime = time.time()
-            return True, "%.2f" % (stoptime - strttime)
+            start_time = time.time()
+            Repo.clone_from(url=self.clone_url_srce, to_path=self.source_location.name)
+            stop_time = time.time()
+            return True, "%.2f" % (stop_time - start_time)
         except Exception as expt:
             return False, str(expt)
 
-    def downdest(self):
+    def clone_destination_repo(self):
         try:
-            strttime = time.time()
-            Repo.clone_from(url=self.dest, to_path=self.dloc.name)
-            stoptime = time.time()
-            return True, "%.2f" % (stoptime - strttime)
+            start_time = time.time()
+            Repo.clone_from(url=self.clone_url_dest, to_path=self.destination_location.name)
+            stop_time = time.time()
+            return True, "%.2f" % (stop_time - start_time)
         except Exception as expt:
             return False, str(expt)
 
-    def cbrcsrce(self):
-        if os.path.exists(os.path.join(self.sloc.name, ".git")):
-            repoobjc = Repo(path=self.sloc.name)
-            brcslist = [
-                refx.name.replace("%s/" % standard.dfremote, "")
-                for refx in repoobjc.remote(standard.dfremote).refs
+    def get_source_branches(self):
+        if os.path.exists(os.path.join(self.source_location.name, ".git")):
+            repo_obj = Repo(path=self.source_location.name)
+            branch_list = [
+                refx.name.replace("%s/" % standard.default_remote, "")
+                for refx in repo_obj.remote(standard.default_remote).refs
             ]
-            standard.sbrcavbl = list(brcslist)
-            return True, brcslist
+            standard.available_branches_srce = list(branch_list)
+            return True, branch_list
         else:
             return False, "Cloned source namespace assets could not be found"
 
-    def cbrcdest(self):
-        if os.path.exists(os.path.join(self.dloc.name, ".git")):
-            repoobjc = Repo(path=self.dloc.name)
-            brcslist = [
-                refx.name.replace("%s/" % standard.dfremote, "")
-                for refx in repoobjc.remote(standard.dfremote).refs
+    def get_destination_branches(self):
+        if os.path.exists(os.path.join(self.destination_location.name, ".git")):
+            repo_obj = Repo(path=self.destination_location.name)
+            branch_list = [
+                refx.name.replace("%s/" % standard.default_remote, "")
+                for refx in repo_obj.remote(standard.default_remote).refs
             ]
-            standard.dbrcavbl = list(brcslist)
-            return True, brcslist
+            standard.available_branches_dest = list(branch_list)
+            return True, branch_list
         else:
             return False, "Cloned destination namespace assets could not be found"
 
-    def tnfsrepo(self):
-        if os.path.exists(os.path.join(self.sloc.name, ".git")):
-            strttime = time.time()
-            repoobjc = Repo(path=self.sloc.name)
-            repoobjc.create_remote(standard.nrmtname, url=standard.desthuto)
-            if len(standard.brtocopy) == 0:
-                standard.tnfsqant = len(standard.sbrcavbl)
-                tnfswarn(False, standard.tnfsqant)
-                for brdx in standard.sbrcavbl:
-                    repoobjc.git.checkout("%s" % brdx)
-                    repoobjc.git.push(standard.nrmtname, "--set-upstream", brdx, "--force")
-                    tnfsprog(
+    def transfer_repo(self):
+        if os.path.exists(os.path.join(self.source_location.name, ".git")):
+            start_time = time.time()
+            repo_obj = Repo(path=self.source_location.name)
+            repo_obj.create_remote(standard.new_remote, url=standard.clone_url_dest)
+            if len(standard.branches_to_copy) == 0:
+                standard.transfer_quantity = len(standard.available_branches_srce)
+                transfer_warning(False, standard.transfer_quantity)
+                for brdx in standard.available_branches_srce:
+                    repo_obj.git.checkout("%s" % brdx)
+                    repo_obj.git.push(standard.new_remote, "--set-upstream", brdx, "--force")
+                    transfer_progress(
                         brdx,
-                        standard.sbrcavbl.index(brdx) + 1,
-                        len(standard.sbrcavbl),
+                        standard.available_branches_srce.index(brdx) + 1,
+                        len(standard.available_branches_srce),
                         True,
                     )
-                    standard.tnfsindx += 1
+                    standard.transfer_index += 1
             else:
-                standard.tnfsqant = len(standard.brtocopy)
-                tnfswarn(True, standard.tnfsqant)
-                for brdx in standard.brtocopy:
-                    if brdx in standard.sbrcavbl:
-                        repoobjc.git.checkout("%s" % brdx)
-                        repoobjc.git.push(standard.nrmtname, "--set-upstream", brdx, "--force")
-                        tnfsprog(
+                standard.transfer_quantity = len(standard.branches_to_copy)
+                transfer_warning(True, standard.transfer_quantity)
+                for brdx in standard.branches_to_copy:
+                    if brdx in standard.available_branches_srce:
+                        repo_obj.git.checkout("%s" % brdx)
+                        repo_obj.git.push(standard.new_remote, "--set-upstream", brdx, "--force")
+                        transfer_progress(
                             brdx,
-                            standard.brtocopy.index(brdx) + 1,
-                            len(standard.brtocopy),
+                            standard.branches_to_copy.index(brdx) + 1,
+                            len(standard.branches_to_copy),
                             True,
                         )
-                        standard.tnfsindx += 1
+                        standard.transfer_index += 1
                     else:
-                        tnfsprog(
+                        transfer_progress(
                             brdx,
-                            standard.brtocopy.index(brdx) + 1,
-                            len(standard.brtocopy),
+                            standard.branches_to_copy.index(brdx) + 1,
+                            len(standard.branches_to_copy),
                             False,
                         )
-            stoptime = time.time()
-            return True, "%.2f" % (stoptime - strttime)
+            stop_time = time.time()
+            return True, "%.2f" % (stop_time - start_time)
         else:
             return False, "Cloned namespace assets could not be found"

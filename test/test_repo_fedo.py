@@ -44,22 +44,26 @@ from pagure_exporter.view.dcrt import conceal
                 "[ PASS ] Destination namespace assets clone succeeded!",
                 "[ BUSY ] Reading branches data from the locally cloned assets...",
                 "[ PASS ] Branches data reading succeeded!",
-                "Available in source namespace: 6 branch(es)",
+                "Available in source namespace: 8 branch(es)",
                 "- (SRCE branch) HEAD",
                 "- (SRCE branch) main",
                 "- (SRCE branch) test-aaaa",
                 "- (SRCE branch) test-bbbb",
                 "- (SRCE branch) test-cccc",
                 "- (SRCE branch) test-dddd",
+                "- (SRCE branch) test-eeee",
+                "- (SRCE branch) test-ffff",
                 "[ BUSY ] Initializing namespace assets transfer...",
-                "[ WARN ] Transferring 6 available branches",
-                "[1/6] Branch 'HEAD' was transferred to the destination namespace",
-                "[2/6] Branch 'main' was transferred to the destination namespace",
-                "[3/6] Branch 'test-aaaa' was transferred to the destination namespace",
-                "[4/6] Branch 'test-bbbb' was transferred to the destination namespace",
-                "[5/6] Branch 'test-cccc' was transferred to the destination namespace",
-                "[6/6] Branch 'test-dddd' was transferred to the destination namespace",
-                "Assets transferred: 6 branch(es) completed, 6 branch(es) requested",
+                "[ WARN ] Transferring 8 available branches",
+                "[1/8] Branch 'HEAD' was transferred to the destination namespace",
+                "[2/8] Branch 'main' was transferred to the destination namespace",
+                "[3/8] Branch 'test-aaaa' was transferred to the destination namespace",
+                "[4/8] Branch 'test-bbbb' was transferred to the destination namespace",
+                "[5/8] Branch 'test-cccc' was transferred to the destination namespace",
+                "[6/8] Branch 'test-dddd' was transferred to the destination namespace",
+                "[7/8] Branch 'test-eeee' was transferred to the destination namespace",
+                "[8/8] Branch 'test-ffff' was transferred to the destination namespace",
+                "Assets transferred: 8 branch(es) completed, 8 branch(es) requested",
                 "[ PASS ] Namespace assets transfer succeeded!",
             ],
             id="pagure.io - Migrating repository contents with specifying zero valid branch names",
@@ -166,7 +170,7 @@ def test_main_repo(caplog, cmdl, code, text):
 
     # Changing the shared variable back to its default
     # Please check https://github.com/gridhead/protop2g/issues/35 for additional details
-    standard.tnfsindx = 0
+    standard.transfer_index = 0
 
     assert result.exit_code == code  # noqa: S101
     for indx in text:
@@ -195,14 +199,14 @@ def test_main_repo(caplog, cmdl, code, text):
 def test_push_repo(caplog, cmdl, code, text):
     # Setting the temporary directory creation location to where the current user does not have
     # appropriate permissions to operate on to intentionally invoke an error
-    standard.tempdrct = "/etc"
+    standard.temp_dir = "/etc"
 
     runner = CliRunner()
     result = runner.invoke(main, cmdl)
 
     # Changing the shared variable back to its default
     # Please check https://github.com/gridhead/protop2g/issues/35 for additional details
-    standard.tempdrct = "/var/tmp"  # noqa: S108
+    standard.temp_dir = "/var/tmp"  # noqa: S108
 
     assert result.exit_code == code  # noqa: S101
     for indx in text:

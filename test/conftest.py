@@ -35,10 +35,8 @@ def wipe_cookies():
     def before_record_response(response):
         response["headers"]["Set-Cookie"] = ""
         response["body"]["string"] = sub(
-            standard.detect,
-            standard.cutout,
-            response["body"]["string"].decode()
-        ).encode()
+            standard.detect, standard.cutout, response["body"]["string"].decode()
+        ).encode(encoding="utf-8")
         return response
     return before_record_response
 
@@ -55,10 +53,10 @@ def wipe_issues():
 
     gobj = Gitlab(
         url="https://gitlab.com",
-        private_token=envr['TEST_GKEY'],
+        private_token=envr["TEST_GKEY"],
         timeout=30,
         retry_transient_errors=True,
-        session=Session()
+        session=Session(),
     )
     gpro = gobj.projects.get(id=envr["TEST_DEST"])
 
@@ -66,7 +64,7 @@ def wipe_issues():
     # Change this variable if the issue tickets are created or deleted from there
     qant = 4
 
-    for indx in range(1, qant+1):
+    for indx in range(1, qant + 1):
         try:
             gpro.issues.delete(str(indx))
             standard.logger.info(f"Issue #{indx} was deleted")

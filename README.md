@@ -433,7 +433,7 @@ Simple exporter tool that helps migrate repository files, data assets and issue 
       ```
 
       Issue tickets with identities `NUM1`, `NUM2`, `NUM3` ... would be considered here.
-      
+
    While these options can be mixed and matched to be used together, the options `--ranges` and `--select` cannot be used at the same time as they perform identical functions.
 
    For example,

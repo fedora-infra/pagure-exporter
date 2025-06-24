@@ -24,61 +24,72 @@ be used or replicated with the express permission of Red Hat, Inc.
 from ..conf import standard
 
 
-def storeinf(splt, dplt, srce, dest, pkey, gkey, fusr, tusr):
-    standard.srcename = srce
-    standard.destname = dest
-    standard.pagucode = pkey
-    standard.gtlbcode = gkey
-    standard.paguuser = fusr
-    standard.gtlbuser = tusr
-    standard.pagulink = splt
-    standard.gtlblink = dplt
-    if not standard.pagulink.startswith("https://"):
-        standard.pagulink = f"https://{standard.pagulink}"
-    if not standard.pagulink.endswith("/api/0"):
-        standard.pagulink = f"{standard.pagulink}/api/0"
-    if not standard.gtlblink.startswith("https://"):
-        standard.gtlblink = f"https://{standard.gtlblink}"
-    if not standard.gtlblink.endswith("/api/v4/projects"):
-        standard.gtlblink = f"{standard.gtlblink}/api/v4/projects"
-    standard.frgesrce = standard.pagulink.replace("https://", "").replace("/api/0", "")
-    standard.frgedest = standard.gtlblink.replace("https://", "").replace("/api/v4/projects", "")
+def store_info(
+    pagure_api,
+    gitlab_api,
+    repo_srce,
+    repo_dest,
+    pagure_token,
+    gitlab_token,
+    pagure_user,
+    gitlab_user,
+):
+    standard.repo_srce = repo_srce
+    standard.repo_dest = repo_dest
+    standard.pagure_token = pagure_token
+    standard.gitlab_token = gitlab_token
+    standard.pagure_user = pagure_user
+    standard.gitlab_user = gitlab_user
+    standard.pagure_api = pagure_api
+    standard.gitlab_api = gitlab_api
+    if not standard.pagure_api.startswith("https://"):
+        standard.pagure_api = f"https://{standard.pagure_api}"
+    if not standard.pagure_api.endswith("/api/0"):
+        standard.pagure_api = f"{standard.pagure_api}/api/0"
+    if not standard.gitlab_api.startswith("https://"):
+        standard.gitlab_api = f"https://{standard.gitlab_api}"
+    if not standard.gitlab_api.endswith("/api/v4/projects"):
+        standard.gitlab_api = f"{standard.gitlab_api}/api/v4/projects"
+    standard.forge_srce = standard.pagure_api.replace("https://", "").replace("/api/0", "")
+    standard.forge_dest = standard.gitlab_api.replace("https://", "").replace(
+        "/api/v4/projects", ""
+    )
 
 
-def keepbrcs(brcs):
-    standard.brtocopy = list(brcs)
+def keep_branches(branches):
+    standard.branches_to_copy = list(branches)
 
 
-def keeptkts(status, tktgroup, comments, labels, commit, secret, series):
+def keep_tickets(status, ticket_group, comments, labels, state, secret, sequence):
     # Vote what kind of issue tickets are to be moved
     # Default Open
     if status == "SHUT":
-        standard.tktstate = "closed"
+        standard.ticket_state = "closed"
     elif status == "FULL":
-        standard.tktstate = "all"
+        standard.ticket_state = "all"
     else:
-        standard.tktstate = "open"
+        standard.ticket_state = "open"
 
     # Set a list of ticket identities to be moved
     # Default Empty
-    standard.tktgroup = tktgroup
+    standard.ticket_group = ticket_group
 
     # Vote if comments associated with the issue tickets are to be moved
     # Default False
-    standard.movecmts = comments
+    standard.move_comments = comments
 
     # Vote if labels associated with the issue tickets are to be moved
     # Default False
-    standard.movetags = labels
+    standard.move_labels = labels
 
     # Vote if the state associated with the issue tickets are to be moved
     # Default False
-    standard.movestat = commit
+    standard.move_state = state
 
     # Vote if the privacy associated with the issue tickets are to be moved
     # Default False
-    standard.movehush = secret
+    standard.move_secret = secret
 
     # Vote if the identifier associated with the issue tickets are to be moved
     # Default False
-    standard.sequence = series
+    standard.move_sequence = sequence

@@ -33,7 +33,6 @@ from pagure_exporter.conf import standard
 from pagure_exporter.work.tkts import MoveTickets
 
 
-@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"], allow_playback_repeats=True, match_on=["method", "scheme", "host", "port", "query"])
 @pytest.mark.parametrize(
     "data, rslt",
     [
@@ -88,7 +87,6 @@ def test_unit_gitlab_itertkts(caplog, data, rslt):
     standard.gitlab_project_obj = keepsake_gpro
 
 
-@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"], allow_playback_repeats=True, match_on=["method", "scheme", "host", "port", "query"])
 @pytest.mark.parametrize(
     "data, rslt",
     [
@@ -131,7 +129,6 @@ def test_unit_gitlab_itercmts(caplog, data, rslt):
     standard.gitlab_project_obj = keepsake_gpro
 
 
-@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"], allow_playback_repeats=True, match_on=["method", "scheme", "host", "port", "query"])
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, root, tkid, shut, rslt",
     [

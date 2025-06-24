@@ -21,52 +21,46 @@ be used or replicated with the express permission of Red Hat, Inc.
 """
 
 
-from os import environ as envr
-from re import sub
+import json
 
-import pytest
-from gitlab import Gitlab
-from requests import Session
+from yaml import safe_load
 
-from pagure_exporter.conf import standard
+from . import ResponseDefinition
 
 
-def wipe_cookies():
-    def before_record_response(response):
-        response["headers"]["Set-Cookie"] = ""
-        response["body"]["string"] = sub(
-            standard.detect, standard.cutout, response["body"]["string"].decode()
-        ).encode(encoding="utf-8")
-        return response
-    return before_record_response
-
-
-def pytest_recording_configure(config, vcr):
-    vcr.before_record_response = wipe_cookies()
-
-
-@pytest.fixture(scope="function")
-def wipe_issues():
+def transfer_cassette_to_response(path: str) -> list:
     """
-    Clean all existing issue tickets before running the issue creation related tests
+    Transfer VCR.py cassette into Response Definitions
     """
+    with open(path, encoding="utf-8") as file:
+        cassette = safe_load(file)
 
-    gobj = Gitlab(
-        url="https://gitlab.com",
-        private_token=envr["TEST_GKEY"],
-        timeout=30,
-        retry_transient_errors=True,
-        session=Session(),
-    )
-    gpro = gobj.projects.get(id=envr["TEST_DEST"])
+    defs = []
 
-    # There are a maximum of 4 issue tickets at https://pagure.io/protop2g-test-srce/issues
-    # Change this variable if the issue tickets are created or deleted from there
-    qant = 4
+    for activity in cassette.get("interactions", []):
+        method = activity["request"]["method"]
+        url = activity["request"]["uri"]
+        status = activity["response"]["status"]["code"]
+        content_type = "application/json"
 
-    for indx in range(1, qant + 1):
-        try:
-            gpro.issues.delete(str(indx))
-            standard.logger.info(f"Issue #{indx} was deleted")
-        except Exception as expt:
-            standard.logger.info(f"Issue #{indx} could not be deleted due to {expt}")
+        headers = activity["response"].get("headers", {})
+        if "Content-Type" in headers and headers["Content-Type"]:
+            content_type = headers["Content-Type"][0]
+
+        body = activity["response"]["body"].get("string")
+        json_body = None
+        if body:
+            try:
+                json_body = json.loads(body)
+            except (json.JSONDecodeError, TypeError):
+                json_body = None
+
+        defs.append(ResponseDefinition(
+            method=method.upper(),
+            url=url,
+            json=json_body,
+            status=status,
+            content_type=content_type,
+        ))
+
+    return defs

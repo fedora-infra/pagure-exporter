@@ -24,12 +24,15 @@ be used or replicated with the express permission of Red Hat, Inc.
 from os import environ as envr
 
 import pytest
+import responses
 from click.testing import CliRunner
 
 from pagure_exporter.main import main
 
+from .conftest import transfer_cassette_to_response
 
-@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"], allow_playback_repeats=True, match_on=["method", "scheme", "host", "port", "query"])
+
+@responses.activate
 @pytest.mark.parametrize(
     "cmdl, code, text",
     [
@@ -46,7 +49,11 @@ from pagure_exporter.main import main
         ),
     ],
 )
-def test_stat_destdata_obtninfo(caplog, cmdl, code, text):
+def test_stat_destdata_obtninfo(caplog, cmdl, code, text, request):
+    resplist = transfer_cassette_to_response(f"test/cassettes/test_stat/{request.node.name}.yaml")
+    for item in resplist:
+        responses.add(method=item.method, url=item.url, json=item.json, status=item.status, content_type=item.content_type)
+
     runner = CliRunner()
     result = runner.invoke(main, cmdl)
     assert result.exit_code == code  # noqa: S101

@@ -24,14 +24,17 @@ be used or replicated with the express permission of Red Hat, Inc.
 from os import environ as envr
 
 import pytest
+import responses
 from gitlab import Gitlab as gtlb
 from requests import Session
 
 from pagure_exporter.conf import standard
 from pagure_exporter.work.tkts import MoveTickets
 
+from .conftest import transfer_cassette_to_response
 
-@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"], allow_playback_repeats=True, match_on=["method", "scheme", "host", "port", "query"])
+
+@responses.activate
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, qant, stat, rslt",
     [
@@ -61,7 +64,11 @@ from pagure_exporter.work.tkts import MoveTickets
         ),
     ],
 )
-def test_unit_getcount(caplog, srce, dest, pkey, gkey, fusr, tusr, qant, stat, rslt):
+def test_unit_getcount(caplog, srce, dest, pkey, gkey, fusr, tusr, qant, stat, rslt, request):
+    resplist = transfer_cassette_to_response(f"test/cassettes/test_unit_tkts/{request.node.name}.yaml")
+    for item in resplist:
+        responses.add(method=item.method, url=item.url, json=item.json, status=item.status, content_type=item.content_type)
+
     standard.pagure_user, standard.pagure_token, standard.repo_srce = fusr, pkey, srce
     standard.gitlab_user, standard.gitlab_token, standard.repo_dest = tusr, gkey, dest
     standard.ticket_state = stat
@@ -70,7 +77,7 @@ def test_unit_getcount(caplog, srce, dest, pkey, gkey, fusr, tusr, qant, stat, r
     assert qant <= standard.ticket_count  # noqa: S101
 
 
-@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"], allow_playback_repeats=True, match_on=["method", "scheme", "host", "port", "query"])
+@responses.activate
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, root, rslt",
     [
@@ -109,7 +116,12 @@ def test_unit_getcount(caplog, srce, dest, pkey, gkey, fusr, tusr, qant, stat, r
         ),
     ],
 )
-def test_unit_getcount_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, root, rslt):
+def test_unit_getcount_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, root, rslt, request):
+    if "Attempting to count issue tickets from an existing issue tracker on an invalid forge" not in request.node.name:
+        resplist = transfer_cassette_to_response(f"test/cassettes/test_unit_tkts/{request.node.name}.yaml")
+        for item in resplist:
+            responses.add(method=item.method, url=item.url, json=item.json, status=item.status, content_type=item.content_type)
+
     standard.pagure_user, standard.pagure_token, standard.repo_srce = fusr, pkey, srce
     standard.gitlab_user, standard.gitlab_token, standard.repo_dest = tusr, gkey, dest
     standard.pagure_api = root
@@ -121,7 +133,7 @@ def test_unit_getcount_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, root, rs
     standard.pagure_api = "https://pagure.io/api/0"
 
 
-@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"], allow_playback_repeats=True, match_on=["method", "scheme", "host", "port", "query"])
+@responses.activate
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, size, indx, stat, rslt",
     [
@@ -166,7 +178,11 @@ def test_unit_getcount_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, root, rs
         ),
     ],
 )
-def test_unit_iterpage(caplog, srce, dest, pkey, gkey, fusr, tusr, size, indx, stat, rslt):
+def test_unit_iterpage(caplog, srce, dest, pkey, gkey, fusr, tusr, size, indx, stat, rslt, request):
+    resplist = transfer_cassette_to_response(f"test/cassettes/test_unit_tkts/{request.node.name}.yaml")
+    for item in resplist:
+        responses.add(method=item.method, url=item.url, json=item.json, status=item.status, content_type=item.content_type)
+
     standard.pagure_user, standard.pagure_token, standard.repo_srce = fusr, pkey, srce
     standard.gitlab_user, standard.gitlab_token, standard.repo_dest = tusr, gkey, dest
     standard.page_size, standard.ticket_state = size, stat
@@ -174,7 +190,7 @@ def test_unit_iterpage(caplog, srce, dest, pkey, gkey, fusr, tusr, size, indx, s
     assert rslt == test_movetkts.iterate_page(indx)[0]  # noqa: S101
 
 
-@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"], allow_playback_repeats=True, match_on=["method", "scheme", "host", "port", "query"])
+@responses.activate
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, indx, root, rslt",
     [
@@ -216,7 +232,12 @@ def test_unit_iterpage(caplog, srce, dest, pkey, gkey, fusr, tusr, size, indx, s
         ),
     ],
 )
-def test_unit_iterpage_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, root, rslt):
+def test_unit_iterpage_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, root, rslt, request):
+    if "Attempting to iterate through the first page from an existing issue tracker on an invalid forge" not in request.node.name:
+        resplist = transfer_cassette_to_response(f"test/cassettes/test_unit_tkts/{request.node.name}.yaml")
+        for item in resplist:
+            responses.add(method=item.method, url=item.url, json=item.json, status=item.status, content_type=item.content_type)
+
     standard.pagure_user, standard.pagure_token, standard.repo_srce = fusr, pkey, srce
     standard.gitlab_user, standard.gitlab_token, standard.repo_dest = tusr, gkey, dest
     standard.pagure_api = root
@@ -228,7 +249,7 @@ def test_unit_iterpage_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, ro
     standard.pagure_api = "https://pagure.io/api/0"
 
 
-@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"], allow_playback_repeats=True, match_on=["method", "scheme", "host", "port", "query"])
+@responses.activate
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, indx, stat, skip, rslt",
     [
@@ -273,7 +294,11 @@ def test_unit_iterpage_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, ro
         ),
     ],
 )
-def test_unit_iteriden(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, stat, skip, rslt):
+def test_unit_iteriden(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, stat, skip, rslt, request):
+    resplist = transfer_cassette_to_response(f"test/cassettes/test_unit_tkts/{request.node.name}.yaml")
+    for item in resplist:
+        responses.add(method=item.method, url=item.url, json=item.json, status=item.status, content_type=item.content_type)
+
     standard.pagure_user, standard.pagure_token, standard.repo_srce = fusr, pkey, srce
     standard.gitlab_user, standard.gitlab_token, standard.repo_dest = tusr, gkey, dest
     standard.ticket_state = stat
@@ -284,7 +309,7 @@ def test_unit_iteriden(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, stat, s
         assert skip == test_iteriden[1]  # noqa: S101
 
 
-@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"], allow_playback_repeats=True, match_on=["method", "scheme", "host", "port", "query"])
+@responses.activate
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, indx, root, rslt",
     [
@@ -326,7 +351,12 @@ def test_unit_iteriden(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, stat, s
         ),
     ],
 )
-def test_unit_iteriden_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, root, rslt):
+def test_unit_iteriden_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, root, rslt, request):
+    if "Attempting to iterate through the first page from an existing issue tracker on an invalid forge" not in request.node.name:
+        resplist = transfer_cassette_to_response(f"test/cassettes/test_unit_tkts/{request.node.name}.yaml")
+        for item in resplist:
+            responses.add(method=item.method, url=item.url, json=item.json, status=item.status, content_type=item.content_type)
+
     standard.pagure_user, standard.pagure_token, standard.repo_srce = fusr, pkey, srce
     standard.gitlab_user, standard.gitlab_token, standard.repo_dest = tusr, gkey, dest
     standard.pagure_api = root
@@ -338,7 +368,7 @@ def test_unit_iteriden_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, ro
     standard.pagure_api = "https://pagure.io/api/0"
 
 
-@pytest.mark.vcr(filter_headers=["Authorization", "PRIVATE-TOKEN"], allow_playback_repeats=True, match_on=["method", "scheme", "host", "port", "query"])
+@responses.activate
 @pytest.mark.parametrize(
     "srce, dest, pkey, gkey, fusr, tusr, data, root, tags, rslt",
     [
@@ -440,8 +470,12 @@ def test_unit_iteriden_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, ro
     ],
 )
 def test_unit_itertkts(
-    wipe_issues, caplog, srce, dest, pkey, gkey, fusr, tusr, data, root, tags, rslt
+    caplog, srce, dest, pkey, gkey, fusr, tusr, data, root, tags, rslt, request
 ):
+    resplist = transfer_cassette_to_response(f"test/cassettes/test_unit_tkts/{request.node.name}.yaml")
+    for item in resplist:
+        responses.add(method=item.method, url=item.url, json=item.json, status=item.status, content_type=item.content_type)
+
     standard.pagure_user, standard.pagure_token, standard.repo_srce = fusr, pkey, srce
     standard.gitlab_user, standard.gitlab_token, standard.repo_dest = tusr, gkey, dest
     standard.gitlab_api, standard.move_labels, standard.move_sequence = root, tags, True

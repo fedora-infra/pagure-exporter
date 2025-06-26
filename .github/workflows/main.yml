@@ -1,6 +1,6 @@
 ---
 name: pagure-exporter
-on: [push, pull_request, workflow_dispatch]
+on: [push]
 jobs:
   ci-basic:
     strategy:
@@ -26,7 +26,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        tox-env: ["py311", "py312", "py313"]
+        tox-env: ["py313"]
     runs-on: ubuntu-latest
     container: fedorapython/fedora-python-tox:latest
     steps:

@@ -113,6 +113,11 @@ display_url_dest = "UNAVAILABLE"
 branches_to_copy = []
 available_branches_srce = []
 available_branches_dest = []
+
+tags_to_copy = []
+available_tags_srce = []
+available_tags_dest = []
+
 clone_path_srce = "UNAVAILABLE"
 clone_path_dest = "UNAVAILABLE"
 
@@ -134,10 +139,16 @@ rate_index = 0
 wait_time = 60
 
 # Current count of branches on the namespaces to be transferred
-transfer_index = 0
+branch_transfer_index = 0
 
 # Total quantity of branches on the namespaces to be transferred
-transfer_quantity = 0
+branch_transfer_quantity = 0
+
+# Current count of tags on the namespaces to be transferred
+tag_transfer_index = 0
+
+# Total quantity of tags on the namespaces to be transferred
+tag_transfer_quantity = 0
 
 # Number of issue ticket entities to be present on a response page of issues
 page_size = 35

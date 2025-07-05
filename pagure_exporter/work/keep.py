@@ -60,6 +60,10 @@ def keep_branches(branches):
     standard.branches_to_copy = list(branches)
 
 
+def keep_tags(tags):
+    standard.tags_to_copy = list(tags)
+
+
 def keep_tickets(status, ticket_group, comments, labels, state, secret, sequence):
     # Vote what kind of issue tickets are to be moved
     # Default Open

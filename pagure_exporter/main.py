@@ -28,7 +28,7 @@ from .conf import standard
 from .view.repo import show_repo
 from .view.stat import show_status
 from .view.tkts import show_tickets
-from .work.keep import keep_branches, keep_tickets, store_info
+from .work.keep import keep_branches, keep_tags, keep_tickets, store_info
 
 
 @click.group(
@@ -209,12 +209,17 @@ def main_transfer_tkts(status, select, ranges, comments, labels, commit, secret,
     context_settings={"show_default": True},
 )
 @click.option("-b", "--brcs", "brcs", type=str, default=None, help="List of branches to extract")
-def main_transfer_repo(brcs):
-    branch_list = []
+@click.option("-t", "--tags", "tags", type=str, default=None, help="List of tags to extract")
+def main_transfer_repo(brcs, tags):
+    tag_list = branch_list = []
 
     if brcs is not None:
         branch_list = [indx.strip() for indx in brcs.split(",")]
 
+    if tags is not None:
+        tag_list = [indx.strip() for indx in tags.split(",")]
+
     keep_branches(branch_list)
+    keep_tags(tag_list)
     show_status()
     show_repo()

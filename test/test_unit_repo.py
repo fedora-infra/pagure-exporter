@@ -276,4 +276,4 @@ def test_unit_tnfsrepo(caplog, srcename, destname, gkey, pkey, fusr, tusr, brcs,
         # This helps to simulate the condition where the temporary directories where the repository
         # assets were cloned locally was removed by an external factor
         rmtree(os.path.join(test_pushrepo.source_location.name, ".git"))
-    assert rslt == test_pushrepo.transfer_repo()[0]  # noqa: S101
+    assert rslt == test_pushrepo.transfer_branches()[0]  # noqa: S101

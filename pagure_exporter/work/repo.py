@@ -48,7 +48,8 @@ class PushRepo:
     def clone_source_repo(self):
         try:
             start_time = time.time()
-            Repo.clone_from(url=self.clone_url_srce, to_path=self.source_location.name)
+            repo_obj = Repo.clone_from(url=self.clone_url_srce, to_path=self.source_location.name)
+            repo_obj.remote(standard.default_remote).fetch(tags=True)
             stop_time = time.time()
             return True, "%.2f" % (stop_time - start_time)
         except Exception as expt:
@@ -57,7 +58,10 @@ class PushRepo:
     def clone_destination_repo(self):
         try:
             start_time = time.time()
-            Repo.clone_from(url=self.clone_url_dest, to_path=self.destination_location.name)
+            repo_obj = Repo.clone_from(
+                url=self.clone_url_dest, to_path=self.destination_location.name
+            )
+            repo_obj.remote(standard.default_remote).fetch(tags=True)
             stop_time = time.time()
             return True, "%.2f" % (stop_time - start_time)
         except Exception as expt:
@@ -75,6 +79,15 @@ class PushRepo:
         else:
             return False, "Cloned source namespace assets could not be found"
 
+    def get_source_tags(self):
+        if os.path.exists(os.path.join(self.source_location.name, ".git")):
+            repo_obj = Repo(path=self.source_location.name)
+            tag_list = [tag.name for tag in repo_obj.tags]
+            standard.available_tags_srce = list(tag_list)
+            return True, tag_list
+        else:
+            return False, "Cloned source namespace assets could not be found"
+
     def get_destination_branches(self):
         if os.path.exists(os.path.join(self.destination_location.name, ".git")):
             repo_obj = Repo(path=self.destination_location.name)
@@ -87,43 +100,99 @@ class PushRepo:
         else:
             return False, "Cloned destination namespace assets could not be found"
 
-    def transfer_repo(self):
+    def get_destination_tags(self):
+        if os.path.exists(os.path.join(self.destination_location.name, ".git")):
+            repo_obj = Repo(path=self.destination_location.name)
+            tag_list = [tag.name for tag in repo_obj.tags]
+            standard.available_tags_dest = list(tag_list)
+            return True, tag_list
+        else:
+            return False, "Cloned source namespace assets could not be found"
+
+    def transfer_branches(self):
         if os.path.exists(os.path.join(self.source_location.name, ".git")):
             start_time = time.time()
             repo_obj = Repo(path=self.source_location.name)
             repo_obj.create_remote(standard.new_remote, url=standard.clone_url_dest)
             if len(standard.branches_to_copy) == 0:
-                standard.transfer_quantity = len(standard.available_branches_srce)
-                transfer_warning(False, standard.transfer_quantity)
+                standard.branch_transfer_quantity = len(standard.available_branches_srce)
+                transfer_warning("branch", False, standard.branch_transfer_quantity)
                 for brdx in standard.available_branches_srce:
                     repo_obj.git.checkout("%s" % brdx)
                     repo_obj.git.push(standard.new_remote, "--set-upstream", brdx, "--force")
                     transfer_progress(
+                        "branch",
                         brdx,
                         standard.available_branches_srce.index(brdx) + 1,
                         len(standard.available_branches_srce),
                         True,
                     )
-                    standard.transfer_index += 1
+                    standard.branch_transfer_index += 1
             else:
-                standard.transfer_quantity = len(standard.branches_to_copy)
-                transfer_warning(True, standard.transfer_quantity)
+                standard.branch_transfer_quantity = len(standard.branches_to_copy)
+                transfer_warning("branch", True, standard.branch_transfer_quantity)
                 for brdx in standard.branches_to_copy:
                     if brdx in standard.available_branches_srce:
                         repo_obj.git.checkout("%s" % brdx)
                         repo_obj.git.push(standard.new_remote, "--set-upstream", brdx, "--force")
                         transfer_progress(
+                            "branch",
                             brdx,
                             standard.branches_to_copy.index(brdx) + 1,
                             len(standard.branches_to_copy),
                             True,
                         )
-                        standard.transfer_index += 1
+                        standard.branch_transfer_index += 1
                     else:
                         transfer_progress(
+                            "branch",
                             brdx,
                             standard.branches_to_copy.index(brdx) + 1,
                             len(standard.branches_to_copy),
+                            False,
+                        )
+            stop_time = time.time()
+            return True, "%.2f" % (stop_time - start_time)
+        else:
+            return False, "Cloned namespace assets could not be found"
+
+    def transfer_tags(self):
+        if os.path.exists(os.path.join(self.source_location.name, ".git")):
+            start_time = time.time()
+            repo_obj = Repo(path=self.source_location.name)
+            if len(standard.tags_to_copy) == 0:
+                standard.tag_transfer_quantity = len(standard.available_tags_srce)
+                transfer_warning("tag", False, standard.tag_transfer_quantity)
+                for tag in standard.available_tags_srce:
+                    repo_obj.git.push(standard.new_remote, tag, force=True)
+                    transfer_progress(
+                        "tag",
+                        tag,
+                        standard.available_tags_srce.index(tag) + 1,
+                        len(standard.available_tags_srce),
+                        True,
+                    )
+                    standard.tag_transfer_index += 1
+            else:
+                standard.tag_transfer_quantity = len(standard.tags_to_copy)
+                transfer_warning("tag", True, standard.tag_transfer_quantity)
+                for tag in standard.tags_to_copy:
+                    if tag in standard.available_tags_srce:
+                        repo_obj.git.push(standard.new_remote, tag, force=True)
+                        transfer_progress(
+                            "tag",
+                            tag,
+                            standard.tags_to_copy.index(tag) + 1,
+                            len(standard.tags_to_copy),
+                            True,
+                        )
+                        standard.tag_transfer_index += 1
+                    else:
+                        transfer_progress(
+                            "tag",
+                            tag,
+                            standard.tags_to_copy.index(tag) + 1,
+                            len(standard.tags_to_copy),
                             False,
                         )
             stop_time = time.time()

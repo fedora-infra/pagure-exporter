@@ -199,7 +199,8 @@ def test_main_repo(caplog, cmdl, code, text):
 
     # Changing the shared variable back to its default
     # Please check https://github.com/gridhead/protop2g/issues/35 for additional details
-    standard.transfer_index = 0
+    standard.branch_transfer_index = 0
+    standard.tag_transfer_index = 0
 
     assert result.exit_code == code  # noqa: S101
     for indx in text:

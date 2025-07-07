@@ -53,7 +53,7 @@ from pagure_exporter.view.dcrt import conceal
                 "- (SRCE branch) test-dddd",
                 "- (SRCE branch) test-eeee",
                 "- (SRCE branch) test-ffff",
-                "[ BUSY ] Initializing namespace assets transfer...",
+                "[ BUSY ] Initializing namespace assets branch(es) transfer...",
                 "[ WARN ] Transferring 8 available branches",
                 "[1/8] Branch 'HEAD' was transferred to the destination namespace",
                 "[2/8] Branch 'main' was transferred to the destination namespace",
@@ -64,9 +64,15 @@ from pagure_exporter.view.dcrt import conceal
                 "[7/8] Branch 'test-eeee' was transferred to the destination namespace",
                 "[8/8] Branch 'test-ffff' was transferred to the destination namespace",
                 "Assets transferred: 8 branch(es) completed, 8 branch(es) requested",
-                "[ PASS ] Namespace assets transfer succeeded!",
+                "[ PASS ] Namespace assets branch(es) transfer succeeded!",
+                "[ BUSY ] Reading tags data from the locally cloned assets...",
+                "[ PASS ] Tags data reading succeeded!",
+                "Available in source namespace: 0 tag(s)",
+                "[ BUSY ] Initializing namespace assets tag(s) transfer...",
+                "[ WARN ] Transferring 0 available tags",
+                "[ PASS ] Namespace assets tag(s) transfer succeeded!",
             ],
-            id="pagure.io - Migrating repository contents with specifying zero valid branch names",
+            id="pagure.io - Migrating repository contents with specifying zero valid branch and tag names",
         ),
         pytest.param(
             f"--splt {envr['TEST_SPLT_FEDO']} --dplt {envr['TEST_DPLT']} --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo --brcs test-aaaa,test-bbbb,test-cccc,test-dddd",  # noqa: E501
@@ -83,16 +89,22 @@ from pagure_exporter.view.dcrt import conceal
                 "- (RQST branch) test-bbbb",
                 "- (RQST branch) test-cccc",
                 "- (RQST branch) test-dddd",
-                "[ BUSY ] Initializing namespace assets transfer...",
+                "[ BUSY ] Initializing namespace assets branch(es) transfer...",
                 "[ WARN ] Transferring 4 requested branches",
                 "[1/4] Branch 'test-aaaa' was transferred to the destination namespace",
                 "[2/4] Branch 'test-bbbb' was transferred to the destination namespace",
                 "[3/4] Branch 'test-cccc' was transferred to the destination namespace",
                 "[4/4] Branch 'test-dddd' was transferred to the destination namespace",
                 "Assets transferred: 4 branch(es) completed, 4 branch(es) requested",
-                "[ PASS ] Namespace assets transfer succeeded!",
+                "[ PASS ] Namespace assets branch(es) transfer succeeded!",
+                "[ BUSY ] Reading tags data from the locally cloned assets...",
+                "[ PASS ] Tags data reading succeeded!",
+                "Available in source namespace: 0 tag(s)",
+                "[ BUSY ] Initializing namespace assets tag(s) transfer...",
+                "[ WARN ] Transferring 0 available tags",
+                "[ PASS ] Namespace assets tag(s) transfer succeeded!",
             ],
-            id="pagure.io - Migrating repository contents with specifying four valid branch names",
+            id="pagure.io - Migrating repository contents with specifying four valid branch names and zero valid tag names",
         ),
         pytest.param(
             f"--splt {envr['TEST_SPLT_FEDO']} --dplt {envr['TEST_DPLT']} --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo --brcs test-aaaa,test-bbbb,test-cxxc,test-dxxd",  # noqa: E501
@@ -109,16 +121,22 @@ from pagure_exporter.view.dcrt import conceal
                 "- (RQST branch) test-bbbb",
                 "- (RQST branch) test-cxxc",
                 "- (RQST branch) test-dxxd",
-                "[ BUSY ] Initializing namespace assets transfer...",
+                "[ BUSY ] Initializing namespace assets branch(es) transfer...",
                 "[ WARN ] Transferring 4 requested branches",
                 "[1/4] Branch 'test-aaaa' was transferred to the destination namespace",
                 "[2/4] Branch 'test-bbbb' was transferred to the destination namespace",
                 "[3/4] Branch 'test-cxxc' was not found in the source namespace",
                 "[4/4] Branch 'test-dxxd' was not found in the source namespace",
                 "Assets transferred: 2 branch(es) completed, 4 branch(es) requested",
-                "[ WARN ] Namespace assets transfer partially completed!",
+                "[ WARN ] Namespace assets branch(es) transfer partially completed!",
+                "[ BUSY ] Reading tags data from the locally cloned assets...",
+                "[ PASS ] Tags data reading succeeded!",
+                "Available in source namespace: 0 tag(s)",
+                "[ BUSY ] Initializing namespace assets tag(s) transfer...",
+                "[ WARN ] Transferring 0 available tags",
+                "[ PASS ] Namespace assets tag(s) transfer succeeded!",
             ],
-            id="pagure.io - Migrating repository contents with specifying two valid branch names and two invalid branch names",  # noqa: E501
+            id="pagure.io - Migrating repository contents with specifying two valid branch names and two invalid branch names and zero valid tag names",  # noqa: E501
         ),
         pytest.param(
             f"--splt {envr['TEST_SPLT_FEDO']} --dplt {envr['TEST_DPLT']} --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo --brcs test-axxa,test-bxxb,test-cxxc,test-dxxd",  # noqa: E501
@@ -135,16 +153,22 @@ from pagure_exporter.view.dcrt import conceal
                 "- (RQST branch) test-bxxb",
                 "- (RQST branch) test-cxxc",
                 "- (RQST branch) test-dxxd",
-                "[ BUSY ] Initializing namespace assets transfer...",
+                "[ BUSY ] Initializing namespace assets branch(es) transfer...",
                 "[ WARN ] Transferring 4 requested branches",
                 "[1/4] Branch 'test-axxa' was not found in the source namespace",
                 "[2/4] Branch 'test-bxxb' was not found in the source namespace",
                 "[3/4] Branch 'test-cxxc' was not found in the source namespace",
                 "[4/4] Branch 'test-dxxd' was not found in the source namespace",
                 "Assets transferred: 0 branch(es) completed, 4 branch(es) requested",
-                "[ FAIL ] Namespace assets transfer failed!",
+                "[ FAIL ] Namespace assets branch(es) transfer failed!",
+                "[ BUSY ] Reading tags data from the locally cloned assets...",
+                "[ PASS ] Tags data reading succeeded!",
+                "Available in source namespace: 0 tag(s)",
+                "[ BUSY ] Initializing namespace assets tag(s) transfer...",
+                "[ WARN ] Transferring 0 available tags",
+                "[ PASS ] Namespace assets tag(s) transfer succeeded!",
             ],
-            id="pagure.io - Migrating repository contents with specifying four invalid branch names",
+            id="pagure.io - Migrating repository contents with specifying four invalid branch names and zero invalid tag names",
         ),
         pytest.param(
             f"--splt {envr['TEST_SPLT_FEDO']} --dplt {envr['TEST_DPLT']} --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} repo",  # noqa: E501
@@ -170,7 +194,8 @@ def test_main_repo(caplog, cmdl, code, text):
 
     # Changing the shared variable back to its default
     # Please check https://github.com/gridhead/protop2g/issues/35 for additional details
-    standard.transfer_index = 0
+    standard.branch_transfer_index = 0
+    standard.tag_transfer_index = 0
 
     assert result.exit_code == code  # noqa: S101
     for indx in text:

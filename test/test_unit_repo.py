@@ -61,7 +61,7 @@ from pagure_exporter.work.repo import PushRepo
         ),
     ],
 )
-def test_unit_downsrce(caplog, srcename, destname, gkey, pkey, fusr, tusr, rslt):
+def test_unit_download_source(caplog, srcename, destname, gkey, pkey, fusr, tusr, rslt):
     standard.pagure_user, standard.pagure_token = fusr, pkey
     standard.gitlab_user, standard.gitlab_token = tusr, gkey
     standard.clone_url_srce = f"https://{standard.pagure_user}:{standard.pagure_token}@{standard.forge_srce}/{srcename}.git"
@@ -94,7 +94,7 @@ def test_unit_downsrce(caplog, srcename, destname, gkey, pkey, fusr, tusr, rslt)
         ),
     ],
 )
-def test_unit_downdest(caplog, srcename, destname, gkey, pkey, fusr, tusr, rslt):
+def test_unit_download_destination(caplog, srcename, destname, gkey, pkey, fusr, tusr, rslt):
     standard.pagure_user, standard.pagure_token = fusr, pkey
     standard.gitlab_user, standard.gitlab_token = tusr, gkey
     standard.clone_url_srce = f"https://{standard.pagure_user}:{standard.pagure_token}@{standard.forge_srce}/{srcename}.git"
@@ -103,7 +103,7 @@ def test_unit_downdest(caplog, srcename, destname, gkey, pkey, fusr, tusr, rslt)
 
 
 @pytest.mark.parametrize(
-    "srcename, destname, pkey, gkey, fusr, tusr, brcslist, pull, rslt",
+    "srcename, destname, pkey, gkey, fusr, tusr, pull, rslt_branch, rslt_tag",
     [
         pytest.param(
             envr["TEST_SRCE"],
@@ -112,10 +112,10 @@ def test_unit_downdest(caplog, srcename, destname, gkey, pkey, fusr, tusr, rslt)
             envr["TEST_GKEY"],
             envr["TEST_FUSR"],
             envr["TEST_TUSR"],
-            ["test-aaaa", "test-bbbb", "test-cccc", "test-dddd"],
             False,
             True,
-            id="Attempting to check the available branches for an source repository existing cloned copy",  # noqa: E501
+            True,
+            id="Attempting to check the available branches and tags for an source repository existing cloned copy",  # noqa: E501
         ),
         pytest.param(
             envr["TEST_SRCE"],
@@ -124,14 +124,16 @@ def test_unit_downdest(caplog, srcename, destname, gkey, pkey, fusr, tusr, rslt)
             envr["TEST_GKEY"],
             envr["TEST_FUSR"],
             envr["TEST_TUSR"],
-            [],
             True,
             False,
-            id="Attempting to check the available branches for an source repository invalid cloned copy",  # noqa: E501
+            False,
+            id="Attempting to check the available branches and tags for an source repository invalid cloned copy",  # noqa: E501
         ),
     ],
 )
-def test_unit_cbrcsrce(caplog, srcename, destname, gkey, pkey, fusr, tusr, brcslist, pull, rslt):
+def test_unit_check_source_assets(
+    caplog, srcename, destname, gkey, pkey, fusr, tusr, pull, rslt_branch, rslt_tag
+):
     standard.pagure_user, standard.pagure_token = fusr, pkey
     standard.gitlab_user, standard.gitlab_token = tusr, gkey
     standard.clone_url_srce = f"https://{standard.pagure_user}:{standard.pagure_token}@{standard.forge_srce}/{srcename}.git"
@@ -142,11 +144,12 @@ def test_unit_cbrcsrce(caplog, srcename, destname, gkey, pkey, fusr, tusr, brcsl
         # This helps to simulate the condition where the temporary directories where the repository
         # assets were cloned locally was removed by an external factor
         rmtree(os.path.join(test_pushrepo.source_location.name, ".git"))
-    assert rslt == test_pushrepo.get_source_branches()[0]  # noqa: S101
+    assert rslt_branch == test_pushrepo.get_source_branches()[0]  # noqa: S101
+    assert rslt_tag == test_pushrepo.get_source_tags()[0]  # noqa: S101
 
 
 @pytest.mark.parametrize(
-    "srcename, destname, pkey, gkey, fusr, tusr, pull, rslt",
+    "srcename, destname, pkey, gkey, fusr, tusr, pull, rslt_branch, rslt_tag",
     [
         pytest.param(
             envr["TEST_SRCE"],
@@ -156,6 +159,7 @@ def test_unit_cbrcsrce(caplog, srcename, destname, gkey, pkey, fusr, tusr, brcsl
             envr["TEST_FUSR"],
             envr["TEST_TUSR"],
             False,
+            True,
             True,
             id="Attempting to check the available branches for an destination repository existing cloned copy",  # noqa: E501
         ),
@@ -168,11 +172,14 @@ def test_unit_cbrcsrce(caplog, srcename, destname, gkey, pkey, fusr, tusr, brcsl
             envr["TEST_TUSR"],
             True,
             False,
+            False,
             id="Attempting to check the available branches for an destination repository invalid cloned copy",  # noqa: E501
         ),
     ],
 )
-def test_unit_cbrcdest(caplog, srcename, destname, gkey, pkey, fusr, tusr, pull, rslt):
+def test_unit_check_destination_assets(
+    caplog, srcename, destname, gkey, pkey, fusr, tusr, pull, rslt_branch, rslt_tag
+):
     standard.pagure_user, standard.pagure_token = fusr, pkey
     standard.gitlab_user, standard.gitlab_token = tusr, gkey
     standard.clone_url_srce = f"https://{standard.pagure_user}:{standard.pagure_token}@{standard.forge_srce}/{srcename}.git"
@@ -183,11 +190,12 @@ def test_unit_cbrcdest(caplog, srcename, destname, gkey, pkey, fusr, tusr, pull,
         # This helps to simulate the condition where the temporary directories where the repository
         # assets were cloned locally was removed by an external factor
         rmtree(os.path.join(test_pushrepo.destination_location.name, ".git"))
-    assert rslt == test_pushrepo.get_destination_branches()[0]  # noqa: S101
+    assert rslt_branch == test_pushrepo.get_destination_branches()[0]  # noqa: S101
+    assert rslt_tag == test_pushrepo.get_destination_tags()[0]  # noqa: S101
 
 
 @pytest.mark.parametrize(
-    "srcename, destname, pkey, gkey, fusr, tusr, brcs, pull, rslt",
+    "srcename, destname, pkey, gkey, fusr, tusr, brcs, pull, rslt_branch, rslt_tag",
     [
         pytest.param(
             envr["TEST_SRCE"],
@@ -199,7 +207,8 @@ def test_unit_cbrcdest(caplog, srcename, destname, gkey, pkey, fusr, tusr, pull,
             [],
             False,
             True,
-            id="Attempting to migrate available branches from a source repository existing cloned copy with undefined branches",  # noqa: E501
+            True,
+            id="Attempting to migrate available branches and tags from a source repository existing cloned copy with undefined branches",  # noqa: E501
         ),
         pytest.param(
             envr["TEST_SRCE"],
@@ -211,7 +220,8 @@ def test_unit_cbrcdest(caplog, srcename, destname, gkey, pkey, fusr, tusr, pull,
             ["test-aaaa", "test-bbbb"],
             False,
             True,
-            id="Attempting to migrate available branches from a source repository existing cloned copy while defining valid branches",  # noqa: E501
+            True,
+            id="Attempting to migrate available branches and tags from a source repository existing cloned copy while defining valid branches",  # noqa: E501
         ),
         pytest.param(
             envr["TEST_SRCE"],
@@ -223,7 +233,8 @@ def test_unit_cbrcdest(caplog, srcename, destname, gkey, pkey, fusr, tusr, pull,
             ["test-axxa", "test-bxxb"],
             False,
             True,
-            id="Attempting to migrate available branches from a source repository existing cloned copy while defining invalid branches",  # noqa: E501
+            True,
+            id="Attempting to migrate available branches and tags from a source repository existing cloned copy while defining invalid branches",  # noqa: E501
         ),
         pytest.param(
             envr["TEST_SRCE"],
@@ -235,7 +246,8 @@ def test_unit_cbrcdest(caplog, srcename, destname, gkey, pkey, fusr, tusr, pull,
             [],
             True,
             False,
-            id="Attempting to migrate available branches from a source repository invalid cloned copy with undefined branches",  # noqa: E501
+            False,
+            id="Attempting to migrate available branches and tags from a source repository invalid cloned copy with undefined branches",  # noqa: E501
         ),
         pytest.param(
             envr["TEST_SRCE"],
@@ -247,7 +259,8 @@ def test_unit_cbrcdest(caplog, srcename, destname, gkey, pkey, fusr, tusr, pull,
             ["test-aaaa", "test-bbbb"],
             True,
             False,
-            id="Attempting to migrate available branches from a source repository invalid cloned copy while defining valid branches",  # noqa: E501
+            False,
+            id="Attempting to migrate available branches and tags from a source repository invalid cloned copy while defining valid branches",  # noqa: E501
         ),
         pytest.param(
             envr["TEST_SRCE"],
@@ -259,11 +272,14 @@ def test_unit_cbrcdest(caplog, srcename, destname, gkey, pkey, fusr, tusr, pull,
             ["test-axxa", "test-bxxb"],
             True,
             False,
-            id="Attempting to migrate available branches from a source repository invalid cloned copy while defining invalid branches",  # noqa: E501
+            False,
+            id="Attempting to migrate available branches and tags from a source repository invalid cloned copy while defining invalid branches",  # noqa: E501
         ),
     ],
 )
-def test_unit_tnfsrepo(caplog, srcename, destname, gkey, pkey, fusr, tusr, brcs, pull, rslt):
+def test_unit_tnfsrepo(
+    caplog, srcename, destname, gkey, pkey, fusr, tusr, brcs, pull, rslt_branch, rslt_tag
+):
     standard.pagure_user, standard.pagure_token = fusr, pkey
     standard.gitlab_user, standard.gitlab_token = tusr, gkey
     standard.clone_url_srce = f"https://{standard.pagure_user}:{standard.pagure_token}@{standard.forge_srce}/{srcename}.git"
@@ -276,4 +292,5 @@ def test_unit_tnfsrepo(caplog, srcename, destname, gkey, pkey, fusr, tusr, brcs,
         # This helps to simulate the condition where the temporary directories where the repository
         # assets were cloned locally was removed by an external factor
         rmtree(os.path.join(test_pushrepo.source_location.name, ".git"))
-    assert rslt == test_pushrepo.transfer_repo()[0]  # noqa: S101
+    assert rslt_branch == test_pushrepo.transfer_branches()[0]  # noqa: S101
+    assert rslt_tag == test_pushrepo.transfer_tags()[0]  # noqa: S101

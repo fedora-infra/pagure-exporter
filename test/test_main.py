@@ -73,6 +73,7 @@ from pagure_exporter.main import main
                 "Initialize transfer of repository assets",
                 "Options:",
                 "List of branches to extract",
+                "List of tags to extract",
                 "Show this message and exit.",
             ],
             id="Repositories help",
@@ -124,6 +125,12 @@ from pagure_exporter.main import main
             2,
             ["Error: Option '--brcs' requires an argument."],
             id="Providing empty input to the `brcs` option",
+        ),
+        pytest.param(
+            "-a a -b a -s a -d a -p a -g a -f a -t a repo --tags",
+            2,
+            ["Error: Option '--tags' requires an argument."],
+            id="Providing empty input to the `tags` option",
         ),
         pytest.param(
             "-a a -b a -s a -d a -p a -g a -f a -t a",

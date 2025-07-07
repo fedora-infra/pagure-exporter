@@ -163,12 +163,13 @@ class MoveTickets:
                 mm=datetime.fromtimestamp(standard.comment_creation_time, timezone.utc).strftime("%M"),
             )
             """
-            Replace "@" in the `body_data` with "&" to ensure that wrong people are not referenced
-            in the destination namespace
-            Check https://github.com/gridhead/pagure-exporter/issues/7 for more information about
+            Replace "@" in the `header_data` and `body_data` with "&" to ensure that wrong people
+            are not referenced in the destination namespace
+            Check https://github.com/gridhead/pagure-exporter/issues/7 and
+            https://github.com/fedora-infra/pagure-exporter/issues/204 for more information about
             the problem
             """
-            request_data = {"title": header_data, "description": body_data.replace("@", "&")}
+            request_data = {"title": header_data.replace("@", "&"), "description": body_data.replace("@", "&")}
             if standard.move_labels:
                 request_data["labels"] = standard.ticket_labels
             if standard.move_secret:

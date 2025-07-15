@@ -52,7 +52,13 @@ from .conftest import transfer_cassette_to_response
 def test_stat_destdata_obtninfo(caplog, cmdl, code, text, request):
     resplist = transfer_cassette_to_response(f"test/cassettes/test_stat/{request.node.name}.yaml")
     for item in resplist:
-        responses.add(method=item.method, url=item.url, json=item.json, status=item.status, content_type=item.content_type)
+        responses.add(
+            method=item.method,
+            url=item.url,
+            json=item.json,
+            status=item.status,
+            content_type=item.content_type,
+        )
 
     runner = CliRunner()
     result = runner.invoke(main, cmdl)

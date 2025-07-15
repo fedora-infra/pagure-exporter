@@ -55,12 +55,14 @@ def transfer_cassette_to_response(path: str) -> list:
             except (json.JSONDecodeError, TypeError):
                 json_body = None
 
-        defs.append(ResponseDefinition(
-            method=method.upper(),
-            url=url,
-            json=json_body,
-            status=status,
-            content_type=content_type,
-        ))
+        defs.append(
+            ResponseDefinition(
+                method=method.upper(),
+                url=url,
+                json=json_body,
+                status=status,
+                content_type=content_type,
+            )
+        )
 
     return defs

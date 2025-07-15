@@ -24,21 +24,21 @@ be used or replicated with the express permission of Red Hat, Inc.
 from .dcrt import general, warning
 
 
-def transfer_progress(branch_name, index, total_branches, is_available):
+def transfer_progress(type, name, index, total, is_available):
     if is_available:
         general(
-            "[%d/%d] Branch '%s' was transferred to the destination namespace"
-            % (int(index), int(total_branches), str(branch_name))
+            f"[%d/%d] {type.capitalize()} '%s' was transferred to the destination namespace"
+            % (int(index), int(total), str(name))
         )
     else:
         general(
-            "[%d/%d] Branch '%s' was not found in the source namespace"
-            % (int(index), int(total_branches), str(branch_name))
+            f"[%d/%d] {type.capitalize()} '%s' was not found in the source namespace"
+            % (int(index), int(total), str(name))
         )
 
 
-def transfer_warning(is_available, total_branches):
+def transfer_warning(type, is_available, total):
     if is_available:
-        warning("Transferring %d requested branches" % int(total_branches))
+        warning(f"Transferring %d requested {type.replace("branch", "branche")}s" % int(total))
     else:
-        warning("Transferring %d available branches" % int(total_branches))
+        warning(f"Transferring %d available {type.replace("branch", "branche")}s" % int(total))

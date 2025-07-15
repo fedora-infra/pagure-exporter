@@ -153,14 +153,24 @@ class MoveTickets:
                 repolink=standard.metadata_srce["repolink"],
                 author_name=standard.author_name,
                 author_fas_url=standard.author_fas_url,
-                dateinfo=datetime.fromtimestamp(standard.comment_creation_time, timezone.utc).strftime("%c"),
+                dateinfo=datetime.fromtimestamp(
+                    standard.comment_creation_time, timezone.utc
+                ).strftime("%c"),
                 mo=datetime.fromtimestamp(standard.comment_creation_time, timezone.utc)
                 .strftime("%b")
                 .lower(),
-                dd=datetime.fromtimestamp(standard.comment_creation_time, timezone.utc).strftime("%d"),
-                yy=datetime.fromtimestamp(standard.comment_creation_time, timezone.utc).strftime("%Y"),
-                hh=datetime.fromtimestamp(standard.comment_creation_time, timezone.utc).strftime("%H"),
-                mm=datetime.fromtimestamp(standard.comment_creation_time, timezone.utc).strftime("%M"),
+                dd=datetime.fromtimestamp(standard.comment_creation_time, timezone.utc).strftime(
+                    "%d"
+                ),
+                yy=datetime.fromtimestamp(standard.comment_creation_time, timezone.utc).strftime(
+                    "%Y"
+                ),
+                hh=datetime.fromtimestamp(standard.comment_creation_time, timezone.utc).strftime(
+                    "%H"
+                ),
+                mm=datetime.fromtimestamp(standard.comment_creation_time, timezone.utc).strftime(
+                    "%M"
+                ),
             )
             """
             Replace "@" in the `header_data` and `body_data` with "&" to ensure that wrong people
@@ -203,14 +213,24 @@ class MoveTickets:
                 ticket_url=standard.ticket_url,
                 reponame=standard.repo_srce,
                 repolink=standard.metadata_srce["repolink"],
-                dateinfo=datetime.fromtimestamp(standard.comment_creation_time, timezone.utc).strftime("%c"),
+                dateinfo=datetime.fromtimestamp(
+                    standard.comment_creation_time, timezone.utc
+                ).strftime("%c"),
                 mo=datetime.fromtimestamp(standard.comment_creation_time, timezone.utc)
                 .strftime("%b")
                 .lower(),
-                dd=datetime.fromtimestamp(standard.comment_creation_time, timezone.utc).strftime("%d"),
-                yy=datetime.fromtimestamp(standard.comment_creation_time, timezone.utc).strftime("%Y"),
-                hh=datetime.fromtimestamp(standard.comment_creation_time, timezone.utc).strftime("%H"),
-                mm=datetime.fromtimestamp(standard.comment_creation_time, timezone.utc).strftime("%M"),
+                dd=datetime.fromtimestamp(standard.comment_creation_time, timezone.utc).strftime(
+                    "%d"
+                ),
+                yy=datetime.fromtimestamp(standard.comment_creation_time, timezone.utc).strftime(
+                    "%Y"
+                ),
+                hh=datetime.fromtimestamp(standard.comment_creation_time, timezone.utc).strftime(
+                    "%H"
+                ),
+                mm=datetime.fromtimestamp(standard.comment_creation_time, timezone.utc).strftime(
+                    "%M"
+                ),
             )
             """
             Replace "@" in the `body_data` with "&" to ensure that wrong people are not referenced
@@ -224,7 +244,7 @@ class MoveTickets:
             ).discussions.create(data=request_data)
             status_code, reason = (
                 201,
-                f"{standard.metadata_dest['repolink']}/-/issues/{standard.gitlab_ticket_id}#note_{result.id}",
+                f"{standard.metadata_dest['repolink']}/-/issues/{standard.gitlab_ticket_id}#note_{result.id}",  # noqa: E501
             )
             standard.comment_quantity += 1
             stop_time = time.time()

@@ -136,7 +136,6 @@ from .conftest import transfer_cassette_to_response
             ],
             id="Transferring issue tickets with SHUT status along with states but without comments, without privacy, without labels and with order",  # noqa: E501
         ),
-
         pytest.param(
             f"--splt {envr['TEST_SPLT_FEDO']} --dplt {envr['TEST_DPLT']} --srce {envr['TEST_SRCE']} --dest {envr['TEST_DEST']} --pkey {envr['TEST_PKEY']} --gkey {envr['TEST_GKEY']} --fusr {envr['TEST_FUSR']} --tusr {envr['TEST_TUSR']} tkts --status OPEN --secret --series",  # noqa: E501
             0,
@@ -517,7 +516,13 @@ from .conftest import transfer_cassette_to_response
 def test_main_tkts(caplog, cmdl, code, text, request):
     resplist = transfer_cassette_to_response(f"test/cassettes/test_tkts/{request.node.name}.yaml")
     for item in resplist:
-        responses.add(method=item.method, url=item.url, json=item.json, status=item.status, content_type=item.content_type)
+        responses.add(
+            method=item.method,
+            url=item.url,
+            json=item.json,
+            status=item.status,
+            content_type=item.content_type,
+        )
 
     runner = CliRunner()
     result = runner.invoke(main, cmdl)

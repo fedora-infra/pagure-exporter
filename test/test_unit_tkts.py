@@ -65,9 +65,17 @@ from .conftest import transfer_cassette_to_response
     ],
 )
 def test_unit_getcount(caplog, srce, dest, pkey, gkey, fusr, tusr, qant, stat, rslt, request):
-    resplist = transfer_cassette_to_response(f"test/cassettes/test_unit_tkts/{request.node.name}.yaml")
+    resplist = transfer_cassette_to_response(
+        f"test/cassettes/test_unit_tkts/{request.node.name}.yaml"
+    )
     for item in resplist:
-        responses.add(method=item.method, url=item.url, json=item.json, status=item.status, content_type=item.content_type)
+        responses.add(
+            method=item.method,
+            url=item.url,
+            json=item.json,
+            status=item.status,
+            content_type=item.content_type,
+        )
 
     standard.pagure_user, standard.pagure_token, standard.repo_srce = fusr, pkey, srce
     standard.gitlab_user, standard.gitlab_token, standard.repo_dest = tusr, gkey, dest
@@ -117,10 +125,21 @@ def test_unit_getcount(caplog, srce, dest, pkey, gkey, fusr, tusr, qant, stat, r
     ],
 )
 def test_unit_getcount_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, root, rslt, request):
-    if "Attempting to count issue tickets from an existing issue tracker on an invalid forge" not in request.node.name:
-        resplist = transfer_cassette_to_response(f"test/cassettes/test_unit_tkts/{request.node.name}.yaml")
+    if (
+        "Attempting to count issue tickets from an existing issue tracker on an invalid forge"
+        not in request.node.name
+    ):
+        resplist = transfer_cassette_to_response(
+            f"test/cassettes/test_unit_tkts/{request.node.name}.yaml"
+        )
         for item in resplist:
-            responses.add(method=item.method, url=item.url, json=item.json, status=item.status, content_type=item.content_type)
+            responses.add(
+                method=item.method,
+                url=item.url,
+                json=item.json,
+                status=item.status,
+                content_type=item.content_type,
+            )
 
     standard.pagure_user, standard.pagure_token, standard.repo_srce = fusr, pkey, srce
     standard.gitlab_user, standard.gitlab_token, standard.repo_dest = tusr, gkey, dest
@@ -179,9 +198,17 @@ def test_unit_getcount_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, root, rs
     ],
 )
 def test_unit_iterpage(caplog, srce, dest, pkey, gkey, fusr, tusr, size, indx, stat, rslt, request):
-    resplist = transfer_cassette_to_response(f"test/cassettes/test_unit_tkts/{request.node.name}.yaml")
+    resplist = transfer_cassette_to_response(
+        f"test/cassettes/test_unit_tkts/{request.node.name}.yaml"
+    )
     for item in resplist:
-        responses.add(method=item.method, url=item.url, json=item.json, status=item.status, content_type=item.content_type)
+        responses.add(
+            method=item.method,
+            url=item.url,
+            json=item.json,
+            status=item.status,
+            content_type=item.content_type,
+        )
 
     standard.pagure_user, standard.pagure_token, standard.repo_srce = fusr, pkey, srce
     standard.gitlab_user, standard.gitlab_token, standard.repo_dest = tusr, gkey, dest
@@ -233,10 +260,21 @@ def test_unit_iterpage(caplog, srce, dest, pkey, gkey, fusr, tusr, size, indx, s
     ],
 )
 def test_unit_iterpage_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, root, rslt, request):
-    if "Attempting to iterate through the first page from an existing issue tracker on an invalid forge" not in request.node.name:
-        resplist = transfer_cassette_to_response(f"test/cassettes/test_unit_tkts/{request.node.name}.yaml")
+    if (
+        "Attempting to iterate through the first page from an existing issue tracker on an invalid forge"
+        not in request.node.name
+    ):
+        resplist = transfer_cassette_to_response(
+            f"test/cassettes/test_unit_tkts/{request.node.name}.yaml"
+        )
         for item in resplist:
-            responses.add(method=item.method, url=item.url, json=item.json, status=item.status, content_type=item.content_type)
+            responses.add(
+                method=item.method,
+                url=item.url,
+                json=item.json,
+                status=item.status,
+                content_type=item.content_type,
+            )
 
     standard.pagure_user, standard.pagure_token, standard.repo_srce = fusr, pkey, srce
     standard.gitlab_user, standard.gitlab_token, standard.repo_dest = tusr, gkey, dest
@@ -295,9 +333,17 @@ def test_unit_iterpage_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, ro
     ],
 )
 def test_unit_iteriden(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, stat, skip, rslt, request):
-    resplist = transfer_cassette_to_response(f"test/cassettes/test_unit_tkts/{request.node.name}.yaml")
+    resplist = transfer_cassette_to_response(
+        f"test/cassettes/test_unit_tkts/{request.node.name}.yaml"
+    )
     for item in resplist:
-        responses.add(method=item.method, url=item.url, json=item.json, status=item.status, content_type=item.content_type)
+        responses.add(
+            method=item.method,
+            url=item.url,
+            json=item.json,
+            status=item.status,
+            content_type=item.content_type,
+        )
 
     standard.pagure_user, standard.pagure_token, standard.repo_srce = fusr, pkey, srce
     standard.gitlab_user, standard.gitlab_token, standard.repo_dest = tusr, gkey, dest
@@ -352,10 +398,21 @@ def test_unit_iteriden(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, stat, s
     ],
 )
 def test_unit_iteriden_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, root, rslt, request):
-    if "Attempting to iterate through the first page from an existing issue tracker on an invalid forge" not in request.node.name:
-        resplist = transfer_cassette_to_response(f"test/cassettes/test_unit_tkts/{request.node.name}.yaml")
+    if (
+        "Attempting to iterate through the first page from an existing issue tracker on an invalid forge"
+        not in request.node.name
+    ):
+        resplist = transfer_cassette_to_response(
+            f"test/cassettes/test_unit_tkts/{request.node.name}.yaml"
+        )
         for item in resplist:
-            responses.add(method=item.method, url=item.url, json=item.json, status=item.status, content_type=item.content_type)
+            responses.add(
+                method=item.method,
+                url=item.url,
+                json=item.json,
+                status=item.status,
+                content_type=item.content_type,
+            )
 
     standard.pagure_user, standard.pagure_token, standard.repo_srce = fusr, pkey, srce
     standard.gitlab_user, standard.gitlab_token, standard.repo_dest = tusr, gkey, dest
@@ -469,12 +526,18 @@ def test_unit_iteriden_expt(caplog, srce, dest, pkey, gkey, fusr, tusr, indx, ro
         ),
     ],
 )
-def test_unit_itertkts(
-    caplog, srce, dest, pkey, gkey, fusr, tusr, data, root, tags, rslt, request
-):
-    resplist = transfer_cassette_to_response(f"test/cassettes/test_unit_tkts/{request.node.name}.yaml")
+def test_unit_itertkts(caplog, srce, dest, pkey, gkey, fusr, tusr, data, root, tags, rslt, request):
+    resplist = transfer_cassette_to_response(
+        f"test/cassettes/test_unit_tkts/{request.node.name}.yaml"
+    )
     for item in resplist:
-        responses.add(method=item.method, url=item.url, json=item.json, status=item.status, content_type=item.content_type)
+        responses.add(
+            method=item.method,
+            url=item.url,
+            json=item.json,
+            status=item.status,
+            content_type=item.content_type,
+        )
 
     standard.pagure_user, standard.pagure_token, standard.repo_srce = fusr, pkey, srce
     standard.gitlab_user, standard.gitlab_token, standard.repo_dest = tusr, gkey, dest

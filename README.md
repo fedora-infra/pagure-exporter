@@ -31,17 +31,44 @@ Simple exporter tool that helps migrate repository files, data assets and issue 
     Sample output
 
     ```
-    Requirement already satisfied: pagure-exporter in ./venv/lib/python3.12/site-packages (0.1.0)
-    Requirement already satisfied: GitPython<4.0.0,>=3.1.37 in ./venv/lib/python3.12/site-packages (from pagure-exporter) (3.1.40)
-    Requirement already satisfied: click<9.0.0,>=8.1.3 in ./venv/lib/python3.12/site-packages (from pagure-exporter) (8.1.7)
-    Requirement already satisfied: requests<3.0.0,>=2.31.0 in ./venv/lib/python3.12/site-packages (from pagure-exporter) (2.31.0)
-    Requirement already satisfied: tqdm<5.0.0,>=4.64.1 in ./venv/lib/python3.12/site-packages (from pagure-exporter) (4.66.1)
-    Requirement already satisfied: gitdb<5,>=4.0.1 in ./venv/lib/python3.12/site-packages (from GitPython<4.0.0,>=3.1.37->pagure-exporter) (4.0.10)
-    Requirement already satisfied: charset-normalizer<4,>=2 in ./venv/lib64/python3.12/site-packages (from requests<3.0.0,>=2.31.0->pagure-exporter) (3.3.0)
-    Requirement already satisfied: idna<4,>=2.5 in ./venv/lib/python3.12/site-packages (from requests<3.0.0,>=2.31.0->pagure-exporter) (3.4)
-    Requirement already satisfied: urllib3<3,>=1.21.1 in ./venv/lib/python3.12/site-packages (from requests<3.0.0,>=2.31.0->pagure-exporter) (2.0.7)
-    Requirement already satisfied: certifi>=2017.4.17 in ./venv/lib/python3.12/site-packages (from requests<3.0.0,>=2.31.0->pagure-exporter) (2023.7.22)
-    Requirement already satisfied: smmap<6,>=3.0.1 in ./venv/lib/python3.12/site-packages (from gitdb<5,>=4.0.1->GitPython<4.0.0,>=3.1.37->pagure-exporter) (5.0.1)
+    Collecting pagure-exporter
+      Downloading pagure_exporter-0.1.4-py3-none-any.whl.metadata (20 kB)
+    Collecting GitPython<4.0.0,>=3.1.0 (from pagure-exporter)
+      Downloading GitPython-3.1.44-py3-none-any.whl.metadata (13 kB)
+    Collecting click<9.0.0,>=8.1.3 (from pagure-exporter)
+      Using cached click-8.2.1-py3-none-any.whl.metadata (2.5 kB)
+    Collecting python-gitlab>=3.14.0 (from pagure-exporter)
+      Downloading python_gitlab-6.1.0-py3-none-any.whl.metadata (8.5 kB)
+    Collecting requests<3.0.0,>=2.28.0 (from pagure-exporter)
+      Using cached requests-2.32.4-py3-none-any.whl.metadata (4.9 kB)
+    Collecting gitdb<5,>=4.0.1 (from GitPython<4.0.0,>=3.1.0->pagure-exporter)
+      Downloading gitdb-4.0.12-py3-none-any.whl.metadata (1.2 kB)
+    Collecting smmap<6,>=3.0.1 (from gitdb<5,>=4.0.1->GitPython<4.0.0,>=3.1.0->pagure-exporter)
+      Downloading smmap-5.0.2-py3-none-any.whl.metadata (4.3 kB)
+    Collecting charset_normalizer<4,>=2 (from requests<3.0.0,>=2.28.0->pagure-exporter)
+      Using cached charset_normalizer-3.4.2-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (35 kB)
+    Collecting idna<4,>=2.5 (from requests<3.0.0,>=2.28.0->pagure-exporter)
+      Using cached idna-3.10-py3-none-any.whl.metadata (10 kB)
+    Collecting urllib3<3,>=1.21.1 (from requests<3.0.0,>=2.28.0->pagure-exporter)
+      Using cached urllib3-2.5.0-py3-none-any.whl.metadata (6.5 kB)
+    Collecting certifi>=2017.4.17 (from requests<3.0.0,>=2.28.0->pagure-exporter)
+      Using cached certifi-2025.6.15-py3-none-any.whl.metadata (2.4 kB)
+    Collecting requests-toolbelt>=1.0.0 (from python-gitlab>=3.14.0->pagure-exporter)
+      Using cached requests_toolbelt-1.0.0-py2.py3-none-any.whl.metadata (14 kB)
+    Downloading pagure_exporter-0.1.4-py3-none-any.whl (40 kB)
+    Using cached click-8.2.1-py3-none-any.whl (102 kB)
+    Downloading GitPython-3.1.44-py3-none-any.whl (207 kB)
+    Downloading gitdb-4.0.12-py3-none-any.whl (62 kB)
+    Using cached requests-2.32.4-py3-none-any.whl (64 kB)
+    Using cached charset_normalizer-3.4.2-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (148 kB)
+    Using cached idna-3.10-py3-none-any.whl (70 kB)
+    Downloading smmap-5.0.2-py3-none-any.whl (24 kB)
+    Using cached urllib3-2.5.0-py3-none-any.whl (129 kB)
+    Using cached certifi-2025.6.15-py3-none-any.whl (157 kB)
+    Downloading python_gitlab-6.1.0-py3-none-any.whl (144 kB)
+    Using cached requests_toolbelt-1.0.0-py2.py3-none-any.whl (54 kB)
+    Installing collected packages: urllib3, smmap, idna, click, charset_normalizer, certifi, requests, gitdb, requests-toolbelt, GitPython, python-gitlab, pagure-exporter
+    Successfully installed GitPython-3.1.44 certifi-2025.6.15 charset_normalizer-3.4.2 click-8.2.1 gitdb-4.0.12 idna-3.10 pagure-exporter-0.1.4 python-gitlab-6.1.0 requests-2.32.4 requests-toolbelt-1.0.0 smmap-5.0.2 urllib3-2.5.0
     ```
 
 ### From source
@@ -103,29 +130,47 @@ Simple exporter tool that helps migrate repository files, data assets and issue 
     ```
     Installing dependencies from lock file
 
-    Package operations: 19 installs, 0 updates, 0 removals
+    Package operations: 37 installs, 0 updates, 0 removals
 
-      • Installing smmap (5.0.0)
-      • Installing certifi (2022.12.7)
-      • Installing charset-normalizer (3.0.1)
-      • Installing click (8.1.3)
-      • Installing gitdb (4.0.10)
-      • Installing idna (3.4)
-      • Installing mccabe (0.6.1)
-      • Installing mypy-extensions (0.4.3)
-      • Installing pathspec (0.11.0)
-      • Installing platformdirs (2.6.2)
-      • Installing pycodestyle (2.8.0)
-      • Installing pyflakes (2.4.0)
-      • Installing urllib3 (1.26.14)
-      • Installing black (22.12.0)
-      • Installing flake8 (4.0.1)
-      • Installing gitpython (3.1.30)
-      • Installing isort (5.12.0)
-      • Installing requests (2.28.2)
-      • Installing tqdm (4.64.1)
+      - Installing certifi (2025.6.15)
+      - Installing charset-normalizer (3.4.2)
+      - Installing idna (3.10)
+      - Installing urllib3 (2.5.0)
+      - Installing distlib (0.3.9)
+      - Installing iniconfig (2.1.0)
+      - Installing platformdirs (4.3.8)
+      - Installing packaging (25.0)
+      - Installing filelock (3.18.0)
+      - Installing pluggy (1.6.0)
+      - Installing pygments (2.19.2)
+      - Installing requests (2.32.4)
+      - Installing smmap (5.0.2)
+      - Installing cachetools (6.1.0)
+      - Installing chardet (5.2.0)
+      - Installing colorama (0.4.6)
+      - Installing gitdb (4.0.12)
+      - Installing cfgv (3.4.0)
+      - Installing click (8.2.1)
+      - Installing identify (2.6.12)
+      - Installing coverage (7.9.1)
+      - Installing mypy-extensions (1.1.0)
+      - Installing nodeenv (1.9.1)
+      - Installing pathspec (0.12.1)
+      - Installing pyproject-api (1.9.1)
+      - Installing pytest (8.4.1)
+      - Installing pyyaml (6.0.2)
+      - Installing requests-toolbelt (1.0.0)
+      - Installing virtualenv (20.31.2)
+      - Installing pre-commit (4.2.0)
+      - Installing python-gitlab (6.0.0)
+      - Installing tox (4.27.0)
+      - Installing gitpython (3.1.44)
+      - Installing responses (0.25.7)
+      - Installing black (25.1.0)
+      - Installing pytest-cov (6.2.1)
+      - Installing ruff (0.12.0)
 
-    Installing the current project: pagure-exporter (0.1.0)
+    Installing the current project: pagure-exporter (0.1.4)
     ```
 
 ## Usage
@@ -196,6 +241,12 @@ Simple exporter tool that helps migrate repository files, data assets and issue 
 
 16. As this is the destination namespace, check all the scopes that are required to write the asset information associated with a repository, pick an appropriate role, set a safe expiration date and write an appropriate description for its usage before clicking on the [**Create project access token**](#) button.
 
+    Refer [Project access tokens](https://docs.gitlab.com/user/project/settings/project_access_tokens/#scopes-for-a-project-access-token) for more information.
+
+    TLDR;
+    - Select `Developer` as the role for smooth migration
+    - Select `api`, `read_api`, `read_repository`, `write_repository` as scopes for smooth migration
+
     ![](https://raw.githubusercontent.com/gridhead/pagure-exporter/main/data/14.png)
 
 17. Make note of the API token generated and ensure that they are not shared with others or used for a different purpose.
@@ -228,13 +279,19 @@ Simple exporter tool that helps migrate repository files, data assets and issue 
     Sample output
 
     ```
-    Pagure Exporter by Akashdeep Dhar <t0xic0der@fedoraproject.org>, version 0.1.0
+    Pagure Exporter by Akashdeep Dhar <t0xic0der@fedoraproject.org>, version 0.1.4
     ```
 
     ```
     Usage: pagure-exporter [OPTIONS] COMMAND [ARGS]...
 
+      Pagure Exporter
+
     Options:
+      -a, --splt TEXT  Source hostname for accessing Pagure information  [default:
+                       pagure.io]
+      -b, --dplt TEXT  Destination hostname for accessing GitLab information
+                       [default: gitlab.com]
       -s, --srce TEXT  Source namespace for importing assets from  [required]
       -d, --dest TEXT  Destination namespace for exporting assets to  [required]
       -p, --pkey TEXT  Pagure API key for accessing the source namespace
@@ -256,11 +313,11 @@ Simple exporter tool that helps migrate repository files, data assets and issue 
 2. Check the usage information of the available subcommands.
 
     ```
-    (venv) $ pagure-exporter -s a -d a -p a -g a -f a -t a repo --help
+    (venv) $ pagure-exporter -a a -b a -s a -d a -p a -g a -f a -t a repo --help
     ```
 
     ```
-    (venv) $ pagure-exporter -s a -d a -p a -g a -f a -t a tkts --help
+    (venv) $ pagure-exporter -a a -b a -s a -d a -p a -g a -f a -t a tkts --help
     ```
 
     Sample output
@@ -281,7 +338,7 @@ Simple exporter tool that helps migrate repository files, data assets and issue 
       Initiate transfer of issue tickets
 
     Options:
-      -s, --status [OPEN|SHUT|FULL]  Extract issue tickets of the mentioned status
+      -s, --status [open|shut|full]  Extract issue tickets of the mentioned status
                                      [default: OPEN]
       -r, --ranges TEXT...           Extract issue tickets in the mentioned ranges
       -p, --select TEXT              Extract issue tickets of the selected numbers
@@ -289,7 +346,7 @@ Simple exporter tool that helps migrate repository files, data assets and issue 
       -l, --labels                   Migrate all the associated labels
       -a, --commit                   Assert issue ticket states as they were
       -t, --secret                   Confirm issue ticket privacy as they were
-      -o, --series                   Ensure issue tickets sequence as they were
+      -o, --series                   Ensure issue ticket sequence as they were
       --help                         Show this message and exit.
     ```
 
@@ -315,6 +372,7 @@ Simple exporter tool that helps migrate repository files, data assets and issue 
 
         ```
         (venv) $ pagure-exporter \
+                 --splt pagure.io --dplt gitlab.com \
                  --fusr srceuser --pkey srcecode --srce srcerepo \
                  --tusr destuser --gkey destcode --dest destrepo \
                  repo \
@@ -327,6 +385,7 @@ Simple exporter tool that helps migrate repository files, data assets and issue 
 
         ```
         (venv) $ pagure-exporter \
+                 --splt pagure.io --dplt gitlab.com \
                  --fusr srceuser --pkey srcecode --srce srcerepo \
                  --tusr destuser --gkey destcode --dest destrepo \
                  repo
@@ -354,6 +413,7 @@ Simple exporter tool that helps migrate repository files, data assets and issue 
 
       ```
       (venv) $ pagure-exporter \
+                 --splt pagure.io --dplt gitlab.com \
                  --fusr srceuser --pkey srcecode --srce srcerepo \
                  --tusr destuser --gkey destcode --dest destrepo \
                  tkts \
@@ -364,6 +424,7 @@ Simple exporter tool that helps migrate repository files, data assets and issue 
 
       ```
       (venv) $ pagure-exporter \
+                 --splt pagure.io --dplt gitlab.com \
                  --fusr srceuser --pkey srcecode --srce srcerepo \
                  --tusr destuser --gkey destcode --dest destrepo \
                  tkts \
@@ -374,6 +435,7 @@ Simple exporter tool that helps migrate repository files, data assets and issue 
 
       ```
       (venv) $ pagure-exporter \
+                 --splt pagure.io --dplt gitlab.com \
                  --fusr srceuser --pkey srcecode --srce srcerepo \
                  --tusr destuser --gkey destcode --dest destrepo \
                  tkts \
@@ -384,6 +446,7 @@ Simple exporter tool that helps migrate repository files, data assets and issue 
 
       ```
       (venv) $ pagure-exporter \
+                 --splt pagure.io --dplt gitlab.com \
                  --fusr srceuser --pkey srcecode --srce srcerepo \
                  --tusr destuser --gkey destcode --dest destrepo \
                  tkts \
@@ -394,6 +457,7 @@ Simple exporter tool that helps migrate repository files, data assets and issue 
 
       ```
       (venv) $ pagure-exporter \
+                 --splt pagure.io --dplt gitlab.com \
                  --fusr srceuser --pkey srcecode --srce srcerepo \
                  --tusr destuser --gkey destcode --dest destrepo \
                  tkts \
@@ -404,6 +468,7 @@ Simple exporter tool that helps migrate repository files, data assets and issue 
 
      ```
      (venv) $ pagure-exporter \
+                 --splt pagure.io --dplt gitlab.com \
                  --fusr srceuser --pkey srcecode --srce srcerepo \
                  --tusr destuser --gkey destcode --dest destrepo \
                  tkts \
@@ -414,6 +479,7 @@ Simple exporter tool that helps migrate repository files, data assets and issue 
 
       ```
       (venv) $ pagure-exporter \
+                 --splt pagure.io --dplt gitlab.com \
                  --fusr srceuser --pkey srcecode --srce srcerepo \
                  --tusr destuser --gkey destcode --dest destrepo \
                  tkts \
@@ -426,6 +492,7 @@ Simple exporter tool that helps migrate repository files, data assets and issue 
 
       ```
       (venv) $ pagure-exporter \
+                 --splt pagure.io --dplt gitlab.com \
                  --fusr srceuser --pkey srcecode --srce srcerepo \
                  --tusr destuser --gkey destcode --dest destrepo \
                  tkts \
@@ -442,6 +509,7 @@ Simple exporter tool that helps migrate repository files, data assets and issue 
 
          ```
          (venv) $ pagure-exporter \
+                    --splt pagure.io --dplt gitlab.com \
                     --fusr srceuser --pkey srcecode --srce srcerepo \
                     --tusr destuser --gkey destcode --dest destrepo \
                     tkts \
@@ -457,6 +525,7 @@ Simple exporter tool that helps migrate repository files, data assets and issue 
 
          ```
          (venv) $ pagure-exporter \
+                    --splt pagure.io --dplt gitlab.com \
                     --fusr srceuser --pkey srcecode --srce srcerepo \
                     --tusr destuser --gkey destcode --dest destrepo \
                     tkts \
